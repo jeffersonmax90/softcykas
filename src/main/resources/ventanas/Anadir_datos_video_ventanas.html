@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-form-layout size-auto margin="false">
+    <vaadin-text-field caption="Titulo" _id="titulo"></vaadin-text-field>
+    <vaadin-native-select caption="Categoria" data-item-type="java.lang.String" _id="categoria">
+     <option item="Option1">Option 1</option>
+     <option item="Option2">Option 2</option>
+     <option item="Option3">Option 3</option>
+    </vaadin-native-select>
+    <vaadin-upload button-caption="Seleccionar video" caption="Ruta video" _id="ruta_video"></vaadin-upload>
+    <vaadin-upload button-caption="Seleccionar miniatura" caption="Ruta miniatura" _id="ruta_miniatura"></vaadin-upload>
+    <vaadin-date-field caption="Fecha del video subido" _id="fecha_video_subido"></vaadin-date-field>
+    <vaadin-label caption="Descripción video:" componentalignment="TOP-LEFT" plain-text _id="descripcion_video"></vaadin-label>
+    <vaadin-horizontal-layout >
+     <vaadin-text-area _id="area_descripcion"  ></vaadin-text-area>
+    </vaadin-horizontal-layout>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
