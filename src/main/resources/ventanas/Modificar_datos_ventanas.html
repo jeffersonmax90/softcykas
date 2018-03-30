@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="ventanas:ventanas">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-form-layout width="446px" heigth="453px" :center>
+    <vaadin-label plain-text _id="modificar_datos_del_usuario">
+      Modificar datos del usuario 
+    </vaadin-label>
+    <vaadin-text-field caption="Nombre" _id="nombre"></vaadin-text-field>
+    <vaadin-text-field caption="Apellidos" _id="apellidos"></vaadin-text-field>
+    <vaadin-text-field caption="Apodo" _id="apodo"></vaadin-text-field>
+    <vaadin-text-field caption="Correo" _id="correo"></vaadin-text-field>
+    <vaadin-date-field caption="Fecha nacimiento" _id="fecha_nacimiento"></vaadin-date-field>
+    <vaadin-upload button-caption="Seleccionar foto" caption="Seleccionar foto" _id="seleccionarFoto"></vaadin-upload>
+    <vaadin-horizontal-layout>
+     <vaadin-button plain-text _id="atras">
+       Atrás 
+     </vaadin-button>
+     <vaadin-button plain-text _id="aceptar">
+       Aceptar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
