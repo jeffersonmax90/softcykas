@@ -1,6 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Registrarse extends Anadir_datos_usuario {
-	private JLabel _registrar_usuarioLB;
+public class Registrarse extends Registrarse_ventanas {
+	/*private JLabel _registrar_usuarioLB;
 	public Iniciar_sesion _unnamed_Iniciar_sesion_;
+	*/
 }
