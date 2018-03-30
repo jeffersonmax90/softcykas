@@ -28,9 +28,9 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
        
-    	Anadir_datos_usuario datos= new Anadir_datos_usuario();
-    	Anadir_datos_video datosvideos= new Anadir_datos_video();
-    	
+    	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
+    	Anadir_datos_video subirvideo= new Anadir_datos_video();
+    	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
@@ -44,7 +44,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(datosvideos);
+        setContent(subirvideo);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

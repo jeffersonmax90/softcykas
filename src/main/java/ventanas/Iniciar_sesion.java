@@ -1,6 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Iniciar_sesion {
+public class Iniciar_sesion extends Iniciar_sesion_ventanas {
+	/*
 	private JLabel _emailLB;
 	private JTextField _emailTF;
 	private JLabel _contrasenaLB;
@@ -15,4 +16,6 @@ public class Iniciar_sesion {
 	public Zona_cabecera_comun _unnamed_Zona_cabecera_comun_;
 	public Recuperar_contrasena _unnamed_Recuperar_contrasena_;
 	public Registrarse _unnamed_Registrarse_;
+	*/
+	
 }
