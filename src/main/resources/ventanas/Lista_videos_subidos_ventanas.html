@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="ventanas:ventanas">
+ </head>
+ <body>
+  <vaadin-panel size-full>
+   <vaadin-vertical-layout size-auto>
+    <vaadin-vertical-layout size-auto margin="false" :bottom :right>
+     <vaadin-label plain-text :center>
+       Videos Propios 
+     </vaadin-label>
+     <vaadin-horizontal-layout :center>
+      <vaadin-text-field value="Buscar video" :right></vaadin-text-field>
+      <vaadin-button plain-text :right>
+        Buscar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="videosubido1">
+      <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="videosubido2">
+      <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="videosubido3">
+      <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
+     </vaadin-vertical-layout>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-panel>
+ </body>
+</html>

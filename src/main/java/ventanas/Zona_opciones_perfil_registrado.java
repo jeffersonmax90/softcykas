@@ -1,6 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Zona_opciones_perfil_registrado {
+public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_registrado_ventanas {
+	/*
 	private JButon _inicioB;
 	private JButon _subir_videoB;
 	private JButon _modificar_datosB;
@@ -14,4 +15,7 @@ public class Zona_opciones_perfil_registrado {
 	public Lista_historial _unnamed_Lista_historial_;
 	public Cambiar_contrasena _unnamed_Cambiar_contrasena_;
 	public Subir_video _unnamed_Subir_video_;
+	*/
+	
+	
 }

@@ -1,6 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Listas_reproduccion_propias {
+public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ventanas{
+	/*
 	private Button _eliminarB;
 	private Button _modificarB;
 	public Zona_cuerpo_perfil_registrado _unnamed_Zona_cuerpo_perfil_registrado_;
@@ -10,4 +11,8 @@ public class Listas_reproduccion_propias {
 	public void eliminar() {
 		throw new UnsupportedOperationException();
 	}
+	*/
+	
+	
+	
 }

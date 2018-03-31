@@ -6,13 +6,12 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-horizontal-layout size-full margin>
-   <vaadin-horizontal-layout _id="buscador_layout" :center></vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin _id="iniciar_sesion_layout" :right>
-    <vaadin-button plain-text _id="iniciar_sesion">
-      Iniciar Sesión 
-    </vaadin-button>
-   </vaadin-horizontal-layout>
-  </vaadin-horizontal-layout>
+  <vaadin-panel size-full>
+   <vaadin-vertical-layout size-auto margin="false">
+    <vaadin-vertical-layout size-auto margin="false" _id="videos_tendencias_layout"></vaadin-vertical-layout>
+    <vaadin-vertical-layout size-auto _id="videos_de_suscripciones_layout"></vaadin-vertical-layout>
+    <vaadin-vertical-layout size-auto margin="false" _id="videos_relacionados_layout"></vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-panel>
  </body>
 </html>

@@ -17,13 +17,20 @@ import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
 import ventanas.Lista_videos;
 import ventanas.Usuario_invitado;
+import ventanas.Usuario_registrado;
+import ventanas.Videos_de_suscripciones;
+import ventanas.Videos_de_suscripciones_ventanas;
+import ventanas.Videos_relacionados;
 import ventanas.Videos_tendencia;
 import ventanas.Videos_usuarios_registrados;
 import ventanas.Zona_inicio_cabecera_invitado;
+import ventanas.Zona_inicio_cabecera_registrado;
+import ventanas.Zona_inicio_cabecera_registrado_ventanas;
 import ventanas.Zona_inicio_comun;
 import ventanas.Zona_inicio_comun_ventanas;
 import ventanas.Zona_inicio_cuerpo_invitado;
 import ventanas.Zona_inicio_cuerpo_invitado_ventanas;
+import ventanas.Zona_inicio_cuerpo_registrado;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -40,13 +47,12 @@ public class MyUI extends UI {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
     	Anadir_datos_video subirvideo= new Anadir_datos_video();
-    	Usuario_invitado ui= new Usuario_invitado();
+    	Usuario_registrado ur= new Usuario_registrado();
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
         final TextField name = new TextField();
         name.setCaption("Type your name here:");
-
         Button button = new Button("Click Me");
         button.addClickListener(e -> {
             layout.addComponent(new Label("Thanks " + name.getValue() 
@@ -55,7 +61,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(ui);
+        setContent(ur);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

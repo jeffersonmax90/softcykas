@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-horizontal-layout size-full margin>
-   <vaadin-horizontal-layout _id="buscador_layout" :center></vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin _id="iniciar_sesion_layout" :right>
-    <vaadin-button plain-text _id="iniciar_sesion">
-      Iniciar Sesión 
-    </vaadin-button>
+  <vaadin-panel size-full>
+   <vaadin-horizontal-layout _id="cuerpo_regitrado">
+    <ventanas-lista_videos_subidos_ventanas></ventanas-lista_videos_subidos_ventanas>
+    <ventanas-listas_reproduccion_propias_ventanas></ventanas-listas_reproduccion_propias_ventanas>
    </vaadin-horizontal-layout>
-  </vaadin-horizontal-layout>
+  </vaadin-panel>
  </body>
 </html>
