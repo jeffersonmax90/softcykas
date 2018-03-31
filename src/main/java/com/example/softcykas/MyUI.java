@@ -15,7 +15,15 @@ import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Lista_videos;
+import ventanas.Usuario_invitado;
+import ventanas.Videos_tendencia;
+import ventanas.Videos_usuarios_registrados;
 import ventanas.Zona_inicio_cabecera_invitado;
+import ventanas.Zona_inicio_comun;
+import ventanas.Zona_inicio_comun_ventanas;
+import ventanas.Zona_inicio_cuerpo_invitado;
+import ventanas.Zona_inicio_cuerpo_invitado_ventanas;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -31,7 +39,8 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
-    	Anadir_datos_video subirvideo= new Anadir_datos_video(); 
+    	Anadir_datos_video subirvideo= new Anadir_datos_video();
+    	Usuario_invitado ui= new Usuario_invitado();
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
@@ -46,7 +55,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(subirvideo);
+        setContent(ui);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
