@@ -31,12 +31,7 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
-<<<<<<< HEAD
-    	Anadir_datos_video subirvideo= new Anadir_datos_video();    	
-=======
-    	Anadir_datos_video subirvideo= new Anadir_datos_video();
-    	Zona_inicio_cabecera_invitado zonaini= new Zona_inicio_cabecera_invitado();
->>>>>>> branch 'master' of https://github.com/jeffersonmax90/softcykas.git
+    	Anadir_datos_video subirvideo= new Anadir_datos_video(); 
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
@@ -51,7 +46,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(zonaini);
+        setContent(subirvideo);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
