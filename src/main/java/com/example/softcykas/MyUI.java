@@ -11,9 +11,11 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Zona_inicio_cabecera_invitado;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -29,7 +31,7 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
-    	Anadir_datos_video subirvideo= new Anadir_datos_video();
+    	Anadir_datos_video subirvideo= new Anadir_datos_video();    	
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
