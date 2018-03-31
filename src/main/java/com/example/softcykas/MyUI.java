@@ -14,6 +14,7 @@ import com.vaadin.ui.VerticalLayout;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Zona_inicio_cabecera_invitado;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -30,6 +31,7 @@ public class MyUI extends UI {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
     	Anadir_datos_video subirvideo= new Anadir_datos_video();
+    	Zona_inicio_cabecera_invitado zonaini= new Zona_inicio_cabecera_invitado();
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
@@ -44,7 +46,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(subirvideo);
+        setContent(zonaini);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
