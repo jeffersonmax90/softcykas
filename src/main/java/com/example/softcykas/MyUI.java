@@ -47,7 +47,6 @@ public class MyUI extends UI {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
     	Anadir_datos_video subirvideo= new Anadir_datos_video();
-    	Usuario_registrado ur= new Usuario_registrado();
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
@@ -61,7 +60,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(ur);
+        setContent(subirvideo);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
