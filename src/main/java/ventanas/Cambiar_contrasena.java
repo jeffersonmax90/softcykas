@@ -1,6 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Cambiar_contrasena {
+public class Cambiar_contrasena extends Cambiar_contrasena_ventanas{
+	/*
 	private JLabel _contrasena_actualLB;
 	private JTextField _contrasena_actualTF;
 	private JLabel _contrasena_nuevaLB;
@@ -14,4 +15,5 @@ public class Cambiar_contrasena {
 	public void cambiar_contrasena() {
 		throw new UnsupportedOperationException();
 	}
+	*/
 }
