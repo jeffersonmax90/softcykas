@@ -7,16 +7,15 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-panel size-full>
-   <vaadin-form-layout width="80%">
-    <vaadin-label plain-text _id="titulo">
-      Listado de suscriptortes 
-    </vaadin-label>
-    <vaadin-label plain-text _id="subtitulo">
-      Usuarios que te siguen: 
-    </vaadin-label>
-    <ventanas-lista_usuarios_ventanas></ventanas-lista_usuarios_ventanas>
-   </vaadin-form-layout>
-  </vaadin-panel>
+  <vaadin-vertical-layout spacing="false" height="50%" margin="false">
+   <vaadin-vertical-layout spacing="false" margin="false">
+    <ventanas-zona_cabecera_comun_ventanas width-full height="20%"></ventanas-zona_cabecera_comun_ventanas>
+    <vaadin-vertical-layout spacing="false" height="50%" margin="false" :right>
+     <vaadin-button plain-text :right>
+       Suscribirse 
+     </vaadin-button>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

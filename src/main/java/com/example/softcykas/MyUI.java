@@ -15,14 +15,27 @@ import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Lista_de_reproduccion;
+import ventanas.Lista_usuarios;
 import ventanas.Lista_videos;
+import ventanas.Lista_videos_agenos;
+import ventanas.Lista_videos_agenos_ventanas;
+import ventanas.Listado_suscripciones_visitante_ventanas;
+import ventanas.Listado_suscriptores;
+import ventanas.Listas_de_reproduccion_ventanas;
+import ventanas.Perfil_registrado;
+import ventanas.Perfil_visitante;
+import ventanas.Perfil_visitante_ventanas;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
+import ventanas.Video_lista_reproduccion;
 import ventanas.Videos_de_suscripciones;
 import ventanas.Videos_de_suscripciones_ventanas;
 import ventanas.Videos_relacionados;
 import ventanas.Videos_tendencia;
 import ventanas.Videos_usuarios_registrados;
+import ventanas.Zona_cabecera_perfil_visitante_ventanas;
+import ventanas.Zona_cuerpo_perfil_visitante;
 import ventanas.Zona_inicio_cabecera_invitado;
 import ventanas.Zona_inicio_cabecera_registrado;
 import ventanas.Zona_inicio_cabecera_registrado_ventanas;
@@ -46,7 +59,10 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
        
     	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
-    	Anadir_datos_video subirvideo= new Anadir_datos_video();
+    	Lista_videos_agenos lva= new Lista_videos_agenos();
+    	Video_lista_reproduccion vl= new Video_lista_reproduccion();
+    	Perfil_visitante pv= new Perfil_visitante();
+    	
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         
@@ -60,7 +76,7 @@ public class MyUI extends UI {
         
         layout.addComponents(name, button);
         */
-        setContent(subirvideo);
+        setContent(pv);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

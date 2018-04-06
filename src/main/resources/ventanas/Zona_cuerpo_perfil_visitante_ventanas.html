@@ -8,15 +8,10 @@
  </head>
  <body>
   <vaadin-panel size-full>
-   <vaadin-form-layout width="80%">
-    <vaadin-label plain-text _id="titulo">
-      Listado de suscriptortes 
-    </vaadin-label>
-    <vaadin-label plain-text _id="subtitulo">
-      Usuarios que te siguen: 
-    </vaadin-label>
-    <ventanas-lista_usuarios_ventanas></ventanas-lista_usuarios_ventanas>
-   </vaadin-form-layout>
+   <vaadin-vertical-layout size-auto>
+    <ventanas-lista_videos_agenos_ventanas></ventanas-lista_videos_agenos_ventanas>
+    <ventanas-listas_de_reproduccion_ventanas></ventanas-listas_de_reproduccion_ventanas>
+   </vaadin-vertical-layout>
   </vaadin-panel>
  </body>
 </html>
