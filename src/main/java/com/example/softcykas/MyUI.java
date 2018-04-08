@@ -58,11 +58,11 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
        
-    	Anadir_datos_usuario alta_usuaio= new Anadir_datos_usuario();
     	Lista_videos_agenos lva= new Lista_videos_agenos();
     	Video_lista_reproduccion vl= new Video_lista_reproduccion();
     	Perfil_visitante pv= new Perfil_visitante();
-    	
+    	Anadir_datos_usuario alta_usuario= new Anadir_datos_usuario();
+    	Anadir_datos_video subirvideo= new Anadir_datos_video();
     	//probando  liena 33
     	/*final VerticalLayout layout = new VerticalLayout();
         

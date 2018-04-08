@@ -1,7 +1,7 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Ficha_video {
-	private Video _stream;
+public class Ficha_video extends Ficha_video_ventanas {
+	/*private Video _stream;
 	private Button _nombre_perfil_usuarioB;
 	private Label _descripcion_videoLB;
 	private Label _etiquetaLB;
@@ -14,5 +14,5 @@ public class Ficha_video {
 
 	public void reproducir() {
 		throw new UnsupportedOperationException();
-	}
+	}*/
 }
