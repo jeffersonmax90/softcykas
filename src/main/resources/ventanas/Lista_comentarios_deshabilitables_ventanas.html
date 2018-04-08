@@ -6,11 +6,14 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-horizontal-layout width-full>
-   <vaadin-image width="250px" height="100px"></vaadin-image>
-   <vaadin-button plain-text :middle :right>
-     Iniciar sesión 
+  <vaadin-vertical-layout>
+   <vaadin-label plain-text _id="comentarios">
+     Comentarios 
+   </vaadin-label>
+   <vaadin-list-select readonly data-item-type="ventanas.Comentario_ventanas" _id="lista_comentarios"></vaadin-list-select>
+   <vaadin-button plain-text _id="deshabilitar_comentarios">
+     Deshabilitar comentarios 
    </vaadin-button>
-  </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>
