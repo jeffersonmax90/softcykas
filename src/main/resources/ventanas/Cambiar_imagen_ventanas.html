@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout>
+   <vaadin-label plain-text _id="selecciona_img_label">
+     Seleccione una imagen en su sistema: 
+   </vaadin-label>
+   <vaadin-horizontal-layout>
+    <vaadin-label plain-text _id="selected_route" :middle>
+      No hay ninguna ruta seleccionada 
+    </vaadin-label>
+    <vaadin-upload button-caption="Seleccione una ruta" _id="select_button"></vaadin-upload>
+   </vaadin-horizontal-layout>
+   <vaadin-image width="250px" height="250px" _id="photo" :middle :center></vaadin-image>
+  </vaadin-vertical-layout>
+ </body>
+</html>
