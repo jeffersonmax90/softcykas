@@ -1,6 +1,9 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Usuario_administrador {
-	public Zona_inicio_cabecera_administrador _unnamed_Zona_inicio_cabecera_administrador_;
-	public Zona_inicio_cuerpo_administrador _unnamed_Zona_inicio_cuerpo_administrador_;
+public class Usuario_administrador extends Usuario_administrador_ventanas {
+	/*
+	 * public Zona_inicio_cabecera_administrador
+	 * _unnamed_Zona_inicio_cabecera_administrador_; public
+	 * Zona_inicio_cuerpo_administrador _unnamed_Zona_inicio_cuerpo_administrador_;
+	 */
 }

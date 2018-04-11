@@ -1,5 +1,5 @@
-package Diagrama_de_clases;
+package ventanas;
 
-public class Confirmar_suscripcion {
-	public Zona_cabecera_comun _unnamed_Zona_cabecera_comun_;
+class Confirmar_suscripcion extends Confirmar_suscripcion_ventanas {
+	/* public Zona_cabecera_comun _unnamed_Zona_cabecera_comun_; */
 }
