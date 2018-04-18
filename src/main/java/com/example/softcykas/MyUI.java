@@ -91,7 +91,7 @@ public class MyUI extends UI {
     	Subir_video sv= new Subir_video();
     	
     	
-        setContent(pa);
+        setContent(fp);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
