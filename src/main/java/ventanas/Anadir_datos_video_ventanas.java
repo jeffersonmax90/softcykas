@@ -27,6 +27,7 @@ public class Anadir_datos_video_ventanas extends VerticalLayout {
 	protected Label titulo_subir_video;
 	protected TextField titulo;
 	protected NativeSelect<java.lang.String> categoria;
+	protected TextField Etiqueta;
 	protected Upload ruta_video;
 	protected Upload ruta_miniatura;
 	protected DateField fecha_video_subido;
