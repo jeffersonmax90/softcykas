@@ -15,17 +15,28 @@ import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Ficha_administrador;
+import ventanas.Ficha_invitado;
+import ventanas.Ficha_propietario;
+import ventanas.Ficha_propietario_ventanas;
+import ventanas.Ficha_registrado;
 import ventanas.Lista_de_reproduccion;
+import ventanas.Lista_de_usuarios_registrados;
 import ventanas.Lista_usuarios;
 import ventanas.Lista_videos;
 import ventanas.Lista_videos_agenos;
 import ventanas.Lista_videos_agenos_ventanas;
+import ventanas.Lista_videos_buscados;
+import ventanas.Lista_videos_ventanas;
 import ventanas.Listado_suscripciones_visitante_ventanas;
 import ventanas.Listado_suscriptores;
+import ventanas.Listado_suscriptores_ventanas;
 import ventanas.Listas_de_reproduccion_ventanas;
+import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
 import ventanas.Perfil_visitante;
 import ventanas.Perfil_visitante_ventanas;
+import ventanas.Subir_video;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
 import ventanas.Video_lista_reproduccion;
@@ -58,25 +69,29 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
        
-    	Lista_videos_agenos lva= new Lista_videos_agenos();
+    	Lista_videos_buscados lky = new Lista_videos_buscados();
     	Video_lista_reproduccion vl= new Video_lista_reproduccion();
-    	Perfil_visitante pv= new Perfil_visitante();
+    	
     	Anadir_datos_usuario alta_usuario= new Anadir_datos_usuario();
-    	Anadir_datos_video subirvideo= new Anadir_datos_video();
-    	//probando  liena 33
-    	/*final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
-        
-        layout.addComponents(name, button);
-        */
-        setContent(pv);
+    	Usuario_invitado ui= new Usuario_invitado();
+    	Usuario_registrado ur= new Usuario_registrado();
+    	
+    	//Perfiles
+    	Perfil_administrador pa= new Perfil_administrador();
+    	Perfil_visitante pv= new Perfil_visitante();
+    	Perfil_registrado pr= new Perfil_registrado();
+    	
+    	//Fichas de video
+    	Ficha_invitado fi= new Ficha_invitado();
+    	Ficha_registrado fr= new Ficha_registrado();
+    	Ficha_propietario fp= new Ficha_propietario();
+    	
+    	
+    	Listado_suscriptores lurd= new Listado_suscriptores();
+    	Subir_video sv= new Subir_video();
+    	
+    	
+        setContent(pa);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
