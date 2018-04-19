@@ -1,3 +1,5 @@
 /target/
 /.settings/com.vaadin.designer.prefs
 /.vaadin-designer2/designer-theme.css
+/src/diagrams/*.bak*
+/src/diagrams/*.vbak*
