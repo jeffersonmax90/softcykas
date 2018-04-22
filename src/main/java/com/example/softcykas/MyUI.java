@@ -32,11 +32,13 @@ import ventanas.Listado_suscripciones_visitante_ventanas;
 import ventanas.Listado_suscriptores;
 import ventanas.Listado_suscriptores_ventanas;
 import ventanas.Listas_de_reproduccion_ventanas;
+import ventanas.Modificar_datos;
 import ventanas.Modificar_video;
 import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
 import ventanas.Perfil_visitante;
 import ventanas.Perfil_visitante_ventanas;
+import ventanas.Registrarse;
 import ventanas.Subir_video;
 import ventanas.Subir_video_ventanas;
 import ventanas.Usuario_invitado;
@@ -92,8 +94,8 @@ public class MyUI extends UI {
     	Listado_suscriptores lurd= new Listado_suscriptores();
     	Subir_video_ventanas svni = new Subir_video_ventanas();
     	
-    	Lista_videos_ventanas v= new Lista_videos_ventanas();
-        setContent(pv);
+    	Modificar_datos rt= new Modificar_datos();
+        setContent(rt);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
