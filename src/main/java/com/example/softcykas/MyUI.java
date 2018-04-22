@@ -92,8 +92,8 @@ public class MyUI extends UI {
     	Listado_suscriptores lurd= new Listado_suscriptores();
     	Subir_video_ventanas svni = new Subir_video_ventanas();
     	
-    	Modificar_video mv= new Modificar_video();
-        setContent(svni);
+    	Lista_videos_ventanas v= new Lista_videos_ventanas();
+        setContent(pv);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

@@ -7,10 +7,14 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout margin="false">
+  <vaadin-vertical-layout>
    <ventanas-zona_cabecera_video_registrado_ventanas></ventanas-zona_cabecera_video_registrado_ventanas>
-   <ventanas-ficha_video_ventanas></ventanas-ficha_video_ventanas>
-   <ventanas-zona_opciones_video_propietario_ventanas></ventanas-zona_opciones_video_propietario_ventanas>
+   <vaadin-form-layout size-auto>
+    <vaadin-horizontal-layout>
+     <ventanas-ficha_video_ventanas></ventanas-ficha_video_ventanas>
+     <ventanas-zona_opciones_video_propietario_ventanas></ventanas-zona_opciones_video_propietario_ventanas>
+    </vaadin-horizontal-layout>
+   </vaadin-form-layout>
    <ventanas-lista_comentarios_deshabilitables_ventanas></ventanas-lista_comentarios_deshabilitables_ventanas>
   </vaadin-vertical-layout>
  </body>
