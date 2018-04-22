@@ -7,8 +7,20 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout size-full>
-   <ventanas-anadir_datos_video_ventanas></ventanas-anadir_datos_video_ventanas>
+  <vaadin-vertical-layout spacing="false" size-auto margin="false">
+   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
+    <vaadin-label plain-text _id="titulo_modificar_datos">
+      Modificar Datos del Video 
+    </vaadin-label>
+   </vaadin-form-layout>
+   <vaadin-form-layout spacing="false" size-auto margin="false">
+    <ventanas-anadir_datos_video_ventanas></ventanas-anadir_datos_video_ventanas>
+   </vaadin-form-layout>
+   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
+    <vaadin-button plain-text _id="modifcar">
+      Modificar 
+    </vaadin-button>
+   </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

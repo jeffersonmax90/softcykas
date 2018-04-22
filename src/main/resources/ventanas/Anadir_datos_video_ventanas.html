@@ -8,8 +8,7 @@
  <body>
   <vaadin-vertical-layout size-full>
    <vaadin-form-layout width="446px" heigth="453px" :center>
-    <vaadin-label plain-text _id="titulo_subir_video">
-      Subir videos 
+  
     </vaadin-label>
     <vaadin-text-field caption="Titulo" _id="titulo"></vaadin-text-field>
     <vaadin-native-select caption="Categoria" data-item-type="java.lang.String" _id="categoria">
@@ -17,21 +16,13 @@
      <option item="Option2">Option 2</option>
      <option item="Option3">Option 3</option>
     </vaadin-native-select>
-     <vaadin-text-field caption="Etiqueta" _id="Etiqueta"></vaadin-text-field>
+    <vaadin-text-field caption="Etiqueta" _id="Etiqueta"></vaadin-text-field>
     <vaadin-upload button-caption="Seleccionar video" caption="Ruta video" _id="ruta_video"></vaadin-upload>
     <vaadin-upload button-caption="Seleccionar miniatura" caption="Ruta miniatura" _id="ruta_miniatura"></vaadin-upload>
     <vaadin-date-field caption="Fecha del video subido" _id="fecha_video_subido"></vaadin-date-field>
     <vaadin-label caption="Descripción video" componentalignment="TOP-LEFT" plain-text _id="descripcion_video"></vaadin-label>
     <vaadin-horizontal-layout>
      <vaadin-text-area _id="area_descripcion"></vaadin-text-area>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout>
-     <vaadin-button plain-text _id="atras_subir_video">
-       Atrás 
-     </vaadin-button>
-     <vaadin-button plain-text _id="subir_video">
-       subir 
-     </vaadin-button>
     </vaadin-horizontal-layout>
    </vaadin-form-layout>
   </vaadin-vertical-layout>
