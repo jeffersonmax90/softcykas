@@ -3,3 +3,4 @@
 /.vaadin-designer2/designer-theme.css
 /src/diagrams/*.bak*
 /src/diagrams/*.vbak*
+/src/diagrams/*.lck*
