@@ -9,9 +9,4 @@ public class Usuario_registrado extends Usuario_invitado_ventanas {
 	*/
 	Zona_inicio_cabecera_registrado zicabecerar= new Zona_inicio_cabecera_registrado();
 	Zona_inicio_cuerpo_registrado zicr= new Zona_inicio_cuerpo_registrado();
-	
-	public Usuario_registrado(){
-		inicio.addComponent(zicabecerar);
-		cuerpo.addComponent(zicr);
-	}
 }
