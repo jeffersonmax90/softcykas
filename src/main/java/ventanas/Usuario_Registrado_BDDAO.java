@@ -323,13 +323,13 @@ public class Usuario_Registrado_BDDAO {
 	
 	public static boolean deleteAndDissociate(ventanas.Usuario_Registrado_BD usuario_Registrado_BD)throws PersistentException {
 		try {
+			if (usuario_Registrado_BD.getHistorial() != null) {
+				usuario_Registrado_BD.getHistorial().setUsuario(null);
+			}
+			
 			ventanas.Usuario_Registrado_BD[] lSuscriptors = usuario_Registrado_BD.suscriptor.toArray();
 			for(int i = 0; i < lSuscriptors.length; i++) {
 				lSuscriptors[i].suscrito.remove(usuario_Registrado_BD);
-			}
-			ventanas.Historial_BD[] lHistorials = usuario_Registrado_BD.historial.toArray();
-			for(int i = 0; i < lHistorials.length; i++) {
-				lHistorials[i].setUsuario(null);
 			}
 			ventanas.Usuario_Registrado_BD[] lSuscritos = usuario_Registrado_BD.suscrito.toArray();
 			for(int i = 0; i < lSuscritos.length; i++) {
@@ -361,13 +361,13 @@ public class Usuario_Registrado_BDDAO {
 	
 	public static boolean deleteAndDissociate(ventanas.Usuario_Registrado_BD usuario_Registrado_BD, org.orm.PersistentSession session)throws PersistentException {
 		try {
+			if (usuario_Registrado_BD.getHistorial() != null) {
+				usuario_Registrado_BD.getHistorial().setUsuario(null);
+			}
+			
 			ventanas.Usuario_Registrado_BD[] lSuscriptors = usuario_Registrado_BD.suscriptor.toArray();
 			for(int i = 0; i < lSuscriptors.length; i++) {
 				lSuscriptors[i].suscrito.remove(usuario_Registrado_BD);
-			}
-			ventanas.Historial_BD[] lHistorials = usuario_Registrado_BD.historial.toArray();
-			for(int i = 0; i < lHistorials.length; i++) {
-				lHistorials[i].setUsuario(null);
 			}
 			ventanas.Usuario_Registrado_BD[] lSuscritos = usuario_Registrado_BD.suscrito.toArray();
 			for(int i = 0; i < lSuscritos.length; i++) {

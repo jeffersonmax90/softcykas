@@ -20,18 +20,18 @@ import org.orm.criteria.*;
 
 public class Historial_BDCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
-	public final IntegerExpression usuarioId;
-	public final AssociationExpression usuario;
 	public final StringExpression nombre;
 	public final CollectionExpression video;
+	public final IntegerExpression usuarioId;
+	public final AssociationExpression usuario;
 	
 	public Historial_BDCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
-		usuarioId = new IntegerExpression("usuario.", this);
-		usuario = new AssociationExpression("usuario", this);
 		nombre = new StringExpression("nombre", this);
 		video = new CollectionExpression("ORM_video", this);
+		usuarioId = new IntegerExpression("usuario.id", this);
+		usuario = new AssociationExpression("usuario", this);
 	}
 	
 	public Historial_BDCriteria(PersistentSession session) {
@@ -42,12 +42,12 @@ public class Historial_BDCriteria extends AbstractORMCriteria {
 		this(ProyectoSoftCykasPersistentManager.instance().getSession());
 	}
 	
-	public Usuario_Registrado_BDCriteria createUsuarioCriteria() {
-		return new Usuario_Registrado_BDCriteria(createCriteria("usuario"));
-	}
-	
 	public Video_BDCriteria createVideoCriteria() {
 		return new Video_BDCriteria(createCriteria("ORM_video"));
+	}
+	
+	public Usuario_Registrado_BDCriteria createUsuarioCriteria() {
+		return new Usuario_Registrado_BDCriteria(createCriteria("usuario"));
 	}
 	
 	public Historial_BD uniqueHistorial_BD() {

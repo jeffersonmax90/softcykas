@@ -28,8 +28,9 @@ public class Usuario_Registrado_BDCriteria extends AbstractORMCriteria {
 	public final StringExpression apellidos;
 	public final DateExpression fecha_nacimiento;
 	public final IntegerExpression n_visitas;
+	public final IntegerExpression historialId;
+	public final AssociationExpression historial;
 	public final CollectionExpression suscriptor;
-	public final CollectionExpression historial;
 	public final CollectionExpression suscrito;
 	public final CollectionExpression me_gustas;
 	public final CollectionExpression listas_reproduccion;
@@ -47,8 +48,9 @@ public class Usuario_Registrado_BDCriteria extends AbstractORMCriteria {
 		apellidos = new StringExpression("apellidos", this);
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this);
 		n_visitas = new IntegerExpression("n_visitas", this);
+		historialId = new IntegerExpression("historial.id", this);
+		historial = new AssociationExpression("historial", this);
 		suscriptor = new CollectionExpression("ORM_suscriptor", this);
-		historial = new CollectionExpression("ORM_historial", this);
 		suscrito = new CollectionExpression("ORM_suscrito", this);
 		me_gustas = new CollectionExpression("ORM_me_gustas", this);
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this);
@@ -64,12 +66,12 @@ public class Usuario_Registrado_BDCriteria extends AbstractORMCriteria {
 		this(ProyectoSoftCykasPersistentManager.instance().getSession());
 	}
 	
-	public Usuario_Registrado_BDCriteria createSuscriptorCriteria() {
-		return new Usuario_Registrado_BDCriteria(createCriteria("ORM_suscriptor"));
+	public Historial_BDCriteria createHistorialCriteria() {
+		return new Historial_BDCriteria(createCriteria("historial"));
 	}
 	
-	public Historial_BDCriteria createHistorialCriteria() {
-		return new Historial_BDCriteria(createCriteria("ORM_historial"));
+	public Usuario_Registrado_BDCriteria createSuscriptorCriteria() {
+		return new Usuario_Registrado_BDCriteria(createCriteria("ORM_suscriptor"));
 	}
 	
 	public Usuario_Registrado_BDCriteria createSuscritoCriteria() {

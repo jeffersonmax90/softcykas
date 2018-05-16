@@ -28,9 +28,6 @@ public class Usuario_Registrado_BD extends ventanas.Usuario_BD implements Serial
 		if (key == ORMConstants.KEY_USUARIO_REGISTRADO_BD_SUSCRIPTOR) {
 			return ORM_suscriptor;
 		}
-		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_BD_HISTORIAL) {
-			return ORM_historial;
-		}
 		else if (key == ORMConstants.KEY_USUARIO_REGISTRADO_BD_SUSCRITO) {
 			return ORM_suscrito;
 		}
@@ -50,10 +47,20 @@ public class Usuario_Registrado_BD extends ventanas.Usuario_BD implements Serial
 		return null;
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == ORMConstants.KEY_USUARIO_REGISTRADO_BD_HISTORIAL) {
+			this.historial = (ventanas.Historial_BD) owner;
+		}
+	}
+	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
+		}
+		
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
 		}
 		
 	};
@@ -71,16 +78,16 @@ public class Usuario_Registrado_BD extends ventanas.Usuario_BD implements Serial
 	@Column(name="N_visitas", nullable=true, length=10)	
 	private int n_visitas;
 	
+	@OneToOne(optional=false, targetEntity=ventanas.Historial_BD.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="Historial_BDId", referencedColumnName="Id", nullable=false) })	
+	private ventanas.Historial_BD historial;
+	
 	@ManyToMany(targetEntity=ventanas.Usuario_Registrado_BD.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinTable(name="Usuario_Registrado_BD_Usuario_Registrado_BD", joinColumns={ @JoinColumn(name="Usuario_Registrado_BDUsuario_BDId2") }, inverseJoinColumns={ @JoinColumn(name="Usuario_Registrado_BDUsuario_BDId") })	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_suscriptor = new java.util.HashSet();
-	
-	@OneToMany(mappedBy="usuario", targetEntity=ventanas.Historial_BD.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_historial = new java.util.HashSet();
 	
 	@ManyToMany(mappedBy="ORM_suscriptor", targetEntity=ventanas.Usuario_Registrado_BD.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -150,16 +157,22 @@ public class Usuario_Registrado_BD extends ventanas.Usuario_BD implements Serial
 	@Transient	
 	public final ventanas.Usuario_Registrado_BDSetCollection suscriptor = new ventanas.Usuario_Registrado_BDSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_BD_SUSCRIPTOR, ORMConstants.KEY_USUARIO_REGISTRADO_BD_SUSCRITO, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	private void setORM_Historial(java.util.Set value) {
-		this.ORM_historial = value;
+	public void setHistorial(ventanas.Historial_BD value) {
+		if (this.historial != value) {
+			ventanas.Historial_BD lhistorial = this.historial;
+			this.historial = value;
+			if (value != null) {
+				historial.setUsuario(this);
+			}
+			if (lhistorial != null && lhistorial.getUsuario() == this) {
+				lhistorial.setUsuario(null);
+			}
+		}
 	}
 	
-	private java.util.Set getORM_Historial() {
-		return ORM_historial;
+	public ventanas.Historial_BD getHistorial() {
+		return historial;
 	}
-	
-	@Transient	
-	public final ventanas.Historial_BDSetCollection historial = new ventanas.Historial_BDSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_BD_HISTORIAL, ORMConstants.KEY_HISTORIAL_BD_USUARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	private void setORM_Suscrito(java.util.Set value) {
 		this.ORM_suscrito = value;

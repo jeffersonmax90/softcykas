@@ -16,7 +16,7 @@ public class CreateProyectoSoftCykasData {
 			// Initialize the properties of the persistent object here
 			ventanas.Administrador_BDDAO.save(lventanasAdministrador_BD);
 			ventanas.Usuario_Registrado_BD lventanasUsuario_Registrado_BD = ventanas.Usuario_Registrado_BDDAO.createUsuario_Registrado_BD();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : video_subido, comentarios, listas_reproduccion, me_gustas, suscrito, historial, suscriptor
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : video_subido, comentarios, listas_reproduccion, me_gustas, suscrito, suscriptor, historial
 			ventanas.Usuario_Registrado_BDDAO.save(lventanasUsuario_Registrado_BD);
 			ventanas.Categoria_BD lventanasCategoria_BD = ventanas.Categoria_BDDAO.createCategoria_BD();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : videos
@@ -31,7 +31,7 @@ public class CreateProyectoSoftCykasData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : video, usuario
 			ventanas.Lista_reproduccion_BDDAO.save(lventanasLista_reproduccion_BD);
 			ventanas.Historial_BD lventanasHistorial_BD = ventanas.Historial_BDDAO.createHistorial_BD();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : video, usuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario, video
 			ventanas.Historial_BDDAO.save(lventanasHistorial_BD);
 			t.commit();
 		}

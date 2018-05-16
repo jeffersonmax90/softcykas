@@ -28,8 +28,9 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 	public final StringExpression apellidos;
 	public final DateExpression fecha_nacimiento;
 	public final IntegerExpression n_visitas;
+	public final IntegerExpression historialId;
+	public final AssociationExpression historial;
 	public final CollectionExpression suscriptor;
-	public final CollectionExpression historial;
 	public final CollectionExpression suscrito;
 	public final CollectionExpression me_gustas;
 	public final CollectionExpression listas_reproduccion;
@@ -47,8 +48,9 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this.getDetachedCriteria());
 		n_visitas = new IntegerExpression("n_visitas", this.getDetachedCriteria());
+		historialId = new IntegerExpression("historial.id", this.getDetachedCriteria());
+		historial = new AssociationExpression("historial", this.getDetachedCriteria());
 		suscriptor = new CollectionExpression("ORM_suscriptor", this.getDetachedCriteria());
-		historial = new CollectionExpression("ORM_historial", this.getDetachedCriteria());
 		suscrito = new CollectionExpression("ORM_suscrito", this.getDetachedCriteria());
 		me_gustas = new CollectionExpression("ORM_me_gustas", this.getDetachedCriteria());
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this.getDetachedCriteria());
@@ -67,8 +69,9 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this.getDetachedCriteria());
 		n_visitas = new IntegerExpression("n_visitas", this.getDetachedCriteria());
+		historialId = new IntegerExpression("historial.id", this.getDetachedCriteria());
+		historial = new AssociationExpression("historial", this.getDetachedCriteria());
 		suscriptor = new CollectionExpression("ORM_suscriptor", this.getDetachedCriteria());
-		historial = new CollectionExpression("ORM_historial", this.getDetachedCriteria());
 		suscrito = new CollectionExpression("ORM_suscrito", this.getDetachedCriteria());
 		me_gustas = new CollectionExpression("ORM_me_gustas", this.getDetachedCriteria());
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this.getDetachedCriteria());
@@ -76,12 +79,12 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 		video_subido = new CollectionExpression("ORM_video_subido", this.getDetachedCriteria());
 	}
 	
-	public Usuario_Registrado_BDDetachedCriteria createSuscriptorCriteria() {
-		return new Usuario_Registrado_BDDetachedCriteria(createCriteria("ORM_suscriptor"));
+	public Historial_BDDetachedCriteria createHistorialCriteria() {
+		return new Historial_BDDetachedCriteria(createCriteria("historial"));
 	}
 	
-	public Historial_BDDetachedCriteria createHistorialCriteria() {
-		return new Historial_BDDetachedCriteria(createCriteria("ORM_historial"));
+	public Usuario_Registrado_BDDetachedCriteria createSuscriptorCriteria() {
+		return new Usuario_Registrado_BDDetachedCriteria(createCriteria("ORM_suscriptor"));
 	}
 	
 	public Usuario_Registrado_BDDetachedCriteria createSuscritoCriteria() {

@@ -95,7 +95,8 @@ public class MyUI extends UI {
     	Subir_video_ventanas svni = new Subir_video_ventanas();
     	
     	Modificar_datos rt= new Modificar_datos();
-        setContent(rt);
+    	Registrarse r= new Registrarse();
+        setContent(r);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

@@ -323,14 +323,14 @@ public class Historial_BDDAO {
 	
 	public static boolean deleteAndDissociate(ventanas.Historial_BD historial_BD)throws PersistentException {
 		try {
-			if (historial_BD.getUsuario() != null) {
-				historial_BD.getUsuario().historial.remove(historial_BD);
-			}
-			
 			ventanas.Video_BD[] lVideos = historial_BD.video.toArray();
 			for(int i = 0; i < lVideos.length; i++) {
 				lVideos[i].historial.remove(historial_BD);
 			}
+			if (historial_BD.getUsuario() != null) {
+				historial_BD.getUsuario().setHistorial(null);
+			}
+			
 			return delete(historial_BD);
 		}
 		catch(Exception e) {
@@ -341,14 +341,14 @@ public class Historial_BDDAO {
 	
 	public static boolean deleteAndDissociate(ventanas.Historial_BD historial_BD, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			if (historial_BD.getUsuario() != null) {
-				historial_BD.getUsuario().historial.remove(historial_BD);
-			}
-			
 			ventanas.Video_BD[] lVideos = historial_BD.video.toArray();
 			for(int i = 0; i < lVideos.length; i++) {
 				lVideos[i].historial.remove(historial_BD);
 			}
+			if (historial_BD.getUsuario() != null) {
+				historial_BD.getUsuario().setHistorial(null);
+			}
+			
 			try {
 				session.delete(historial_BD);
 				return true;

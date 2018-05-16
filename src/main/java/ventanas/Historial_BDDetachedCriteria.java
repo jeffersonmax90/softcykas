@@ -20,35 +20,35 @@ import org.orm.criteria.*;
 
 public class Historial_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
-	public final IntegerExpression usuarioId;
-	public final AssociationExpression usuario;
 	public final StringExpression nombre;
 	public final CollectionExpression video;
+	public final IntegerExpression usuarioId;
+	public final AssociationExpression usuario;
 	
 	public Historial_BDDetachedCriteria() {
 		super(ventanas.Historial_BD.class, ventanas.Historial_BDCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		usuarioId = new IntegerExpression("usuario.", this.getDetachedCriteria());
-		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		video = new CollectionExpression("ORM_video", this.getDetachedCriteria());
+		usuarioId = new IntegerExpression("usuario.id", this.getDetachedCriteria());
+		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 	}
 	
 	public Historial_BDDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, ventanas.Historial_BDCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
-		usuarioId = new IntegerExpression("usuario.", this.getDetachedCriteria());
-		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		video = new CollectionExpression("ORM_video", this.getDetachedCriteria());
-	}
-	
-	public Usuario_Registrado_BDDetachedCriteria createUsuarioCriteria() {
-		return new Usuario_Registrado_BDDetachedCriteria(createCriteria("usuario"));
+		usuarioId = new IntegerExpression("usuario.id", this.getDetachedCriteria());
+		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 	}
 	
 	public Video_BDDetachedCriteria createVideoCriteria() {
 		return new Video_BDDetachedCriteria(createCriteria("ORM_video"));
+	}
+	
+	public Usuario_Registrado_BDDetachedCriteria createUsuarioCriteria() {
+		return new Usuario_Registrado_BDDetachedCriteria(createCriteria("usuario"));
 	}
 	
 	public Historial_BD uniqueHistorial_BD(PersistentSession session) {

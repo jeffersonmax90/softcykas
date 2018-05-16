@@ -54,11 +54,6 @@ public class Historial_BD implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="VENTANAS_HISTORIAL_BD_ID_GENERATOR", strategy="native")	
 	private int id;
 	
-	@ManyToOne(targetEntity=ventanas.Usuario_Registrado_BD.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="Usuario_Registrado_BDUsuario_BDId", referencedColumnName="Usuario_BDId", nullable=false) })	
-	private ventanas.Usuario_Registrado_BD usuario;
-	
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
@@ -66,6 +61,10 @@ public class Historial_BD implements Serializable {
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_video = new java.util.HashSet();
+	
+	@OneToOne(mappedBy="historial", targetEntity=ventanas.Usuario_Registrado_BD.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	private ventanas.Usuario_Registrado_BD usuario;
 	
 	private void setId(int value) {
 		this.id = value;
@@ -99,26 +98,19 @@ public class Historial_BD implements Serializable {
 	public final ventanas.Video_BDSetCollection video = new ventanas.Video_BDSetCollection(this, _ormAdapter, ORMConstants.KEY_HISTORIAL_BD_VIDEO, ORMConstants.KEY_VIDEO_BD_HISTORIAL, ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
 	public void setUsuario(ventanas.Usuario_Registrado_BD value) {
-		if (usuario != null) {
-			usuario.historial.remove(this);
-		}
-		if (value != null) {
-			value.historial.add(this);
+		if (this.usuario != value) {
+			ventanas.Usuario_Registrado_BD lusuario = this.usuario;
+			this.usuario = value;
+			if (value != null) {
+				usuario.setHistorial(this);
+			}
+			if (lusuario != null && lusuario.getHistorial() == this) {
+				lusuario.setHistorial(null);
+			}
 		}
 	}
 	
 	public ventanas.Usuario_Registrado_BD getUsuario() {
-		return usuario;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Usuario(ventanas.Usuario_Registrado_BD value) {
-		this.usuario = value;
-	}
-	
-	private ventanas.Usuario_Registrado_BD getORM_Usuario() {
 		return usuario;
 	}
 	
