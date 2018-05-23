@@ -2,8 +2,9 @@ package ventanas;
 
 import java.util.Vector;
 import ventanas.Video_BD;
-import iuVentanas.Video;
-import iuVentanas.Lista_videos_subidos;
+import ventanas.Video;
+import ventanas.Lista_videos_subidos;
+import java.util.List;
 
 public class BD_Videos {
 	public BD_Principal _bD_Principal;

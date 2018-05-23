@@ -2,7 +2,7 @@ package ventanas;
 
 import java.util.Vector;
 import ventanas.Comentario_BD;
-import iuVentanas.Comentario;
+import ventanas.Comentario;
 
 public class BD_Comentarios {
 	public BD_Principal _bD_Principal;

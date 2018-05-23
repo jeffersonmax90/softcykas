@@ -2,7 +2,7 @@ package ventanas;
 
 import java.util.Vector;
 import ventanas.Administrador_BD;
-import iuVentanas.Usuario_administrador;
+import ventanas.Usuario_administrador;
 
 public class BD_Usuarios_Administradores {
 	public BD_Principal _bD_Principal;

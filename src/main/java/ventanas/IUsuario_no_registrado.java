@@ -2,6 +2,9 @@ package ventanas;
 
 import ventanas.Video;
 import ventanas.Usuario;
+
+import java.util.List;
+
 import ventanas.Comentario;
 
 public interface IUsuario_no_registrado {

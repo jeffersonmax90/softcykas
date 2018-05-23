@@ -5,7 +5,7 @@
     <Column name="Usuario_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Usuario_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -63,7 +63,19 @@
     <Column name="Usuario_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Usuario_BD.Id</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Historial_BDId">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Historial_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -123,7 +135,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -135,7 +147,7 @@
     <Column name="Categoria_BDId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Categoria_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Categoria_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -226,7 +238,7 @@
     <Column name="Video_BDId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Video_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Video_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -238,7 +250,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -274,7 +286,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -364,18 +376,6 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="Usuario_Registrado_BDUsuario_BDId">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
     <Column name="Nombre">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -392,7 +392,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -404,7 +404,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId2">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -418,7 +418,7 @@
     <Column name="Usuario_Registrado_BDUsuario_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
+      <ReferencedColumn>Usuario_Registrado_BD.Usuario_BDId</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -430,7 +430,7 @@
     <Column name="Video_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Video_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Video_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -444,7 +444,7 @@
     <Column name="Lista_reproduccion_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Lista_reproduccion_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Lista_reproduccion_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -456,7 +456,7 @@
     <Column name="Video_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Video_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Video_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -470,7 +470,7 @@
     <Column name="Historial_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Historial_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Historial_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -482,7 +482,7 @@
     <Column name="Video_BDId">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>ventanas.Video_BD.Id</ReferencedColumn>
+      <ReferencedColumn>Video_BD.Id</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>false</Nullable>
@@ -632,14 +632,14 @@
       <Column>Id</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKHistorial_339722">
-    <ReferenceTable>Historial_BD</ReferenceTable>
-    <ReferencedTable>Usuario_Registrado_BD</ReferencedTable>
+  <ForeignKey name="FKUsuario_Re167589">
+    <ReferenceTable>Usuario_Registrado_BD</ReferenceTable>
+    <ReferencedTable>Historial_BD</ReferencedTable>
     <Columns>
-      <Column>Usuario_Registrado_BDUsuario_BDId</Column>
+      <Column>Historial_BDId</Column>
     </Columns>
     <RefColumns>
-      <Column>Usuario_BDId</Column>
+      <Column>Id</Column>
     </RefColumns>
   </ForeignKey>
   <ForeignKey name="FKVideo_BD360058">

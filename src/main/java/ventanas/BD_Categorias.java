@@ -2,7 +2,7 @@ package ventanas;
 
 import java.util.Vector;
 import ventanas.Categoria_BD;
-import iuVentanas.Lista_categorias;
+import ventanas.Lista_categorias;
 
 public class BD_Categorias {
 	public BD_Principal _bD_Principal;

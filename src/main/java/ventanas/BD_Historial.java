@@ -2,7 +2,7 @@ package ventanas;
 
 import java.util.Vector;
 import ventanas.Historial_BD;
-import iuVentanas.Video;
+import ventanas.Video;
 
 public class BD_Historial {
 	public BD_Principal _bD_Principal;

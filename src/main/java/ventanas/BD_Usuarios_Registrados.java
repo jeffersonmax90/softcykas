@@ -20,6 +20,7 @@ public class BD_Usuarios_Registrados {
 			Historial_BD h= new Historial_BD();
 			aUsuario.setHistorial(h);
 			Usuario_Registrado_BDDAO.save(aUsuario);
+			
 			t.commit();
 			
 		} catch (PersistentException e) {

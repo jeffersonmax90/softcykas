@@ -1,21 +1,25 @@
 package ventanas;
 
-import iuVentanas.Categorias;
-import iuVentanas.Video;
-import iuVentanas.Usuario;
-import iuVentanas.Lista_categorias;
-import iuVentanas.Usuario_registrado_listado;
-import iuVentanas.Comentario;
-import iuVentanas.Lista_videos_subidos;
+import ventanas.Categorias;
+import ventanas.Video;
+import ventanas.Usuario;
+import ventanas.Lista_categorias;
+import ventanas.Usuario_registrado_listado;
+import ventanas.Comentario;
+import ventanas.Lista_videos_subidos;
+
+import java.util.List;
+
+import org.orm.PersistentException;
 
 public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUsuario_registrado {
-	public BD_Videos _bD_Videos;
-	public BD_Usuarios_Administradores _bD_Usuarios_Administradores;
-	public BD_Usuarios_Registrados _bD_Usuarios_Registrados;
-	public BD_Categorias _bD_Categorias;
-	public BD_Comentarios _bD_Comentarios;
-	public BD_Listas_reproduccion _bD_Listas_reproduccion;
-	public BD_Historial _bD_Historial;
+	public BD_Videos _bD_Videos= new BD_Videos();
+	public BD_Usuarios_Administradores _bD_Usuarios_Administradores = new BD_Usuarios_Administradores();
+	public BD_Usuarios_Registrados _bD_Usuarios_Registrados = new BD_Usuarios_Registrados();
+	public BD_Categorias _bD_Categorias= new BD_Categorias();
+	public BD_Comentarios _bD_Comentarios = new BD_Comentarios();
+	public BD_Listas_reproduccion _bD_Listas_reproduccion= new BD_Listas_reproduccion();
+	public BD_Historial _bD_Historial = new BD_Historial();
 
 	public boolean subirVideo(Video_BD aVideo) {
 		throw new UnsupportedOperationException();
@@ -25,8 +29,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
+	
 	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario) {
-		throw new UnsupportedOperationException();
+
+		try {
+			return _bD_Usuarios_Registrados.nuevoUsuario(aUsuario);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public Categoria__ cargar_categorias() {
