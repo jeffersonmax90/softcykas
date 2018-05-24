@@ -14,6 +14,7 @@ public class Registrarse extends Registrarse_ventanas {
 	IUsuario_no_registrado noRegistrado = new BD_Principal();
 
 	public Registrarse() {
+		anadirDatos.fechaNacimiento.setRangeEnd(java.time.LocalDate.now());
 		registrar.addClickListener(new Button.ClickListener() {
 
 			@Override
@@ -33,8 +34,9 @@ public class Registrarse extends Registrarse_ventanas {
 		user.setContraseña(anadirDatos.contrasena.getValue());
 		user.setEmail(anadirDatos.correo.getValue());
 		user.setN_visitas(0);
-		user.setMiniatura(anadirDatos.seleccionarFoto.toString());
-		
+		user.setMiniatura(anadirDatos.urlPhoto.getValue());
+		user.setFecha_nacimiento(java.sql.Date.valueOf(anadirDatos.fechaNacimiento.getValue()));
+
 		noRegistrado.registrarUsuario(user);
 
 	}
