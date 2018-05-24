@@ -3,7 +3,10 @@ package ventanas;
 import org.orm.PersistentException;
 
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.server.Page;
+import com.vaadin.shared.ui.notification.*;
 
 public class Registrarse extends Registrarse_ventanas {
 	/*
@@ -21,9 +24,12 @@ public class Registrarse extends Registrarse_ventanas {
 			public void buttonClick(ClickEvent event) {
 				// TODO Auto-generated method stub
 				enviarDatos();
+				Notification notification = new Notification("¡ENHORABUENA!", "Usuario registrado con éxito", Notification.Type.HUMANIZED_MESSAGE);
+				notification.setDelayMsec(2000);
+				notification.show(Page.getCurrent());
+				
 			}
 		});
-
 	}
 
 	void enviarDatos() {
