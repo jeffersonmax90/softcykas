@@ -38,5 +38,4 @@ public class Registrarse extends Registrarse_ventanas {
 		noRegistrado.registrarUsuario(user);
 
 	}
-
 }

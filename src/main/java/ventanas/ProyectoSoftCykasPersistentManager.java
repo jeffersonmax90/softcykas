@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Jefferson T(University of Almeria)
+ * Licensee: david(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
