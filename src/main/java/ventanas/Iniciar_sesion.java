@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Iniciar_sesion extends Iniciar_sesion_ventanas {
+import com.vaadin.navigator.View;
+
+public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 	/*
 	private JLabel _emailLB;
 	private JTextField _emailTF;

@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Perfil_visitante extends Perfil_visitante_ventanas {
+import com.vaadin.navigator.View;
+
+public class Perfil_visitante extends Perfil_visitante_ventanas implements View {
 	/*
 	public Ficha_video _unnamed_Ficha_video_;
 	public Comentario _unnamed_Comentario_;
