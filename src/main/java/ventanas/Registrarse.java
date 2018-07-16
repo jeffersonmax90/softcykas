@@ -4,11 +4,13 @@ import org.orm.PersistentException;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
+import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.shared.ui.notification.*;
 
-public class Registrarse extends Registrarse_ventanas {
+public class Registrarse extends Registrarse_ventanas implements View {
 	/*
 	 * private JLabel _registrar_usuarioLB; public Iniciar_sesion
 	 * _unnamed_Iniciar_sesion_;
@@ -18,6 +20,7 @@ public class Registrarse extends Registrarse_ventanas {
 
 	public Registrarse() {
 		anadirDatos.fechaNacimiento.setRangeEnd(java.time.LocalDate.now());
+		
 		registrar.addClickListener(new Button.ClickListener() {
 
 			@Override
@@ -28,6 +31,13 @@ public class Registrarse extends Registrarse_ventanas {
 				notification.setDelayMsec(2000);
 				notification.show(Page.getCurrent());
 				
+			}
+		});
+		
+		atras.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("logIn");
 			}
 		});
 	}

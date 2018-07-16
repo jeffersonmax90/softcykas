@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.1.5">
+  <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
   <vaadin-vertical-layout size-full>
@@ -11,12 +11,16 @@
     <vaadin-label plain-text _id="iniciar_sesion">
       Iniciar Sesión 
     </vaadin-label>
-    <vaadin-text-field caption="Email" _id="email"></vaadin-text-field>
-    <vaadin-password-field caption="Contraseña" _id="contrasena"></vaadin-password-field>
+    <vaadin-text-field caption="Email" _id="emailTF"></vaadin-text-field>
+    <vaadin-password-field caption="Contraseña" _id="contrasenaTF"></vaadin-password-field>
     <vaadin-check-box caption="Recordar contraseña" _id="recordar_contrasena"></vaadin-check-box>
     <vaadin-horizontal-layout>
-     <vaadin-link caption="Recuperar contraseña" _id="recuperar_contrasena"></vaadin-link>
-     <vaadin-link caption="Registrarse" style-name="registrarse"></vaadin-link>
+     <vaadin-button style-name="link" plain-text _id="recuperar_contrasena">
+       Recuperar contraseña 
+     </vaadin-button>
+     <vaadin-button style-name="link" plain-text _id="registrarse">
+       Registrarse 
+     </vaadin-button>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
      <vaadin-button plain-text _id="atras">

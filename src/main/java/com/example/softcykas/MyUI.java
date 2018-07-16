@@ -17,6 +17,7 @@ import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Cabecera_buscador;
 import ventanas.Ficha_administrador;
 import ventanas.Ficha_invitado;
 import ventanas.Ficha_propietario;
@@ -41,11 +42,14 @@ import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
 import ventanas.Perfil_visitante;
 import ventanas.Perfil_visitante_ventanas;
+import ventanas.Recuperar_contrasena;
+import ventanas.Recuperar_contrasena_ventanas;
 import ventanas.Registrarse;
 import ventanas.Subir_video;
 import ventanas.Subir_video_ventanas;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
+import ventanas.Usuario_registrado_ventanas;
 import ventanas.Video_lista_reproduccion;
 import ventanas.Videos_de_suscripciones;
 import ventanas.Videos_de_suscripciones_ventanas;
@@ -78,38 +82,43 @@ public class MyUI extends UI {
 	
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		
+	
 		getPage().setTitle("GarbiTube");
 		
 		navigator = new Navigator(this, this);
 		
 		navigator.addView("", new Usuario_invitado());
-		navigator.addView("logIn", new Iniciar_sesion());
+		navigator.addView("logIn",   Iniciar_sesion.class);
+		navigator.addView("registrase", Registrarse.class);
+		navigator.addView("usuario_invitado",  Usuario_invitado.class);
+		navigator.addView("recuperar_contrasena", Recuperar_contrasena.class);
+		navigator.addView("usuario_registrado", Usuario_registrado.class);
+		
 		
 		navigator.navigateTo("");
 		
+		
+		
+		
 		/*
-		 * Lista_videos_buscados lky = new Lista_videos_buscados();
-		 * Video_lista_reproduccion vl= new Video_lista_reproduccion();
-		 * 
-		 * Anadir_datos_usuario alta_usuario= new Anadir_datos_usuario();
-		 * Usuario_invitado ui= new Usuario_invitado(); Usuario_registrado ur= new
-		 * Usuario_registrado();
-		 * 
-		 * //Perfiles Perfil_administrador pa= new Perfil_administrador();
-		 * Perfil_visitante pv= new Perfil_visitante(); Perfil_registrado pr= new
-		 * Perfil_registrado();
-		 * 
-		 * //Fichas de video Ficha_invitado fi= new Ficha_invitado(); Ficha_registrado
-		 * fr= new Ficha_registrado(); Ficha_propietario fp= new Ficha_propietario();
-		 * 
-		 * 
-		 * Listado_suscriptores lurd= new Listado_suscriptores(); Subir_video_ventanas
-		 * svni = new Subir_video_ventanas();
-		 * 
-		 * Modificar_datos rt= new Modificar_datos(); Registrarse r= new Registrarse();
-		 * setContent(r);
-		 */
+		Lista_videos_ventanas lv= new Lista_videos_ventanas();
+		Videos_tendencia vt= new Videos_tendencia();
+		Videos_usuarios_registrados vur= new Videos_usuarios_registrados();
+		Zona_inicio_comun_ventanas zi= new Zona_inicio_comun_ventanas();
+		
+		Usuario_invitado usu= new Usuario_invitado();
+		
+		Zona_inicio_cabecera_invitado zic= new Zona_inicio_cabecera_invitado();
+		Cabecera_buscador cb= new Cabecera_buscador();
+	
+		Usuario_invitado usu= new Usuario_invitado();
+		Usuario_registrado_ventanas ttt2= new Usuario_registrado_ventanas();
+		Zona_inicio_cuerpo_registrado uicr= new Zona_inicio_cuerpo_registrado();
+		Zona_inicio_cabecera_registrado zicr= new Zona_inicio_cabecera_registrado();
+		
+		Zona_inicio_comun ztii=new Zona_inicio_comun();
+		setContent(ttt2);
+		 	*/
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
