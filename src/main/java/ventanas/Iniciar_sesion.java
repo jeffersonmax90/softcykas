@@ -1,7 +1,9 @@
 package ventanas;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -68,13 +70,22 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 	}
 
 	void iniciar_sesion() {
-		 Usuario_BD usu = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());
+		 Usuario_BD usuario = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());
 			
-		
-		
-	
+		if(usuario instanceof Usuario_Registrado_BD){
+			UI.getCurrent().getNavigator().destroy();
+			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
+		}else if( usuario instanceof Administrador_BD){
+			UI.getCurrent().getNavigator().destroy();
+			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
+			
+		}else{
+		Notification notification = new Notification("Intentelo de nuevo!", "Nombre o contraseña incorrecta", Notification.Type.HUMANIZED_MESSAGE);
+		notification.setDelayMsec(2000);
+		notification.show(Page.getCurrent());
 	
 	
 	 }
+	}
 }
 	
