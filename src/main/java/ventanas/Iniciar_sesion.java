@@ -63,29 +63,43 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				iniciar_sesion();
-				//UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
+				
 			}
 		});
 		
 	}
 
 	void iniciar_sesion() {
-		 Usuario_BD usuario = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());
-			
-		if(usuario instanceof Usuario_Registrado_BD){
-			UI.getCurrent().getNavigator().destroy();
-			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
-		}else if( usuario instanceof Administrador_BD){
-			UI.getCurrent().getNavigator().destroy();
-			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
-			
-		}else{
-		Notification notification = new Notification("Intentelo de nuevo!", "Nombre o contraseña incorrecta", Notification.Type.HUMANIZED_MESSAGE);
+		Usuario_BD usuario = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());			
+	
+		
+		//opcion 1:funciona las sesiones  y no la notificacion
+		
+		if(usuario.getTipoUsuario().equals("Registrado")){			
+			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
+		}else if(usuario.getTipoUsuario().equals("Administrador")){					
+			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
+		}else if(!((usuario.getTipoUsuario().equals("Registrado")) || (usuario.getTipoUsuario()!="Administrador"))){
+		Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);
-		notification.show(Page.getCurrent());
-	
-	
+		notification.show(Page.getCurrent());	
 	 }
+		
+		
+		//opcion 2 funciona solo la notificacion
+		/*
+				if(usuario.getTipoUsuario()==("Registrado")){			
+					UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
+				}else if(usuario.getTipoUsuario()==("Administrador")){					
+					UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
+				}else{
+				Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
+				notification.setDelayMsec(2000);
+				notification.show(Page.getCurrent());	
+			 }
+		
+		*/
+		
 	}
 }
 	

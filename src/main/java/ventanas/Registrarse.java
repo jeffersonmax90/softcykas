@@ -49,6 +49,7 @@ public class Registrarse extends Registrarse_ventanas implements View {
 		user.setApodo(anadirDatos.apodo.getValue());
 		user.setContraseña(anadirDatos.contrasena.getValue());
 		user.setEmail(anadirDatos.correo.getValue());
+		user.setTipoUsuario("Registrado");
 		user.setN_visitas(0);
 		user.setMiniatura(anadirDatos.urlPhoto.getValue());
 		user.setFecha_nacimiento(java.sql.Date.valueOf(anadirDatos.fechaNacimiento.getValue()));

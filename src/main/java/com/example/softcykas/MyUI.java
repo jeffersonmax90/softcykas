@@ -18,6 +18,7 @@ import com.vaadin.ui.Video;
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
 import ventanas.Cabecera_buscador;
+import ventanas.Cambiar_contrasena;
 import ventanas.Ficha_administrador;
 import ventanas.Ficha_invitado;
 import ventanas.Ficha_propietario;
@@ -26,6 +27,8 @@ import ventanas.Ficha_registrado;
 import ventanas.Iniciar_sesion;
 import ventanas.Lista_de_reproduccion;
 import ventanas.Lista_de_usuarios_registrados;
+import ventanas.Lista_historial;
+import ventanas.Lista_ultimos_videos_subidos;
 import ventanas.Lista_usuarios;
 import ventanas.Lista_videos;
 import ventanas.Lista_videos_agenos;
@@ -47,6 +50,7 @@ import ventanas.Recuperar_contrasena_ventanas;
 import ventanas.Registrarse;
 import ventanas.Subir_video;
 import ventanas.Subir_video_ventanas;
+import ventanas.Usuario_administrador;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
 import ventanas.Usuario_registrado_ventanas;
@@ -93,6 +97,13 @@ public class MyUI extends UI {
 		navigator.addView("usuario_invitado",  Usuario_invitado.class);
 		navigator.addView("recuperar_contrasena", Recuperar_contrasena.class);
 		navigator.addView("usuario_registrado", Usuario_registrado.class);
+		navigator.addView("usuario_administrador", Usuario_administrador.class);
+		navigator.addView("perfil_registrado", Perfil_registrado.class);
+		navigator.addView("subir_video", Subir_video.class);
+		navigator.addView("modificar_datos", Modificar_datos.class);
+		navigator.addView("cambiar_contrasena", Cambiar_contrasena.class);
+		navigator.addView("lista_historial", Lista_historial.class);
+		navigator.addView("lista_ultimos_videos_subidos", Lista_ultimos_videos_subidos.class);
 		
 		
 		navigator.navigateTo("");
@@ -116,8 +127,10 @@ public class MyUI extends UI {
 		Zona_inicio_cuerpo_registrado uicr= new Zona_inicio_cuerpo_registrado();
 		Zona_inicio_cabecera_registrado zicr= new Zona_inicio_cabecera_registrado();
 		
+		Usuario_administrador	ua= new Usuario_administrador();
 		Zona_inicio_comun ztii=new Zona_inicio_comun();
-		setContent(ttt2);
+		Perfil_registrado pr= new Perfil_registrado();
+		setContent(pr);
 		 	*/
 	}
 
