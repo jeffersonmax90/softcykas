@@ -86,7 +86,7 @@ public class MyUI extends UI {
 	
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-	/*
+	
 		getPage().setTitle("GarbiTube");
 		
 		navigator = new Navigator(this, this);
@@ -109,7 +109,7 @@ public class MyUI extends UI {
 		navigator.navigateTo("");
 		
 		
-		*/
+		
 		
 		/*
 		Lista_videos_ventanas lv= new Lista_videos_ventanas();
@@ -126,13 +126,13 @@ public class MyUI extends UI {
 		Usuario_registrado_ventanas ttt2= new Usuario_registrado_ventanas();
 		Zona_inicio_cuerpo_registrado uicr= new Zona_inicio_cuerpo_registrado();
 		Zona_inicio_cabecera_registrado zicr= new Zona_inicio_cabecera_registrado();
-		*/
+		
 		Usuario_administrador	ua= new Usuario_administrador();
 		Zona_inicio_comun ztii=new Zona_inicio_comun();
 		Perfil_registrado pr= new Perfil_registrado();
 		Subir_video s= new Subir_video();
 		setContent(s);
-		 	
+		 	*/
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

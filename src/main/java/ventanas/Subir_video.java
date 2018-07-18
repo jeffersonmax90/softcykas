@@ -54,7 +54,7 @@ public class Subir_video extends Subir_video_ventanas  implements View{
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		Optional<String> catSelecc = anadirDatosVideo.categoria.getSelectedItem();
 		String categoria = catSelecc.get();
-		video.setCategoria_BD(categoria);
+		//video.setCategoria_BD(categoria);
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 		//video.set(anadirDatosVideo.rutaVideo.getValue());
 		video.setMiniatura(anadirDatosVideo.rutaMiniatura.getValue());
