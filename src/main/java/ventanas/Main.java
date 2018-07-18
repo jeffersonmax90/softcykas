@@ -1,5 +1,9 @@
 package ventanas;
 
+import java.util.List;
+
+import org.orm.PersistentException;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -24,6 +28,7 @@ public class Main {
 		
 		
 		//Iniciar sesion
+		/*
 		IUsuario_no_registrado noRegistrado = new BD_Principal();
 		String email="admin@admin";
 		String contraseña="123";
@@ -31,6 +36,23 @@ public class Main {
 		Usuario_BD usuario = noRegistrado.iniciarSesion(email, contraseña);
 		
 		System.out.println(usuario.getTipoUsuario());
+		*/
+		BD_Categorias noRegistrado = new BD_Categorias();
+		List<Categoria_BD> cat = null;
+		
+			try {
+				cat = noRegistrado.listarCategorias();
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		 
+		for (int i = 0; i < cat.size(); i++) {
+			System.out.println(cat.get(i).toString()+cat.get(i).getNombre()+cat.get(i).getEdad());
+		}
+		
+		
 	}
 
 }
