@@ -65,6 +65,23 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 			}
 		});
 		
+		cabecera.zcv.ver_listado_suscriptores.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("listado_suscriptores");
+			}
+		});
+		
+		cabecera.zcv.ver_listado_suscripciones.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("listado_suscripciones_registrado");
+			}
+		});
+		
+		
+		
+		
 	}
 
 

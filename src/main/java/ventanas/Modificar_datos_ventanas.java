@@ -27,3 +27,4 @@ public class Modificar_datos_ventanas extends VerticalLayout {
 		Design.read(this);
 	}
 }
+	

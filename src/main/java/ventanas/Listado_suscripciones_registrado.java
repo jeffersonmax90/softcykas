@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Listado_suscripciones_registrado extends Listado_suscripciones_registrado_ventanas{
+import com.vaadin.navigator.View;
+
+public class Listado_suscripciones_registrado extends Listado_suscripciones_registrado_ventanas implements View{
 	/*
 	private JLabel _suscripcionesLB;
 	private Vector _suscripcionesV;

@@ -35,6 +35,7 @@ import ventanas.Lista_videos_agenos;
 import ventanas.Lista_videos_agenos_ventanas;
 import ventanas.Lista_videos_buscados;
 import ventanas.Lista_videos_ventanas;
+import ventanas.Listado_suscripciones_registrado;
 import ventanas.Listado_suscripciones_visitante_ventanas;
 import ventanas.Listado_suscriptores;
 import ventanas.Listado_suscriptores_ventanas;
@@ -104,6 +105,8 @@ public class MyUI extends UI {
 		navigator.addView("cambiar_contrasena", Cambiar_contrasena.class);
 		navigator.addView("lista_historial", Lista_historial.class);
 		navigator.addView("lista_ultimos_videos_subidos", Lista_ultimos_videos_subidos.class);
+		navigator.addView("listado_suscriptores", Listado_suscriptores.class);
+		navigator.addView("listado_suscripciones_registrado", Listado_suscripciones_registrado.class);
 		
 		
 		navigator.navigateTo("");
