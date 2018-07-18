@@ -12,6 +12,10 @@ import java.util.List;
 
 import org.orm.PersistentException;
 
+
+
+
+
 public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUsuario_registrado {
 	public BD_Videos _bD_Videos= new BD_Videos();
 	public BD_Usuarios_Administradores _bD_Usuarios_Administradores = new BD_Usuarios_Administradores();
@@ -22,16 +26,18 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public BD_Historial _bD_Historial = new BD_Historial();
 
 	public boolean subirVideo(Video_BD aVideo) {
-		throw new UnsupportedOperationException();
+		
+			return false;
+		
 	}
 
 	public boolean modificarVideo(Video_BD aVideo) {
 		throw new UnsupportedOperationException();
 	}
-
+	
 	
 	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario) {
-
+		
 		try {
 			return _bD_Usuarios_Registrados.nuevoUsuario(aUsuario);
 		} catch (PersistentException e) {
@@ -41,9 +47,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 	}
 
-	public Categoria__ cargar_categorias() {
-		throw new UnsupportedOperationException();
-	}
 
 	public List cargar_videos_tendencias() {
 		throw new UnsupportedOperationException();
@@ -53,14 +56,9 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public void borrar55() {
-		throw new UnsupportedOperationException();
-	}
+	
 
-	public Categorias[] Cargar_categorias() {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	public Video[] cargarHistorial(int aId) {
 		throw new UnsupportedOperationException();
 	}
@@ -105,9 +103,22 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario iniciarSesion(String aEmail, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) {
+		
+		Usuario_BD usuario=new Usuario_BD();
+		
+			 try {
+				usuario=_bD_Usuarios_Registrados.iniciarSesion(aEmail, aContrasena);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 return usuario;
+			 
+		
 	}
+	
+	
 
 	public Categoria_BD[] cargarCategorias(int aId) {
 		throw new UnsupportedOperationException();
@@ -232,4 +243,18 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public void cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir) {
 		throw new UnsupportedOperationException();
 	}
+
+	@Override
+	public List<Categoria_BD> cargarCategorias() {
+		List<Categoria_BD> cat = null;
+		try {
+			cat = _bD_Categorias.listarCategorias();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cat;
+	}
+
+
 }

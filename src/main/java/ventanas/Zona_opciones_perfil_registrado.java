@@ -1,6 +1,13 @@
 package ventanas;
 
-public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_registrado_ventanas {
+import com.vaadin.navigator.View;
+import com.vaadin.server.Page;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
+public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_registrado_ventanas implements View {
 	/*
 	private JButon _inicioB;
 	private JButon _subir_videoB;

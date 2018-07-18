@@ -7,19 +7,20 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout spacing="false" size-auto margin="false">
-   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
+  <vaadin-vertical-layout responsive size-full margin="false">
+   <vaadin-form-layout size-auto margin :center>
     <vaadin-label plain-text _id="modificar_datos_del_usuario">
       Modificar datos del usuario 
     </vaadin-label>
-   </vaadin-form-layout>
-   <vaadin-form-layout spacing="false" size-auto margin="false">
-     <ventanas-anadir_datos_usuario_ventanas></ventanas-anadir_datos_usuario_ventanas>
-   </vaadin-form-layout>
-   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
-    <vaadin-button plain-text _id="modificar">
-      Modificar 
-    </vaadin-button>
+    <ventanas-anadir_datos_usuario_ventanas></ventanas-anadir_datos_usuario_ventanas>
+    <vaadin-horizontal-layout>
+     <vaadin-button plain-text _id="atras">
+       Atrás 
+     </vaadin-button>
+     <vaadin-button plain-text _id="modificar">
+       Modificar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>

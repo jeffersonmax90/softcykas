@@ -1,6 +1,10 @@
 package ventanas;
 
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import ventanas.Video_BD;
 import ventanas.Video;
 import ventanas.Lista_videos_subidos;
@@ -10,8 +14,28 @@ public class BD_Videos {
 	public BD_Principal _bD_Principal;
 	public Vector<Video_BD> _videos = new Vector<Video_BD>();
 
-	public boolean nuevoVideo(Video_BD aVideo) {
-		throw new UnsupportedOperationException();
+	public boolean nuevoVideo(Video_BD aVideo) throws PersistentException {
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Categoria_BD c= new Categoria_BD();
+			aVideo.setORM_Categoria_BD(c);
+			Usuario_Registrado_BD u= new Usuario_Registrado_BD();
+			aVideo.setORM_Propietario(u);			
+			
+			
+			Video_BDDAO.save(aVideo);
+			
+			
+			t.commit();
+			
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			t.rollback();
+			return false;
+		}
+		
+		
+		return true;
 	}
 
 	public boolean actualizarVideo(Video_BD aVideo) {

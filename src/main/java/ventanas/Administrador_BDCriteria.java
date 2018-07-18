@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -24,6 +24,7 @@ public class Administrador_BDCriteria extends AbstractORMCriteria {
 	public final StringExpression contraseña;
 	public final StringExpression miniatura;
 	public final StringExpression email;
+	public final StringExpression tipoUsuario;
 	
 	public Administrador_BDCriteria(Criteria criteria) {
 		super(criteria);
@@ -32,6 +33,7 @@ public class Administrador_BDCriteria extends AbstractORMCriteria {
 		contraseña = new StringExpression("contraseña", this);
 		miniatura = new StringExpression("miniatura", this);
 		email = new StringExpression("email", this);
+		tipoUsuario = new StringExpression("tipoUsuario", this);
 	}
 	
 	public Administrador_BDCriteria(PersistentSession session) {

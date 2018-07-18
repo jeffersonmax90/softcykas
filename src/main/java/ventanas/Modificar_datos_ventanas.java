@@ -20,6 +20,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Modificar_datos_ventanas extends VerticalLayout {
 	protected Label modificar_datos_del_usuario;
+	protected Button atras;
 	protected Button modificar;
 
 	public Modificar_datos_ventanas() {

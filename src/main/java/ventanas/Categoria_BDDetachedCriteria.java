@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -21,14 +21,14 @@ import org.orm.criteria.*;
 public class Categoria_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression id;
 	public final StringExpression nombre;
-	public final IntegerExpression edad;
+	public final StringExpression edad;
 	public final CollectionExpression videos;
 	
 	public Categoria_BDDetachedCriteria() {
 		super(ventanas.Categoria_BD.class, ventanas.Categoria_BDCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		edad = new IntegerExpression("edad", this.getDetachedCriteria());
+		edad = new StringExpression("edad", this.getDetachedCriteria());
 		videos = new CollectionExpression("ORM_videos", this.getDetachedCriteria());
 	}
 	
@@ -36,7 +36,7 @@ public class Categoria_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 		super(aDetachedCriteria, ventanas.Categoria_BDCriteria.class);
 		id = new IntegerExpression("id", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
-		edad = new IntegerExpression("edad", this.getDetachedCriteria());
+		edad = new StringExpression("edad", this.getDetachedCriteria());
 		videos = new CollectionExpression("ORM_videos", this.getDetachedCriteria());
 	}
 	

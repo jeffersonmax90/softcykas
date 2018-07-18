@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -24,6 +24,7 @@ public class Usuario_Registrado_BDCriteria extends AbstractORMCriteria {
 	public final StringExpression contraseña;
 	public final StringExpression miniatura;
 	public final StringExpression email;
+	public final StringExpression tipoUsuario;
 	public final StringExpression nombre;
 	public final StringExpression apellidos;
 	public final DateExpression fecha_nacimiento;
@@ -44,6 +45,7 @@ public class Usuario_Registrado_BDCriteria extends AbstractORMCriteria {
 		contraseña = new StringExpression("contraseña", this);
 		miniatura = new StringExpression("miniatura", this);
 		email = new StringExpression("email", this);
+		tipoUsuario = new StringExpression("tipoUsuario", this);
 		nombre = new StringExpression("nombre", this);
 		apellidos = new StringExpression("apellidos", this);
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this);

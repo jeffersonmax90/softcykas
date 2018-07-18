@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -24,6 +24,7 @@ public class Administrador_BDDetachedCriteria extends AbstractORMDetachedCriteri
 	public final StringExpression contraseña;
 	public final StringExpression miniatura;
 	public final StringExpression email;
+	public final StringExpression tipoUsuario;
 	
 	public Administrador_BDDetachedCriteria() {
 		super(ventanas.Administrador_BD.class, ventanas.Administrador_BDCriteria.class);
@@ -32,6 +33,7 @@ public class Administrador_BDDetachedCriteria extends AbstractORMDetachedCriteri
 		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
+		tipoUsuario = new StringExpression("tipoUsuario", this.getDetachedCriteria());
 	}
 	
 	public Administrador_BDDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -41,6 +43,7 @@ public class Administrador_BDDetachedCriteria extends AbstractORMDetachedCriteri
 		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
+		tipoUsuario = new StringExpression("tipoUsuario", this.getDetachedCriteria());
 	}
 	
 	public Administrador_BD uniqueAdministrador_BD(PersistentSession session) {

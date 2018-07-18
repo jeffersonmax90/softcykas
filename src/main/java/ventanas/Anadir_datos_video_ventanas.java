@@ -7,7 +7,6 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.NativeSelect;
 import com.vaadin.ui.TextArea;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.Upload;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.declarative.Design;
 
@@ -26,8 +25,8 @@ public class Anadir_datos_video_ventanas extends VerticalLayout {
 	protected TextField titulo;
 	protected NativeSelect<java.lang.String> categoria;
 	protected TextField Etiqueta;
-	protected Upload ruta_video;
-	protected Upload ruta_miniatura;
+	protected TextField rutaVideo;
+	protected TextField rutaMiniatura;
 	protected DateField fecha_video_subido;
 	protected Label descripcion_video;
 	protected TextArea area_descripcion;

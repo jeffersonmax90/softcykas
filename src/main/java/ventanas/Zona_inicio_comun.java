@@ -6,7 +6,7 @@ public class Zona_inicio_comun extends Zona_inicio_comun_ventanas {
 	public Videos_tendencia _unnamed_Videos_tendencia_;
 	public Videos_usuarios_registrados _unnamed_Videos_usuarios_registrados_;
 	*/
-	
+	/*
 	Videos_tendencia vt= new Videos_tendencia();
 	Videos_usuarios_registrados vur= new Videos_usuarios_registrados();
 	
@@ -15,5 +15,5 @@ public class Zona_inicio_comun extends Zona_inicio_comun_ventanas {
 		videos_usuarios_registrados_layout.addComponent(vur);
 	
 	}
-	
+	*/
 }

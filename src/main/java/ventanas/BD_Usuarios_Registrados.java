@@ -5,6 +5,7 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+
 import ventanas.Usuario_Registrado_BD;
 import ventanas.Usuario;
 import ventanas.Usuario_registrado;
@@ -49,8 +50,28 @@ public class BD_Usuarios_Registrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario_registrado iniciarSesion(String aEmail, String aContrasena) {
-		throw new UnsupportedOperationException();
+	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) throws PersistentException {
+		
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		Usuario_BD usuario = new  Usuario_BD();
+		usuario.setTipoUsuario(null);
+		
+		try {
+			//Usuario_BD u = Usuario_BDDAO.loadUsuario_BDByQuery("Usuario_BD.nombre_usuario='"+aNombre_usuario+"' and Usuario_BD.contrasenia='"+aContrasenia+"'", null);
+			for(Object usr: Usuario_BDDAO.queryUsuario_BD(null, null)) {
+				Usuario_BD usu = (Usuario_BD) usr;
+				if(usu.getEmail().equals(aEmail) && usu.getContraseña().equals(aContrasena)) {						
+					usuario= usu;
+					break;
+				}
+				
+			}
+			
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return usuario;
 	}
 
 	public void cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {

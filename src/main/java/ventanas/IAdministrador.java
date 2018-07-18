@@ -1,11 +1,5 @@
 package ventanas;
 
-import iuVentanas.Video;
-import iuVentanas.Lista_categorias;
-import iuVentanas.Usuario_registrado_listado;
-import iuVentanas.Usuario;
-import iuVentanas.Comentario;
-
 public interface IAdministrador {
 
 	public void eliminarVideo(int aId);

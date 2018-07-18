@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Cambiar_contrasena extends Cambiar_contrasena_ventanas{
+import com.vaadin.navigator.View;
+
+public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements View{
 	/*
 	private JLabel _contrasena_actualLB;
 	private JTextField _contrasena_actualTF;

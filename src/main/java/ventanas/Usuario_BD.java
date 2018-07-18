@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -40,6 +40,9 @@ public class Usuario_BD implements Serializable {
 	
 	@Column(name="Email", nullable=true, length=255)	
 	private String email;
+	
+	@Column(name="TipoUsuario", nullable=true, length=255)	
+	private String tipoUsuario;
 	
 	private void setId(int value) {
 		this.id = value;
@@ -83,6 +86,14 @@ public class Usuario_BD implements Serializable {
 	
 	public String getEmail() {
 		return email;
+	}
+	
+	public void setTipoUsuario(String value) {
+		this.tipoUsuario = value;
+	}
+	
+	public String getTipoUsuario() {
+		return tipoUsuario;
 	}
 	
 	public String toString() {

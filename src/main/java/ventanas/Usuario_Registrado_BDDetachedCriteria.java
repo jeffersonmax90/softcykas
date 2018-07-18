@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -24,6 +24,7 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 	public final StringExpression contraseña;
 	public final StringExpression miniatura;
 	public final StringExpression email;
+	public final StringExpression tipoUsuario;
 	public final StringExpression nombre;
 	public final StringExpression apellidos;
 	public final DateExpression fecha_nacimiento;
@@ -44,6 +45,7 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
+		tipoUsuario = new StringExpression("tipoUsuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this.getDetachedCriteria());
@@ -65,6 +67,7 @@ public class Usuario_Registrado_BDDetachedCriteria extends AbstractORMDetachedCr
 		contraseña = new StringExpression("contraseña", this.getDetachedCriteria());
 		miniatura = new StringExpression("miniatura", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
+		tipoUsuario = new StringExpression("tipoUsuario", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		apellidos = new StringExpression("apellidos", this.getDetachedCriteria());
 		fecha_nacimiento = new DateExpression("fecha_nacimiento", this.getDetachedCriteria());

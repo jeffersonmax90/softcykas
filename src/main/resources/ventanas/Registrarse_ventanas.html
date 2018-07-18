@@ -7,19 +7,22 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout spacing="false" size-auto margin="false">
-   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
+  <vaadin-vertical-layout spacing="false" responsive size-full margin="false">
+   <vaadin-form-layout responsive size-auto margin :center>
     <vaadin-label plain-text _id="registrarse">
       Registrarse 
     </vaadin-label>
-   </vaadin-form-layout>
-   <vaadin-form-layout spacing="false" size-auto margin="false">
     <ventanas-anadir_datos_usuario_ventanas _id="anadirDatos"></ventanas-anadir_datos_usuario_ventanas>
-   </vaadin-form-layout>
-   <vaadin-form-layout spacing="false" size-auto margin="false" :center>
-    <vaadin-button plain-text _id="registrar">
-      Registrar 
-    </vaadin-button>
+    <vaadin-form-layout spacing="false" responsive size-auto margin="false">
+     <vaadin-horizontal-layout>
+      <vaadin-button plain-text _id="atras">
+        Atrás 
+      </vaadin-button>
+      <vaadin-button plain-text _id="registrar">
+        Registrar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-form-layout>
    </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>

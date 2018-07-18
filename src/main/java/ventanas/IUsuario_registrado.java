@@ -1,17 +1,12 @@
 package ventanas;
 
-import iuVentanas.Video;
-import iuVentanas.Usuario;
-import iuVentanas.Lista_videos_subidos;
-import iuVentanas.Comentario;
+import java.util.List;
 
 public interface IUsuario_registrado {
 
 	public boolean subirVideo(Video_BD aVideo);
 
 	public boolean modificarVideo(Video_BD aVideo);
-
-	public void borrar55();
 
 	public Video[] cargarHistorial(int aId);
 
@@ -31,7 +26,7 @@ public interface IUsuario_registrado {
 
 	public Usuario[] cargarListadoSuscripciones(int aId);
 
-	public Categoria_BD[] cargarCategorias(int aId);
+	public List<Categoria_BD> cargarCategorias();
 
 	public Video[] cargarVideosSuscripciones(int aId);
 

@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-horizontal-layout size-full margin>
-   <vaadin-horizontal-layout _id="buscador_layout"></vaadin-horizontal-layout>
+  <vaadin-horizontal-layout responsive margin>
+   <vaadin-horizontal-layout _id="buscador_layout">
+    <ventanas-cabecera_buscador></ventanas-cabecera_buscador>
+   </vaadin-horizontal-layout>
    <vaadin-horizontal-layout margin _id="iniciar_sesion_layout" :center>
     <vaadin-button plain-text _id="mi_perfil">
       Mi Perfil 

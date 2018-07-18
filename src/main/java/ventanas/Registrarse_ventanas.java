@@ -22,6 +22,7 @@ import ventanas.Anadir_datos_usuario_ventanas;
 public class Registrarse_ventanas extends VerticalLayout {
 	protected Label registrarse;
 	protected Anadir_datos_usuario_ventanas anadirDatos;
+	protected Button atras;
 	protected Button registrar;
 
 	public Registrarse_ventanas() {

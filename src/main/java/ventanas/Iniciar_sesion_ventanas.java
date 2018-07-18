@@ -5,7 +5,6 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Label;
-import com.vaadin.ui.Link;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
@@ -24,10 +23,11 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Iniciar_sesion_ventanas extends VerticalLayout {
 	protected Label iniciar_sesion;
-	protected TextField email;
-	protected PasswordField contrasena;
+	protected TextField emailTF;
+	protected PasswordField contrasenaTF;
 	protected CheckBox recordar_contrasena;
-	protected Link recuperar_contrasena;
+	protected Button recuperar_contrasena;
+	protected Button registrarse;
 	protected Button atras;
 	protected Button iniciar;
 

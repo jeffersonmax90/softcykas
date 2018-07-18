@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -47,8 +47,8 @@ public class Categoria_BD implements Serializable {
 	@Column(name="Nombre", nullable=true, length=255)	
 	private String nombre;
 	
-	@Column(name="Edad", nullable=true, length=10)	
-	private int edad;
+	@Column(name="Edad", nullable=true, length=255)	
+	private String edad;
 	
 	@OneToMany(mappedBy="categoria_BD", targetEntity=ventanas.Video_BD.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
@@ -75,11 +75,11 @@ public class Categoria_BD implements Serializable {
 		return nombre;
 	}
 	
-	public void setEdad(int value) {
+	public void setEdad(String value) {
 		this.edad = value;
 	}
 	
-	public int getEdad() {
+	public String getEdad() {
 		return edad;
 	}
 	

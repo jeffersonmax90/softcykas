@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: david(University of Almeria)
+ * Licensee: Jefferson T(University of Almeria)
  * License Type: Academic
  */
 package ventanas;
@@ -21,14 +21,14 @@ import org.orm.criteria.*;
 public class Categoria_BDCriteria extends AbstractORMCriteria {
 	public final IntegerExpression id;
 	public final StringExpression nombre;
-	public final IntegerExpression edad;
+	public final StringExpression edad;
 	public final CollectionExpression videos;
 	
 	public Categoria_BDCriteria(Criteria criteria) {
 		super(criteria);
 		id = new IntegerExpression("id", this);
 		nombre = new StringExpression("nombre", this);
-		edad = new IntegerExpression("edad", this);
+		edad = new StringExpression("edad", this);
 		videos = new CollectionExpression("ORM_videos", this);
 	}
 	
