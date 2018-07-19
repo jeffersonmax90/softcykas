@@ -22,6 +22,7 @@ public class Lista_videos_ventanas extends Panel {
 	protected HorizontalLayout video_layout2;
 	protected HorizontalLayout video_layout3;
 	protected HorizontalLayout video_layout4;
+	protected HorizontalLayout video_layout41;
 
 	public Lista_videos_ventanas() {
 		Design.read(this);
