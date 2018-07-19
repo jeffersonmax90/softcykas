@@ -22,6 +22,7 @@ import com.vaadin.ui.declarative.Design;
 public class Crear_categoria_ventanas extends VerticalLayout {
 	protected Label crear_categoria_label;
 	protected TextField nombre_categoria;
+	protected Button atras;
 	protected Button crear_categoria_button;
 
 	public Crear_categoria_ventanas() {

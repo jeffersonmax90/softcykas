@@ -1,6 +1,11 @@
 package ventanas;
 
-public class Crear_categoria extends Crear_categoria_ventanas {
+import com.vaadin.navigator.View;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Button.ClickListener;
+
+public class Crear_categoria extends Crear_categoria_ventanas implements View{
 	/*private Label _nombre_nueva_categoriaLB;
 	private TextFiel _nombre_nueva_categoriaTF;
 	private Label _edad_permitidadLb;
@@ -13,4 +18,28 @@ public class Crear_categoria extends Crear_categoria_ventanas {
 	public void crear_categoria() {
 		throw new UnsupportedOperationException();
 	}*/
+	
+	
+	public Crear_categoria(){
+		atras.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
+				
+			}
+		});
+		
+		crear_categoria_button.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+		});
+	}
+	
 }

@@ -6,9 +6,15 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-horizontal-layout width-full margin-right>
-   <vaadin-image width="250px" height="100px"></vaadin-image>
-   <vaadin-link caption="Mi perfil" _id="mi_perfil" :middle :right></vaadin-link>
-  </vaadin-horizontal-layout>
+  <vaadin-vertical-layout spacing="false" responsive>
+   <vaadin-form-layout spacing="false" responsive size-auto :right>
+    <vaadin-button width="150px" height="150px" plain-text _id="imagen">
+      No imagen 
+    </vaadin-button>
+    <vaadin-button style-name="link" plain-text _id="miPerfilAdministrador">
+      Mi perfil Administrador 
+    </vaadin-button>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

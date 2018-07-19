@@ -19,6 +19,8 @@ import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
 import ventanas.Cabecera_buscador;
 import ventanas.Cambiar_contrasena;
+import ventanas.Cambiar_imagen;
+import ventanas.Crear_categoria;
 import ventanas.Ficha_administrador;
 import ventanas.Ficha_invitado;
 import ventanas.Ficha_propietario;
@@ -28,6 +30,7 @@ import ventanas.Iniciar_sesion;
 import ventanas.Lista_de_reproduccion;
 import ventanas.Lista_de_usuarios_registrados;
 import ventanas.Lista_historial;
+import ventanas.Lista_total_videos_subidos;
 import ventanas.Lista_ultimos_videos_subidos;
 import ventanas.Lista_usuarios;
 import ventanas.Lista_videos;
@@ -62,6 +65,7 @@ import ventanas.Videos_relacionados;
 import ventanas.Videos_tendencia;
 import ventanas.Videos_usuarios_registrados;
 import ventanas.Zona_cabecera_perfil_visitante_ventanas;
+import ventanas.Zona_cabecera_video_administrador;
 import ventanas.Zona_cuerpo_perfil_visitante;
 import ventanas.Zona_inicio_cabecera_invitado;
 import ventanas.Zona_inicio_cabecera_registrado;
@@ -87,7 +91,7 @@ public class MyUI extends UI {
 	
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-	
+		
 		getPage().setTitle("GarbiTube");
 		
 		navigator = new Navigator(this, this);
@@ -106,8 +110,12 @@ public class MyUI extends UI {
 		navigator.addView("lista_historial", Lista_historial.class);
 		navigator.addView("lista_ultimos_videos_subidos", Lista_ultimos_videos_subidos.class);
 		navigator.addView("listado_suscriptores", Listado_suscriptores.class);
-		navigator.addView("listado_suscripciones_registrado", Listado_suscripciones_registrado.class);
-		
+		navigator.addView("listado_suscripciones_registrado", Listado_suscripciones_registrado.class);		
+		navigator.addView("Cambiar_imagen", Cambiar_imagen.class);		
+		navigator.addView("perfil_administrador", Perfil_administrador.class);
+		navigator.addView("Crear_categoria", Crear_categoria.class);
+		navigator.addView("Lista_de_usuarios_registrados", Lista_de_usuarios_registrados.class);
+		navigator.addView("Lista_total_videos_subidos", Lista_total_videos_subidos.class);
 		
 		navigator.navigateTo("");
 		
@@ -131,11 +139,18 @@ public class MyUI extends UI {
 		Zona_inicio_cabecera_registrado zicr= new Zona_inicio_cabecera_registrado();
 		
 		Usuario_administrador	ua= new Usuario_administrador();
+		Zona_cabecera_video_administrador zcv= new Zona_cabecera_video_administrador();
 		Zona_inicio_comun ztii=new Zona_inicio_comun();
 		Perfil_registrado pr= new Perfil_registrado();
+		Perfil_administrador pa= new Perfil_administrador();
 		Subir_video s= new Subir_video();
-		setContent(s);
-		 	*/
+		Cambiar_imagen c= new Cambiar_imagen();
+		Crear_categoria cc= new  Crear_categoria();
+		//
+		Lista_de_usuarios_registrados lu= new Lista_de_usuarios_registrados();
+		Lista_total_videos_subidos lt= new Lista_total_videos_subidos();
+		setContent(lu);
+		*/ 	
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.0.5">
+  <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
   <vaadin-vertical-layout>
@@ -11,7 +12,19 @@
      Lista usuarios: 
    </vaadin-label>
    <vaadin-text-field placeholder="Buscar usuario"></vaadin-text-field>
-   <vaadin-list-select data-item-type="ventanas.Usuario_registrado_listado_ventanas"></vaadin-list-select>
+   <vaadin-panel width-auto height="155px">
+    <vaadin-form-layout size-auto>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+    </vaadin-form-layout>
+   </vaadin-panel>
+   <vaadin-button plain-text _id="atras">
+     Atrás 
+   </vaadin-button>
   </vaadin-vertical-layout>
  </body>
 </html>
