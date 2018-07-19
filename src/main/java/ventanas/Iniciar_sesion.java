@@ -71,34 +71,20 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 
 	void iniciar_sesion() {
 		Usuario_BD usuario = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());			
+		String tipoUsuario= usuario.getTipoUsuario();	
+				
 	
 		
-		//opcion 1:funciona las sesiones  y no la notificacion
-		
-		if(usuario.getTipoUsuario().equals("Registrado")){			
+		if(tipoUsuario.equals("Registrado")){			
 			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
-		}else if(usuario.getTipoUsuario().equals("Administrador")){					
+		}else if(tipoUsuario.equals("Administrador")){					
 			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
-		}else if(!((usuario.getTipoUsuario().equals("Registrado")) || (usuario.getTipoUsuario()!="Administrador"))){
+		}else if(tipoUsuario.equals("incorrecto")){
 		Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);
 		notification.show(Page.getCurrent());	
 	 }
-		
-		
-		//opcion 2 funciona solo la notificacion
-		/*
-				if(usuario.getTipoUsuario()==("Registrado")){			
-					UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
-				}else if(usuario.getTipoUsuario()==("Administrador")){					
-					UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
-				}else{
-				Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
-				notification.setDelayMsec(2000);
-				notification.show(Page.getCurrent());	
-			 }
-		
-		*/
+	
 		
 	}
 }

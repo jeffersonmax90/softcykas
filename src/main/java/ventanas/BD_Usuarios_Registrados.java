@@ -54,7 +54,7 @@ public class BD_Usuarios_Registrados {
 		
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
 		Usuario_BD usuario = new  Usuario_BD();
-		usuario.setTipoUsuario(null);
+		usuario.setTipoUsuario("incorrecto");
 		
 		try {
 			//Usuario_BD u = Usuario_BDDAO.loadUsuario_BDByQuery("Usuario_BD.nombre_usuario='"+aNombre_usuario+"' and Usuario_BD.contrasenia='"+aContrasenia+"'", null);
