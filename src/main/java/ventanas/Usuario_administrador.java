@@ -16,7 +16,7 @@ public class Usuario_administrador extends Usuario_administrador_ventanas implem
 	public Usuario_administrador(){
 		
 		
-		zcva.miPerfilAdministrador.addClickListener(new Button.ClickListener() {		
+		zcva.mi_perfil.addClickListener(new Button.ClickListener() {		
 			public void buttonClick(ClickEvent event) {				
 				UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
 				}

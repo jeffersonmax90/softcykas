@@ -7,8 +7,14 @@
  </head>
  <body>
   <vaadin-horizontal-layout width-full margin-right>
-   <vaadin-image width="250px" height="100px"></vaadin-image>
-   <vaadin-link caption="Mi perfil" responsive _id="mi_perfil" :middle :right></vaadin-link>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-button style-name="huge borderless" plain-text _id="logo">
+      Garbiñe Youtube_registrado 
+    </vaadin-button>
+    <vaadin-button icon="fonticon://Vaadin-Icons/e944" plain-text _id="mi_perfil">
+      Mi perfil 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
   </vaadin-horizontal-layout>
  </body>
 </html>
