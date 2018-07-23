@@ -55,4 +55,6 @@ public interface IUsuario_registrado {
 	public List<Comentario_BD> anadirComentarios(int aId);
 	
 	public Usuario_Registrado_BD cargarModificarDatos(int aId);
+	
+	
 }

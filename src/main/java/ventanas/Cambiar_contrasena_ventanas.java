@@ -23,9 +23,9 @@ public class Cambiar_contrasena_ventanas extends VerticalLayout {
 	protected Label titulo_cambiar_contraseña;
 	protected PasswordField contrasena_actual;
 	protected PasswordField contrasena_nueva;
-	protected PasswordField contrasena;
+	protected PasswordField repetir_contrasena;
 	protected Button atras;
-	protected Button aceptar;
+	protected Button cambiarContrasena;
 
 	public Cambiar_contrasena_ventanas() {
 		Design.read(this);

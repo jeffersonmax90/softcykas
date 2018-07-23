@@ -1,7 +1,9 @@
 package ventanas;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -21,10 +23,11 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 		throw new UnsupportedOperationException();
 	}
 	*/
-	
+	//Usuario_Registrado_BD usu= new Usuario_Registrado_BD();
+	IUsuario_registrado usuario_registrado= new BD_Principal();
 	
 	public Cambiar_contrasena(){
-		
+				
 				
 		atras.addClickListener(new Button.ClickListener() {		
 			public void buttonClick(ClickEvent event) {				
@@ -32,16 +35,35 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 				}
 			});
 		
-		aceptar.addClickListener(new Button.ClickListener() {		
+		cambiarContrasena.addClickListener(new Button.ClickListener() {		
 			public void buttonClick(ClickEvent event) {				
-				aceptar();
+				cambiarcontrasena();
 				}
 			});
 	
 	}
 	
-	void aceptar() {
-		// TODO Auto-generated method stub
+	
+	
+	void cambiarcontrasena() {
+	
+	
+	if(contrasena_nueva.getValue().equals(repetir_contrasena.getValue())){
+	usuario_registrado.cambiarcontrasena(contrasena_nueva.getValue(),
+										contrasena_actual.getValue(),
+										repetir_contrasena.getValue());	
+	
+	Notification notification = new Notification("Correcto", "Se ha cambiado correctamente", Notification.Type.HUMANIZED_MESSAGE);
+	notification.setDelayMsec(2000);
+	notification.show(Page.getCurrent());	
+	UI.getCurrent().getNavigator().navigateTo("perfil_registrado");		
+	}else{
+	Notification notification = new Notification("Incorrecto", "La contraseña no coincide", Notification.Type.ERROR_MESSAGE);
+	notification.setDelayMsec(2000);
+	notification.show(Page.getCurrent());		
+	}
+	
+		
 		
 	}
 	

@@ -93,8 +93,25 @@ public class BD_Usuarios_Registrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean cambiarContrasena(String aContNuevas, String aContActual, String aContRepetir) {
-		throw new UnsupportedOperationException();
+	public boolean cambiarContrasena(String aContNuevas, String aContActual, String aContRepetir) throws PersistentException {
+		boolean modificado= false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+
+		try {		
+			Usuario_Registrado_BD usu=Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(Datos_Navegante.getIdUsuario());
+			
+			if(usu.getContraseña().equals(aContActual)){
+				usu.setContraseña(aContNuevas);				
+				Usuario_Registrado_BDDAO.save(usu);
+				t.commit();
+				modificado= true;
+			}
+			
+			} catch (Exception e) {
+				t.rollback();
+			}
+			return modificado;
+		
 	}
 
 	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) {
@@ -111,8 +128,7 @@ public class BD_Usuarios_Registrados {
 	
 	public Usuario_Registrado_BD cargarModificarDatos(int aId) throws PersistentException {
 		Usuario_Registrado_BD usu=null;
-		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
-		
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {
 			Usuario_Registrado_BD usuario= Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
 			
@@ -121,9 +137,9 @@ public class BD_Usuarios_Registrados {
 		} catch (Exception e) {
 			// TODO: handle exception
 			t.rollback();
-		}
-		
-		return usu;
-		
+		}		
+		return usu;		
 	}
+	
+	
 }

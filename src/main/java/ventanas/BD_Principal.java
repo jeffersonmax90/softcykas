@@ -190,7 +190,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir) {
-		throw new UnsupportedOperationException();
+		boolean modificado= false;
+		try {
+			modificado= _bD_Usuarios_Registrados.cambiarContrasena(aContNueva, aContActual, aContRepetir);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return modificado;
 	}
 
 	public List<Categoria_BD> cargarCategorias() {
@@ -234,4 +240,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return usu;
 	}
+	
+	
 }

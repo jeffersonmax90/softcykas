@@ -60,9 +60,8 @@ public class Main {
 		
 		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		
-		u.setNombre("jefferson2");
+	
 		
-		usu.modificarDatos(u);
 		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		
 	}
