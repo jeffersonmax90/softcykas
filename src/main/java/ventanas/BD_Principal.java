@@ -1,20 +1,8 @@
 package ventanas;
 
-import ventanas.Categorias;
-import ventanas.Video;
-import ventanas.Usuario;
-import ventanas.Lista_categorias;
-import ventanas.Usuario_registrado_listado;
-import ventanas.Comentario;
-import ventanas.Lista_videos_subidos;
-
 import java.util.List;
 
 import org.orm.PersistentException;
-
-
-
-
 
 public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUsuario_registrado {
 	public BD_Videos _bD_Videos= new BD_Videos();
@@ -26,27 +14,23 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public BD_Historial _bD_Historial = new BD_Historial();
 
 	public boolean subirVideo(Video_BD aVideo) {
-		
-			return false;
-		
+		throw new UnsupportedOperationException();
 	}
 
 	public boolean modificarVideo(Video_BD aVideo) {
 		throw new UnsupportedOperationException();
 	}
-	
-	
-	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario) {
-		
-		try {
-			return _bD_Usuarios_Registrados.nuevoUsuario(aUsuario);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
-	}
 
+	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario) {
+			
+			try {
+				return _bD_Usuarios_Registrados.nuevoUsuario(aUsuario);
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
 
 	public List cargar_videos_tendencias() {
 		throw new UnsupportedOperationException();
@@ -56,22 +40,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	
-
-	
-	public Video[] cargarHistorial(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void eliminarVideoSubido(int aID) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void modificar_lista_reproducion(String aNuevoNombre) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void modificarDatos(int aID) {
+	public List<Video_BD> cargarHistorial(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -79,88 +48,62 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public void crearLista(String aNombre, int aID) {
+	public List<Video_BD> cargarVideosTendencia() {
 		throw new UnsupportedOperationException();
 	}
 
-	public void quitarVideo(int aID) {
-		throw new UnsupportedOperationException();
-	}
-
-	public void dejarSeguir(int aID) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Usuario[] cargarListadoSuscripciones(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Video[] cargarVideosTendencia(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Video[] cargarVideosUsuarioRegistrado(int aId) {
+	public List<Video_BD> cargarVideosUsuarioRegistrado(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) {
-		
-		Usuario_BD usuario=new Usuario_BD();
-		
-			 try {
-				usuario=_bD_Usuarios_Registrados.iniciarSesion(aEmail, aContrasena);
-			} catch (PersistentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			 return usuario;
-			 
-		
-	}
-	
-	
+			
+			Usuario_BD usuario=new Usuario_BD();
+			
+				 try {
+					usuario=_bD_Usuarios_Registrados.iniciarSesion(aEmail, aContrasena);
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				 return usuario;
+				 
+			
+		}
 
-	public Categoria_BD[] cargarCategorias(int aId) {
+	public List<Video_BD> cargarVideosRelacionados(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video[] cargarVideosSuscripciones(int aId) {
+	public boolean eliminarVideo(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video[] cargarVideosRelacionados(int aId) {
+	public Video_BD descargarVideoUA(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminarVideo(int aId) {
+	public boolean crearCategorias(String aNombre, String aEdad) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video descargarVideoUA(int aId) {
+	public List<String> cargarComboBoxEdadPermitida(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void crearCategorias(String aNombre, String aEdad) {
+	public boolean eliminarCategoria(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String[] cargarComboBoxEdadPermitida(int aId) {
+	public List<Categoria_BD> cargarlistaCategorias(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminarCategoria(int aId) {
+	public List<Video_BD> cargarListaTotalVideosSubidos(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Lista_categorias[] cargarlistaCategorias(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Video[] cargarListaTotalVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public Usuario_registrado_listado[] cargarlistaUsuarioRegistrados(int aId) {
+	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -168,7 +111,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public Video[] buscarVideoListaTotal(String aNombre) {
+	public List<Video_BD> buscarVideoListaTotal(String aNombre) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -176,27 +119,27 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public Usuario buscarUsuarioListaRegistado(int aId) {
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video cargarListaUltimoVideosSubidos(int aId) {
+	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadirComentario(int aId, String aComentario) {
+	public boolean anadirComentario(int aId, String aComentario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Comentario[] cargarListaComentarios(int aId) {
+	public List<Comentario_BD> cargarListaComentarios(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video[] cargarListaUltimosVideosSubidos(int aId) {
+	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Comentario[] anadirComentarios(int aId) {
+	public List<Comentario_BD> anadirComentarios(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -212,11 +155,11 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public Lista_reproduccion_BD[] cargarListasReproduccionPropias(int aId) {
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Lista_videos_subidos[] cargarVideosPropios(int aId) {
+	public List<Video_BD> cargarVideosPropios(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -228,23 +171,22 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminarVideoUR(int aId) {
+	public boolean eliminarVideoUR(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String[] cargarComboBoxAnadirLista(int aId) {
+	public List<String> cargarComboBoxAnadirLista(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {
+	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir) {
+	public boolean cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir) {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
 	public List<Categoria_BD> cargarCategorias() {
 		List<Categoria_BD> cat = null;
 		try {
@@ -256,5 +198,23 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return cat;
 	}
 
+	public boolean quitarVideo(int aId) {
+		throw new UnsupportedOperationException();
+	}
 
+	public boolean dejarSeguir(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public List<Usuario_BD> cargarListadoSuscripciones(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public List<Video_BD> cargarVideosSuscripciones(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public boolean eliminarVideoSubido(int aId) {
+		throw new UnsupportedOperationException();
+	}
 }

@@ -32,49 +32,18 @@ import ventanas.Lista_de_usuarios_registrados;
 import ventanas.Lista_historial;
 import ventanas.Lista_total_videos_subidos;
 import ventanas.Lista_ultimos_videos_subidos;
-import ventanas.Lista_usuarios;
-import ventanas.Lista_videos;
-import ventanas.Lista_videos_agenos;
-import ventanas.Lista_videos_agenos_ventanas;
-import ventanas.Lista_videos_buscados;
-import ventanas.Lista_videos_ventanas;
 import ventanas.Listado_suscripciones_registrado;
-import ventanas.Listado_suscripciones_visitante_ventanas;
 import ventanas.Listado_suscriptores;
-import ventanas.Listado_suscriptores_ventanas;
-import ventanas.Listas_de_reproduccion_ventanas;
 import ventanas.Modificar_datos;
-import ventanas.Modificar_video;
 import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
-import ventanas.Perfil_visitante;
-import ventanas.Perfil_visitante_ventanas;
 import ventanas.Recuperar_contrasena;
-import ventanas.Recuperar_contrasena_ventanas;
 import ventanas.Registrarse;
 import ventanas.Subir_video;
-import ventanas.Subir_video_ventanas;
 import ventanas.Usuario_administrador;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
-import ventanas.Usuario_registrado_ventanas;
-import ventanas.Video_lista_reproduccion;
-import ventanas.Videos_de_suscripciones;
-import ventanas.Videos_de_suscripciones_ventanas;
-import ventanas.Videos_relacionados;
-import ventanas.Videos_tendencia;
-import ventanas.Videos_usuarios_registrados;
-import ventanas.Zona_cabecera_perfil_visitante_ventanas;
-import ventanas.Zona_cabecera_video_administrador;
-import ventanas.Zona_cuerpo_perfil_visitante;
-import ventanas.Zona_inicio_cabecera_invitado;
-import ventanas.Zona_inicio_cabecera_registrado;
-import ventanas.Zona_inicio_cabecera_registrado_ventanas;
-import ventanas.Zona_inicio_comun;
-import ventanas.Zona_inicio_comun_ventanas;
-import ventanas.Zona_inicio_cuerpo_invitado;
-import ventanas.Zona_inicio_cuerpo_invitado_ventanas;
-import ventanas.Zona_inicio_cuerpo_registrado;
+
 
 /**
  * This UI is the application entry point. A UI may either represent a browser
@@ -123,16 +92,6 @@ public class MyUI extends UI {
 		
 		
 		/*
-		Lista_videos_ventanas lv= new Lista_videos_ventanas();
-		Videos_tendencia vt= new Videos_tendencia();
-		Videos_usuarios_registrados vur= new Videos_usuarios_registrados();
-		Zona_inicio_comun_ventanas zi= new Zona_inicio_comun_ventanas();
-		
-		Usuario_invitado usu= new Usuario_invitado();
-		
-		Zona_inicio_cabecera_invitado zic= new Zona_inicio_cabecera_invitado();
-		Cabecera_buscador cb= new Cabecera_buscador();
-	
 		Usuario_invitado usu= new Usuario_invitado();
 		Usuario_registrado_ventanas ttt2= new Usuario_registrado_ventanas();
 		Zona_inicio_cuerpo_registrado uicr= new Zona_inicio_cuerpo_registrado();

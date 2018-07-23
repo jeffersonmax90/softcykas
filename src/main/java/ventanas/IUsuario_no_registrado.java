@@ -8,13 +8,13 @@ public interface IUsuario_no_registrado {
 
 	public List cargarVideosUsuariosRegistrados();
 
-	public Video[] cargarVideosTendencia(int aId);
+	public List<Video_BD> cargarVideosTendencia();
 
-	public Video[] cargarVideosUsuarioRegistrado(int aId);
+	public List<Video_BD> cargarVideosUsuarioRegistrado(int aId);
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena);
 
-	public Video[] cargarListaUltimosVideosSubidos(int aId);
+	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId);
 
-	public Comentario[] anadirComentarios(int aId);
+	public List<Comentario_BD> anadirComentarios(int aId);
 }

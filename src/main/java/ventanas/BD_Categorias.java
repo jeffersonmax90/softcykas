@@ -7,12 +7,11 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import ventanas.Categoria_BD;
-import ventanas.Lista_categorias;
 
 public class BD_Categorias {
-	public BD_Principal _bD_Principal;
+	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Categoria_BD> _categoria_BDs = new Vector<Categoria_BD>();
-	
+
 	public List<Categoria_BD> listarCategorias() throws PersistentException {
 		List<Categoria_BD> cat=null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
@@ -25,19 +24,19 @@ public class BD_Categorias {
 		return cat;
 	}
 
-	public void crearCategorias(String aNombre, String aEdad) {
+	public boolean crearCategorias(String aNombre, String aEdad) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String[] cargarComboBoxEdadPermitida(int aId) {
+	public List<String> cargarComboBoxEdadPermitida(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void eliminarCategorias(int aId) {
+	public boolean eliminarCategorias(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Lista_categorias[] cargarlistaCategorias(int aId) {
+	public List<Categoria_BD> cargarlistaCategorias(int aId) {
 		throw new UnsupportedOperationException();
 	}
 }

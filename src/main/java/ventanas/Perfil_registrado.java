@@ -17,6 +17,7 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 	
 	public Perfil_registrado() {
 		
+		
 		zona_opciones_perfil_registrado.inicio.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {

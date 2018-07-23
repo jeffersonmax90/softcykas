@@ -75,7 +75,11 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 				
 	
 		
-		if(tipoUsuario.equals("Registrado")){			
+		if(tipoUsuario.equals("Registrado")){	
+
+			Notification notification = new Notification("Bienvenido ", usuario.getId() +" "+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
 			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
 		}else if(tipoUsuario.equals("Administrador")){					
 			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			

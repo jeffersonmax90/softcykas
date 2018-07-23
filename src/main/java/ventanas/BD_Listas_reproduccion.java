@@ -1,13 +1,14 @@
 package ventanas;
 
+import java.util.List;
 import java.util.Vector;
 import ventanas.Lista_reproduccion_BD;
 
 public class BD_Listas_reproduccion {
-	public BD_Principal _bD_Principal;
+	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Lista_reproduccion_BD> _lista_reproduccion_BDs = new Vector<Lista_reproduccion_BD>();
 
-	public void modificarListaReproducion(Lista_reproduccion_BD aLista) {
+	public boolean modificarListaReproducion(Lista_reproduccion_BD aLista) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -23,11 +24,11 @@ public class BD_Listas_reproduccion {
 		throw new UnsupportedOperationException();
 	}
 
-	public Lista_reproduccion_BD[] cargarListasReproduccionPropias(int aId) {
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String[] cargarJComboxAnadirLista(int aId) {
+	public List<String> cargarJComboxAnadirLista(int aId) {
 		throw new UnsupportedOperationException();
 	}
 }

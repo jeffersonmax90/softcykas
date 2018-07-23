@@ -1,30 +1,30 @@
 package ventanas;
 
+import java.util.List;
 import java.util.Vector;
 import ventanas.Comentario_BD;
-import ventanas.Comentario;
 
 public class BD_Comentarios {
-	public BD_Principal _bD_Principal;
+	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Comentario_BD> _comentarios = new Vector<Comentario_BD>();
 
-	public void anadirComentario(int aId, String aComentario) {
+	public boolean anadirComentario(int aId, String aComentario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void anadirComentarioAdmin(int aId, String aComentario) {
+	public boolean anadirComentarioAdmin(int aId, String aComentario) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Comentario[] anadirComentarios(int aId) {
+	public List<Comentario_BD> anadirComentarios(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Comentario[] anadirComentariosInvitado(int aId) {
+	public List<Comentario_BD> anadirComentariosInvitado(int aId) {
 		throw new UnsupportedOperationException();
 	}
 
-	public Comentario[] anadirComentariosReg(int aId) {
+	public List<Comentario_BD> anadirComentariosReg(int aId) {
 		throw new UnsupportedOperationException();
 	}
 }

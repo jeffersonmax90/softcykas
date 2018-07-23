@@ -1,36 +1,38 @@
 package ventanas;
 
+import java.util.List;
+
 public interface IAdministrador {
 
-	public void eliminarVideo(int aId);
+	public boolean eliminarVideo(int aId);
 
-	public Video descargarVideoUA(int aId);
+	public Video_BD descargarVideoUA(int aId);
 
-	public void crearCategorias(String aNombre, String aEdad);
+	public boolean crearCategorias(String aNombre, String aEdad);
 
-	public String[] cargarComboBoxEdadPermitida(int aId);
+	public List<String> cargarComboBoxEdadPermitida(int aId);
 
-	public void eliminarCategoria(int aId);
+	public boolean eliminarCategoria(int aId);
 
-	public Lista_categorias[] cargarlistaCategorias(int aId);
+	public List<Categoria_BD> cargarlistaCategorias(int aId);
 
-	public Video[] cargarListaTotalVideosSubidos(int aId);
+	public List<Video_BD> cargarListaTotalVideosSubidos(int aId);
 
-	public Usuario_registrado_listado[] cargarlistaUsuarioRegistrados(int aId);
+	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId);
 
 	public boolean eliminarVideoListaSubido(int aId);
 
-	public Video[] buscarVideoListaTotal(String aNombre);
+	public List<Video_BD> buscarVideoListaTotal(String aNombre);
 
 	public boolean eliminarUsuarioListaRegistrado(int aId);
 
-	public Usuario buscarUsuarioListaRegistado(int aId);
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId);
 
-	public Video[] cargarVideosTendencia(int aId);
+	public List<Video_BD> cargarVideosTendencia();
 
-	public Video cargarListaUltimoVideosSubidos(int aId);
+	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId);
 
-	public void anadirComentario(int aId, String aComentario);
+	public boolean anadirComentario(int aId, String aComentario);
 
-	public Comentario[] cargarListaComentarios(int aId);
+	public List<Comentario_BD> cargarListaComentarios(int aId);
 }
