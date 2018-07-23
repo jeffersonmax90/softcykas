@@ -53,4 +53,6 @@ public interface IUsuario_registrado {
 	public boolean anadirComentario(int aId, String aComentario);
 
 	public List<Comentario_BD> anadirComentarios(int aId);
+	
+	public Usuario_Registrado_BD cargarModificarDatos(int aId);
 }

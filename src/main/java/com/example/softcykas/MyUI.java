@@ -87,7 +87,7 @@ public class MyUI extends UI {
 		navigator.addView("Lista_total_videos_subidos", Lista_total_videos_subidos.class);
 		
 		navigator.navigateTo("");
-		
+	
 		
 		
 		
@@ -105,11 +105,13 @@ public class MyUI extends UI {
 		Subir_video s= new Subir_video();
 		Cambiar_imagen c= new Cambiar_imagen();
 		Crear_categoria cc= new  Crear_categoria();
-		//
+		
 		Lista_de_usuarios_registrados lu= new Lista_de_usuarios_registrados();
 		Lista_total_videos_subidos lt= new Lista_total_videos_subidos();
-		setContent(lu);
-		*/ 	
+		Modificar_datos md= new Modificar_datos();
+		
+		setContent(md);
+		*/
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

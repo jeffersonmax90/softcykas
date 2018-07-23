@@ -35,8 +35,26 @@ public class BD_Usuarios_Registrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean modificarDatos(Usuario_Registrado_BD aUsuario) {
-		throw new UnsupportedOperationException();
+	public boolean modificarDatos(Usuario_Registrado_BD aUsuario) throws PersistentException {
+		boolean modificado= false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+
+		try {		
+		Usuario_Registrado_BD usu=Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aUsuario.getId());
+		usu.setNombre(aUsuario.getNombre());
+		usu.setNombre(aUsuario.getNombre());
+		usu.setApellidos(usu.getApellidos());
+		usu.setApodo(usu.getApodo());
+		usu.setEmail(usu.getEmail());
+		usu.setContraseña(usu.getContraseña());				
+		usu.setMiniatura(usu.getMiniatura());	
+		Usuario_Registrado_BDDAO.save(usu);
+		t.commit();
+		modificado= true;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return modificado;
 	}
 
 	public boolean dejarSeguir(int aId) {
@@ -89,5 +107,23 @@ public class BD_Usuarios_Registrados {
 
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId) {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Usuario_Registrado_BD cargarModificarDatos(int aId) throws PersistentException {
+		Usuario_Registrado_BD usu=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Usuario_Registrado_BD usuario= Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
+			
+			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			t.rollback();
+		}
+		
+		return usu;
+		
 	}
 }

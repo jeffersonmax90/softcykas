@@ -37,6 +37,7 @@ public class Main {
 		
 		System.out.println(usuario.getTipoUsuario());
 		*/
+		/*
 		BD_Categorias noRegistrado = new BD_Categorias();
 		List<Categoria_BD> cat = null;
 		
@@ -51,7 +52,18 @@ public class Main {
 		for (int i = 0; i < cat.size(); i++) {
 			System.out.println(cat.get(i).toString()+cat.get(i).getNombre()+cat.get(i).getEdad());
 		}
+		*/
 		
+		
+		IUsuario_registrado usu= new BD_Principal();
+		Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
+		
+		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
+		
+		u.setNombre("jefferson2");
+		
+		usu.modificarDatos(u);
+		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		
 	}
 

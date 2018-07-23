@@ -148,7 +148,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean modificarDatos(Usuario_Registrado_BD aUsuario) {
-		throw new UnsupportedOperationException();
+		boolean modificado= false;
+		try {
+			modificado= _bD_Usuarios_Registrados.modificarDatos(aUsuario);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return modificado;
 	}
 
 	public boolean crearLista(Lista_reproduccion_BD aLista) {
@@ -216,5 +222,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 
 	public boolean eliminarVideoSubido(int aId) {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Usuario_Registrado_BD cargarModificarDatos(int aId) {
+		Usuario_Registrado_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Registrados.cargarModificarDatos(aId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return usu;
 	}
 }

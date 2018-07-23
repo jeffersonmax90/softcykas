@@ -38,7 +38,7 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 		
 		registrarse.addClickListener(new Button.ClickListener() {
 			@Override
-			public void buttonClick(ClickEvent event) {
+			public void buttonClick(ClickEvent event) {				
 				UI.getCurrent().getNavigator().navigateTo("registrase");
 			}
 		});
@@ -76,12 +76,13 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 	
 		
 		if(tipoUsuario.equals("Registrado")){	
-
+			Datos_Navegante.setIdUsuario(usuario.getId());
 			Notification notification = new Notification("Bienvenido ", usuario.getId() +" "+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);
 			notification.show(Page.getCurrent());	
 			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
-		}else if(tipoUsuario.equals("Administrador")){					
+		}else if(tipoUsuario.equals("Administrador")){	
+			Datos_Navegante.setIdUsuario(usuario.getId());
 			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
 		}else if(tipoUsuario.equals("incorrecto")){
 		Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
