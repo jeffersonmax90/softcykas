@@ -24,14 +24,23 @@ public class BD_Categorias {
 		return cat;
 	}
 
-	public boolean crearCategorias(String aNombre, String aEdad) {
-		throw new UnsupportedOperationException();
+	public boolean crearCategorias(String aNombre, String aEdad) throws PersistentException   {
+		boolean correcto= false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Categoria_BD nuevaCategoria= Categoria_BDDAO.createCategoria_BD();
+			nuevaCategoria.setNombre(aNombre);
+			nuevaCategoria.setEdad(aEdad);
+			Categoria_BDDAO.save(nuevaCategoria);
+			t.commit();
+			correcto=true;
+		} catch (Exception e) {
+			t.rollback();
+		}		
+		return correcto;
 	}
 
-	public List<String> cargarComboBoxEdadPermitida(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	public boolean eliminarCategorias(int aId) {
 		throw new UnsupportedOperationException();
 	}

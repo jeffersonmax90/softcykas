@@ -1,6 +1,8 @@
 package ventanas;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.Page;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -19,6 +21,7 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 		throw new UnsupportedOperationException();
 	}*/
 	
+	IAdministrador admin= new BD_Principal();
 	
 	public Crear_categoria(){
 		atras.addClickListener(new ClickListener() {
@@ -35,11 +38,30 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// TODO Auto-generated method stub
+				crearCategorias();
 				
 				
 			}
+
+			 
 		});
 	}
+	
+	
+		void crearCategorias() {
+		String nombre=	nombre_categoria.getValue();
+		String edad= edad_permitida.getValue();
+		boolean corrrecto= admin.crearCategorias(nombre, edad);		
+		if(Boolean.TRUE.equals(corrrecto)){
+			Notification notification = new Notification("Correcto", "Se ha creado la categoria correctamente", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
+			UI.getCurrent().getNavigator().navigateTo("perfil_administrador");	
+		}
+			
+		}
+	
+	
+	
 	
 }

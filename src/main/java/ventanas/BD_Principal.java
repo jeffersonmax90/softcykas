@@ -84,13 +84,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean crearCategorias(String aNombre, String aEdad) {
-		throw new UnsupportedOperationException();
+		boolean correcto= false;
+		try {
+			correcto=_bD_Categorias.crearCategorias(aNombre, aEdad);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return correcto;
 	}
 
-	public List<String> cargarComboBoxEdadPermitida(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	public boolean eliminarCategoria(int aId) {
 		throw new UnsupportedOperationException();
 	}

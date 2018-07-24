@@ -8,9 +8,7 @@ public interface IAdministrador {
 
 	public Video_BD descargarVideoUA(int aId);
 
-	public boolean crearCategorias(String aNombre, String aEdad);
-
-	public List<String> cargarComboBoxEdadPermitida(int aId);
+	public boolean crearCategorias(String aNombre, String aEdad);	
 
 	public boolean eliminarCategoria(int aId);
 

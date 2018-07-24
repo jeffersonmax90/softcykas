@@ -7,16 +7,12 @@
  </head>
  <body>
   <vaadin-vertical-layout>
-   <vaadin-label plain-text _id="crear_categoria_label">
-     Crear categoría: 
-   </vaadin-label>
-   <vaadin-text-field placeholder="Nombre categoría" _id="nombre_categoria"></vaadin-text-field>
-   <vaadin-native-select empty-selection-caption="Introduce la edad mínima" data-item-type="java.lang.String">
-    <option item="Option1">8</option>
-    <option item="Option2">12</option>
-    <option item="Option3">18</option>
-   </vaadin-native-select>
-   <vaadin-form-layout size-auto margin="false">
+   <vaadin-form-layout size-auto :center>
+    <vaadin-label plain-text _id="crear_categoria_label">
+      Crear categoría: 
+    </vaadin-label>
+    <vaadin-text-field caption="Nombre categoria" placeholder="Nombre categoría" _id="nombre_categoria"></vaadin-text-field>
+    <vaadin-text-field caption="Edad permitda" placeholder="Ej: +3,+7,+12,+16..." _id="edad_permitida"></vaadin-text-field>
     <vaadin-horizontal-layout>
      <vaadin-button plain-text _id="atras">
        Atrás 
