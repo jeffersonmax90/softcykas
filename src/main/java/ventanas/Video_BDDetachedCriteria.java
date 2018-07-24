@@ -29,6 +29,7 @@ public class Video_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression descripcion;
 	public final DateExpression fecha_subida;
 	public final IntegerExpression visualizaciones;
+	public final StringExpression ruta;
 	public final CollectionExpression comentarios;
 	public final CollectionExpression listas_reproduccion;
 	public final CollectionExpression historial;
@@ -47,6 +48,7 @@ public class Video_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		fecha_subida = new DateExpression("fecha_subida", this.getDetachedCriteria());
 		visualizaciones = new IntegerExpression("visualizaciones", this.getDetachedCriteria());
+		ruta = new StringExpression("ruta", this.getDetachedCriteria());
 		comentarios = new CollectionExpression("ORM_comentarios", this.getDetachedCriteria());
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this.getDetachedCriteria());
 		historial = new CollectionExpression("ORM_historial", this.getDetachedCriteria());
@@ -66,6 +68,7 @@ public class Video_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 		descripcion = new StringExpression("descripcion", this.getDetachedCriteria());
 		fecha_subida = new DateExpression("fecha_subida", this.getDetachedCriteria());
 		visualizaciones = new IntegerExpression("visualizaciones", this.getDetachedCriteria());
+		ruta = new StringExpression("ruta", this.getDetachedCriteria());
 		comentarios = new CollectionExpression("ORM_comentarios", this.getDetachedCriteria());
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this.getDetachedCriteria());
 		historial = new CollectionExpression("ORM_historial", this.getDetachedCriteria());

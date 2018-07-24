@@ -97,6 +97,9 @@ public class Video_BD implements Serializable {
 	@Column(name="Visualizaciones", nullable=true, length=10)	
 	private int visualizaciones;
 	
+	@Column(name="Ruta", nullable=true, length=255)	
+	private String ruta;
+	
 	@OneToMany(mappedBy="video", targetEntity=ventanas.Comentario_BD.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -177,6 +180,14 @@ public class Video_BD implements Serializable {
 	
 	public int getVisualizaciones() {
 		return visualizaciones;
+	}
+	
+	public void setRuta(String value) {
+		this.ruta = value;
+	}
+	
+	public String getRuta() {
+		return ruta;
 	}
 	
 	private void setORM_Usuario(java.util.Set value) {
