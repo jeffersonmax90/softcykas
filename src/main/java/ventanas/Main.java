@@ -57,12 +57,20 @@ public class Main {
 		
 		IUsuario_registrado usu= new BD_Principal();
 		Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
+		IAdministrador a= new BD_Principal();
 		
-		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
+		List<Usuario_Registrado_BD> usuarios= null;
+		
+		usuarios=a.cargarlistaUsuarioRegistrados(2);
+		
+		for (Usuario_Registrado_BD usuario_Registrado_BD : usuarios) {
+			System.out.println(usuario_Registrado_BD.getEmail());
+		}
+		//System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		
 	
 		
-		System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
+		//System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		
 	}
 

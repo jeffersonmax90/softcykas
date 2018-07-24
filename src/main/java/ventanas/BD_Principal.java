@@ -107,7 +107,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) {
-		throw new UnsupportedOperationException();
+		List<Usuario_Registrado_BD> u=null;
+		try {
+			u=_bD_Usuarios_Registrados.cargarlistaUsuarioRegistrados(aId);
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return u;
 	}
 
 	public boolean eliminarVideoListaSubido(int aId) {

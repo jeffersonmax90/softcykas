@@ -114,8 +114,16 @@ public class BD_Usuarios_Registrados {
 		
 	}
 
-	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) throws PersistentException {
+		List<Usuario_Registrado_BD>u= null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			u= Usuario_Registrado_BDDAO.queryUsuario_Registrado_BD(null, null);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return u;
 	}
 
 	public boolean eliminarUsuarioListaRegistrado(int aId) {

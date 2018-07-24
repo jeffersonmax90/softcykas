@@ -8,23 +8,25 @@
  </head>
  <body>
   <vaadin-vertical-layout>
-   <vaadin-label plain-text _id="lista_usuarios">
-     Lista usuarios: 
-   </vaadin-label>
-   <vaadin-text-field placeholder="Buscar usuario"></vaadin-text-field>
-   <vaadin-panel width-auto height="155px">
-    <vaadin-form-layout size-auto>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-     <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
-    </vaadin-form-layout>
-   </vaadin-panel>
-   <vaadin-button plain-text _id="atras">
-     Atrás 
-   </vaadin-button>
+   <vaadin-form-layout size-auto :center>
+    <vaadin-label plain-text _id="lista_usuarios">
+      Lista usuarios: 
+    </vaadin-label>
+    <vaadin-horizontal-layout>
+     <vaadin-text-field placeholder="Buscar usuario" _id="texfielBuscador"></vaadin-text-field>
+     <vaadin-button plain-text _id="buscar">
+       Buscar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-panel width-auto height="400px">
+     <vaadin-form-layout size-auto margin _id="formlayout">
+      <ventanas-usuario_registrado_listado_ventanas></ventanas-usuario_registrado_listado_ventanas>
+     </vaadin-form-layout>
+    </vaadin-panel>
+    <vaadin-button plain-text _id="atras">
+      Atrás 
+    </vaadin-button>
+   </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
