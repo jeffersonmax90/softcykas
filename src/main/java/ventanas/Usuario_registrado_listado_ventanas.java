@@ -23,6 +23,7 @@ public class Usuario_registrado_listado_ventanas extends HorizontalLayout {
 	protected Image miniatura;
 	protected Label nombre_usuario;
 	protected Button eliminar_button;
+	protected Label id;
 
 	public Usuario_registrado_listado_ventanas() {
 		Design.read(this);

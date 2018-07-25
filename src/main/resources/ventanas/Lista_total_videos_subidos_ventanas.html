@@ -8,22 +8,29 @@
  </head>
  <body>
   <vaadin-vertical-layout>
-   <vaadin-label plain-text _id="lista_videos">
-     Lista de videos: 
-   </vaadin-label>
-   <vaadin-text-field placeholder="Buscar video" _id="buscar_video_text_field"></vaadin-text-field>
-   <vaadin-panel width-auto height="400px">
-    <vaadin-form-layout size-auto>
-     <ventanas-video></ventanas-video>
-     <ventanas-video></ventanas-video>
-     <ventanas-video></ventanas-video>
-     <ventanas-video></ventanas-video>
-     <ventanas-video></ventanas-video>
-    </vaadin-form-layout>
-   </vaadin-panel>
-   <vaadin-button plain-text _id="atras">
-     Atrás 
-   </vaadin-button>
+   <vaadin-form-layout size-auto :center>
+    <vaadin-label plain-text _id="lista_videos">
+      Lista de videos: 
+    </vaadin-label>
+    <vaadin-horizontal-layout>
+     <vaadin-text-field placeholder="Buscar video" _id="buscar_video_text_field"></vaadin-text-field>
+     <vaadin-button plain-text _id="buscar">
+       Buscar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-panel width-auto height="400px">
+     <vaadin-form-layout size-auto margin>
+      <ventanas-video></ventanas-video>
+      <ventanas-video></ventanas-video>
+      <ventanas-video></ventanas-video>
+      <ventanas-video></ventanas-video>
+      <ventanas-video></ventanas-video>
+     </vaadin-form-layout>
+    </vaadin-panel>
+    <vaadin-button plain-text _id="atras">
+      Atrás 
+    </vaadin-button>
+   </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

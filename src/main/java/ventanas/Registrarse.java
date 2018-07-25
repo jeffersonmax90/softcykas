@@ -52,6 +52,11 @@ public class Registrarse extends Registrarse_ventanas implements View {
 		user.setTipoUsuario("Registrado");
 		user.setN_visitas(0);
 		user.setMiniatura(anadirDatos.urlPhoto.getValue());
+		
+		if(anadirDatos.urlPhoto.getValue().equals("")){
+			String url= "http://i48.tinypic.com/okoi2b.jpg";
+			user.setMiniatura(url);
+		}
 		user.setFecha_nacimiento(java.sql.Date.valueOf(anadirDatos.fechaNacimiento.getValue()));
 
 		noRegistrado.registrarUsuario(user);

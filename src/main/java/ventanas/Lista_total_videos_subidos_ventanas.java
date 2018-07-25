@@ -22,6 +22,7 @@ import com.vaadin.ui.declarative.Design;
 public class Lista_total_videos_subidos_ventanas extends VerticalLayout {
 	protected Label lista_videos;
 	protected TextField buscar_video_text_field;
+	protected Button buscar;
 	protected Button atras;
 
 	public Lista_total_videos_subidos_ventanas() {

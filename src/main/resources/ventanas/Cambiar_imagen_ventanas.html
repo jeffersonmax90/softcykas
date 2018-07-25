@@ -7,19 +7,21 @@
  </head>
  <body>
   <vaadin-vertical-layout>
-   <vaadin-label plain-text _id="selecciona_img_label">
-     Ponga la ruta de su nueva imagen 
-   </vaadin-label>
-   <vaadin-text-field value="Escriba la ruta..." _id="escribaLaRuta"></vaadin-text-field>
-   <vaadin-form-layout size-auto margin="false">
-    <vaadin-horizontal-layout>
-     <vaadin-button plain-text _id="atras">
-       Atrás 
-     </vaadin-button>
-     <vaadin-button plain-text _id="cambiar_imagen">
-       Cambiar Imagen 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
+   <vaadin-form-layout size-auto :center>
+    <vaadin-label plain-text _id="selecciona_img_label">
+      Ponga la ruta de su nueva imagen 
+    </vaadin-label>
+    <vaadin-text-field value="Escriba la ruta..." _id="escribaLaRuta"></vaadin-text-field>
+    <vaadin-form-layout size-auto margin="false">
+     <vaadin-horizontal-layout>
+      <vaadin-button plain-text _id="atras">
+        Atrás 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cambiarImagen">
+        Cambiar Imagen 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-form-layout>
    </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>

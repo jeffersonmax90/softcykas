@@ -66,7 +66,6 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 				
 			}
 		});
-		
 	}
 
 	void iniciar_sesion() {
@@ -77,13 +76,17 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 		
 		if(tipoUsuario.equals("Registrado")){	
 			Datos_Navegante.setIdUsuario(usuario.getId());
-			Notification notification = new Notification("Bienvenido ", usuario.getId() +" "+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
+			Notification notification = new Notification("Bienvenido ", ""+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);
 			notification.show(Page.getCurrent());	
 			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
 		}else if(tipoUsuario.equals("Administrador")){	
 			Datos_Navegante.setIdUsuario(usuario.getId());
-			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");			
+			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");		
+			Notification notification = new Notification("Bienvenido ", ""+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
+			
 		}else if(tipoUsuario.equals("incorrecto")){
 		Notification notification = new Notification("Intentelo de nuevo!", "El Email o la contraseña está incorrecta", Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);

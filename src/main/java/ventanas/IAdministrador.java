@@ -24,8 +24,6 @@ public interface IAdministrador {
 
 	public boolean eliminarUsuarioListaRegistrado(int aId);
 
-	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId);
-
 	public List<Video_BD> cargarVideosTendencia();
 
 	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId);
@@ -33,4 +31,10 @@ public interface IAdministrador {
 	public boolean anadirComentario(int aId, String aComentario);
 
 	public List<Comentario_BD> cargarListaComentarios(int aId);
+	
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre);
+	
+	public Usuario_BD cargarImagenAdministrador(int aId);
+
+	public boolean cambiarImagenAdministrador(int aId, String aRuta);
 }

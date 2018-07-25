@@ -21,6 +21,7 @@ public class Zona_opciones_administrador_ventanas extends VerticalLayout {
 	protected Button crear_categorias;
 	protected Button lista_usuarios;
 	protected Button lista_videos;
+	protected Button volveAtras;
 	protected Button cerrar_sesion;
 
 	public Zona_opciones_administrador_ventanas() {

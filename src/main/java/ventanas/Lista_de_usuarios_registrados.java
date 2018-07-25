@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
+import com.vaadin.server.Page;
+import com.vaadin.server.Resource;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -17,16 +20,23 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 	 * Vector<Usuario_registrado_listado>();
 	 */
 	IAdministrador admin= new BD_Principal();
+	String obtenerId;
 	
 	public Lista_de_usuarios_registrados(){
 		cargarListaUsuarioRegistrado();
 		
+		buscar.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				buscarUsuarioListaRegistrado();				
+			}
+		});
 		
 		atras.addClickListener(new ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// TODO Auto-generated method stub
 				UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
 				
 			}
@@ -41,14 +51,24 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			Usuario_registrado_listado objeto= new Usuario_registrado_listado();
 			objeto.miniatura.setSource(new ExternalResource((usuarios.get(i).getMiniatura())));
 			objeto.nombre_usuario.setValue(usuarios.get(i).getNombre()+" "+usuarios.get(i).getApellidos());
+			objeto.id.setVisible(false);
+			//casting el id a string
+			int id=usuarios.get(i).getId();
+			String cadena="";
+			cadena=String.valueOf(id);
+			objeto.id.setValue(cadena);
+			
 			formlayout.addComponent(objeto);
 			objeto.eliminar_button.addClickListener(new ClickListener() {
 				
 				@Override
 				public void buttonClick(ClickEvent event) {
 					// TODO Auto-generated method stub
-					
-					eliminarUsuarioListaRegistrado();
+					obtenerId=objeto.id.getValue();
+					eliminarUsuarioListaRegistrado();	
+					Notification notification = new Notification("¡Usuario!", "falta tener toda la aplicacion para poder eliminar el usuario sus  videos y comentarios "+obtenerId, Notification.Type.HUMANIZED_MESSAGE);
+					notification.setDelayMsec(2000);
+					notification.show(Page.getCurrent());
 				}
 			});
 		}
@@ -56,9 +76,41 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 	
 	
 	void eliminarUsuarioListaRegistrado() {
-	
 		
+		int aId= Integer.parseInt(obtenerId);
+		admin.eliminarUsuarioListaRegistrado(aId);
 	}
 	
+	void buscarUsuarioListaRegistrado() {
+		List<Usuario_Registrado_BD> usuarios= admin.buscarUsuarioListaRegistado(texfielBuscador.getValue());
+		formlayout.removeAllComponents();
+		for (Usuario_Registrado_BD u : usuarios) {
+			Usuario_registrado_listado object= new Usuario_registrado_listado();
+			object.nombre_usuario.setValue(u.getNombre()+ " "+ u.getApellidos());
+			object.miniatura.setSource(new ExternalResource(u.getMiniatura()));
+			object.id.setVisible(false);
+			//casting el id a string
+			int id=u.getId();
+			String cadena="";
+			cadena=String.valueOf(id);
+			object.id.setValue(cadena);
+			
+			formlayout.addComponent(object);
+			object.eliminar_button.addClickListener(new ClickListener() {
+				
+				@Override
+				public void buttonClick(ClickEvent event) {
+					// TODO Auto-generated method stub
+					obtenerId=object.id.getValue();
+					eliminarUsuarioListaRegistrado();	
+					Notification notification = new Notification("¡Usuario!", "falta tener toda la aplicacion para poder eliminar el usuario sus  videos y comentarios "+obtenerId, Notification.Type.HUMANIZED_MESSAGE);
+					notification.setDelayMsec(2000);
+					notification.show(Page.getCurrent());
+				}
+			});
+		}	
+	
+	
+	}
 	
 }

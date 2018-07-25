@@ -1,5 +1,6 @@
 package ventanas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -126,14 +127,19 @@ public class BD_Usuarios_Registrados {
 		return u;
 	}
 
-	public boolean eliminarUsuarioListaRegistrado(int aId) {
-		throw new UnsupportedOperationException();
+	public boolean eliminarUsuarioListaRegistrado(int aId) throws PersistentException {
+		boolean correcto=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Usuario_Registrado_BD userbd= Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
+			
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return correcto;
 	}
 
-	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId) {
-		throw new UnsupportedOperationException();
-	}
-	
+		
 	public Usuario_Registrado_BD cargarModificarDatos(int aId) throws PersistentException {
 		Usuario_Registrado_BD usu=null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
@@ -149,5 +155,21 @@ public class BD_Usuarios_Registrados {
 		return usu;		
 	}
 	
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) {
+		List<Usuario_Registrado_BD> usuarios=new ArrayList<Usuario_Registrado_BD>();
+		try {
+			Usuario_Registrado_BDCriteria cat= new Usuario_Registrado_BDCriteria();
+			
+			cat.nombre.like("%"+ aNombre+"%");
+			for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
+				usuarios.add(u);
+			}
+			
+		} catch (PersistentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}		
 	
+		return usuarios;
+	}
 }

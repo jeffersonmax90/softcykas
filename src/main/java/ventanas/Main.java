@@ -61,10 +61,10 @@ public class Main {
 		
 		List<Usuario_Registrado_BD> usuarios= null;
 		
-		usuarios=a.cargarlistaUsuarioRegistrados(2);
+		usuarios=a.buscarUsuarioListaRegistado("J");
 		
-		for (Usuario_Registrado_BD usuario_Registrado_BD : usuarios) {
-			System.out.println(usuario_Registrado_BD.getEmail());
+		for (Usuario_Registrado_BD ab : usuarios) {
+			System.out.println(ab.getApellidos());
 		}
 		//System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
 		

@@ -23,7 +23,7 @@ public class Cambiar_imagen_ventanas extends VerticalLayout {
 	protected Label selecciona_img_label;
 	protected TextField escribaLaRuta;
 	protected Button atras;
-	protected Button cambiar_imagen;
+	protected Button cambiarImagen;
 
 	public Cambiar_imagen_ventanas() {
 		Design.read(this);

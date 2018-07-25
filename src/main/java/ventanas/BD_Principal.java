@@ -1,5 +1,7 @@
 package ventanas;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.orm.PersistentException;
@@ -125,12 +127,17 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean eliminarUsuarioListaRegistrado(int aId) {
-		throw new UnsupportedOperationException();
+		boolean correcto=false;
+		try {
+			_bD_Usuarios_Registrados.eliminarUsuarioListaRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return correcto;
 	}
 
-	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(int aId) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId) {
 		throw new UnsupportedOperationException();
@@ -250,5 +257,34 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return usu;
 	}
 	
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) {
+		List<Usuario_Registrado_BD> lista=null;
+		try {
+			lista= _bD_Usuarios_Registrados.buscarUsuarioListaRegistado(aNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 	
+	public Usuario_BD cargarImagenAdministrador(int aId) {
+		Usuario_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Administradores.cargarImagenAdministardor(aId);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return usu;
+	}
+
+	public boolean cambiarImagenAdministrador(int aId, String aRuta) {
+		boolean cambiado= false;
+		try {
+			cambiado= _bD_Usuarios_Administradores.cambiarImagenAdministrador(aId, aRuta);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cambiado;
+	}
 }
