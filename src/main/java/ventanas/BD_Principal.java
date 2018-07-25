@@ -15,6 +15,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public BD_Listas_reproduccion _bD_Listas_reproduccion= new BD_Listas_reproduccion();
 	public BD_Historial _bD_Historial = new BD_Historial();
 
+	// TODO:(David) Implementar cuando se hayan arreglado los diagramas de la base de datos.
 	public boolean subirVideo(Video_BD aVideo) {
 		throw new UnsupportedOperationException();
 	}

@@ -32,7 +32,8 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		subir_video.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				Subir_video();
-				Notification notification = new Notification("Video subido con éxito", Notification.Type.HUMANIZED_MESSAGE);
+				Notification notification = new Notification("Video subido con éxito",
+						Notification.Type.HUMANIZED_MESSAGE);
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 			}
 		});
@@ -40,23 +41,30 @@ public class Subir_video extends Subir_video_ventanas implements View {
 	}
 
 	void cargar_categorias() {
-		List<Categoria_BD> items = new ArrayList<Categoria_BD>();
+		List<String> items = new ArrayList<String>();
+
+		if (registrado.cargarCategorias().isEmpty()) {
+			Notification notification = new Notification(
+					"Sentimos las molestias, no puede añadir video hasta que no haya categorías",
+					Notification.Type.HUMANIZED_MESSAGE);
+			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+		}
 
 		for (Categoria_BD cat : registrado.cargarCategorias()) {
-			items.add(cat);
-			System.out.println(cat.toString());
+			items.add(cat.getNombre());
 		}
-		String[] categorias = new String[items.size()];
-		anadirDatosVideo.categoria.setItems(categorias);
+
+		anadirDatosVideo.categoria.setItems(items);
 	}
 
 	void Subir_video() {
-		for (Categoria_BD categoria : registrado.cargarCategorias()) {
-			if (categoria.toString().equals(anadirDatosVideo.categoria.getSelectedItem().toString())) {
-				video.setCategoria_BD(categoria);
+		for (Categoria_BD cat : registrado.cargarCategorias()) {
+			if (anadirDatosVideo.categoria.getSelectedItem().equals(cat.getNombre())) {
+				video.setCategoria_BD(cat);
 				break;
 			}
 		}
+
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 		video.setRuta(anadirDatosVideo.rutaVideo.getValue());
