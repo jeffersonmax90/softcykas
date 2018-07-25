@@ -80,6 +80,7 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 			}
 		});
 		
+		zona_opciones_perfil_registrado.nombre_usuario.setValue(Datos_Navegante.getApodo().toUpperCase());
 		
 		
 		

@@ -76,6 +76,8 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 		
 		if(tipoUsuario.equals("Registrado")){	
 			Datos_Navegante.setIdUsuario(usuario.getId());
+			Datos_Navegante.setApodo(usuario.getApodo());
+			
 			Notification notification = new Notification("Bienvenido ", ""+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);
 			notification.show(Page.getCurrent());	

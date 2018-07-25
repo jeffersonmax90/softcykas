@@ -7,24 +7,15 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-horizontal-layout spacing="false" size-full margin>
-   <vaadin-horizontal-layout>
-    <vaadin-horizontal-layout>
-     <vaadin-form-layout size-auto margin>
-      <ventanas-usuario_ventanas></ventanas-usuario_ventanas>
-     </vaadin-form-layout>
-    </vaadin-horizontal-layout>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin></vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin></vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin :right>
-    <vaadin-form-layout size-auto margin>
-     <vaadin-label plain-text></vaadin-label>
-     <vaadin-button plain-text _id="dejar_de_seguir">
+  <vaadin-horizontal-layout spacing="false">
+   <vaadin-form-layout size-auto margin="false">
+    <vaadin-horizontal-layout margin>
+     <ventanas-usuario_ventanas></ventanas-usuario_ventanas>
+     <vaadin-button plain-text _id="dejar_de_seguir" :middle :center>
        Dejar de seguir 
      </vaadin-button>
-    </vaadin-form-layout>
-   </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-form-layout>
   </vaadin-horizontal-layout>
  </body>
 </html>
