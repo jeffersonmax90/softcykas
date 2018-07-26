@@ -1,13 +1,13 @@
 package ventanas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
-
 
 import ventanas.Video_BD;
 
@@ -91,8 +91,8 @@ public class BD_Videos {
 	public List<Video_BD> cargarVideosPropios(int aId) throws PersistentException {
 		List<Video_BD> lista= new ArrayList<Video_BD>();		
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
-			lista= Video_BDDAO.queryVideo_BD(null, null);		
-			
+			Usuario_Registrado_BD u=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista=Arrays.asList(u.video_subido.toArray());
 			t.commit();
 			return lista;				
 	}

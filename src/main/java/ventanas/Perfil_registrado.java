@@ -105,7 +105,7 @@ void cargarVideosPropios() {
 			Video_subido vs= new Video_subido();
 			
 			vs.video.tituloVideo.setCaption(v.getTitulo());
-			vs.video.video.setSource(new ExternalResource(v.getRuta()));
+			vs.video.miniaturaVideo.setSource(new ExternalResource(v.getMiniatura()));
 			zona_cuerpo_perfil_registrado.lv.listaVideosFL.addComponent(vs);
 			
 			vs.video.tituloVideo.addClickListener(new Button.ClickListener() {

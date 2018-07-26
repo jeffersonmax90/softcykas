@@ -78,7 +78,14 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 		video.setRuta(anadirDatosVideo.rutaVideo.getValue());
-		video.setMiniatura(anadirDatosVideo.rutaMiniatura.getValue());		
+		String ruta;
+		if(anadirDatosVideo.rutaMiniatura.getValue().isEmpty()){
+			ruta="http://i41.tinypic.com/2uqf48w.jpg";
+		}else{
+			ruta=anadirDatosVideo.rutaMiniatura.getValue();
+		}
+		
+		video.setMiniatura(ruta);		
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());		
 		registrado.subirVideo(video);
 		
