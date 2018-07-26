@@ -2,7 +2,7 @@ package ventanas;
 
 public class Datos_Navegante {
 
-	private static int idUsuario=-1;
+	private static int idUsuario=9;
 	private static String apodo="Señor";
 	
 	public static int getIdUsuario() {

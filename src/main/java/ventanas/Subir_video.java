@@ -51,28 +51,37 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		}
 
 		for (Categoria_BD cat : registrado.cargarCategorias()) {
-			items.add(cat.getNombre());
+			items.add(cat.getNombre()+ " " +cat.getEdad());
 		}
 
 		anadirDatosVideo.categoria.setItems(items);
 	}
 
 	void Subir_video() {
-		for (Categoria_BD cat : registrado.cargarCategorias()) {
+		/*for (Categoria_BD cat : registrado.cargarCategorias()) {
 			if (anadirDatosVideo.categoria.getSelectedItem().equals(cat.getNombre())) {
 				video.setCategoria_BD(cat);
 				break;
 			}
-		}
-
+		}*/
+		Categoria_BD cat = new Categoria_BD();
+		//separo la palabra categoria
+		String categoria= anadirDatosVideo.categoria.getValue();
+		String[] parte= categoria.split(" ");
+		String nombre=parte[0];
+		String edad=parte[1];
+			
+		cat.setNombre(nombre);
+		cat.setEdad(edad);
+		//Subir video	
+		video.setCategoria_BD(cat);
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 		video.setRuta(anadirDatosVideo.rutaVideo.getValue());
-		video.setMiniatura(anadirDatosVideo.rutaMiniatura.getValue());
-		video.setDescripcion(anadirDatosVideo.descripcion_video.getValue());
-		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
-
+		video.setMiniatura(anadirDatosVideo.rutaMiniatura.getValue());		
+		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());		
 		registrado.subirVideo(video);
+		
 	}
 
 }

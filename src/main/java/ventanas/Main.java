@@ -56,21 +56,27 @@ public class Main {
 		
 		
 		IUsuario_registrado usu= new BD_Principal();
-		Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
-		IAdministrador a= new BD_Principal();
+		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
 		
-		List<Usuario_Registrado_BD> usuarios= null;
+		Video_BD  video= new Video_BD(); 
+		Categoria_BD categoria1= new Categoria_BD();
+		categoria1.setEdad("+3");
+		categoria1.setNombre("baile");
 		
-		usuarios=a.buscarUsuarioListaRegistado("J");
+		video.setTitulo("video1");
 		
-		for (Usuario_Registrado_BD ab : usuarios) {
-			System.out.println(ab.getApellidos());
-		}
-		//System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
+		video.setEtiqueta("etiqueta1");
+		video.setRuta("ruta1");
+		video.setCategoria_BD(categoria1);
+		video.setMiniatura("miniatura1");
+		video.setDescripcion("descripcion1");
+		video.setVisualizaciones(0);
 		
-	
+		boolean correcto= false;
 		
-		//System.out.println(u.getNombre()+" "+u.getApodo()+" " +u.getContraseña());
+		correcto=usu.subirVideo(video);
+		System.out.println(Datos_Navegante.getIdUsuario());
+		System.out.println(correcto);			
 		
 	}
 
