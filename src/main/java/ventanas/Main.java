@@ -1,5 +1,6 @@
 package ventanas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.orm.PersistentException;
@@ -58,25 +59,15 @@ public class Main {
 		IUsuario_registrado usu= new BD_Principal();
 		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
 		
-		Video_BD  video= new Video_BD(); 
-		Categoria_BD categoria1= new Categoria_BD();
-		categoria1.setEdad("+3");
-		categoria1.setNombre("baile");
+		List<Video_BD> video= new ArrayList<Video_BD>();
 		
-		video.setTitulo("video1");
+		video= usu.cargarVideosPropios(9);
+		for (Video_BD video_BD : video) {
+			System.out.println(video_BD.getId()+" "+ video_BD.getTitulo()+ " "
+		);
+		}
 		
-		video.setEtiqueta("etiqueta1");
-		video.setRuta("ruta1");
-		video.setCategoria_BD(categoria1);
-		video.setMiniatura("miniatura1");
-		video.setDescripcion("descripcion1");
-		video.setVisualizaciones(0);
-		
-		boolean correcto= false;
-		
-		correcto=usu.subirVideo(video);
-		System.out.println(Datos_Navegante.getIdUsuario());
-		System.out.println(correcto);			
+	
 		
 	}
 

@@ -10,18 +10,18 @@
   <vaadin-panel size-auto>
    <vaadin-vertical-layout size-auto>
     <vaadin-form-layout size-auto margin="false" :center>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="titulo">
        Videos Propios 
      </vaadin-label>
      <vaadin-horizontal-layout>
-      <vaadin-text-field value="Buscar video" :right></vaadin-text-field>
-      <vaadin-button plain-text :right>
+      <vaadin-text-field value="Buscar video" _id="buscadorTF" :right></vaadin-text-field>
+      <vaadin-button plain-text _id="buscarB" :right>
         Buscar 
       </vaadin-button>
      </vaadin-horizontal-layout>
     </vaadin-form-layout>
-    <vaadin-form-layout size-auto margin="false">
-     <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
+    <vaadin-form-layout size-auto margin="false" _id="listaVideosFL">
+     <ventanas-video_subido_ventanas _id="video_subido"></ventanas-video_subido_ventanas>
      <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
      <ventanas-video_subido_ventanas></ventanas-video_subido_ventanas>
     </vaadin-form-layout>

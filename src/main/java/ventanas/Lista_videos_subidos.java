@@ -1,7 +1,8 @@
 package ventanas;
 
-import java.util.Vector;
+import java.util.List;
 
+import com.vaadin.server.ExternalResource;
 
 public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 	/*
@@ -15,11 +16,16 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 	//Video_subido v1= new Video_subido();
 	//Video_subido v2= new Video_subido();
 	//Video_subido v3= new Video_subido();
+	IUsuario_registrado usuarioR= new BD_Principal();
+	Video_BD video= new Video_BD();
+	
 	
 	public Lista_videos_subidos(){
-		//videosubido1.addComponent(v1);
-		//videosubido2.addComponent(v2);
-		//videosubido3.addComponent(v3);
+		
+	
 		}
+
+
+	
 	
 }

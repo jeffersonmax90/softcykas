@@ -85,7 +85,10 @@ public class MyUI extends UI {
 		navigator.addView("Crear_categoria", Crear_categoria.class);
 		navigator.addView("Lista_de_usuarios_registrados", Lista_de_usuarios_registrados.class);
 		navigator.addView("Lista_total_videos_subidos", Lista_total_videos_subidos.class);
-		
+		navigator.addView("Ficha_registrado", Ficha_registrado.class);
+		navigator.addView("Ficha_administrador", Ficha_administrador.class);
+		navigator.addView("Ficha_invitado", Ficha_invitado.class);
+		navigator.addView("Ficha_propietario", Ficha_propietario.class);
 		navigator.navigateTo("");
 	
 		

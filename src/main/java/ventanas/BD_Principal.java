@@ -192,7 +192,12 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> cargarVideosPropios(int aId) {
-		throw new UnsupportedOperationException();
+		try {
+			return _bD_Videos.cargarVideosPropios(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	public boolean meGusta(int aId, boolean aValor) {

@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Ficha_propietario extends Ficha_propietario_ventanas {
+import com.vaadin.navigator.View;
+
+public class Ficha_propietario extends Ficha_propietario_ventanas implements View{
 	/*
 	 * public Video _unnamed_Video_; public Zona_comentarios_video_propietario
 	 * _unnamed_Zona_comentarios_video_propietario_; public
