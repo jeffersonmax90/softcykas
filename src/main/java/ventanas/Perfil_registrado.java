@@ -1,10 +1,15 @@
 package ventanas;
 
+import java.util.Collections;
 import java.util.List;
+
+import org.hibernate.internal.util.compare.ComparableComparator;
 
 import com.vaadin.navigator.View;
 import com.vaadin.server.ExternalResource;
+import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -19,6 +24,7 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 	*/
 	IUsuario_registrado usuarioR= new BD_Principal();
 	Video_BD video= new Video_BD();
+	public String obtenerId;
 	public Perfil_registrado() {
 		cargarVideosPropios();
 		
@@ -92,22 +98,23 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 	
 	
 	
-	
-
-
 
 void cargarVideosPropios() {
-	// TODO Auto-generated method stub
 		List<Video_BD> listavideos= usuarioR.cargarVideosPropios(Datos_Navegante.getIdUsuario());
 		zona_cuerpo_perfil_registrado.lv.listaVideosFL.removeAllComponents();
-		for (Video_BD lv : listavideos) {
-			Video_BD v= lv;
+		
+		for (int i = 0; i < listavideos.size(); i++) {
 			Video_subido vs= new Video_subido();
+			vs.video.tituloVideo.setCaption(listavideos.get(i).getTitulo());
+			vs.video.miniaturaVideo.setSource(new ExternalResource(listavideos.get(i).getMiniatura()));
+			vs.video.idVideo.setVisible(false);
+			//casting el id a string
+			int id=listavideos.get(i).getId();			
+			String cadena="";
+			cadena=String.valueOf(id);
+			vs.video.idVideo.setValue(cadena);
 			
-			vs.video.tituloVideo.setCaption(v.getTitulo());
-			vs.video.miniaturaVideo.setSource(new ExternalResource(v.getMiniatura()));
-			zona_cuerpo_perfil_registrado.lv.listaVideosFL.addComponent(vs);
-			
+			zona_cuerpo_perfil_registrado.lv.listaVideosFL.addComponent(vs);			
 			vs.video.tituloVideo.addClickListener(new Button.ClickListener() {
 				@Override
 				public void buttonClick(ClickEvent event) {
@@ -115,8 +122,24 @@ void cargarVideosPropios() {
 				}
 			});
 			
-		//	video.setSource(new ExternalResource(vid.getMiniatura()));
-		//	user.setSource(new ExternalResource(vid.getPropietario_video().getAvatar()));
+	
+			vs.modificar.addClickListener(new Button.ClickListener() {
+				@Override
+				public void buttonClick(ClickEvent event) {
+					obtenerId=vs.video.idVideo.getValue();
+					int numero=Integer.parseInt(obtenerId);
+					Datos_Navegante.setIdVideo(numero);
+					UI.getCurrent().getNavigator().navigateTo("Modificar_video");
+				}
+			});
+			
+			vs.eliminar.addClickListener(new Button.ClickListener() {
+				@Override
+				public void buttonClick(ClickEvent event) {
+					UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
+				}
+			});
+	
 		}
 }
 

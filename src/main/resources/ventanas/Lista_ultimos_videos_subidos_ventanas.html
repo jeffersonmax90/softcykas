@@ -7,29 +7,25 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-panel size-full>
-   <vaadin-vertical-layout size-auto>
-    <vaadin-form-layout size-auto margin="false" :center>
-     <vaadin-label plain-text _id="videos_ultimos_subidos">
-       Videos últimos subidos 
-     </vaadin-label>
-     <vaadin-label plain-text>
-       Lista de los últimos videos subidos 
-     </vaadin-label>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="video_layout1">
+  <vaadin-vertical-layout>
+   <vaadin-form-layout size-auto margin="false" :center>
+    <vaadin-label plain-text _id="videos_ultimos_subidos">
+      Videos últimos subidos 
+    </vaadin-label>
+    <vaadin-label plain-text>
+      Lista de los últimos videos subidos 
+    </vaadin-label>
+    <vaadin-panel width-auto height="400px">
+     <vaadin-form-layout responsive size-auto margin _id="videosFormLayout">
       <ventanas-video_ventanas></ventanas-video_ventanas>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="video_layout2">
       <ventanas-video_ventanas></ventanas-video_ventanas>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="video_layout3">
       <ventanas-video_ventanas></ventanas-video_ventanas>
-     </vaadin-vertical-layout>
-     <vaadin-button plain-text _id="atras">
-       Atrás 
-     </vaadin-button>
-    </vaadin-form-layout>
-   </vaadin-vertical-layout>
-  </vaadin-panel>
+     </vaadin-form-layout>
+    </vaadin-panel>
+    <vaadin-button plain-text _id="atras">
+      Atrás 
+    </vaadin-button>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

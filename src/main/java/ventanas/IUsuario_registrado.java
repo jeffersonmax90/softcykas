@@ -56,5 +56,7 @@ public interface IUsuario_registrado {
 	
 	public Usuario_Registrado_BD cargarModificarDatos(int aId);
 	
+	public Video_BD cargarModificarVideo(int aId);
+	
 	
 }

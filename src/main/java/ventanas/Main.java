@@ -56,9 +56,10 @@ public class Main {
 		*/
 		
 		
-		IUsuario_registrado usu= new BD_Principal();
-		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
+		IUsuario_registrado usuR= new BD_Principal();
 		
+		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
+		/*
 		List<Video_BD> video= new ArrayList<Video_BD>();
 		
 		video= usu.cargarVideosPropios(9);
@@ -66,8 +67,28 @@ public class Main {
 			System.out.println(video_BD.getId()+" "+ video_BD.getTitulo()+ " "
 		);
 		}
+		*/
+		Video_BD video=new Video_BD();
+		video= usuR.cargarModificarVideo(2);
+		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
+		
+		System.out.println("modificacion");
+		video.setTitulo("video2222");
+		video.setEtiqueta("etiqueta222");
+		video.setRuta("222");
+		video.setMiniatura("222");
+		video.setDescripcion("2222");
+		Categoria_BD cat= new Categoria_BD();
+		
+		cat.setEdad("+6");
+		cat.setNombre("futbol");
+		
+		video.setCategoria_BD(cat);
 		
 	
+		boolean modificado= usuR.modificarVideo(video);
+		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
+		System.out.println(modificado);
 		
 	}
 

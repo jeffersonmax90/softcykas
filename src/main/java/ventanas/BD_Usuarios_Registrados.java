@@ -42,8 +42,7 @@ public class BD_Usuarios_Registrados {
 
 		try {		
 		Usuario_Registrado_BD usu=Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aUsuario.getId());
-		usu.setNombre(aUsuario.getNombre());
-		usu.setNombre(aUsuario.getNombre());
+		usu.setNombre(aUsuario.getNombre());		
 		usu.setApellidos(usu.getApellidos());
 		usu.setApodo(usu.getApodo());
 		usu.setEmail(usu.getEmail());

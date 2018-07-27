@@ -35,6 +35,7 @@ import ventanas.Lista_ultimos_videos_subidos;
 import ventanas.Listado_suscripciones_registrado;
 import ventanas.Listado_suscriptores;
 import ventanas.Modificar_datos;
+import ventanas.Modificar_video;
 import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
 import ventanas.Recuperar_contrasena;
@@ -89,8 +90,10 @@ public class MyUI extends UI {
 		navigator.addView("Ficha_administrador", Ficha_administrador.class);
 		navigator.addView("Ficha_invitado", Ficha_invitado.class);
 		navigator.addView("Ficha_propietario", Ficha_propietario.class);
+		navigator.addView("Modificar_video", Modificar_video.class);
 		navigator.navigateTo("");
 	
+		
 		
 		
 		

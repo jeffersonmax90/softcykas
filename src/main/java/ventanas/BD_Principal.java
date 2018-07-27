@@ -30,7 +30,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean modificarVideo(Video_BD aVideo) {
-		throw new UnsupportedOperationException();
+		boolean modificado= false;
+		try {
+			modificado= _bD_Videos.actualizarVideo(aVideo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return modificado;
 	}
 
 	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario) {
@@ -301,5 +307,15 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			e.printStackTrace();
 		}
 		return cambiado;
+	}
+	
+	public Video_BD cargarModificarVideo(int aId) {
+		Video_BD video= null;
+		try {
+			video=_bD_Videos.cargarModificarVideo(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return video;
 	}
 }
