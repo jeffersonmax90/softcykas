@@ -154,8 +154,10 @@ public class BD_Usuarios_Registrados {
 		return usu;		
 	}
 	
-	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) {
+	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) throws PersistentException {
 		List<Usuario_Registrado_BD> usuarios=new ArrayList<Usuario_Registrado_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+
 		try {
 			Usuario_Registrado_BDCriteria cat= new Usuario_Registrado_BDCriteria();
 			

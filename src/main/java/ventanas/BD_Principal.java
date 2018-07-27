@@ -22,7 +22,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		 try {
 			correcto=_bD_Videos.nuevoVideo(aVideo);
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 return correcto;
@@ -44,7 +43,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			try {
 				return _bD_Usuarios_Registrados.nuevoUsuario(aUsuario);
 			} catch (PersistentException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return false;
 			}
@@ -81,7 +79,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 				 try {
 					usuario=_bD_Usuarios_Registrados.iniciarSesion(aEmail, aContrasena);
 				} catch (PersistentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				 return usuario;
@@ -241,7 +238,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		try {
 			cat = _bD_Categorias.listarCategorias();
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return cat;
@@ -264,7 +260,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean eliminarVideoSubido(int aId) {
-		throw new UnsupportedOperationException();
+		boolean borrado=false;
+		try {
+			borrado=_bD_Videos.eliminarVideoSubido(aId);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return borrado;
 	}
 	
 	public Usuario_Registrado_BD cargarModificarDatos(int aId) {
@@ -272,12 +274,11 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		try {
 			usu= _bD_Usuarios_Registrados.cargarModificarDatos(aId);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return usu;
 	}
-	
+	//TODO	
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) {
 		List<Usuario_Registrado_BD> lista=null;
 		try {
@@ -293,7 +294,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		try {
 			usu= _bD_Usuarios_Administradores.cargarImagenAdministardor(aId);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return usu;
@@ -317,5 +317,15 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			e.printStackTrace();
 		}
 		return video;
+	}
+	
+	public List<Video_BD> buscarVideosPropios(String aNombre) {
+		List<Video_BD> lista=null;
+		try {
+			lista= _bD_Videos.buscarVideosPropios(aNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 }

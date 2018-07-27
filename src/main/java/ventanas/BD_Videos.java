@@ -129,8 +129,53 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean eliminarVideoSubido(int aId) {
-		throw new UnsupportedOperationException();
+	@SuppressWarnings("unused")
+	public boolean eliminarVideoSubido(int aId) throws PersistentException {
+		boolean borrado=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Video_BD vid=Video_BDDAO.loadVideo_BDByORMID(aId);
+			List<Usuario_Registrado_BD> usuarios=Arrays.asList(Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByQuery(null, null));
+			List<Lista_reproduccion_BD> listas=Arrays.asList(Lista_reproduccion_BDDAO.listLista_reproduccion_BDByQuery(null, null));
+			List<Historial_BD> historials=Arrays.asList(Historial_BDDAO.listHistorial_BDByQuery(null, null));
+			List<Comentario_BD> comentarios=Arrays.asList(Comentario_BDDAO.listComentario_BDByQuery(null, null));
+						
+			for(Usuario_Registrado_BD usuario:usuarios) {
+				if(usuario.me_gustas.contains(vid)) {
+					usuario.me_gustas.remove(vid);
+				}
+				if(usuario.video_subido.contains(vid)) {
+					usuario.video_subido.remove(vid);
+				}
+				Usuario_Registrado_BDDAO.save(usuario);
+			}
+			for(Lista_reproduccion_BD lista:listas) {
+				if(lista.video.contains(vid)) {
+					lista.video.remove(vid);
+				}
+				Lista_reproduccion_BDDAO.save(lista);
+			}
+			for(Historial_BD historial:historials) {
+				if(historial.video.contains(vid)) {
+					historial.video.remove(vid);
+				}
+				Historial_BDDAO.save(historial);
+			}
+			for(Comentario_BD comentario:comentarios) {
+				if(comentario.getVideo().equals(vid)) {
+					Comentario_BDDAO.delete(comentario);
+				}
+				Comentario_BDDAO.save(comentario);
+			}
+			Video_BDDAO.delete(vid);
+			t.commit();
+			borrado= true;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			t.rollback();
+		}
+		return borrado;
 	}
 
 	public Video[] listarVideosSuscripciones(int aId) {
@@ -192,5 +237,21 @@ public class BD_Videos {
 		}
 		
 			return v;		
+	}
+	
+	public List<Video_BD> buscarVideosPropios(String aNombre) {
+		List<Video_BD> videos=new ArrayList<Video_BD>();
+		
+		try {
+			PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+			Video_BDCriteria cat= new Video_BDCriteria();
+			cat.titulo.like("%"+ aNombre+"%");
+			for (Video_BD v : Video_BDDAO.listVideo_BDByCriteria(cat)) {
+				videos.add(v);
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}		
+		return videos;
 	}
 }

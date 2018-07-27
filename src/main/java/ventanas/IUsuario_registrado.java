@@ -58,5 +58,5 @@ public interface IUsuario_registrado {
 	
 	public Video_BD cargarModificarVideo(int aId);
 	
-	
+	public List<Video_BD> buscarVideosPropios(String aNombre);
 }

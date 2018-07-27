@@ -25,6 +25,7 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 	IUsuario_registrado usuarioR= new BD_Principal();
 	Video_BD video= new Video_BD();
 	public String obtenerId;
+	int idVideo;
 	public Perfil_registrado() {
 		cargarVideosPropios();
 		
@@ -94,6 +95,13 @@ public class Perfil_registrado  extends Perfil_registrado_ventanas implements Vi
 		
 		
 		
+		zona_cuerpo_perfil_registrado.lv.buscarB.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+			//	buscarVideosPropios();
+			}
+
+		});
 	}
 	
 	
@@ -136,12 +144,90 @@ void cargarVideosPropios() {
 			vs.eliminar.addClickListener(new Button.ClickListener() {
 				@Override
 				public void buttonClick(ClickEvent event) {
-					UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
+					obtenerId=vs.video.idVideo.getValue();
+					idVideo=Integer.parseInt(obtenerId);
+					eliminarVideoSubido();
 				}
+
+				
 			});
 	
 		}
+		
 }
+		void eliminarVideoSubido() {
+			boolean borrado=false;
+			borrado= usuarioR.eliminarVideoSubido(idVideo);
+			if(borrado== true){
+				Notification notification = new Notification("El Video se ha eliminado", "", Notification.Type.HUMANIZED_MESSAGE);
+				notification.setDelayMsec(2000);
+				notification.show(Page.getCurrent());	
+				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");	
+			}
+		}
 
-	
+/*
+		void buscarVideosPropios() {
+			// TODO Auto-generated method stub
+			
+			
+			
+			String aNombre= zona_cuerpo_perfil_registrado.lv.buscadorTF.getValue();
+			if(aNombre.isEmpty()){
+				cargarVideosPropios();
+			}
+						
+			List<Video_BD> listavideos= usuarioR.buscarVideosPropios(aNombre);
+			zona_cuerpo_perfil_registrado.lv.listaVideosFL.removeAllComponents();
+			for (int i = 0; i < listavideos.size(); i++) {
+				Video_subido vs= new Video_subido();
+				vs.video.tituloVideo.setCaption(listavideos.get(i).getTitulo());
+				vs.video.miniaturaVideo.setSource(new ExternalResource(listavideos.get(i).getMiniatura()));
+				vs.video.idVideo.setVisible(false);
+				//casting el id a string
+				int id=listavideos.get(i).getId();			
+				String cadena="";
+				cadena=String.valueOf(id);
+				vs.video.idVideo.setValue(cadena);
+				
+				zona_cuerpo_perfil_registrado.lv.listaVideosFL.addComponent(vs);			
+				vs.video.tituloVideo.addClickListener(new Button.ClickListener() {
+					@Override
+					public void buttonClick(ClickEvent event) {
+						UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
+					}
+				});
+				
+		
+				vs.modificar.addClickListener(new Button.ClickListener() {
+					@Override
+					public void buttonClick(ClickEvent event) {
+						obtenerId=vs.video.idVideo.getValue();
+						int numero=Integer.parseInt(obtenerId);
+						Datos_Navegante.setIdVideo(numero);
+						UI.getCurrent().getNavigator().navigateTo("Modificar_video");
+					}
+				});
+				
+				vs.eliminar.addClickListener(new Button.ClickListener() {
+					@Override
+					public void buttonClick(ClickEvent event) {
+						obtenerId=vs.video.idVideo.getValue();
+						idVideo=Integer.parseInt(obtenerId);
+						eliminarVideoSubido();
+					}
+
+					
+				});
+		
+			}
+			
+			}
+		*/
+			
+		
+		
+		
+		
+		
 }
