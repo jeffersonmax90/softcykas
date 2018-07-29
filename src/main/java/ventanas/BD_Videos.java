@@ -43,6 +43,7 @@ public class BD_Videos {
 			v.setVisualizaciones(0);
 			v.setORM_Categoria_BD(cat);
 			v.setORM_Propietario(usu);
+			
 				
 						
 			Video_BDDAO.save(v);		
@@ -253,5 +254,26 @@ public class BD_Videos {
 			e.printStackTrace();
 		}		
 		return videos;
+	}
+	
+	public Video_BD cargarFichaVideoRegistrado(int aId) throws PersistentException {
+		Video_BD v=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			v=Video_BDDAO.getVideo_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return v;		
+	}
+
+
+	public Video_BD cargarFichaVideoAdmin(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Video_BD cargarFichaVideoNoRegistrado(int aId) {
+		throw new UnsupportedOperationException();
 	}
 }

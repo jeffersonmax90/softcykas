@@ -10,10 +10,14 @@
   <vaadin-vertical-layout size-full>
    <vaadin-horizontal-layout _id="cuerpo_regitrado">
     <vaadin-panel width-auto height="600px" _id="panelVideosPropios">
-     <ventanas-lista_videos_subidos_ventanas _id="lv"></ventanas-lista_videos_subidos_ventanas>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="verticalVideos">
+      <ventanas-lista_videos_subidos_ventanas _id="lv"></ventanas-lista_videos_subidos_ventanas>
+     </vaadin-vertical-layout>
     </vaadin-panel>
     <vaadin-panel width-auto height="600px" _id="panelListaReproduccion">
-     <ventanas-listas_reproduccion_propias_ventanas></ventanas-listas_reproduccion_propias_ventanas>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="verticalListas">
+      <ventanas-listas_reproduccion_propias_ventanas></ventanas-listas_reproduccion_propias_ventanas>
+     </vaadin-vertical-layout>
     </vaadin-panel>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>

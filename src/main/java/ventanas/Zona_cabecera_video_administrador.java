@@ -12,5 +12,18 @@ public class Zona_cabecera_video_administrador extends Zona_cabecera_video_admin
 	 */
 	
 	
-	
+	public Zona_cabecera_video_administrador(){
+			
+			logo.addClickListener(new Button.ClickListener() {
+				public void buttonClick(ClickEvent event) {
+					UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
+				}
+			});
+			
+			mi_perfil.addClickListener(new Button.ClickListener() {
+				public void buttonClick(ClickEvent event) {
+					UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
+				}
+			});
+	}
 }

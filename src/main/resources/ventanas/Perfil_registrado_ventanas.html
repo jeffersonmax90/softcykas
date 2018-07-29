@@ -10,10 +10,12 @@
   <vaadin-panel size-full>
    <vaadin-vertical-layout size-auto>
     <vaadin-form-layout spacing="false" size-auto margin="false" :center>
-     <ventanas-zona_cabecera_perfli_-registrado_ventanas _id="cabecera"></ventanas-zona_cabecera_perfli_-registrado_ventanas>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="vertical">
+      <ventanas-zona_cabecera_perfli_-registrado_ventanas _id="cabecera"></ventanas-zona_cabecera_perfli_-registrado_ventanas>
+     </vaadin-vertical-layout>
     </vaadin-form-layout>
     <vaadin-form-layout size-auto margin="false">
-     <vaadin-horizontal-layout>
+     <vaadin-horizontal-layout _id="horizontal">
       <ventanas-zona_opciones_perfil_registrado_ventanas _id="zona_opciones_perfil_registrado"></ventanas-zona_opciones_perfil_registrado_ventanas>
       <ventanas-zona_cuerpo_perfil_registrado_ventanas _id="zona_cuerpo_perfil_registrado"></ventanas-zona_cuerpo_perfil_registrado_ventanas>
      </vaadin-horizontal-layout>

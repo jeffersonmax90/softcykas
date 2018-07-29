@@ -1,5 +1,11 @@
 package ventanas;
 
+import java.util.Date;
+
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
 public class Ficha_video extends Ficha_video_ventanas {
 	/*private Video _stream;
 	private Button _nombre_perfil_usuarioB;
@@ -15,4 +21,49 @@ public class Ficha_video extends Ficha_video_ventanas {
 	public void reproducir() {
 		throw new UnsupportedOperationException();
 	}*/
+	IUsuario_registrado usuR= new BD_Principal();
+	IUsuario_no_registrado usuNoR= new BD_Principal();
+	IAdministrador admin= new BD_Principal();
+	
+	public Ficha_video() {
+		// TODO Auto-generated constructor stub
+		
+		cargarFichaVideoRegistrado();
+		
+		
+	}
+
+	 void cargarFichaVideoRegistrado() {
+		 Video_BD v= usuR.cargarFichaVideoRegistrado(Datos_Navegante.getIdVideo());
+		 titulo_video.setValue(v.getTitulo());
+		 int visualizaciones= v.getVisualizaciones();
+		 String n= "";
+		 n=String.valueOf(visualizaciones);
+		 Date d= v.getFecha_subida();
+		 String fecha= String.valueOf(d);
+		 nombre_usuario.setCaption(v.getPropietario().getNombre());
+		 nombre_usuario.addClickListener(new Button.ClickListener() {
+				@Override
+				public void buttonClick(ClickEvent event) {
+					UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+				}
+			});
+		 
+		 
+		 numero_me_gusta.setValue(n);
+		 fecha_subida.setValue(fecha);
+		 descripcion_video.setValue(v.getDescripcion());
+		 categoria.setValue(v.getCategoria_BD().getNombre()+ " "+ v.getCategoria_BD().getEdad());
+		 etiquetas.setValue(v.getEtiqueta());
+		 
+		 
+		 
+	 }
+	
+	
+	
+	
+	
+	
+	
 }

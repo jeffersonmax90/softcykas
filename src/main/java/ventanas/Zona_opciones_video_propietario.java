@@ -1,5 +1,9 @@
 package ventanas;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
 public class Zona_opciones_video_propietario extends Zona_opciones_video_propietario_ventanas {
 	/*
 	 * private Button _megustaB; private Button _eliminar_videoB; private Button
@@ -14,4 +18,40 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	 * 
 	 * public void me_gusta() { throw new UnsupportedOperationException(); }
 	 */
+	
+	
+	public Zona_opciones_video_propietario(){
+	
+		me_gusta.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+		
+		descargar.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+				
+		crear_lista_reproduccion.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+		
+		anadir_lista.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+		
+		eliminar.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+	
+	}
+	
 }

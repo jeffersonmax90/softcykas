@@ -7,11 +7,13 @@ public class Zona_cuerpo_perfil_registrado extends Zona_cuerpo_perfil_registrado
 	public Listas_reproduccion_propias _unnamed_Listas_reproduccion_propias_;
 	*/
 	
-	//Lista_videos_subidos lvs=new Lista_videos_subidos();
-	//Listas_reproduccion_propias lrp=new Listas_reproduccion_propias();
+	Lista_videos_subidos lvs=new Lista_videos_subidos();
+	Listas_reproduccion_propias lrp=new Listas_reproduccion_propias();
 	
 	public Zona_cuerpo_perfil_registrado(){
-		//cuerpo_regitrado.addComponent(lvs);
-		//cuerpo_regitrado.addComponent(lrp);
+		verticalVideos.removeAllComponents();
+		verticalVideos.addComponent(lvs);
+		verticalListas.removeAllComponents();
+		verticalListas.addComponent(lrp);
 	}
 }

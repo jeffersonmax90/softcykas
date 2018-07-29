@@ -1,5 +1,10 @@
 package ventanas;
 
+import com.vaadin.server.ExternalResource;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
 public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	/*
 	private Image _logo;
@@ -15,4 +20,33 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	public Confirmar_suscripcion _unnamed_Confirmar_suscripcion_;
 	public Listado_suscriptores _unnamed_Listado_suscriptores_;
 	*/
+	IUsuario_registrado usuarioR= new BD_Principal();
+	
+	public Zona_cabecera_comun(){
+		cargarImagenRegistrado();
+		
+		ver_listado_suscriptores.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("listado_suscriptores");
+			}
+		});
+		
+		ver_listado_suscripciones.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("listado_suscripciones_registrado");
+			}
+		});
+
+	 
+	}
+	
+	void cargarImagenRegistrado() {
+		
+		Usuario_Registrado_BD usu= usuarioR.cargarImagenRegistrado(Datos_Navegante.getIdUsuario());
+		
+		this.imagen.setSource(new ExternalResource(usu.getMiniatura()));
+	};
+	
 }

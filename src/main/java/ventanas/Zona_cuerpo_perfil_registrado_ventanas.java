@@ -22,8 +22,10 @@ import ventanas.Lista_videos_subidos_ventanas;
 public class Zona_cuerpo_perfil_registrado_ventanas extends VerticalLayout {
 	protected HorizontalLayout cuerpo_regitrado;
 	protected Panel panelVideosPropios;
+	protected VerticalLayout verticalVideos;
 	protected Lista_videos_subidos_ventanas lv;
 	protected Panel panelListaReproduccion;
+	protected VerticalLayout verticalListas;
 
 	public Zona_cuerpo_perfil_registrado_ventanas() {
 		Design.read(this);

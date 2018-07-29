@@ -23,7 +23,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 	List<Categoria_BD> listacat;
 	@SuppressWarnings("serial")
 	public Modificar_video() {
-		cargarModificarVideo();
+	//	cargarModificarVideo();
 		
 		atras.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
@@ -34,7 +34,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 		modificar.addClickListener(new Button.ClickListener() {
 			@SuppressWarnings("unused")
 			public void buttonClick(ClickEvent event) {
-				modificarVideo();
+				//modificarVideo();
 				Notification notification = new Notification("Video modificado con éxito"," ",
 						Notification.Type.HUMANIZED_MESSAGE);
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
@@ -43,7 +43,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 		});
 
 	}
-
+	/*
 	void cargarModificarVideo() {
 		video= usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());		
 		datosVideos.titulo.setValue(video.getTitulo());
@@ -102,7 +102,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");		
 		}
 	}
-	
+	*/
 	
 	
 

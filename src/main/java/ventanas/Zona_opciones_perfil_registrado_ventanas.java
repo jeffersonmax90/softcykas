@@ -20,8 +20,8 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Zona_opciones_perfil_registrado_ventanas extends VerticalLayout {
 	protected Label nombre_usuario;
-	protected Button inicio;
-	protected Button subir_video;
+	protected Button volverAtras;
+	protected Button subirVideo;
 	protected Button modificarDatos;
 	protected Button cambiarContrasena;
 	protected Button historial;

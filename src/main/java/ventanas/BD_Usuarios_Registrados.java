@@ -173,4 +173,16 @@ public class BD_Usuarios_Registrados {
 	
 		return usuarios;
 	}
+	
+	public Usuario_Registrado_BD cargarImagenRegistrado(int aId) throws PersistentException {
+		Usuario_Registrado_BD usu=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}		
+		return usu;		
+	}
 }

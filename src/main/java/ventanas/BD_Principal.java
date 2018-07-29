@@ -187,7 +187,14 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean crearLista(Lista_reproduccion_BD aLista) {
-		throw new UnsupportedOperationException();
+		boolean correcto= false;
+		 try {
+			correcto=_bD_Listas_reproduccion.crearLista(aLista);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		 return correcto;
+		 
 	}
 
 	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) {
@@ -327,5 +334,32 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			e.printStackTrace();
 		}
 		return lista;
+	}
+	public Usuario_Registrado_BD cargarImagenRegistrado(int aId) {
+		Usuario_Registrado_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Registrados.cargarImagenRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return usu;
+	}
+
+	public Video_BD cargarFichaVideoAdmin(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Video_BD cargarFichaVideoNoRegistrado(int aId) {
+		throw new UnsupportedOperationException();
+	}
+
+	public Video_BD cargarFichaVideoRegistrado(int aId) {
+		Video_BD video= null;
+		try {
+			video=_bD_Videos.cargarFichaVideoRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return video;
 	}
 }

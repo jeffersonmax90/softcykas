@@ -24,5 +24,56 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 	public Subir_video _unnamed_Subir_video_;
 	*/
 	
-	
+	public Zona_opciones_perfil_registrado(){
+		
+		volverAtras.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
+			}
+		});
+		
+		subirVideo.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("subir_video");
+			}
+		});
+		modificarDatos.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("modificar_datos");
+			}
+		});
+		
+		cambiarContrasena.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("cambiar_contrasena");
+			}
+		});
+		
+		historial.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("lista_historial");
+			}
+		});
+		
+		videosUltimosSubidos.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("lista_ultimos_videos_subidos");
+			}
+		});
+		
+		cerrarSesion.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("");
+			}
+		});
+		
+		nombre_usuario.setValue(Datos_Navegante.getApodo().toUpperCase());
+	}
 }

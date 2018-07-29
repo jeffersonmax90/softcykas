@@ -1,5 +1,9 @@
 package ventanas;
 
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
 public class Zona_opciones_video_registrado extends Zona_opciones_video_registrado_ventanas {
 	/*
 	 * private Button _megustaB; private Button _descargar_video; private ComboBox
@@ -10,4 +14,34 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 	 * 
 	 * public void me_gusta() { throw new UnsupportedOperationException(); }
 	 */
+	
+	public Zona_opciones_video_registrado(){
+		
+		me_gusta.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+		
+		descargar.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+				
+		crear_lista_reproduccion.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+		
+		anadir_lista.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+			}
+		});
+	
+	}
+	
+	
 }

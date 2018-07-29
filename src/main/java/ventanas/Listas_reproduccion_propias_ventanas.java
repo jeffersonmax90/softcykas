@@ -21,7 +21,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Listas_reproduccion_propias_ventanas extends Panel {
 	protected Label lista_reproducion;
-	protected TextField buscar_lista;
+	protected TextField buscarLista;
 	protected Button buscar;
 	protected Button lista12;
 	protected Label lista1;

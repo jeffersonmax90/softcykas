@@ -17,4 +17,6 @@ public interface IUsuario_no_registrado {
 	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId);
 
 	public List<Comentario_BD> anadirComentarios(int aId);
+	
+	public Video_BD cargarFichaVideoNoRegistrado(int aId);
 }

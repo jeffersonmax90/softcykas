@@ -21,6 +21,7 @@ import ventanas.Cabecera_buscador;
 import ventanas.Cambiar_contrasena;
 import ventanas.Cambiar_imagen;
 import ventanas.Crear_categoria;
+import ventanas.Crear_lista;
 import ventanas.Ficha_administrador;
 import ventanas.Ficha_invitado;
 import ventanas.Ficha_propietario;
@@ -91,6 +92,7 @@ public class MyUI extends UI {
 		navigator.addView("Ficha_invitado", Ficha_invitado.class);
 		navigator.addView("Ficha_propietario", Ficha_propietario.class);
 		navigator.addView("Modificar_video", Modificar_video.class);
+		navigator.addView("Crear_lista", Crear_lista.class);
 		navigator.navigateTo("");
 	
 		
@@ -115,8 +117,8 @@ public class MyUI extends UI {
 		Lista_de_usuarios_registrados lu= new Lista_de_usuarios_registrados();
 		Lista_total_videos_subidos lt= new Lista_total_videos_subidos();
 		Modificar_datos md= new Modificar_datos();
-		
-		setContent(md);
+		Ficha_invitado fi= new Ficha_invitado();
+		setContent(fi);
 		*/
 	}
 

@@ -8,14 +8,18 @@
  </head>
  <body>
   <vaadin-vertical-layout>
-   <ventanas-zona_cabecera_video_registrado_ventanas></ventanas-zona_cabecera_video_registrado_ventanas>
-   <vaadin-form-layout size-auto margin="false">
-    <vaadin-horizontal-layout>
-     <ventanas-ficha_video_ventanas></ventanas-ficha_video_ventanas>
-     <ventanas-zona_opciones_video_registrado></ventanas-zona_opciones_video_registrado>
+   <vaadin-vertical-layout spacing="false" margin="false" _id="vertical">
+    <ventanas-zona_cabecera_video_registrado_ventanas _id="zonaCabecera"></ventanas-zona_cabecera_video_registrado_ventanas>
+   </vaadin-vertical-layout>
+   <vaadin-form-layout size-auto margin="false" _id="form">
+    <vaadin-horizontal-layout _id="horizontal">
+     <ventanas-ficha_video_ventanas _id="fichaVideo"></ventanas-ficha_video_ventanas>
+     <ventanas-zona_opciones_video_registrado _id="zonaOpcionesRegistrado"></ventanas-zona_opciones_video_registrado>
     </vaadin-horizontal-layout>
+    <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="verti2">
+     <ventanas-lista_comentarios_anadibles _id="listaComentarios"></ventanas-lista_comentarios_anadibles>
+    </vaadin-vertical-layout>
    </vaadin-form-layout>
-   <ventanas-lista_comentarios_anadibles></ventanas-lista_comentarios_anadibles>
   </vaadin-vertical-layout>
  </body>
 </html>

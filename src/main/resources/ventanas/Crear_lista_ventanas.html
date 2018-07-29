@@ -8,21 +8,19 @@
  </head>
  <body>
   <vaadin-vertical-layout spacing="false" size-full margin="false">
-   <vaadin-form-layout size-auto :center>
-    <vaadin-vertical-layout size-auto>
-     <vaadin-label plain-text _id="titulo_lista_de_reproducion">
-       Crear lista de reprodución 
-     </vaadin-label>
-     <vaadin-text-field caption="Nombre de la nueva lista:" _id="nombre_de_laLista"></vaadin-text-field>
-    </vaadin-vertical-layout>
-    <vaadin-vertical-layout spacing="false" size-auto margin="false">
-     <vaadin-horizontal-layout spacing="false">
-      <ventanas-video_ventanas _id="video"></ventanas-video_ventanas>
-      <vaadin-button plain-text _id="crear">
-        Crear 
-      </vaadin-button>
-     </vaadin-horizontal-layout>
-    </vaadin-vertical-layout>
+   <vaadin-form-layout size-auto margin :center>
+    <vaadin-label plain-text _id="titulo_lista_de_reproducion">
+      Crear lista de reprodución 
+    </vaadin-label>
+    <vaadin-text-field caption="Nombre de la nueva lista:" _id="nombreLista"></vaadin-text-field>
+    <vaadin-horizontal-layout>
+     <vaadin-button plain-text _id="atras">
+       Atrás 
+     </vaadin-button>
+     <vaadin-button plain-text _id="crearNuevaLista">
+       Crear 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>

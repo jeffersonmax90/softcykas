@@ -59,4 +59,8 @@ public interface IUsuario_registrado {
 	public Video_BD cargarModificarVideo(int aId);
 	
 	public List<Video_BD> buscarVideosPropios(String aNombre);
+	
+	public Usuario_Registrado_BD cargarImagenRegistrado(int aId);
+	
+	public Video_BD cargarFichaVideoRegistrado(int aId);
 }
