@@ -51,44 +51,64 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		}
 
 		for (Categoria_BD cat : registrado.cargarCategorias()) {
-			items.add(cat.getNombre()+ " " +cat.getEdad());
+			items.add(cat.getNombre() + " " + cat.getEdad());
 		}
 
 		anadirDatosVideo.categoria.setItems(items);
 	}
 
 	void Subir_video() {
-		/*for (Categoria_BD cat : registrado.cargarCategorias()) {
-			if (anadirDatosVideo.categoria.getSelectedItem().equals(cat.getNombre())) {
-				video.setCategoria_BD(cat);
-				break;
-			}
-		}*/
+		/*
+		 * for (Categoria_BD cat : registrado.cargarCategorias()) { if
+		 * (anadirDatosVideo.categoria.getSelectedItem().equals(cat.getNombre())) {
+		 * video.setCategoria_BD(cat); break; } }
+		 */
 		Categoria_BD cat = new Categoria_BD();
-		//separo la palabra categoria
-		String categoria= anadirDatosVideo.categoria.getValue();
-		String[] parte= categoria.split(" ");
-		String nombre=parte[0];
-		String edad=parte[1];
-			
+		// separo la palabra categoria
+		String categoria = anadirDatosVideo.categoria.getValue();
+		String[] parte = categoria.split(" ");
+		String nombre = parte[0];
+		String edad = parte[1];
+
 		cat.setNombre(nombre);
 		cat.setEdad(edad);
-		//Subir video	
+		// Subir video
 		video.setCategoria_BD(cat);
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
-		video.setRuta(anadirDatosVideo.rutaVideo.getValue());
-		String ruta;
-		if(anadirDatosVideo.rutaMiniatura.getValue().isEmpty()){
-			ruta="http://i41.tinypic.com/2uqf48w.jpg";
-		}else{
-			ruta=anadirDatosVideo.rutaMiniatura.getValue();
+
+		String linkFinal = "https://www.youtube.com/v/";
+		String source = anadirDatosVideo.rutaVideo.getValue();
+		if (source.contains("https://youtu.be")) {
+			String[] parse = source.split("/");
+			source = parse[parse.length - 1];
+			if (source.contains("?")) {
+				String[] parse2 = source.split("\\?");
+				source = parse2[0];
+			}
+		} else {
+			String[] parse = source.split("=");
+			if (parse.length == 2)
+				source = parse[1];
+			else {
+				String[] parse2 = parse[1].split("&");
+				source = parse2[0];
+			}
 		}
-		
-		video.setMiniatura(ruta);		
-		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());		
+		linkFinal += source;
+
+		video.setRuta(linkFinal);
+		String ruta;
+		if (anadirDatosVideo.rutaMiniatura.getValue().isEmpty()) {
+			ruta = "http://i41.tinypic.com/2uqf48w.jpg";
+		} else {
+			ruta = anadirDatosVideo.rutaMiniatura.getValue();
+		}
+
+		video.setMiniatura(ruta);
+		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
 		registrado.subirVideo(video);
-		
+
 	}
 
 }
