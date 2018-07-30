@@ -41,6 +41,7 @@ import ventanas.Modificar_lista_reproduccion;
 import ventanas.Modificar_video;
 import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
+import ventanas.Perfil_visitante;
 import ventanas.Recuperar_contrasena;
 import ventanas.Registrarse;
 import ventanas.Subir_video;
@@ -97,6 +98,7 @@ public class MyUI extends UI {
 		navigator.addView("Crear_lista", Crear_lista.class);
 		navigator.addView("Modificar_lista_reproduccion", Modificar_lista_reproduccion.class);
 		navigator.addView("Lista_reproduccion_propia", Lista_reproduccion_propia.class);
+		navigator.addView("Perfil_visitante", Perfil_visitante.class);
 		navigator.navigateTo("");
 		
 		
@@ -117,11 +119,12 @@ public class MyUI extends UI {
 		Cambiar_imagen c= new Cambiar_imagen();
 		Crear_categoria cc= new  Crear_categoria();
 		
+		Perfil_visitante pv= new Perfil_visitante();
 		Lista_de_usuarios_registrados lu= new Lista_de_usuarios_registrados();
 		Lista_total_videos_subidos lt= new Lista_total_videos_subidos();
 		Modificar_datos md= new Modificar_datos();
 		Ficha_invitado fi= new Ficha_invitado();
-		setContent(fi);
+		setContent(pv);
 		*/
 	}
 

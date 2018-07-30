@@ -37,7 +37,11 @@ public class Zona_inicio_cabecera_registrado extends Zona_inicio_cabecera_regist
 		cerrar_sesion.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("logIn");
+				Datos_Navegante.setTipoUsuario("Invitado");
+				Datos_Navegante.setIdUsuario(-1);
+				Datos_Navegante.setIdVideo(-1);
+				Datos_Navegante.setIdListaReproducion(-1);	
+				UI.getCurrent().getNavigator().navigateTo("");
 			}
 		});
 	}

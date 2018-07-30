@@ -50,9 +50,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			}
 		}
 
-	public List cargar_videos_tendencias() {
-		throw new UnsupportedOperationException();
-	}
 
 	public List cargarVideosUsuariosRegistrados() {
 		throw new UnsupportedOperationException();
@@ -69,7 +66,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public List<Video_BD> cargarVideosTendencia() {
 		List<Video_BD> videos = null;
 		try {
-			videos = _bD_Videos.cargar_videos_tendencias();
+			videos = _bD_Videos.cargarVideosTendencias();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,7 +124,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> cargarListaTotalVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Videos.cargarListaTotalVideosSubidos(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return videos;	
 	}
 
 	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) {
@@ -157,12 +160,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		
 		return correcto;
-	}
-
-	
-
-	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
 	}
 
 	public boolean anadirComentario(int aId, String aComentario) {

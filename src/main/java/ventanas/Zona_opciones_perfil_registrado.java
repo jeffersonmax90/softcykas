@@ -73,13 +73,20 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 		cerrarSesion.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				Datos_Navegante.setTipoUsuario("Invitado");
+				Datos_Navegante.setIdUsuario(-1);
+				Datos_Navegante.setIdVideo(-1);
+				Datos_Navegante.setIdListaReproducion(-1);				
 				UI.getCurrent().getNavigator().navigateTo("");
 			}
 		});
 		
 	}
 
+	
+	
 	void cargarNombrePerfilRegistrado() {
+		
 		usu= usuR.cargarNombrePerfilRegistrado(Datos_Navegante.getIdUsuario());
 		nombre_usuario.setValue(usu.getNombre()+" "+usu.getApellidos());
 	}

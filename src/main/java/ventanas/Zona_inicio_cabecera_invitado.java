@@ -17,10 +17,13 @@ public class Zona_inicio_cabecera_invitado extends Zona_inicio_cabecera_invitado
 	 * public Buscador _unnamed_Buscador_;
 	 */
 	public Zona_inicio_cabecera_invitado() {
+		
+	
+		
 		iniciar_sesion.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("logIn");
+					UI.getCurrent().getNavigator().navigateTo("logIn");
 			}
 		});
 	}

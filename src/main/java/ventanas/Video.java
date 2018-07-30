@@ -25,6 +25,11 @@ public class Video extends Video_ventanas {
 	}
 	
 	*/
+	public Video(){
+		
+	}
+	
+	
 	private int idAutor;
 	public Video( Video_BD video){
 		this.miniaturaVideo.setSource(new ExternalResource(video.getMiniatura()));

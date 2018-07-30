@@ -24,7 +24,7 @@ public class Ficha_video extends Ficha_video_ventanas {
 	IUsuario_registrado usuR= new BD_Principal();
 	IUsuario_no_registrado usuNoR= new BD_Principal();
 	IAdministrador admin= new BD_Principal();
-	
+	private int idAutor;
 	public Ficha_video() {
 		// TODO Auto-generated constructor stub
 		
@@ -55,8 +55,38 @@ public class Ficha_video extends Ficha_video_ventanas {
 		 descripcion_video.setValue(v.getDescripcion());
 		 categoria.setValue(v.getCategoria_BD().getNombre()+ " "+ v.getCategoria_BD().getEdad());
 		 etiquetas.setValue(v.getEtiqueta());
-		 
-		 
+		 idAutor=v.getPropietario().getORMID();
+		 this.nombre_usuario.addClickListener(new Button.ClickListener() {
+				@Override
+				public void buttonClick(ClickEvent event) {
+					
+				
+					
+					int idvisitante= v.getPropietario().getId();
+					//Datos_Navegante.setIdUsuario(idvisitante);
+					
+					if(Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+		        		UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+		        	}else if(Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+		        		if(Datos_Navegante.getIdUsuario()==idAutor) {
+			        		UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+			        	}else {
+			        	
+			        		UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+			        	}
+		        	}
+		        	else {
+		        		UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+		        	}
+					
+					
+					
+					
+					
+					
+					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+				}
+			});
 		 
 	 }
 	

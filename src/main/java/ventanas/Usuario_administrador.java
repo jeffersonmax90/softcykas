@@ -15,12 +15,11 @@ public class Usuario_administrador extends Usuario_administrador_ventanas implem
 	
 	public Usuario_administrador(){
 		
+		vertical.removeAllComponents();
+		vertical.addComponent(new Zona_inicio_cabecera_administrador());
+		vertical.addComponent(new Zona_inicio_cuerpo_administrador());
 		
-		zcva.mi_perfil.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
-				}
-			});
+		
 		
 		
 	

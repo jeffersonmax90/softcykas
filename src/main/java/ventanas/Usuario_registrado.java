@@ -18,19 +18,9 @@ public class Usuario_registrado extends Usuario_registrado_ventanas implements V
 	
 	public Usuario_registrado() {
 		
-		zicr.mi_perfil.addClickListener(new Button.ClickListener() {		
-				@Override
-				public void buttonClick(ClickEvent event) {
-					UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
-				}
-			});
-		
-		zicr.cerrar_sesion.addClickListener(new Button.ClickListener() {
-			@Override
-			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("");
-			}
-		});
+		vertical.removeAllComponents();
+		vertical.addComponent(new Zona_inicio_cabecera_registrado());
+		vertical.addComponent(new Zona_inicio_cuerpo_registrado());
 		
 		
 	}

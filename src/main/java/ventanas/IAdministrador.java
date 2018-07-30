@@ -26,8 +26,6 @@ public interface IAdministrador {
 
 	public List<Video_BD> cargarVideosTendencia();
 
-	public List<Video_BD> cargarListaUltimoVideosSubidos(int aId);
-
 	public boolean anadirComentario(int aId, String aComentario);
 
 	public List<Comentario_BD> cargarListaComentarios(int aId);

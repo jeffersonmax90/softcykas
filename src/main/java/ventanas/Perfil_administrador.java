@@ -16,54 +16,25 @@ public class Perfil_administrador extends Perfil_administrador_ventanas implemen
 	 * Zona_opciones_administrador _unnamed_Zona_opciones_administrador_;
 	 */
 	
-	IAdministrador admin= new BD_Principal();
+	Zona_cabecera_administrador zc= new Zona_cabecera_administrador();
+	Zona_opciones_administrador zopc= new Zona_opciones_administrador();
+	
+
 	
 	public Perfil_administrador(){
-		cargarImagen();
 		
-		zcav.cambiar_imagen.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("Cambiar_imagen");
-				}
-			});
+		vertical.removeAllComponents();
+		vertical.addComponent(zc);
+		vertical.addComponent(zopc);
 		
-		zoav.crear_categorias.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("Crear_categoria");
-				}
-			});
 		
-		zoav.lista_usuarios.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("Lista_de_usuarios_registrados");
-				}
-			});
 		
-		zoav.lista_videos.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("Lista_total_videos_subidos");
-				}
-			});
-		zoav.volveAtras.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
-				}
-			});
 		
-		zoav.cerrar_sesion.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				UI.getCurrent().getNavigator().navigateTo("");
-				}
-			});
 		
 		
 		
 	}
 
-	 void cargarImagen() {
-		Usuario_BD usuario=null;
-		usuario= admin.cargarImagenAdministrador(Datos_Navegante.getIdUsuario());
-		zcav.imagen.setSource(new ExternalResource(usuario.getMiniatura()));
-		}
+	 
 	
 }

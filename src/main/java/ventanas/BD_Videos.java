@@ -89,7 +89,7 @@ public class BD_Videos {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List cargar_videos_tendencias() throws PersistentException {
+	public List cargarVideosTendencias() throws PersistentException {
 		List<Video_BD> lista=null;
 		List<Integer> mg =new ArrayList<Integer>();
 		List<Video_BD>res = new ArrayList<Video_BD>();
@@ -136,12 +136,20 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Video_BD> listarVideosTendencia() {
-		throw new UnsupportedOperationException();
-	}
 
-	public List<Video_BD> cargarListaTotalVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Video_BD> cargarListaTotalVideosSubidos(int aId) throws PersistentException {
+		List<Video_BD> lista=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			String nombre="Fecha_subida";
+			lista = Video_BDDAO.queryVideo_BD(null,nombre);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return lista;
+		
 	}
 
 	public boolean eliminarVideoListaSubido(int aId) {
@@ -152,9 +160,6 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Video_BD> listarVideosTendenciaAdmin() {
-		throw new UnsupportedOperationException();
-	}
 
 	public List<Video_BD> cargarVideosPropios(int aId) throws PersistentException {
 		List<Video_BD> lista= new ArrayList<Video_BD>();		

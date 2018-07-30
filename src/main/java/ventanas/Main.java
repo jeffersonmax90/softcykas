@@ -94,11 +94,12 @@ public class Main {
 		*/
 		
 		IUsuario_no_registrado usuR= new BD_Principal();
-		
-		List<Video_BD> lista= usuR.cargarVideosTendencia();
+		IAdministrador ia= new BD_Principal();
+		int aId=2;
+		List<Video_BD> lista= ia.cargarListaTotalVideosSubidos(aId);
 		
 		for (Video_BD video_BD : lista) {
-			System.out.println(video_BD.getTitulo());
+			System.out.println( video_BD.getId() +" "+video_BD.getTitulo());
 		}
 		
 	}

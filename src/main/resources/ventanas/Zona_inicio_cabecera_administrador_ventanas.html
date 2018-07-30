@@ -7,9 +7,13 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-horizontal-layout width-full>
-   <ventanas-cabecera_buscador_ventanas></ventanas-cabecera_buscador_ventanas>
-   <vaadin-link caption="Panel administrador" _id="panel_administrador" :middle :right></vaadin-link>
-  </vaadin-horizontal-layout>
+  <vaadin-vertical-layout margin="false">
+   <vaadin-horizontal-layout margin _id="horizontal">
+    <ventanas-cabecera_buscador_ventanas></ventanas-cabecera_buscador_ventanas>
+    <vaadin-button plain-text _id="perfil">
+      Perfil Admin 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>
