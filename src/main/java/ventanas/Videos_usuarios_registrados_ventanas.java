@@ -19,7 +19,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Videos_usuarios_registrados_ventanas extends VerticalLayout {
 	protected Label videos_usuarios_registrados;
-	protected VerticalLayout videos_ultimos_subidos_layout;
+	protected VerticalLayout vertical;
 
 	public Videos_usuarios_registrados_ventanas() {
 		Design.read(this);

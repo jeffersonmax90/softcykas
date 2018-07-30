@@ -14,6 +14,7 @@ import org.orm.PersistentTransaction;
 
 
 
+
 public class BD_Videos {
 	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Video_BD> _videos = new Vector<Video_BD>();
@@ -218,7 +219,6 @@ public class BD_Videos {
 			borrado= true;
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			t.rollback();
 		}
 		return borrado;
@@ -236,17 +236,38 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) throws PersistentException {
+		List<Video_BD> lista=new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {	
+			Video_BDCriteria crit = new Video_BDCriteria();
+			crit.fecha_subida.order(false);
+			
+			for(Video_BD v : crit.listVideo_BD()) {
+				lista.add(v);
+			}
+			
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		List<Video_BD>def = new ArrayList<Video_BD>();
+		int contador = 0;
+			for(Video_BD video : lista) {
+				if(contador==10) {
+					break;
+				}
+				def.add(video);
+				contador++;
+			}
+			return def;
 	}
 
-	public Video[] cargarListaUltimoVideosSubidos(int aId) {
+	public List<Video_BD> cargarListaUltimoVideosSubidosRegistrado(int aId) throws PersistentException {
+		//TODO
 		throw new UnsupportedOperationException();
-	}
 
-	public List<Video_BD> cargarListaUltimoVideosSubidosRegistrado(int aId) {
-		throw new UnsupportedOperationException();
-	}
+		}
 
 	public List<Video_BD> cargarVideosRelacionados(int aId) {
 		throw new UnsupportedOperationException();

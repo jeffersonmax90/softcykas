@@ -171,7 +171,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Videos.cargarListaUltimosVideosSubidos(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return videos;	
 	}
 
 	public List<Comentario_BD> anadirComentarios(int aId) {

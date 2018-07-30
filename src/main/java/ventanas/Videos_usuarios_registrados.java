@@ -1,5 +1,8 @@
 package ventanas;
 
+import java.util.List;
+
+import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Video;
 
 public class Videos_usuarios_registrados extends Videos_usuarios_registrados_ventanas {
@@ -8,12 +11,17 @@ public class Videos_usuarios_registrados extends Videos_usuarios_registrados_ven
 	public Zona_inicio_comun _unnamed_Zona_inicio_comun_;
 	*/
 	
-	/*
-	Lista_videos lv= new Lista_videos();
+	
+	//Lista_videos lv= new Lista_videos();
 	
 	public Videos_usuarios_registrados(){
+		//cargarVideosUltimosSubidos();
 		
-		videos_ultimos_subidos_layout.addComponent(lv);
-	}
-	*/
+		vertical.removeAllComponents();
+		vertical.addComponent(new Lista_videos());
+		}
+
+	
+		
+		
 }
