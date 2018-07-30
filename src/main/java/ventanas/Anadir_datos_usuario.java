@@ -20,4 +20,15 @@ public class Anadir_datos_usuario extends Anadir_datos_usuario_ventanas {
 	private JButon _atrasB;
 	private JButon _aceptarB;
 	*/
+	
+	
+	public Anadir_datos_usuario(Usuario_Registrado_BD user){
+		
+		
+		
+	}
+	
+	
+	
+	
 }

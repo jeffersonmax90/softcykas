@@ -7,20 +7,22 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-panel size-full>
-   <vaadin-vertical-layout size-auto>
-    <vaadin-form-layout size-auto margin="false" :center>
-     <vaadin-label plain-text _id="nombre_lista">
-       Lista de Reproducción 
-     </vaadin-label>
-     <ventanas-video_ventanas></ventanas-video_ventanas>
-     <ventanas-video_ventanas></ventanas-video_ventanas>
-     <ventanas-video_ventanas></ventanas-video_ventanas>
-     <vaadin-button plain-text _id="atras">
-       Atrás 
-     </vaadin-button>
-    </vaadin-form-layout>
-   </vaadin-vertical-layout>
-  </vaadin-panel>
+  <vaadin-vertical-layout>
+   <vaadin-form-layout size-auto margin="false" :center>
+    <vaadin-label plain-text _id="nombre_lista">
+      Lista de Reproducción 
+    </vaadin-label>
+    <vaadin-panel width-auto height="400px">
+     <vaadin-form-layout size-auto margin _id="form">
+      <ventanas-video_ventanas></ventanas-video_ventanas>
+      <ventanas-video_ventanas></ventanas-video_ventanas>
+      <ventanas-video_ventanas></ventanas-video_ventanas>
+     </vaadin-form-layout>
+    </vaadin-panel>
+    <vaadin-button plain-text _id="atras">
+      Atrás 
+    </vaadin-button>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

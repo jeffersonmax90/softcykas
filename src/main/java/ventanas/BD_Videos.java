@@ -11,7 +11,8 @@ import java.util.Vector;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
-import ventanas.Video_BD;
+
+
 
 public class BD_Videos {
 	public BD_Principal _unnamed_BD_Principal_;
@@ -88,8 +89,47 @@ public class BD_Videos {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public List cargar_videos_tendencias() {
-		throw new UnsupportedOperationException();
+	public List cargar_videos_tendencias() throws PersistentException {
+		List<Video_BD> lista=null;
+		List<Integer> mg =new ArrayList<Integer>();
+		List<Video_BD>res = new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			lista = Video_BDDAO.queryVideo_BD(null, null);
+			for(Video_BD vid : lista){
+				mg.add(new Integer(vid.usuario.size()));
+			}
+			//ahora hay que recorrer la lista de me gusta para ver cual es el indice que mas me gusta tiene. el que mas tenga, se añadira el video a la 
+			//lista de resutlados en primera posicion, asi sucesivamente...
+			while(!mg.isEmpty()) {
+				int  vMax = -1;
+				int indiceMax = -1;
+				for(int i = 0 ; i<mg.size();i++) {
+					int valor=mg.get(i);
+					if(valor>vMax) {
+						vMax = valor;
+						indiceMax=i;
+					}
+				}
+				//se saca el mayor indice y por lo tanto el video se añade a la lista de resultados en primer lugar
+				res.add(lista.remove(indiceMax));
+				mg.remove(indiceMax);
+			}
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		List<Video_BD>def = new ArrayList<Video_BD>();
+		int contador = 0;
+		for(Video_BD video : res) {
+			if(contador==10) {
+				break;
+			}
+			def.add(video);
+			contador++;
+		}
+		return def;
+		
 	}
 
 	public boolean quitarVideo(int aId) {
@@ -207,8 +247,24 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean meGusta(int aId, boolean aValor) {
-		throw new UnsupportedOperationException();
+	public boolean meGusta(int aIdUsuario, int aIdVideo) throws PersistentException {
+		boolean megusta=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Video_BD video = Video_BDDAO.getVideo_BDByORMID(aIdVideo);
+			if(Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.contains(video)){
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.remove(video);
+				megusta=false;
+			}else {
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.add(video);
+				megusta=true;
+			}
+			t.commit();
+		} catch (Exception e) {
+			
+		}
+		
+		return megusta;
 	}
 
 	public Video_BD descargarVideoUR(int aId) {
@@ -276,4 +332,5 @@ public class BD_Videos {
 	public Video_BD cargarFichaVideoNoRegistrado(int aId) {
 		throw new UnsupportedOperationException();
 	}
+
 }

@@ -8,23 +8,25 @@
  <body>
   <vaadin-panel size-full>
    <vaadin-vertical-layout size-auto>
-    <vaadin-vertical-layout size-auto margin="false" :bottom :right>
-     <vaadin-label plain-text _id="lista_reproducion" :center>
+    <vaadin-form-layout size-auto>
+     <vaadin-label plain-text _id="lista_reproducion">
        Listas de reproducion 
      </vaadin-label>
-     <vaadin-horizontal-layout :center>
+     <vaadin-horizontal-layout>
       <vaadin-text-field placeholder="Buscar lista" _id="buscarLista" :right></vaadin-text-field>
       <vaadin-button plain-text _id="buscar" :right>
         Buscar 
       </vaadin-button>
      </vaadin-horizontal-layout>
-     <vaadin-vertical-layout size-auto margin="false">
-      <vaadin-horizontal-layout margin>
-       <vaadin-form-layout spacing="false" size-auto margin="false">
-        <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista12">
+    </vaadin-form-layout>
+    <vaadin-form-layout spacing="false" size-auto margin="false" _id="listaLayout">
+     <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="vertical">
+      <vaadin-horizontal-layout margin _id="horizontal">
+       <vaadin-form-layout spacing="false" size-auto margin="false" _id="form">
+        <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="botonPrincipal">
           Lista 1 
         </vaadin-button>
-        <vaadin-label plain-text _id="lista1">
+        <vaadin-label plain-text _id="nombreLista">
           Lista 1 
         </vaadin-label>
        </vaadin-form-layout>
@@ -37,44 +39,8 @@
         </vaadin-button>
        </vaadin-vertical-layout>
       </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout margin>
-       <vaadin-form-layout spacing="false" size-auto margin="false">
-        <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista2">
-          Lista 2 
-        </vaadin-button>
-        <vaadin-label plain-text _id="lista21">
-          Lista 2 
-        </vaadin-label>
-       </vaadin-form-layout>
-       <vaadin-vertical-layout size-auto margin="false">
-        <vaadin-button plain-text _id="modificar1">
-          Modficar 
-        </vaadin-button>
-        <vaadin-button plain-text _id="eliminar1">
-          Eliminar 
-        </vaadin-button>
-       </vaadin-vertical-layout>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout margin>
-       <vaadin-form-layout spacing="false" size-auto margin="false">
-        <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista3">
-          Lista 3 
-        </vaadin-button>
-        <vaadin-label plain-text _id="lista31">
-          Lista 3 
-        </vaadin-label>
-       </vaadin-form-layout>
-       <vaadin-vertical-layout size-auto margin="false">
-        <vaadin-button plain-text _id="modificar2">
-          Modficar 
-        </vaadin-button>
-        <vaadin-button plain-text _id="eliminar2">
-          Eliminar 
-        </vaadin-button>
-       </vaadin-vertical-layout>
-      </vaadin-horizontal-layout>
      </vaadin-vertical-layout>
-    </vaadin-vertical-layout>
+    </vaadin-form-layout>
    </vaadin-vertical-layout>
   </vaadin-panel>
  </body>

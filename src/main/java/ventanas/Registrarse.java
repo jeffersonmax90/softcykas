@@ -25,7 +25,6 @@ public class Registrarse extends Registrarse_ventanas implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// TODO Auto-generated method stub
 				enviarDatos();
 				Notification notification = new Notification("¡ENHORABUENA!", "Usuario registrado con éxito", Notification.Type.HUMANIZED_MESSAGE);
 				notification.setDelayMsec(2000);
@@ -44,6 +43,7 @@ public class Registrarse extends Registrarse_ventanas implements View {
 
 	void enviarDatos() {
 		// TODO Auto-generated method stub
+		
 		user.setNombre(anadirDatos.nombre.getValue());
 		user.setApellidos(anadirDatos.apellidos.getValue());
 		user.setApodo(anadirDatos.apodo.getValue());

@@ -19,12 +19,14 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	 * public void me_gusta() { throw new UnsupportedOperationException(); }
 	 */
 	
+	IUsuario_registrado usuR= new BD_Principal();
 	
 	public Zona_opciones_video_propietario(){
-	
+		cargarMeGusta();
+		
 		me_gusta.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+				meGusta();
 			}
 		});
 		
@@ -54,4 +56,34 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	
 	}
 	
+	
+	void cargarMeGusta() {
+		Usuario_Registrado_BD usu= usuR.cargarMeGusta(Datos_Navegante.getIdUsuario());
+		for( Object o: usu.me_gustas.getCollection()){
+			Video_BD v=  (Video_BD)o;
+			if(v.getId()==Datos_Navegante.getIdVideo()){
+				me_gusta.setStyleName("friendly");
+				break;
+			}else{
+				me_gusta.setStyleName("");
+				break;
+			}
+		}
+		
+	}
+
+
+	void meGusta() {
+		boolean megusta=false;
+		
+		megusta= usuR.meGusta(Datos_Navegante.getIdUsuario(), Datos_Navegante.getIdVideo());
+		
+		
+		if(Boolean.TRUE.equals(megusta)){
+			me_gusta.setStyleName("friendly");
+		}else {
+			me_gusta.setStyleName("");
+		}
+		
+	}
 }

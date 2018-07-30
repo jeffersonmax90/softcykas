@@ -185,4 +185,30 @@ public class BD_Usuarios_Registrados {
 		}		
 		return usu;		
 	}
+	public Usuario_Registrado_BD cargarNombrePerfilRegistrado(int aId) throws PersistentException {
+		Usuario_Registrado_BD usu=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Usuario_Registrado_BD usuario= Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
+			
+			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			// TODO: handle exception
+			t.rollback();
+		}		
+		return usu;		
+	}
+	
+	public Usuario_Registrado_BD cargarMeGusta(int aId) throws PersistentException {
+		Usuario_Registrado_BD usu=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}		
+		return usu;		
+	}
 }

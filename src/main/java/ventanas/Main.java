@@ -56,7 +56,7 @@ public class Main {
 		*/
 		
 		
-		IUsuario_registrado usuR= new BD_Principal();
+	
 		
 		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
 		/*
@@ -68,6 +68,8 @@ public class Main {
 		);
 		}
 		*/
+		
+		/*
 		Video_BD video=new Video_BD();
 		video= usuR.cargarModificarVideo(2);
 		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
@@ -89,6 +91,15 @@ public class Main {
 		boolean modificado= usuR.modificarVideo(video);
 		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
 		System.out.println(modificado);
+		*/
+		
+		IUsuario_no_registrado usuR= new BD_Principal();
+		
+		List<Video_BD> lista= usuR.cargarVideosTendencia();
+		
+		for (Video_BD video_BD : lista) {
+			System.out.println(video_BD.getTitulo());
+		}
 		
 	}
 

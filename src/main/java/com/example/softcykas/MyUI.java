@@ -31,11 +31,13 @@ import ventanas.Iniciar_sesion;
 import ventanas.Lista_de_reproduccion;
 import ventanas.Lista_de_usuarios_registrados;
 import ventanas.Lista_historial;
+import ventanas.Lista_reproduccion_propia;
 import ventanas.Lista_total_videos_subidos;
 import ventanas.Lista_ultimos_videos_subidos;
 import ventanas.Listado_suscripciones_registrado;
 import ventanas.Listado_suscriptores;
 import ventanas.Modificar_datos;
+import ventanas.Modificar_lista_reproduccion;
 import ventanas.Modificar_video;
 import ventanas.Perfil_administrador;
 import ventanas.Perfil_registrado;
@@ -93,8 +95,9 @@ public class MyUI extends UI {
 		navigator.addView("Ficha_propietario", Ficha_propietario.class);
 		navigator.addView("Modificar_video", Modificar_video.class);
 		navigator.addView("Crear_lista", Crear_lista.class);
+		navigator.addView("Modificar_lista_reproduccion", Modificar_lista_reproduccion.class);
+		navigator.addView("Lista_reproduccion_propia", Lista_reproduccion_propia.class);
 		navigator.navigateTo("");
-	
 		
 		
 		

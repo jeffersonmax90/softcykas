@@ -36,7 +36,7 @@ public interface IUsuario_registrado {
 
 	public List<Video_BD> cargarVideosPropios(int aId);
 
-	public boolean meGusta(int aId, boolean aValor);
+	public boolean meGusta(int aIdUsuario, int aIdVideo);
 
 	public Video_BD descargarVideoUR(int aId);
 
@@ -63,4 +63,12 @@ public interface IUsuario_registrado {
 	public Usuario_Registrado_BD cargarImagenRegistrado(int aId);
 	
 	public Video_BD cargarFichaVideoRegistrado(int aId);
+	
+	public Lista_reproduccion_BD cargarNombreModificarListaReproduccion(int aId);
+	
+	public Usuario_Registrado_BD cargarNombrePerfilRegistrado(int aId);
+	
+	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre);
+	
+	public Usuario_Registrado_BD cargarMeGusta(int aId);
 }

@@ -23,8 +23,11 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 	public Cambiar_contrasena _unnamed_Cambiar_contrasena_;
 	public Subir_video _unnamed_Subir_video_;
 	*/
+	IUsuario_registrado usuR= new BD_Principal();
+	Usuario_Registrado_BD usu = new Usuario_Registrado_BD();
 	
 	public Zona_opciones_perfil_registrado(){
+		cargarNombrePerfilRegistrado();
 		
 		volverAtras.addClickListener(new Button.ClickListener() {
 			@Override
@@ -74,6 +77,12 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 			}
 		});
 		
-		nombre_usuario.setValue(Datos_Navegante.getApodo().toUpperCase());
 	}
+
+	void cargarNombrePerfilRegistrado() {
+		usu= usuR.cargarNombrePerfilRegistrado(Datos_Navegante.getIdUsuario());
+		nombre_usuario.setValue(usu.getNombre()+" "+usu.getApellidos());
+	}
+	
+	
 }

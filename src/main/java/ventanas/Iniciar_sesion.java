@@ -71,12 +71,13 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 	void iniciar_sesion() {
 		Usuario_BD usuario = noRegistrado.iniciarSesion(emailTF.getValue(), contrasenaTF.getValue());			
 		String tipoUsuario= usuario.getTipoUsuario();	
-				
+		
 	
 		
 		if(tipoUsuario.equals("Registrado")){	
 			Datos_Navegante.setIdUsuario(usuario.getId());
 			Datos_Navegante.setApodo(usuario.getApodo());
+			Datos_Navegante.setTipoUsuario("Registrado");
 			
 			Notification notification = new Notification("Bienvenido ", ""+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);
@@ -84,6 +85,7 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 			UI.getCurrent().getNavigator().navigateTo("usuario_registrado");			
 		}else if(tipoUsuario.equals("Administrador")){	
 			Datos_Navegante.setIdUsuario(usuario.getId());
+			Datos_Navegante.setTipoUsuario("Administrador");
 			UI.getCurrent().getNavigator().navigateTo("usuario_administrador");		
 			Notification notification = new Notification("Bienvenido ", ""+ usuario.getApodo(), Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);

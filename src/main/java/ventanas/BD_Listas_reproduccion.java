@@ -1,5 +1,6 @@
 package ventanas;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -12,8 +13,19 @@ public class BD_Listas_reproduccion {
 	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Lista_reproduccion_BD> _lista_reproduccion_BDs = new Vector<Lista_reproduccion_BD>();
 
-	public boolean modificarListaReproducion(Lista_reproduccion_BD aLista) {
-		throw new UnsupportedOperationException();
+	public boolean modificarListaReproducion(Lista_reproduccion_BD aLista) throws PersistentException {
+		boolean modificado= false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {		
+			Lista_reproduccion_BD listaReproducion=Lista_reproduccion_BDDAO.loadLista_reproduccion_BDByORMID(Datos_Navegante.getIdListaReproducion());
+				listaReproducion.setNombre(aLista.getNombre());
+				Lista_reproduccion_BDDAO.save(listaReproducion);
+				t.commit();
+				modificado= true;
+			} catch (Exception e) {
+				t.rollback();
+			}
+			return modificado;
 	}
 
 	public boolean crearLista(Lista_reproduccion_BD aLista) throws PersistentException {
@@ -47,11 +59,47 @@ public class BD_Listas_reproduccion {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) throws PersistentException {
+		List<Lista_reproduccion_BD> lista= null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			lista= Lista_reproduccion_BDDAO.queryLista_reproduccion_BD(null, null);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return lista;
 	}
 
 	public List<String> cargarJComboxAnadirLista(int aId) {
 		throw new UnsupportedOperationException();
+	}
+	
+
+	public Lista_reproduccion_BD cargarNombreModificarListaReproduccion(int aId) throws PersistentException {
+		Lista_reproduccion_BD lr=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			lr=Lista_reproduccion_BDDAO.getLista_reproduccion_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return lr;	
+	}
+	
+	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre) {
+		List<Lista_reproduccion_BD> listaReproducion=new ArrayList<Lista_reproduccion_BD>();
+		try {
+			PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+			Lista_reproduccion_BDCriteria list= new Lista_reproduccion_BDCriteria();
+			list.nombre.like("%"+ aNombre+"%");
+			for (Lista_reproduccion_BD l: Lista_reproduccion_BDDAO.listLista_reproduccion_BDByCriteria(list)){
+				listaReproducion.add(l);
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}		
+		return listaReproducion;
 	}
 }

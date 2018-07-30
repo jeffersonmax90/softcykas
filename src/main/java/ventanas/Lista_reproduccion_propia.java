@@ -1,19 +1,25 @@
 package ventanas;
 
-public class Lista_reproduccion_propia extends Lista_reproduccion_propia_ventanas {
+import com.vaadin.navigator.View;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
+public class Lista_reproduccion_propia extends Lista_reproduccion_propia_ventanas implements View{
 	/*
 	private Vector _videos_lista_reproduccionV;
 	public Listas_reproduccion_propias _unnamed_Listas_reproduccion_propias_;
 	public Video_lista_reproduccion _unnamed_Video_lista_reproduccion_;
 	*/
 	
-	Video_lista_reproduccion v1= new Video_lista_reproduccion();
-	Video_lista_reproduccion v2= new Video_lista_reproduccion();
-	Video_lista_reproduccion v3= new Video_lista_reproduccion();
 	
 	public Lista_reproduccion_propia(){
-		video_layout1.addComponent(v1);
-		video_layout2.addComponent(v2);
-		video_layout3.addComponent(v3);
+	
+		
+		atras.addClickListener(new Button.ClickListener() {		
+			public void buttonClick(ClickEvent event) {				
+				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+				}
+			});
 	}
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.orm.PersistentException;
 
+
+
 public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUsuario_registrado {
 	public BD_Videos _bD_Videos= new BD_Videos();
 	public BD_Usuarios_Administradores _bD_Usuarios_Administradores = new BD_Usuarios_Administradores();
@@ -65,7 +67,14 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> cargarVideosTendencia() {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Videos.cargar_videos_tendencias();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return videos;
 	}
 
 	public List<Video_BD> cargarVideosUsuarioRegistrado(int aId) {
@@ -173,7 +182,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean modificarListaReproducion(Lista_reproduccion_BD aLista) {
-		throw new UnsupportedOperationException();
+		boolean modificado= false;
+		try {
+			modificado= _bD_Listas_reproduccion.modificarListaReproducion(aLista);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return modificado;
 	}
 
 	public boolean modificarDatos(Usuario_Registrado_BD aUsuario) {
@@ -198,7 +213,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) {
-		throw new UnsupportedOperationException();
+		List<Lista_reproduccion_BD> lista=null;
+		try {
+			lista=_bD_Listas_reproduccion.cargarListasReproduccionPropias(aId);
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return lista;
 	}
 
 	public List<Video_BD> cargarVideosPropios(int aId) {
@@ -210,8 +231,15 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return null;
 	}
 
-	public boolean meGusta(int aId, boolean aValor) {
-		throw new UnsupportedOperationException();
+	public boolean meGusta(int aIdUsuario, int aIdVideo) {
+		boolean megusta= false;
+		try {
+			
+			megusta= _bD_Videos.meGusta(aIdUsuario, aIdVideo);
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return megusta;
 	}
 
 	public Video_BD descargarVideoUR(int aId) {
@@ -361,5 +389,44 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			e.printStackTrace();
 		}
 		return video;
+	}
+	
+	public Lista_reproduccion_BD cargarNombreModificarListaReproduccion(int aId) {
+		Lista_reproduccion_BD listaReproduccion= null;
+		try {
+			listaReproduccion= _bD_Listas_reproduccion.cargarNombreModificarListaReproduccion(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaReproduccion;
+	}
+	
+	public Usuario_Registrado_BD cargarNombrePerfilRegistrado(int aId) {
+		Usuario_Registrado_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Registrados.cargarNombrePerfilRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return usu;
+	}
+	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre) {
+		List<Lista_reproduccion_BD> listaReproduccion=null;
+		try {
+			listaReproduccion= _bD_Listas_reproduccion.buscarListasReproducionPropias(aNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listaReproduccion;
+	}
+	
+	public Usuario_Registrado_BD cargarMeGusta(int aId) {
+		Usuario_Registrado_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Registrados.cargarImagenRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return usu;
 	}
 }
