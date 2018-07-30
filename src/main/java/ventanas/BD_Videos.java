@@ -13,8 +13,6 @@ import org.orm.PersistentTransaction;
 
 
 
-
-
 public class BD_Videos {
 	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Video_BD> _videos = new Vector<Video_BD>();
@@ -269,8 +267,38 @@ public class BD_Videos {
 
 		}
 
-	public List<Video_BD> cargarVideosRelacionados(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Video_BD> cargarVideosRelacionados(int aId) throws PersistentException {
+		List<Video_BD> lista=new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Usuario_Registrado_BD usuario = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(Datos_Navegante.getIdUsuario());
+			int n= usuario.getHistorial().getId();
+			int i= usuario.getId();
+			Historial_BD h= Historial_BDDAO.getHistorial_BDByORMID(i);
+			Video_BD [] videos =  h.video.toArray();
+			int ultimo = videos.length -1;
+			Video_BD vultimo = videos[ultimo];
+			Categoria_BD categoria = Categoria_BDDAO.getCategoria_BDByORMID(vultimo.getCategoria_BD().getId());
+			for( Video_BD a : Video_BDDAO.listVideo_BDByQuery(null,null)) {
+				if(a.getCategoria_BD().equals(categoria) && a.getPropietario().getId()!=Datos_Navegante.getIdUsuario()) {
+					lista.add(a);
+				}
+			}
+			
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		List<Video_BD>def = new ArrayList<Video_BD>();
+		int contador = 0;
+		for(Video_BD video : lista) {
+			if(contador==10) {
+				break;
+			}
+			def.add(video);
+			contador++;
+		}
+		return def;
 	}
 
 	public boolean meGusta(int aIdUsuario, int aIdVideo) throws PersistentException {

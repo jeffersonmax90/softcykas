@@ -93,7 +93,14 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 
 	public List<Video_BD> cargarVideosRelacionados(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Videos.cargarVideosRelacionados(aId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return videos;
 	}
 
 	public boolean eliminarVideo(int aId) {
