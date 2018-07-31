@@ -11,11 +11,16 @@ public class Zona_cuerpo_perfil_visitante extends Zona_cuerpo_perfil_visitante_v
 	*/
 	
 	Lista_videos_agenos lv= new Lista_videos_agenos();
-	Lista_de_reproduccion lr= new Lista_de_reproduccion();
+	Listas_de_reproduccion lr= new Listas_de_reproduccion();
 	public  Zona_cuerpo_perfil_visitante(){
 		vertical.removeAllComponents();
-		vertical.addComponent(lv);
-		vertical.addComponent(lr);
+		vertical.addComponent(new Lista_videos_agenos());
+		vertical.addComponent(new Listas_de_reproduccion());
+		
+		
 	}
+	
+	
+	
 	
 }

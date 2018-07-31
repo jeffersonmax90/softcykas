@@ -170,9 +170,6 @@ public class BD_Videos {
 			return lista;				
 	}
 
-	public Video[] cargarVideosUsuariosRregistrados(int aId) {
-		throw new UnsupportedOperationException();
-	}
 
 	@SuppressWarnings("unused")
 	public boolean eliminarVideoSubido(int aId) throws PersistentException {
@@ -333,8 +330,14 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Video_BD> cargarVideoUsuarioRegistrado(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Video_BD> cargarVideoUsuarioRegistrado(int aId) throws PersistentException {
+		List<Video_BD> lista= new ArrayList<Video_BD>();		
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+			Usuario_Registrado_BD u=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista=Arrays.asList(u.video_subido.toArray());
+			
+			t.commit();
+			return lista;	
 	}
 	
 	public Video_BD cargarModificarVideo(int aId) throws PersistentException {

@@ -84,8 +84,8 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 				bp.setHeight("100");
 				bp.setWidth("150");
 				bp.setStyleName("huge primary");
-				
-				bp.setCaption("Lista "+i);
+				int nlista= i+1;
+				bp.setCaption("Lista "+nlista);
 				
 				bp.addClickListener(new Button.ClickListener() {
 					@Override

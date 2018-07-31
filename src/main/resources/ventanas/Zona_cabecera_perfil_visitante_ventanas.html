@@ -7,14 +7,63 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout spacing="false" height="50%" margin="false">
-   <vaadin-vertical-layout spacing="false" margin="false" _id="vertical">
-    <ventanas-zona_cabecera_comun_ventanas width-full height="20%"></ventanas-zona_cabecera_comun_ventanas>
-    <vaadin-vertical-layout spacing="false" height="50%" margin="false" _id="vertical2" :right>
-     <vaadin-button plain-text _id="suscribirse" :right>
-       Suscribirse 
-     </vaadin-button>
-    </vaadin-vertical-layout>
+  <vaadin-vertical-layout spacing="false" margin="false">
+   <vaadin-vertical-layout size-full>
+    <vaadin-horizontal-layout>
+     <vaadin-horizontal-layout></vaadin-horizontal-layout>
+     <vaadin-form-layout size-auto>
+      <vaadin-label plain-text>
+        Garbiñe Youtube 
+      </vaadin-label>
+     </vaadin-form-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-form-layout spacing="false" size-auto margin>
+       <vaadin-label style-name="colored h1" plain-text _id="nVisitas">
+         50 
+       </vaadin-label>
+       <vaadin-label plain-text>
+         Nº de visitas 
+       </vaadin-label>
+      </vaadin-form-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-form-layout spacing="false" size-auto margin>
+       <vaadin-label style-name="colored h1" plain-text _id="nSuscriptores">
+         10 
+       </vaadin-label>
+       <vaadin-label plain-text>
+         Nº de Suscriptores 
+       </vaadin-label>
+       <vaadin-button style-name="link" plain-text _id="ver_listado_suscriptores">
+         Ver listado 
+       </vaadin-button>
+      </vaadin-form-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-form-layout spacing="false" size-auto margin>
+       <vaadin-label style-name="colored h1" plain-text _id="nSuscripciones">
+         100 
+       </vaadin-label>
+       <vaadin-label plain-text>
+         Nº Suscripciones 
+       </vaadin-label>
+       <vaadin-button style-name="link" plain-text _id="ver_listado_suscripciones">
+         Ver listado 
+       </vaadin-button>
+      </vaadin-form-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-form-layout spacing="false" size-auto margin="false">
+       <vaadin-image width="150px" height="150px" _id="imagen"></vaadin-image>
+       <vaadin-button plain-text _id="suscribirse">
+         Seguir Usuario 
+       </vaadin-button>
+      </vaadin-form-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+   <vaadin-vertical-layout spacing="false" margin="false">
+    <vaadin-form-layout size-auto margin="false"></vaadin-form-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

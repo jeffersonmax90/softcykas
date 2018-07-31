@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -63,7 +64,8 @@ public class BD_Listas_reproduccion {
 		List<Lista_reproduccion_BD> lista= null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {
-			lista= Lista_reproduccion_BDDAO.queryLista_reproduccion_BD(null, null);
+		Usuario_Registrado_BD usuario =Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista= Arrays.asList(usuario.listas_reproduccion.toArray());
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -101,5 +103,18 @@ public class BD_Listas_reproduccion {
 			e.printStackTrace();
 		}		
 		return listaReproducion;
+	}
+	
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPerfilVisitante(int aId) throws PersistentException {
+		List<Lista_reproduccion_BD> lista= null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+		Usuario_Registrado_BD usuario =Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista= Arrays.asList(usuario.listas_reproduccion.toArray());
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return lista;
 	}
 }

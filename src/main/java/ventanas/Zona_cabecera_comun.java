@@ -43,6 +43,26 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	}
 	
 	void cargarImagenRegistrado() {
+		/*
+		int id=-1;
+		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+			id= Datos_Navegante.getIdPerfilvistante();
+		}else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+			if(Datos_Navegante.getEstado()==0){
+				//cargo mi propio perfil 
+				id=  Datos_Navegante.getIdUsuario();
+			}else if (Datos_Navegante.getEstado()!=0){
+				//cargo perfil de otra persona
+				id= Datos_Navegante.getIdPerfilvistante();
+			}
+			
+		} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")){
+			
+			id= Datos_Navegante.getIdPerfilvistante();
+		}
+		
+		*/
+		
 		
 		Usuario_Registrado_BD usu= usuarioR.cargarImagenRegistrado(Datos_Navegante.getIdUsuario());
 		

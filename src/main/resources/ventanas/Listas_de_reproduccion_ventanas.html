@@ -6,38 +6,42 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-panel size-full>
-   <vaadin-vertical-layout size-auto>
+  <vaadin-vertical-layout spacing="false" size-auto>
+   <vaadin-form-layout spacing="false" size-auto margin="false">
     <vaadin-label plain-text _id="titulo_listas_de_reproducion">
       Listas de reproducición 
     </vaadin-label>
-    <vaadin-horizontal-layout _id="lista_videos_layout">
-     <vaadin-form-layout spacing="false" size-auto margin="false">
-      <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista12">
-        Lista 1 
-      </vaadin-button>
-      <vaadin-label plain-text _id="lista1">
-        Lista 1 
-      </vaadin-label>
-     </vaadin-form-layout>
-     <vaadin-form-layout spacing="false" size-auto margin="false">
-      <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista121">
-        Lista 1 
-      </vaadin-button>
-      <vaadin-label plain-text _id="lista11">
-        Lista 1 
-      </vaadin-label>
-     </vaadin-form-layout>
-     <vaadin-form-layout spacing="false" size-auto margin="false">
-      <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista122">
-        Lista 1 
-      </vaadin-button>
-      <vaadin-label plain-text _id="lista13">
-        Lista 1 
-      </vaadin-label>
-     </vaadin-form-layout>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-  </vaadin-panel>
+   </vaadin-form-layout>
+   <vaadin-panel width="95%">
+    <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="vertical">
+     <vaadin-horizontal-layout margin _id="horizontal">
+      <vaadin-form-layout spacing="false" size-auto margin="false" _id="form">
+       <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista12">
+         Lista 1 
+       </vaadin-button>
+       <vaadin-label plain-text _id="lista1">
+         Lista 1 
+       </vaadin-label>
+      </vaadin-form-layout>
+      <vaadin-form-layout spacing="false" size-auto margin="false">
+       <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista121">
+         Lista 1 
+       </vaadin-button>
+       <vaadin-label plain-text _id="lista11">
+         Lista 1 
+       </vaadin-label>
+      </vaadin-form-layout>
+      <vaadin-form-layout spacing="false" size-auto margin="false">
+       <vaadin-button style-name="huge primary" width="200px" height="100px" plain-text _id="lista122">
+         Lista 1 
+       </vaadin-button>
+       <vaadin-label plain-text _id="lista13">
+         Lista 1 
+       </vaadin-label>
+      </vaadin-form-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
  </body>
 </html>

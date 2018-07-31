@@ -22,9 +22,18 @@ public class Crear_lista extends Crear_lista_ventanas implements View{
 	public Crear_lista(){
 		
 		atras.addClickListener(new Button.ClickListener() {
-			@Override
+			
+			
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
+				
+				if(Datos_Navegante.getFicha().equals("FichaRegistradoRegistrado")) {
+	        		UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+	        	}else if(Datos_Navegante.getFicha().equals("FichaRegistradoPropietario")) {
+	        		UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
+		        }else{
+		        	UI.getCurrent().getNavigator().navigateTo("Ficha_invitado");
+		        }
+				
 			}
 		});
 		

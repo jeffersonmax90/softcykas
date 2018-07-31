@@ -5,9 +5,11 @@ public class Datos_Navegante {
 	private static int idUsuario=-1;
 	private static String apodo="Señor";
 	private static int idVideo=-1;
-	//private static String id_Video="-1";
 	private static int idListaReproducion=-1;
 	private static String tipoUsuario= "Invitado";
+	private static String ficha= "Invitado";
+	private static int idPerfilvistante=-1;
+	private static int estado=0;
 	
 	public static int getIdUsuario() {
 		return idUsuario;
@@ -32,16 +34,6 @@ public class Datos_Navegante {
 	public static void setIdVideo(int idVideo) {
 		Datos_Navegante.idVideo = idVideo;
 	}
-/*
-	public static String getId_Video() {
-		return id_Video;
-	}
-
-	public static void setId_Video(String id_Video) {
-		Datos_Navegante.id_Video = id_Video;
-	}
-	
-	*/
 
 	public static int getIdListaReproducion() {
 		return idListaReproducion;
@@ -57,6 +49,30 @@ public class Datos_Navegante {
 
 	public static void setTipoUsuario(String tipoUsuario) {
 		Datos_Navegante.tipoUsuario = tipoUsuario;
+	}
+
+	public static String getFicha() {
+		return ficha;
+	}
+
+	public static void setFicha(String ficha) {
+		Datos_Navegante.ficha = ficha;
+	}
+
+	public static int getIdPerfilvistante() {
+		return idPerfilvistante;
+	}
+
+	public static void setIdPerfilvistante(int idPerfilvistante) {
+		Datos_Navegante.idPerfilvistante = idPerfilvistante;
+	}
+
+	public static int getEstado() {
+		return estado;
+	}
+
+	public static void setEstado(int estado) {
+		Datos_Navegante.estado = estado;
 	}
 	
 }

@@ -47,6 +47,7 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 		}
 	
 	void cargarVideosPropios() {
+		
 		List<Video_BD> listavideos= usuarioR.cargarVideosPropios(Datos_Navegante.getIdUsuario());
 		listaVideosFL.removeAllComponents();
 		for(int i=0;i<listavideos.size();i++) {

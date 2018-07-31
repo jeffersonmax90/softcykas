@@ -38,6 +38,7 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 				
 		crear_lista_reproduccion.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				Datos_Navegante.setFicha("FichaRegistradoPropietario");
 				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
 			}
 		});
@@ -69,7 +70,6 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 				break;
 			}
 		}
-		
 	}
 
 

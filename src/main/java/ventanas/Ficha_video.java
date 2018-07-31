@@ -24,8 +24,6 @@ public class Ficha_video extends Ficha_video_ventanas {
 	private int idAutor;
 
 	public Ficha_video() {
-		// TODO Auto-generated constructor stub
-
 		cargarFichaVideoRegistrado();
 
 	}
@@ -47,12 +45,7 @@ public class Ficha_video extends Ficha_video_ventanas {
 		Date d = v.getFecha_subida();
 		String fecha = String.valueOf(d);
 		nombre_usuario.setCaption(v.getPropietario().getNombre());
-		nombre_usuario.addClickListener(new Button.ClickListener() {
-			@Override
-			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
-			}
-		});
+		
 
 		numero_me_gusta.setValue(n);
 		fecha_subida.setValue(fecha);
@@ -66,21 +59,18 @@ public class Ficha_video extends Ficha_video_ventanas {
 
 				int idvisitante = v.getPropietario().getId();
 				// Datos_Navegante.setIdUsuario(idvisitante);
-
+				Datos_Navegante.setIdPerfilvistante(idvisitante);
 				if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
 					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 				} else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
 					if (Datos_Navegante.getIdUsuario() == idAutor) {
 						UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 					} else {
-
 						UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 					}
-				} else {
-					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
-				}
+				} 
 
-				UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+				
 			}
 		});
 

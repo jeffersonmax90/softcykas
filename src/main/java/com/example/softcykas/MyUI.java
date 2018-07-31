@@ -35,6 +35,7 @@ import ventanas.Lista_reproduccion_propia;
 import ventanas.Lista_total_videos_subidos;
 import ventanas.Lista_ultimos_videos_subidos;
 import ventanas.Listado_suscripciones_registrado;
+import ventanas.Listado_suscripciones_visitante;
 import ventanas.Listado_suscriptores;
 import ventanas.Modificar_datos;
 import ventanas.Modificar_lista_reproduccion;
@@ -99,6 +100,8 @@ public class MyUI extends UI {
 		navigator.addView("Modificar_lista_reproduccion", Modificar_lista_reproduccion.class);
 		navigator.addView("Lista_reproduccion_propia", Lista_reproduccion_propia.class);
 		navigator.addView("Perfil_visitante", Perfil_visitante.class);
+		navigator.addView("Lista_de_reproduccion", Lista_de_reproduccion.class);
+		navigator.addView("Listado_suscripciones_visitante", Listado_suscripciones_visitante.class);
 		navigator.navigateTo("");
 		
 		

@@ -211,4 +211,36 @@ public class BD_Usuarios_Registrados {
 		}		
 		return usu;		
 	}
+	
+	public Usuario_Registrado_BD cargarDatosPerfilVisitante(int aId) throws PersistentException {
+		Usuario_Registrado_BD usu=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}		
+		return usu;	
+	}
+	public boolean seguirUsuario(int aIdNavegante, int aIdPerfilVisitante) throws PersistentException {
+		boolean seguirUsuario=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Usuario_Registrado_BD visitante = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdPerfilVisitante);
+			if(Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdNavegante).suscriptor.contains(visitante)){
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdNavegante).suscriptor.remove(visitante);
+				seguirUsuario=false;
+			}else {
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdNavegante).suscriptor.add(visitante);
+				seguirUsuario=true;
+			}
+			t.commit();
+		} catch (Exception e) {
+			
+		}
+		
+		return seguirUsuario;
+		
+	}
 }

@@ -69,4 +69,10 @@ public interface IUsuario_registrado {
 	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre);
 	
 	public Usuario_Registrado_BD cargarMeGusta(int aId);
+	
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPerfilVisitante(int aId);
+	
+	public Usuario_Registrado_BD cargarDatosPerfilVisitante(int aId);
+	
+	public boolean seguirUsuario(int aIdNavegante, int aIdPerfilVisitante);
 }

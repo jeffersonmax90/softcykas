@@ -50,11 +50,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			}
 		}
 
-
-	public List cargarVideosUsuariosRegistrados() {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	public List<Video_BD> cargarHistorial(int aId) {
 		throw new UnsupportedOperationException();
 	}
@@ -75,7 +71,14 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> cargarVideosUsuarioRegistrado(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Videos.cargarVideoUsuarioRegistrado(aId);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return videos;
 	}
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) {
@@ -433,10 +436,40 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public Usuario_Registrado_BD cargarMeGusta(int aId) {
 		Usuario_Registrado_BD usu= null;
 		try {
-			usu= _bD_Usuarios_Registrados.cargarImagenRegistrado(aId);
+			usu= _bD_Usuarios_Registrados.cargarMeGusta(aId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return usu;
 	}
+	public List<Lista_reproduccion_BD> cargarListasReproduccionPerfilVisitante(int aId) {
+		List<Lista_reproduccion_BD> lista=null;
+		try {
+			lista=_bD_Listas_reproduccion.cargarListasReproduccionPerfilVisitante(aId);
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return lista;
+	}
+	
+	public Usuario_Registrado_BD cargarDatosPerfilVisitante(int aId) {
+		Usuario_Registrado_BD usu= null;
+		try {
+			usu= _bD_Usuarios_Registrados.cargarDatosPerfilVisitante(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return usu;
+	}
+	
+	public boolean seguirUsuario(int aIdNavegante, int aIdPerfilVisitante) {
+		boolean megusta= false;
+		try {
+			megusta= _bD_Usuarios_Registrados.seguirUsuario(aIdNavegante, aIdPerfilVisitante);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return megusta;
+	}
+	
 }

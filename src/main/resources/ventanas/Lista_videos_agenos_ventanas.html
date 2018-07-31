@@ -7,15 +7,17 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-panel size-auto>
-   <vaadin-vertical-layout size-auto>
+  <vaadin-vertical-layout responsive size-auto>
+   <vaadin-form-layout size-auto margin="false">
     <vaadin-label plain-text _id="titulo">
       Videos subidos 
     </vaadin-label>
-    <vaadin-horizontal-layout _id="lista_videos_layout">
+   </vaadin-form-layout>
+   <vaadin-panel width="70%" _id="panel">
+    <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="vertical">
      <ventanas-lista_videos_ventanas></ventanas-lista_videos_ventanas>
-    </vaadin-horizontal-layout>
-   </vaadin-vertical-layout>
-  </vaadin-panel>
+    </vaadin-vertical-layout>
+   </vaadin-panel>
+  </vaadin-vertical-layout>
  </body>
 </html>

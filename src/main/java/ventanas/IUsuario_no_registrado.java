@@ -6,8 +6,6 @@ public interface IUsuario_no_registrado {
 
 	public boolean registrarUsuario(Usuario_Registrado_BD aUsuario);
 
-	public List cargarVideosUsuariosRegistrados();
-
 	public List<Video_BD> cargarVideosTendencia();
 
 	public List<Video_BD> cargarVideosUsuarioRegistrado(int aId);

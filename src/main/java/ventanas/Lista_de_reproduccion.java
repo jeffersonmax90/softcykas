@@ -1,6 +1,8 @@
 package ventanas;
 
-public class Lista_de_reproduccion extends Lista_de_reproduccion_ventanas {
+import com.vaadin.navigator.View;
+
+public class Lista_de_reproduccion extends Lista_de_reproduccion_ventanas implements View {
 	/*
 	private Label _lista_reproduccionLB;
 	private Button _quitar_videoB;
