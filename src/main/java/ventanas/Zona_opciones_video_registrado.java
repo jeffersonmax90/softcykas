@@ -71,7 +71,7 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 		}else {
 			me_gusta.setStyleName("");
 		}
-		
+		UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
 	}
 	
 	

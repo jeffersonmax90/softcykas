@@ -10,6 +10,7 @@ public class Datos_Navegante {
 	private static String ficha= "Invitado";
 	private static int idPerfilvistante=-1;
 	private static int estado=0;
+	private static String perfilVisitante= "";
 	
 	public static int getIdUsuario() {
 		return idUsuario;
@@ -73,6 +74,14 @@ public class Datos_Navegante {
 
 	public static void setEstado(int estado) {
 		Datos_Navegante.estado = estado;
+	}
+
+	public static String getPerfilVisitante() {
+		return perfilVisitante;
+	}
+
+	public static void setPerfilVisitante(String perfilVisitante) {
+		Datos_Navegante.perfilVisitante = perfilVisitante;
 	}
 	
 }

@@ -90,6 +90,9 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 				bp.addClickListener(new Button.ClickListener() {
 					@Override
 					public void buttonClick(ClickEvent event) {
+						String n=id.getValue();
+						int numero=Integer.parseInt(n);
+						Datos_Navegante.setIdListaReproducion(numero);
 						UI.getCurrent().getNavigator().navigateTo("Lista_reproduccion_propia");
 					}
 				});

@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -61,8 +62,17 @@ public class BD_Usuarios_Registrados {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Usuario_BD> cargarListadoSuscripciones(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Usuario_Registrado_BD> cargarListadoSuscripciones(int aId) throws PersistentException {
+		List<Usuario_Registrado_BD> lista=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado_BD u=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista=Arrays.asList(u.suscriptor.toArray());
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return lista;
 	}
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) throws PersistentException {
@@ -174,7 +184,7 @@ public class BD_Usuarios_Registrados {
 		return usuarios;
 	}
 	
-	public Usuario_Registrado_BD cargarImagenRegistrado(int aId) throws PersistentException {
+	public Usuario_Registrado_BD cargarDatosPerfilRegistrado(int aId) throws PersistentException {
 		Usuario_Registrado_BD usu=null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {
@@ -217,6 +227,9 @@ public class BD_Usuarios_Registrados {
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {
 			usu=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			int numVis = usu.getN_visitas();
+			int total = numVis+1;
+			usu.setN_visitas(total);
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
@@ -242,5 +255,17 @@ public class BD_Usuarios_Registrados {
 		
 		return seguirUsuario;
 		
+	}
+	public List<Usuario_Registrado_BD> cargarListadoSuscriptores(int aId) throws PersistentException {
+		List<Usuario_Registrado_BD> lista=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Usuario_Registrado_BD u=Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista=Arrays.asList(u.suscrito.toArray());
+			t.commit();
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return lista;
 	}
 }

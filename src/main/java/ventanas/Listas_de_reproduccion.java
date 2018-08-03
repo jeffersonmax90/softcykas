@@ -29,6 +29,12 @@ public class Listas_de_reproduccion  extends Listas_de_reproduccion_ventanas{
 	void cargarListasReproduccionPropias() {
 		List<Lista_reproduccion_BD> listaRepro= usuarioR.cargarListasReproduccionPerfilVisitante(Datos_Navegante.getIdPerfilvistante());
 		horizontal.removeAllComponents();	
+		if(listaRepro == null || listaRepro.size() == 0){
+			Label l= new Label();
+			l.setValue("No tiene ninguna listas de reproducción");
+			horizontal.addComponent(l);
+		}
+		
 		for(int i=0;i<listaRepro.size();i++) {
 		
 			FormLayout form= new FormLayout();

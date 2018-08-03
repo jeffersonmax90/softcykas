@@ -1,8 +1,11 @@
 package ventanas;
 
+import java.util.Date;
+
 import com.vaadin.navigator.View;
 import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.DateField;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;

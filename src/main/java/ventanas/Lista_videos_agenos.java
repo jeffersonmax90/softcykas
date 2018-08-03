@@ -9,13 +9,11 @@ public class Lista_videos_agenos extends Lista_videos_agenos_ventanas {
 	public Zona_cuerpo_perfil_visitante _unnamed_Zona_cuerpo_perfil_visitante_;
 	*/
 	
-	//Lista_videos lv= new Lista_videos();
 	IUsuario_no_registrado usuNoRegistrado= new BD_Principal();
 	Lista_videos lv= new Lista_videos();
+	
 	public Lista_videos_agenos(){
 		cargarVideoUsuarioRegistrado();
-		
-		
 	}
 
 	void cargarVideoUsuarioRegistrado() {

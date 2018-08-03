@@ -47,7 +47,11 @@ public class Ficha_video extends Ficha_video_ventanas {
 		nombre_usuario.setCaption(v.getPropietario().getNombre());
 		
 
-		numero_me_gusta.setValue(n);
+		nVisualizacion.setValue(" "+ n +" Visualizaciones");
+		int meGusta = v.usuario.size();
+		String ngusta = "";
+		n = String.valueOf(meGusta);
+		nMegusta.setValue(" "+ n +" Me gusta");
 		fecha_subida.setValue(fecha);
 		descripcion_video.setValue(v.getDescripcion());
 		categoria.setValue(v.getCategoria_BD().getNombre() + " " + v.getCategoria_BD().getEdad());
@@ -68,7 +72,9 @@ public class Ficha_video extends Ficha_video_ventanas {
 					} else {
 						UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 					}
-				} 
+				} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")){
+					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+				}
 
 				
 			}

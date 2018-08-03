@@ -21,7 +21,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Lista_historial_ventanas extends VerticalLayout {
 	protected Label historial;
-	protected FormLayout formLayout;
+	protected FormLayout formLista;
 	protected Button atras;
 
 	public Lista_historial_ventanas() {

@@ -1,5 +1,7 @@
 package ventanas;
 
+import java.util.List;
+
 import com.vaadin.navigator.View;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
@@ -13,8 +15,10 @@ public class Listado_suscripciones_registrado extends Listado_suscripciones_regi
 	public Suscripcion _unnamed_Suscripcion_;
 	*/
 	
+	IUsuario_registrado usuarioR= new BD_Principal();
 	
 	public Listado_suscripciones_registrado(){
+		cargarListadoSuscripciones();
 		atras.addClickListener(new ClickListener() {
 			
 			@Override
@@ -24,6 +28,23 @@ public class Listado_suscripciones_registrado extends Listado_suscripciones_regi
 				
 			}
 		});
+	}
+	
+
+	void cargarListadoSuscripciones() {
+		// TODO Auto-generated method stub
+	
+		
+		
+		
+		
+		List<Usuario_Registrado_BD> lista= usuarioR.cargarListadoSuscripciones(Datos_Navegante.getIdUsuario());
+		
+		form.removeAllComponents();
+		for (int i = 0; i < lista.size(); i++) {
+			form.addComponent(new Suscripcion(lista.get(i)));
+		}
+		
 	}
 	
 	

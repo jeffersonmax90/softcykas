@@ -43,7 +43,6 @@ public class BD_Listas_reproduccion {
 			correcto= true;
 			
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
 			t.rollback();
 			return correcto;
 		}
@@ -73,8 +72,17 @@ public class BD_Listas_reproduccion {
 		return lista;
 	}
 
-	public List<String> cargarJComboxAnadirLista(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Lista_reproduccion_BD> cargarListasReproducionCaja(int aId) throws PersistentException {
+		List<Lista_reproduccion_BD> lista= null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+		Usuario_Registrado_BD usuario =Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
+			lista= Arrays.asList(usuario.listas_reproduccion.toArray());
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return lista;
 	}
 	
 

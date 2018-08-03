@@ -7,13 +7,18 @@
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout margin="false">
-   <vaadin-horizontal-layout margin _id="horizontal">
+  <vaadin-horizontal-layout margin>
+   <vaadin-horizontal-layout _id="horizontal">
     <ventanas-cabecera_buscador_ventanas></ventanas-cabecera_buscador_ventanas>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout margin :center>
     <vaadin-button plain-text _id="perfil">
-      Perfil Admin 
+      Perfil Administrador 
+    </vaadin-button>
+    <vaadin-button plain-text _id="cerrar_sesion">
+      Cerrar Sesión 
     </vaadin-button>
    </vaadin-horizontal-layout>
-  </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
  </body>
 </html>

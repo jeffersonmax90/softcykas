@@ -24,7 +24,7 @@ public interface IUsuario_registrado {
 
 	public boolean dejarSeguir(int aId);
 
-	public List<Usuario_BD> cargarListadoSuscripciones(int aId);
+	public List<Usuario_Registrado_BD> cargarListadoSuscripciones(int aId);
 
 	public List<Categoria_BD> cargarCategorias();
 
@@ -42,7 +42,7 @@ public interface IUsuario_registrado {
 
 	public boolean eliminarVideoUR(int aId);
 
-	public List<String> cargarComboBoxAnadirLista(int aId);
+	public List<Lista_reproduccion_BD> cargarListasReproducionCaja(int aId);
 
 	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena);
 
@@ -58,7 +58,7 @@ public interface IUsuario_registrado {
 	
 	public List<Video_BD> buscarVideosPropios(String aNombre);
 	
-	public Usuario_Registrado_BD cargarImagenRegistrado(int aId);
+	public Usuario_Registrado_BD cargarDatosPerfilRegistrado(int aId);
 	
 	public Video_BD cargarFichaVideoRegistrado(int aId);
 	
@@ -75,4 +75,12 @@ public interface IUsuario_registrado {
 	public Usuario_Registrado_BD cargarDatosPerfilVisitante(int aId);
 	
 	public boolean seguirUsuario(int aIdNavegante, int aIdPerfilVisitante);
+	
+	public List<Usuario_Registrado_BD> cargarListadoSuscriptores(int aId);
+	
+	public List<Video_BD> cargarListaUltimosVideos(int aId);
+	
+	public boolean anadirVideoLista(int aId, String aNombre);
+	
+	public List<Video_BD> cargarVideosListaReproduccionPropia(int aId);
 }

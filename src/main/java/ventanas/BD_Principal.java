@@ -52,19 +52,25 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 
 	
 	public List<Video_BD> cargarHistorial(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> videos = null;
+		try {
+			videos = _bD_Historial.cargarHistorial(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return videos;
 	}
 
 	public List cargar_categorias_videos() {
 		throw new UnsupportedOperationException();
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Video_BD> cargarVideosTendencia() {
 		List<Video_BD> videos = null;
 		try {
 			videos = _bD_Videos.cargarVideosTendencias();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return videos;
@@ -75,7 +81,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		try {
 			videos = _bD_Videos.cargarVideoUsuarioRegistrado(aId);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return videos;
@@ -100,7 +105,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		try {
 			videos = _bD_Videos.cargarVideosRelacionados(aId);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return videos;
@@ -171,9 +175,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		
 		return correcto;
 	}
-
+	//se esta probando para añadir lista
 	public boolean anadirComentario(int aId, String aComentario) {
-		throw new UnsupportedOperationException();
+		boolean correcto=false;
+		try {
+		//	correcto =  _bD_Videos.
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return correcto;
 	}
 
 	public List<Comentario_BD> cargarListaComentarios(int aId) {
@@ -263,8 +274,15 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public List<String> cargarComboBoxAnadirLista(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Lista_reproduccion_BD> cargarListasReproducionCaja(int aId) {
+		//Todo
+		List<Lista_reproduccion_BD> lista=null;
+		try {
+			lista=_bD_Listas_reproduccion.cargarListasReproducionCaja(aId);
+		} catch (Exception e) {
+			e.printStackTrace();	
+		}
+		return lista;
 	}
 
 	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {
@@ -299,12 +317,24 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Usuario_BD> cargarListadoSuscripciones(int aId) {
-		throw new UnsupportedOperationException();
+	public List<Usuario_Registrado_BD> cargarListadoSuscripciones(int aId) {
+		List<Usuario_Registrado_BD> lista=null;
+		try {
+			lista= _bD_Usuarios_Registrados.cargarListadoSuscripciones(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public List<Video_BD> cargarVideosSuscripciones(int aId) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> lista=null;
+		try {
+			lista= _bD_Videos.cargarVideosSuscripciones(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public boolean eliminarVideoSubido(int aId) {
@@ -376,10 +406,10 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return lista;
 	}
-	public Usuario_Registrado_BD cargarImagenRegistrado(int aId) {
+	public Usuario_Registrado_BD cargarDatosPerfilRegistrado(int aId) {
 		Usuario_Registrado_BD usu= null;
 		try {
-			usu= _bD_Usuarios_Registrados.cargarImagenRegistrado(aId);
+			usu= _bD_Usuarios_Registrados.cargarDatosPerfilRegistrado(aId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -472,4 +502,43 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return megusta;
 	}
 	
+	public List<Usuario_Registrado_BD> cargarListadoSuscriptores(int aId) {
+		List<Usuario_Registrado_BD> lista=null;
+		try {
+			lista= _bD_Usuarios_Registrados.cargarListadoSuscriptores(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
+	public List<Video_BD> cargarListaUltimosVideos(int aId) {
+		List<Video_BD> lista=null;
+		try {
+			lista= _bD_Videos.cargarListaUltimosVideos(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+	
+	public boolean anadirVideoLista(int aId, String aNombre) {
+		boolean correcto=false;
+		try {
+		correcto= _bD_Videos.anadirVideoLista(aId, aNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return correcto;
+	}
+	public List<Video_BD> cargarVideosListaReproduccionPropia(int aId) {
+		List<Video_BD> lista=null;
+		try {
+			lista= _bD_Videos.cargarVideosListaReproduccionPropia(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
 }

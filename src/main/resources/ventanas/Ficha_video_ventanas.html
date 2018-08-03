@@ -3,40 +3,74 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.1.5">
+  <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
   <vaadin-vertical-layout responsive>
-   <vaadin-panel size-auto>
+   <vaadin-panel size-auto _id="panelVideo">
     <vaadin-vertical-layout responsive size-auto>
      <vaadin-horizontal-layout width-full _id="layoutReproductor"></vaadin-horizontal-layout>
-     <vaadin-horizontal-layout responsive width-full margin-left margin-right>
-      <vaadin-label responsive plain-text _id="titulo_video">
-        Título video 
-      </vaadin-label>
-      <vaadin-label responsive width="112px" plain-text _id="numero_me_gusta" :right>
-        0 me gusta 
-      </vaadin-label>
+     <vaadin-horizontal-layout responsive _id="losMegustas">
+      <vaadin-vertical-layout size-auto margin="false">
+       <vaadin-label icon="fonticon://Vaadin-Icons/e78c" responsive plain-text _id="titulo_video">
+         Título video 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto margin="false">
+       <vaadin-label icon="fonticon://Vaadin-Icons/e7df" responsive plain-text _id="nVisualizacion">
+         0 Visualizaciones 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto margin="false">
+       <vaadin-label icon="fonticon://Vaadin-Icons/e780" responsive plain-text _id="nMegusta">
+         0 Me Gusta 
+       </vaadin-label>
+      </vaadin-vertical-layout>
      </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
    </vaadin-panel>
-   <vaadin-panel size-auto>
-    <vaadin-form-layout responsive width="824px" margin>
-     <vaadin-button style-name="link" plain-text _id="nombre_usuario">
-       Nombre Usuario 
-     </vaadin-button>
-     <vaadin-label plain-text _id="fecha_subida">
-       Fecha Subida: 04/04/2018 
-     </vaadin-label>
-     <vaadin-label responsive width-full plain-text _id="descripcion_video">
-       Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-     </vaadin-label>
-     <vaadin-label plain-text _id="categoria">
-       Categoría: Música 
-     </vaadin-label>
-     <vaadin-label plain-text _id="etiquetas">
-       Etiquetas: Justin, Guitarra, Flamenco 
-     </vaadin-label>
+   <vaadin-panel size-auto _id="panelDescripcion">
+    <vaadin-form-layout responsive width="824px" margin="false">
+     <vaadin-horizontal-layout spacing="false">
+      <vaadin-label style-name="bold" plain-text>
+        Nombre: 
+      </vaadin-label>
+      <vaadin-button style-name="link" plain-text _id="nombre_usuario">
+        Nombre Usuario 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-label style-name="bold" plain-text>
+        Publicado: 
+      </vaadin-label>
+      <vaadin-label plain-text _id="fecha_subida">
+        Fecha Subida: 04/04/2018 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-label style-name="bold" plain-text>
+        Descripción: 
+      </vaadin-label>
+      <vaadin-label responsive width-full plain-text _id="descripcion_video">
+        Descripción: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-label style-name="bold" plain-text>
+        Categoria: 
+      </vaadin-label>
+      <vaadin-label plain-text _id="categoria">
+        Música 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-label style-name="bold" plain-text>
+        Etiqueta: 
+      </vaadin-label>
+      <vaadin-label plain-text _id="etiquetas">
+        Etiquetas: Justin, Guitarra, Flamenco 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
     </vaadin-form-layout>
    </vaadin-panel>
   </vaadin-vertical-layout>

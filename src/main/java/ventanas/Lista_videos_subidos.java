@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -36,11 +37,11 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 	void buscarVideosPropios() {
 		String aNombre= this.buscadorTF.getValue();
 		if(aNombre.isEmpty() || aNombre.length()==0 || aNombre.equals("")|| aNombre.equals(null)){
-			cargarVideosPropios();
+			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 		}
 					
 		List<Video_BD> listavideos= usuarioR.buscarVideosPropios(aNombre);
-		this.listaVideosFL.removeAllComponents();
+		listaVideosFL.removeAllComponents();
 			for (int i = 0; i < listavideos.size(); i++) {
 				this.listaVideosFL.addComponent(new Video_subido(listavideos.get(i)));	
 			}

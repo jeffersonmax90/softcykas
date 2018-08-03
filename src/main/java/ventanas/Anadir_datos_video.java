@@ -17,4 +17,7 @@ public class Anadir_datos_video extends Anadir_datos_video_ventanas {
 	private JButon _atrasB;
 	private JButon _subirB;
 	*/
+	
+	
+	
 }

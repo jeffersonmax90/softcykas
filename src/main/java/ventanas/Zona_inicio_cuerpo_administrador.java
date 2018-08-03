@@ -6,10 +6,12 @@ public class Zona_inicio_cuerpo_administrador extends Zona_inicio_cuerpo_adminis
 	 * Zona_inicio_comun _unnamed_Zona_inicio_comun_;
 	 */
 	
+	Videos_tendencia vt= new Videos_tendencia();
+	Videos_usuarios_registrados vur= new Videos_usuarios_registrados();
 	
 	public Zona_inicio_cuerpo_administrador(){
-		
-		vertical.removeAllComponents();
-		vertical.addComponentAsFirst(new Zona_inicio_comun());
+		vertical2.removeAllComponents();
+		vertical2.addComponent(vt);
+		vertical2.addComponent(vur);
 	}
 }

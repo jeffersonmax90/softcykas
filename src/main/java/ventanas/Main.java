@@ -58,51 +58,23 @@ public class Main {
 		
 	
 		
-		//Usuario_Registrado_BD u= usu.cargarModificarDatos(1);
-		/*
-		List<Video_BD> video= new ArrayList<Video_BD>();
 		
-		video= usu.cargarVideosPropios(9);
-		for (Video_BD video_BD : video) {
-			System.out.println(video_BD.getId()+" "+ video_BD.getTitulo()+ " "
-		);
-		}
-		*/
-		
-		/*
-		Video_BD video=new Video_BD();
-		video= usuR.cargarModificarVideo(2);
-		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
-		
-		System.out.println("modificacion");
-		video.setTitulo("video2222");
-		video.setEtiqueta("etiqueta222");
-		video.setRuta("222");
-		video.setMiniatura("222");
-		video.setDescripcion("2222");
-		Categoria_BD cat= new Categoria_BD();
-		
-		cat.setEdad("+6");
-		cat.setNombre("futbol");
-		
-		video.setCategoria_BD(cat);
-		
+
 	
-		boolean modificado= usuR.modificarVideo(video);
-		System.out.println(video.getId()+" "+video.getTitulo()+ " "+video.getCategoria_BD());
-		System.out.println(modificado);
-		*/
 		
 		IUsuario_no_registrado usuR= new BD_Principal();
 		IAdministrador ia= new BD_Principal();
 		IUsuario_registrado usu= new BD_Principal();
-		int aId=9;
-		List<Lista_reproduccion_BD> lista= usu.cargarListasReproduccionPropias(aId);
+		Video_BD v= new Video_BD();
+		int aId=1;
+		String s="musica";
+		List<Video_BD> lista= usu.cargarVideosListaReproduccionPropia(aId);
 		
-		for (Lista_reproduccion_BD video_BD : lista) {
-			System.out.println( video_BD.getId() +" "+video_BD.getNombre());
+		for (Video_BD video_BD : lista) {
+			System.out.println( video_BD.getId() +" "+video_BD.getTitulo());
 		}
-		
+		//System.out.println( lista);
+
 	}
 
 }

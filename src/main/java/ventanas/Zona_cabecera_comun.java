@@ -23,11 +23,13 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	IUsuario_registrado usuarioR= new BD_Principal();
 	
 	public Zona_cabecera_comun(){
-		cargarImagenRegistrado();
+		cargarDatosPerfilRegistrado();
+		
 		
 		ver_listado_suscriptores.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				Datos_Navegante.setPerfilVisitante("perfilRegistrado");
 				UI.getCurrent().getNavigator().navigateTo("listado_suscriptores");
 			}
 		});
@@ -39,32 +41,34 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 			}
 		});
 
+		logo.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				if(Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+	        		UI.getCurrent().getNavigator().navigateTo("");
+	        	}else if(Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+	        		
+		        		UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
+		        }else {
+	        		UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
+	        	}
+				
+				
+			}
+		});
+
 	 
 	}
 	
-	void cargarImagenRegistrado() {
-		/*
-		int id=-1;
-		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
-			id= Datos_Navegante.getIdPerfilvistante();
-		}else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
-			if(Datos_Navegante.getEstado()==0){
-				//cargo mi propio perfil 
-				id=  Datos_Navegante.getIdUsuario();
-			}else if (Datos_Navegante.getEstado()!=0){
-				//cargo perfil de otra persona
-				id= Datos_Navegante.getIdPerfilvistante();
-			}
+	void cargarDatosPerfilRegistrado() {
 			
-		} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")){
-			
-			id= Datos_Navegante.getIdPerfilvistante();
-		}
 		
-		*/
+		Usuario_Registrado_BD usu= usuarioR.cargarDatosPerfilRegistrado(Datos_Navegante.getIdUsuario());
 		
+		nVisitas.setValue(String.valueOf(usu.getN_visitas()));
+		nSuscriptores.setValue(String.valueOf(usu.suscrito.getCollection().size()));
+		nSuscripciones.setValue(String.valueOf(usu.suscriptor.getCollection().size()));
 		
-		Usuario_Registrado_BD usu= usuarioR.cargarImagenRegistrado(Datos_Navegante.getIdUsuario());
 		
 		this.imagen.setSource(new ExternalResource(usu.getMiniatura()));
 	};

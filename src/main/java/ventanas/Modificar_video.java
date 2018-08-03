@@ -21,9 +21,12 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 	IUsuario_registrado usuR= new BD_Principal();	
 	Video_BD video= new Video_BD();
 	List<Categoria_BD> listacat;
+	List<String> items;
+	int idcat;
 	@SuppressWarnings("serial")
 	public Modificar_video() {
-	//	cargarModificarVideo();
+		 cargarCategorias();
+		cargarModificarVideo();
 		
 		atras.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
@@ -43,11 +46,13 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 		});
 
 	}
-	/*
+	
 	void cargarModificarVideo() {
-		video= usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());		
+		video= usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());	
+		idcat= video.getCategoria_BD().getId();
 		datosVideos.titulo.setValue(video.getTitulo());
-		cargarCategorias();
+		
+		//datosVideos.categoria.setItems();
 		datosVideos.Etiqueta.setValue(video.getEtiqueta());
 		datosVideos.rutaVideo.setValue(video.getRuta());
 		datosVideos.rutaMiniatura.setValue(video.getMiniatura());
@@ -63,12 +68,19 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 		}
 		listacat= usuR.cargarCategorias();
-		for (Categoria_BD cat : usuR.cargarCategorias()) {
-			items.add(cat.getNombre()+ " " +cat.getEdad());
+		//int aux;
+		for (Categoria_BD cat : listacat) {
+			items.add(cat.getNombre() + " " + cat.getEdad());
+			/*if(cat.getId()==video.getCategoria_BD().getId())´
+				aux= */
 		}
-
 		datosVideos.categoria.setItems(items);
+		Categoria_BD cat= video.getCategoria_BD();
+		//int i= cat.getORMID();
+		//datosVideos.categoria.setSelectedItem(items.get(i));
 	}
+		
+	
 	
 		
 	void modificarVideo() {
@@ -87,7 +99,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 			
 			//modificar video
 		video.setTitulo(datosVideos.titulo.getValue());	
-		video.setCategoria_BD(cat);
+		//video.setCategoria_BD(cat);
 		video.setEtiqueta(datosVideos.Etiqueta.getValue());
 		video.setRuta(datosVideos.rutaVideo.getValue());
 		video.setMiniatura(datosVideos.rutaMiniatura.getValue());
@@ -102,8 +114,7 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");		
 		}
 	}
-	*/
 	
 	
-
 }
+

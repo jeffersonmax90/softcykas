@@ -55,6 +55,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		}
 
 		anadirDatosVideo.categoria.setItems(items);
+		anadirDatosVideo.categoria.setSelectedItem(items.get(0));
 	}
 
 	void Subir_video() {
@@ -74,6 +75,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		cat.setEdad(edad);
 		// Subir video
 		video.setCategoria_BD(cat);
+		
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 

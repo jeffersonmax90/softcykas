@@ -21,7 +21,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Lista_ultimos_videos_subidos_ventanas extends VerticalLayout {
 	protected Label videos_ultimos_subidos;
-	protected FormLayout videosFormLayout;
+	protected FormLayout formLista;
 	protected Button atras;
 
 	public Lista_ultimos_videos_subidos_ventanas() {
