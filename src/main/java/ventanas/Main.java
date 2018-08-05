@@ -38,42 +38,21 @@ public class Main {
 		
 		System.out.println(usuario.getTipoUsuario());
 		*/
-		/*
-		BD_Categorias noRegistrado = new BD_Categorias();
-		List<Categoria_BD> cat = null;
-		
-			try {
-				cat = noRegistrado.listarCategorias();
-			} catch (PersistentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-		 
-		for (int i = 0; i < cat.size(); i++) {
-			System.out.println(cat.get(i).toString()+cat.get(i).getNombre()+cat.get(i).getEdad());
-		}
-		*/
-		
-		
-	
-		
-		
-
-	
 		
 		IUsuario_no_registrado usuR= new BD_Principal();
 		IAdministrador ia= new BD_Principal();
 		IUsuario_registrado usu= new BD_Principal();
 		Video_BD v= new Video_BD();
-		int aId=1;
-		String s="musica";
-		List<Video_BD> lista= usu.cargarVideosListaReproduccionPropia(aId);
+		int aId=17;
+		String s="sin";
+		Datos_Navegante.setIdUsuario(9);
 		
-		for (Video_BD video_BD : lista) {
+		Video_BD lista= usuR.cargarFichaVideoNoRegistrado(aId);
+		
+		/*for (Video_BD video_BD : lista) {
 			System.out.println( video_BD.getId() +" "+video_BD.getTitulo());
-		}
-		//System.out.println( lista);
+		}*/
+		System.out.println( lista.getTitulo()+" "+lista.getRuta());
 
 	}
 

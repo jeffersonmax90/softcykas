@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -37,7 +38,13 @@ public class Lista_reproduccion_propia extends Lista_reproduccion_propia_ventana
 		
 		form.removeAllComponents();
 		List<Video_BD> lista= usu.cargarVideosListaReproduccionPropia(Datos_Navegante.getIdListaReproducion());
-			for (int i = 0; i < lista.size(); i++) {
+		if(lista == null || lista.size() == 0){
+			Label l= new Label();
+			l.setValue("Tu lista esá vacía");
+			form.addComponent(l);
+		}
+		
+		for (int i = 0; i < lista.size(); i++) {
 				form.addComponent(new Video_lista_reproduccion(lista.get(i)));
 			}
 	}

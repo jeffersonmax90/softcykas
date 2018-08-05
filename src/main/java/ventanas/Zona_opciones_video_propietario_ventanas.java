@@ -24,7 +24,7 @@ public class Zona_opciones_video_propietario_ventanas extends VerticalLayout {
 	protected Button me_gusta;
 	protected Button descargar;
 	protected Button crear_lista_reproduccion;
-	protected NativeSelect<java.lang.String> sample;
+	protected NativeSelect<java.lang.String> anadirLista;
 	protected Button eliminar;
 
 	public Zona_opciones_video_propietario_ventanas() {

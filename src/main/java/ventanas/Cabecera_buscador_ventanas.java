@@ -5,6 +5,7 @@ import com.vaadin.annotations.DesignRoot;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.declarative.Design;
 
@@ -21,6 +22,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Cabecera_buscador_ventanas extends VerticalLayout {
 	protected Label garbiñe_youtube;
+	protected TextField buscarTF;
 	protected ComboBox<java.lang.String> titulo;
 	protected Button buscar;
 

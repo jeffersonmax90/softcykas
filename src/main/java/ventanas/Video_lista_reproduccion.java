@@ -16,7 +16,7 @@ public class Video_lista_reproduccion extends Video_lista_reproduccion_ventanas 
 		throw new UnsupportedOperationException();
 	}
 	*/
-
+	IUsuario_registrado usu= new BD_Principal();
 	
 	public Video_lista_reproduccion(Video_BD video){
 		vertical.removeAllComponents();
@@ -28,14 +28,27 @@ public class Video_lista_reproduccion extends Video_lista_reproduccion_ventanas 
 				public void buttonClick(ClickEvent event) {
 					int n= video.getId();
 					Datos_Navegante.setIdVideo(n);
-					Notification notification = new Notification("Correcto", ""+n, Notification.Type.HUMANIZED_MESSAGE);
-					notification.setDelayMsec(2000);
-					notification.show(Page.getCurrent());	
-					//UI.getCurrent().getNavigator().navigateTo("Modificar_lista_reproduccion");
-				};
-			
+					quitarVideo();
+					
+				}
 			});
 	}
+	
+	
+	void quitarVideo() {
+		boolean correcto= usu.quitarVideo(Datos_Navegante.getIdVideo());
+		
+		if(Boolean.TRUE.equals(correcto)){
+			Notification notification = new Notification("¡El video se ha quitado correctamente!", "", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
+			UI.getCurrent().getNavigator().navigateTo("Lista_reproduccion_propia");
+		}
+	};
+	
+	
+	
+	
 }
 	
 	

@@ -1,5 +1,7 @@
 package ventanas;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import com.vaadin.navigator.View;
@@ -47,9 +49,14 @@ public class Modificar_datos extends Modificar_datos_ventanas  implements View{
 		datosUsuario.apellidos.setValue(usu.getApellidos());
 		datosUsuario.apodo.setValue(usu.getApodo());
 		datosUsuario.correo.setValue(usu.getEmail());
-		datosUsuario.contrasena.setVisible(false);//setValue(usu.getContraseña());
-		datosUsuario.repContrasena.setVisible(false);//setValue(usu.getContraseña());		
+		datosUsuario.contrasena.setVisible(false);
+		datosUsuario.repContrasena.setVisible(false);		
 		datosUsuario.urlPhoto.setValue(usu.getMiniatura());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+		String date= usu.getFecha_nacimiento().toString();
+		//convert String to LocalDate
+		LocalDate localDate = LocalDate.parse(date, formatter);
+		datosUsuario.fechaNacimiento.setValue(localDate);
 		
 		}
 	
@@ -61,7 +68,8 @@ public class Modificar_datos extends Modificar_datos_ventanas  implements View{
 		usu.setContraseña(datosUsuario.contrasena.getValue());
 		usu.setEmail(datosUsuario.correo.getValue());
 		usu.setMiniatura(datosUsuario.urlPhoto.getValue());
-		
+		usu.setFecha_nacimiento(java.sql.Date.valueOf(datosUsuario.fechaNacimiento.getValue()));
+
 		
 		modificado=	usuario_registrado.modificarDatos(usu);
 		if(modificado== true){

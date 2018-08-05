@@ -3,6 +3,7 @@ package ventanas;
 import java.util.List;
 
 import com.vaadin.navigator.View;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -23,7 +24,6 @@ public class Listado_suscripciones_registrado extends Listado_suscripciones_regi
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// TODO Auto-generated method stub
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 				
 			}
@@ -32,15 +32,18 @@ public class Listado_suscripciones_registrado extends Listado_suscripciones_regi
 	
 
 	void cargarListadoSuscripciones() {
-		// TODO Auto-generated method stub
-	
-		
-		
-		
 		
 		List<Usuario_Registrado_BD> lista= usuarioR.cargarListadoSuscripciones(Datos_Navegante.getIdUsuario());
 		
 		form.removeAllComponents();
+		if(lista == null || lista.size() == 0){
+			Label l= new Label();
+			l.setValue("No sigues a nadie.  ");
+		
+			form.addComponent(l);
+		}
+		
+		
 		for (int i = 0; i < lista.size(); i++) {
 			form.addComponent(new Suscripcion(lista.get(i)));
 		}

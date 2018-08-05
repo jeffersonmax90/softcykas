@@ -62,7 +62,7 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 				VerticalLayout v2 = new  VerticalLayout();
 				Button modificarB= new Button();
 				modificarB.setCaption("Modificar");
-				
+		//TODO MODIFICAR		
 				modificarB.addClickListener(new Button.ClickListener() {
 					@Override
 					public void buttonClick(ClickEvent event) {
@@ -80,13 +80,27 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 				eliminarB.setCaption("Eliminar");
 				v2.addComponent(modificarB);
 				v2.addComponent(eliminarB);
+		//TODO Eliminar	
+				eliminarB.addClickListener(new Button.ClickListener() {
+					@Override
+					public void buttonClick(ClickEvent event) {
+						String n=id.getValue();
+						int numero=Integer.parseInt(n);
+						Datos_Navegante.setIdListaReproducion(numero);
+						eliminarListaReproduccionPropia();
+						
+						UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+					}
+				});
+				
+				
 				Button bp= new  Button();
 				bp.setHeight("100");
 				bp.setWidth("150");
 				bp.setStyleName("huge primary");
 				int nlista= i+1;
 				bp.setCaption("Lista "+nlista);
-				
+		//TODO Lista Reproduccion	
 				bp.addClickListener(new Button.ClickListener() {
 					@Override
 					public void buttonClick(ClickEvent event) {
@@ -129,21 +143,18 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 						Label id= new Label();
 						int idLista= listaRepro.get(i).getId();
 						id.setValue(String.valueOf(idLista));
-						//Label titulo= new Label();
 						id.setVisible(false);
 						VerticalLayout v2 = new  VerticalLayout();
 						Button modificarB= new Button();
 						modificarB.setCaption("Modificar");
-						
+			//TODO MODIFICAR	
 						modificarB.addClickListener(new Button.ClickListener() {
 							@Override
 							public void buttonClick(ClickEvent event) {
 								String n=id.getValue();
 								int numero=Integer.parseInt(n);
 								Datos_Navegante.setIdListaReproducion(numero);
-							/*	Notification notification = new Notification("Correcto", ""+numero, Notification.Type.HUMANIZED_MESSAGE);
-								notification.setDelayMsec(2000);
-								notification.show(Page.getCurrent());	*/
+							
 								UI.getCurrent().getNavigator().navigateTo("Modificar_lista_reproduccion");
 							}
 						});
@@ -152,18 +163,39 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 						eliminarB.setCaption("Eliminar");
 						v2.addComponent(modificarB);
 						v2.addComponent(eliminarB);
+				//TODO Eliminar	
+						eliminarB.addClickListener(new Button.ClickListener() {
+							@Override
+							public void buttonClick(ClickEvent event) {
+								String n=id.getValue();
+								int numero=Integer.parseInt(n);
+								Datos_Navegante.setIdListaReproducion(numero);
+								eliminarListaReproduccionPropia();
+								
+								UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+							}
+						});
+						
+						
 						Button bp= new  Button();
 						bp.setHeight("100");
 						bp.setWidth("150");
 						bp.setStyleName("huge primary");
-						
-						bp.setCaption("Lista "+i);
-						
+						int nlista= i+1;
+						bp.setCaption("Lista "+nlista);
+				//TODO LISTA REPRODUCCION		
 						bp.addClickListener(new Button.ClickListener() {
 							@Override
 							public void buttonClick(ClickEvent event) {
+								/*String n=id.getValue();
+								int numero=Integer.parseInt(n);
+								Datos_Navegante.setIdListaReproducion(numero);
+								eliminarListaReproduccionPropia();*/
+								
 								UI.getCurrent().getNavigator().navigateTo("Lista_reproduccion_propia");
 							}
+
+							
 						});
 						f3.addComponent(bp);
 						Label nombre = new Label();
@@ -183,6 +215,17 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 			
 		}
 		
+		void eliminarListaReproduccionPropia() {
+			boolean correcto= usuarioR.eliminarListaReproduccionPropia(Datos_Navegante.getIdListaReproducion());
+			
+			if(Boolean.TRUE.equals(correcto)){
+				Notification notification = new Notification("¡La Lista se ha eliminado correctamente!", "", Notification.Type.HUMANIZED_MESSAGE);
+				notification.setDelayMsec(2000);
+				notification.show(Page.getCurrent());
+			}
+			
+			
 		
+		}	
 		
 }

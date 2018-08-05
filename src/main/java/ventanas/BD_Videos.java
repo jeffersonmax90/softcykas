@@ -12,8 +12,6 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 
-
-
 public class BD_Videos {
 	public BD_Principal _unnamed_BD_Principal_;
 	public Vector<Video_BD> _videos = new Vector<Video_BD>();
@@ -132,8 +130,27 @@ public class BD_Videos {
 		
 	}
 
-	public boolean quitarVideo(int aId) {
-		throw new UnsupportedOperationException();
+	public boolean quitarVideo(int aId) throws PersistentException {
+		boolean correcto=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Lista_reproduccion_BD list=Lista_reproduccion_BDDAO.loadLista_reproduccion_BDByORMID(Datos_Navegante.getIdListaReproducion());
+			List<Video_BD> video= Arrays.asList(list.video.toArray());
+			for (Video_BD v : video) {
+				if(v.getORMID()==aId){
+					list.video.remove(v);
+					Lista_reproduccion_BDDAO.save(list);
+					correcto=true;
+					break;
+				}
+			}	
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		
+		return correcto;
+	
 	}
 
 
@@ -319,12 +336,66 @@ public class BD_Videos {
 		return megusta;
 	}
 
-	public Video_BD descargarVideoUR(int aId) {
-		throw new UnsupportedOperationException();
+	public Video_BD descargarVideoUR(int aId) throws PersistentException {
+		Video_BD v=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			v=Video_BDDAO.getVideo_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return v;		
 	}
 
-	public boolean eliminarVideoUR(int aId) {
-		throw new UnsupportedOperationException();
+	public boolean eliminarVideoUR(int aId) throws PersistentException {
+		boolean salida=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Video_BD vid=Video_BDDAO.loadVideo_BDByORMID(aId);
+			List<Lista_reproduccion_BD> listas=Arrays.asList(Lista_reproduccion_BDDAO.listLista_reproduccion_BDByQuery(null, null));
+			List<Usuario_Registrado_BD> usuarios=Arrays.asList(Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByQuery(null, null));
+			List<Comentario_BD> comentarios=Arrays.asList(Comentario_BDDAO.listComentario_BDByQuery(null, null));
+			List<Historial_BD> historial=Arrays.asList(Historial_BDDAO.listHistorial_BDByQuery(null, null));
+
+			for(Lista_reproduccion_BD lista:listas) {
+				if(lista.video.contains(vid)) {
+					lista.video.remove(vid);
+				}
+				Lista_reproduccion_BDDAO.save(lista);
+			}
+
+			for(Historial_BD h:historial) {
+				if(h.video.contains(vid)) {
+					h.video.remove(vid);
+				}
+				Historial_BDDAO.save(h);
+			}
+			
+			
+			for(Usuario_Registrado_BD usuario:usuarios) {
+				if(usuario.me_gustas.contains(vid)) {
+					usuario.me_gustas.remove(vid);
+				}
+				if(usuario.video_subido.contains(vid)) {
+					usuario.video_subido.remove(vid);
+				}
+				Usuario_Registrado_BDDAO.save(usuario);
+			}
+			
+			for(Comentario_BD comentario:comentarios) {
+				if(comentario.getVideo().equals(vid)) {
+					Comentario_BDDAO.delete(comentario);
+				}
+			}
+			
+			Video_BDDAO.delete(vid);
+			t.commit();
+			salida=true;
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return salida;
 	}
 
 	public List<Video_BD> cargarVideosSuscripciones(int aId) throws PersistentException {
@@ -378,11 +449,10 @@ public class BD_Videos {
 			return v;		
 	}
 	
-	public List<Video_BD> buscarVideosPropios(String aNombre) {
+	public List<Video_BD> buscarVideosPropios(String aNombre) throws PersistentException {
 		List<Video_BD> videos=new ArrayList<Video_BD>();
-		
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
 		try {
-			PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
 			Video_BDCriteria cat= new Video_BDCriteria();
 			cat.titulo.like("%"+ aNombre+"%");
 			for (Video_BD v : Video_BDDAO.listVideo_BDByCriteria(cat)) {
@@ -423,8 +493,22 @@ public class BD_Videos {
 		throw new UnsupportedOperationException();
 	}
 
-	public Video_BD cargarFichaVideoNoRegistrado(int aId) {
-		throw new UnsupportedOperationException();
+	public Video_BD cargarFichaVideoNoRegistrado(int aId) throws PersistentException {
+		Video_BD v=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			
+			v=Video_BDDAO.getVideo_BDByORMID(aId);
+						
+			int nVisualizaciones=v.getVisualizaciones();
+			int total= nVisualizaciones+1;
+			v.setVisualizaciones(total);
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return v;		
 	}
 	public List<Video_BD> cargarListaUltimosVideos(int aId) throws PersistentException {
 		List<Video_BD> lista2= new ArrayList<Video_BD>();
@@ -482,6 +566,73 @@ public class BD_Videos {
 		return correcto;
 	}
 	public List<Video_BD> cargarVideosListaReproduccionPropia(int aId) throws PersistentException {
+		List<Video_BD> lista= new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+				Lista_reproduccion_BD u=Lista_reproduccion_BDDAO.getLista_reproduccion_BDByORMID(aId);
+				lista=Arrays.asList(u.video.toArray());
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return lista;
+	}
+	public List<Video_BD> buscarVideos(String aNombre) throws PersistentException {
+		List<Video_BD> videos=new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		try {
+			Video_BDCriteria cat= new Video_BDCriteria();
+			cat.titulo.like("%"+ aNombre+"%");
+			for (Video_BD v : Video_BDDAO.listVideo_BDByCriteria(cat)) {
+				videos.add(v);
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}		
+		return videos;
+	}
+	
+	public boolean meGustaRegistrado(int aIdUsuario, int aIdVideo) throws PersistentException {
+		boolean megusta=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Video_BD video = Video_BDDAO.getVideo_BDByORMID(aIdVideo);
+			if(Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.contains(video)){
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.remove(video);
+				megusta=false;
+			}else {
+				Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aIdUsuario).me_gustas.add(video);
+				megusta=true;
+			}
+			t.commit();
+		} catch (Exception e) {
+			
+		}
+		
+		return megusta;
+	}
+	
+	public boolean anadirVideoListaRegistrado(int aId, String aNombre) throws PersistentException {
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		boolean correcto=false;
+		try {
+			Lista_reproduccion_BD lista= Lista_reproduccion_BDDAO.loadLista_reproduccion_BDByQuery("Lista_reproduccion_BD.nombre='"+aNombre+"'", null);
+			Video_BD v= Video_BDDAO.getVideo_BDByORMID(aId);
+			lista.video.add(v);
+			v.listas_reproduccion.add(lista);
+			Lista_reproduccion_BDDAO.save(lista);
+			Video_BDDAO.save(v);
+			t.commit();
+			correcto= true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return correcto;
+	}
+	
+	public List<Video_BD> cargarVideosListaReproduccionVisitante(int aId) throws PersistentException {
 		List<Video_BD> lista= new ArrayList<Video_BD>();
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {

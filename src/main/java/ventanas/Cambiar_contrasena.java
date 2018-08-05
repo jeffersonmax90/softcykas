@@ -49,19 +49,17 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 	
 	boolean cambiado= false;
 	if(contrasena_nueva.getValue().equals(repetir_contrasena.getValue())){
-	cambiado=usuario_registrado.cambiarcontrasena(contrasena_nueva.getValue(),
-										contrasena_actual.getValue(),
-										repetir_contrasena.getValue());	
-	if(Boolean.TRUE.equals(cambiado)){
-		Notification notification = new Notification("Correcto", "Se ha cambiado correctamente", Notification.Type.HUMANIZED_MESSAGE);
-		notification.setDelayMsec(2000);
-		notification.show(Page.getCurrent());	
-		UI.getCurrent().getNavigator().navigateTo("perfil_registrado");	
-	}else{
-		Notification notification = new Notification("Incorrecto", "La contraseña no coincide", Notification.Type.ERROR_MESSAGE);
-		notification.setDelayMsec(2000);
-		notification.show(Page.getCurrent());	
-	}
+		cambiado=usuario_registrado.cambiarcontrasena(contrasena_nueva.getValue(),contrasena_actual.getValue(),	repetir_contrasena.getValue());	
+		if(Boolean.TRUE.equals(cambiado)){
+			Notification notification = new Notification("Correcto", "Se ha cambiado correctamente", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
+			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");	
+		}else{
+			Notification notification = new Notification("Incorrecto", "La contraseña no coincide", Notification.Type.ERROR_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());	
+		}
 	}else{
 		Notification notification = new Notification("Incorrecto", "La contraseña no coincide", Notification.Type.ERROR_MESSAGE);
 		notification.setDelayMsec(2000);

@@ -11,6 +11,9 @@ public class Datos_Navegante {
 	private static int idPerfilvistante=-1;
 	private static int estado=0;
 	private static String perfilVisitante= "";
+	private static String tipoBusqueda= "";
+	private static String busqueda= "";
+	
 	
 	public static int getIdUsuario() {
 		return idUsuario;
@@ -82,6 +85,22 @@ public class Datos_Navegante {
 
 	public static void setPerfilVisitante(String perfilVisitante) {
 		Datos_Navegante.perfilVisitante = perfilVisitante;
+	}
+
+	public static String getTipoBusqueda() {
+		return tipoBusqueda;
+	}
+
+	public static void setTipoBusqueda(String tipoBusqueda) {
+		Datos_Navegante.tipoBusqueda = tipoBusqueda;
+	}
+
+	public static String getBusqueda() {
+		return busqueda;
+	}
+
+	public static void setBusqueda(String busqueda) {
+		Datos_Navegante.busqueda = busqueda;
 	}
 	
 }

@@ -53,10 +53,13 @@ public class Listas_de_reproduccion  extends Listas_de_reproduccion_ventanas{
 			int nlista= i+1;
 			carpeta.setCaption("Lista "+nlista);
 			titulo.setValue(listaRepro.get(i).getNombre());
-			
+	//TODO Lista Reproduccion		
 			carpeta.addClickListener(new Button.ClickListener() {
 				@Override
 				public void buttonClick(ClickEvent event) {
+					String n=idCarpeta.getValue();
+					int numero=Integer.parseInt(n);
+					Datos_Navegante.setIdListaReproducion(numero);
 					UI.getCurrent().getNavigator().navigateTo("Lista_de_reproduccion");
 				}
 			});

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
@@ -53,9 +54,9 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		for (Categoria_BD cat : registrado.cargarCategorias()) {
 			items.add(cat.getNombre() + " " + cat.getEdad());
 		}
-
+		items.add("Elige categoria");
 		anadirDatosVideo.categoria.setItems(items);
-		anadirDatosVideo.categoria.setSelectedItem(items.get(0));
+		anadirDatosVideo.categoria.setSelectedItem(items.get(items.size()-1));
 	}
 
 	void Subir_video() {
@@ -111,6 +112,10 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
 		registrado.subirVideo(video);
 
+		Notification notification = new Notification("¡Has subido un video con éxito!","",Notification.Type.HUMANIZED_MESSAGE);
+		notification.setDelayMsec(2000);
+		notification.show(Page.getCurrent());
+		UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 	}
 
 }

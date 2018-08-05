@@ -26,9 +26,7 @@ public class Registrarse extends Registrarse_ventanas implements View {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				enviarDatos();
-				Notification notification = new Notification("¡ENHORABUENA!", "Usuario registrado con éxito", Notification.Type.HUMANIZED_MESSAGE);
-				notification.setDelayMsec(2000);
-				notification.show(Page.getCurrent());
+				
 				
 			}
 		});
@@ -42,24 +40,39 @@ public class Registrarse extends Registrarse_ventanas implements View {
 	}
 
 	void enviarDatos() {
-		// TODO Auto-generated method stub
 		
-		user.setNombre(anadirDatos.nombre.getValue());
-		user.setApellidos(anadirDatos.apellidos.getValue());
-		user.setApodo(anadirDatos.apodo.getValue());
-		user.setContraseña(anadirDatos.contrasena.getValue());
-		user.setEmail(anadirDatos.correo.getValue());
-		user.setTipoUsuario("Registrado");
-		user.setN_visitas(0);
-		user.setMiniatura(anadirDatos.urlPhoto.getValue());
-		
-		if(anadirDatos.urlPhoto.getValue().equals("")){
-			String url= "http://i48.tinypic.com/okoi2b.jpg";
-			user.setMiniatura(url);
+		if(anadirDatos.contrasena.getValue().equals(anadirDatos.repContrasena.getValue())){
+			if(anadirDatos.fechaNacimiento.getValue()==null){
+				Notification notification = new Notification("¡Introduce una Fecha!", "", Notification.Type.ERROR_MESSAGE);
+				notification.setDelayMsec(2000);
+				notification.show(Page.getCurrent());
+			}else{
+			user.setNombre(anadirDatos.nombre.getValue());
+			user.setApellidos(anadirDatos.apellidos.getValue());
+			user.setApodo(anadirDatos.apodo.getValue());
+			user.setContraseña(anadirDatos.contrasena.getValue());
+			user.setEmail(anadirDatos.correo.getValue());
+			user.setTipoUsuario("Registrado");
+			user.setN_visitas(0);
+			user.setMiniatura(anadirDatos.urlPhoto.getValue());
+			
+			if(anadirDatos.urlPhoto.getValue().equals("")){
+				String url= "http://i48.tinypic.com/okoi2b.jpg";
+				user.setMiniatura(url);
+			}
+			user.setFecha_nacimiento(java.sql.Date.valueOf(anadirDatos.fechaNacimiento.getValue()));
+	
+			noRegistrado.registrarUsuario(user);
+			
+			Notification notification = new Notification("¡ENHORABUENA!", "Usuario registrado con éxito", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());
+			UI.getCurrent().getNavigator().navigateTo("logIn");
+			}
+		}else {
+			Notification notification = new Notification("¡La contraseñas no Coincide!", "", Notification.Type.ERROR_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());
 		}
-		user.setFecha_nacimiento(java.sql.Date.valueOf(anadirDatos.fechaNacimiento.getValue()));
-
-		noRegistrado.registrarUsuario(user);
-
 	}
 }

@@ -17,6 +17,7 @@ import com.vaadin.ui.Video;
 
 import ventanas.Anadir_datos_usuario;
 import ventanas.Anadir_datos_video;
+import ventanas.Buscador;
 import ventanas.Cabecera_buscador;
 import ventanas.Cambiar_contrasena;
 import ventanas.Cambiar_imagen;
@@ -102,6 +103,8 @@ public class MyUI extends UI {
 		navigator.addView("Perfil_visitante", Perfil_visitante.class);
 		navigator.addView("Lista_de_reproduccion", Lista_de_reproduccion.class);
 		navigator.addView("Listado_suscripciones_visitante", Listado_suscripciones_visitante.class);
+		navigator.addView("Buscador", Buscador.class);
+
 		navigator.navigateTo("");
 		
 		

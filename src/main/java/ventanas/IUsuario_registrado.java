@@ -83,4 +83,18 @@ public interface IUsuario_registrado {
 	public boolean anadirVideoLista(int aId, String aNombre);
 	
 	public List<Video_BD> cargarVideosListaReproduccionPropia(int aId);
+	
+	public List<Usuario_Registrado_BD> cargarListadoSuscripcionesVisitante(int aId);
+	
+	public boolean eliminarListaReproduccionPropia(int aId);
+	
+	public Usuario_Registrado_BD cargarMeGustaRegistrado(int aId);
+	
+	public boolean meGustaRegistrado(int aIdUsuario, int aIdVideo);
+
+	public boolean anadirVideoListaRegistrado(int aId, String aNombre);
+
+	public List<Lista_reproduccion_BD> cargarListaReproduccionCajaRegistrado(int aId);
+	
+
 }

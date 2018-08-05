@@ -41,6 +41,8 @@ public class Video extends Video_ventanas {
 		this.tituloVideo.setCaption(video.getTitulo());
 		
 		idAutor=video.getPropietario().getORMID();
+		
+	//Boton titulo
 		this.tituloVideo.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {

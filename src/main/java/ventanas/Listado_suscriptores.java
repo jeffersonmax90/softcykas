@@ -3,6 +3,7 @@ package ventanas;
 import java.util.List;
 
 import com.vaadin.navigator.View;
+import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -60,9 +61,13 @@ public class Listado_suscriptores extends Listado_suscriptores_ventanas implemen
 		
 		
 		List<Usuario_Registrado_BD> lista= usuarioR.cargarListadoSuscriptores(id);
-		
-
 		form.removeAllComponents();
+		if(lista == null || lista.size() == 0){
+			Label l= new Label();
+			l.setValue("No te sigue nadie pero, ¡Puedes subir un video!");
+			form.addComponent(l);
+		}
+		
 		for (int i = 0; i < lista.size(); i++) {
 			form.addComponent(new Lista_usuarios(lista.get(i)));
 		}

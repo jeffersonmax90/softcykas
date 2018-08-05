@@ -1,6 +1,8 @@
 package ventanas;
 
+import com.vaadin.server.Page;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
@@ -16,7 +18,7 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 		
 		descargar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+				descargarVideo();
 			}
 		});
 		
@@ -26,4 +28,23 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 			}
 		});
 	}
+	
+	
+	void descargarVideo() {
+		Notification notification = new Notification("Copia el enlace que hay en la descripción", "", Notification.Type.HUMANIZED_MESSAGE);
+		notification.setDelayMsec(2000);
+	    notification.show(Page.getCurrent());	
+    
+		String url="http://www.descargaryoutube.com/";
+		String osName = System.getProperty("os.name");
+		try {
+			 if (osName.startsWith("Windows")) {
+	                Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + url);
+			 }
+		} catch (Exception e) {
+		}
+}
+	
+	
+	
 }

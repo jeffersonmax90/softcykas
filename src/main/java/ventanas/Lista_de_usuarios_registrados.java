@@ -29,6 +29,14 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
+				String texto= texfielBuscador.getValue().toString();
+				if(texto.length()==0){
+					cargarListaUsuarioRegistrado();
+				}
+				else{
+					buscarUsuarioListaRegistrado();		
+				}
+					
 				buscarUsuarioListaRegistrado();				
 			}
 		});
@@ -43,6 +51,7 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 		});
 	}
 
+	@SuppressWarnings("serial")
 	void cargarListaUsuarioRegistrado() {
 		List<Usuario_Registrado_BD> usuarios= admin.cargarlistaUsuarioRegistrados(Datos_Navegante.getIdUsuario());
 		formlayout.removeAllComponents();
@@ -59,16 +68,14 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			objeto.id.setValue(cadena);
 			
 			formlayout.addComponent(objeto);
+	//TODO Eliminar
 			objeto.eliminar_button.addClickListener(new ClickListener() {
 				
 				@Override
 				public void buttonClick(ClickEvent event) {
-					// TODO Auto-generated method stub
 					obtenerId=objeto.id.getValue();
 					eliminarUsuarioListaRegistrado();	
-					Notification notification = new Notification("¡Usuario!", "falta tener toda la aplicacion para poder eliminar el usuario sus  videos y comentarios "+obtenerId, Notification.Type.HUMANIZED_MESSAGE);
-					notification.setDelayMsec(2000);
-					notification.show(Page.getCurrent());
+					
 				}
 			});
 		}
@@ -76,11 +83,18 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 	
 	
 	void eliminarUsuarioListaRegistrado() {
-		
 		int aId= Integer.parseInt(obtenerId);
-		admin.eliminarUsuarioListaRegistrado(aId);
+		boolean eliminado= admin.eliminarUsuarioListaRegistrado(aId);
+		if(Boolean.TRUE.equals(eliminado)){
+			Notification notification = new Notification("¡Usuario elminado con éxito!", "", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());
+			UI.getCurrent().getNavigator().navigateTo("Lista_de_usuarios_registrados");
+			
+		}
 	}
 	
+	@SuppressWarnings("serial")
 	void buscarUsuarioListaRegistrado() {
 		List<Usuario_Registrado_BD> usuarios= admin.buscarUsuarioListaRegistado(texfielBuscador.getValue());
 		formlayout.removeAllComponents();

@@ -33,6 +33,7 @@ public class Ficha_video_ventanas extends VerticalLayout {
 	protected Label descripcion_video;
 	protected Label categoria;
 	protected Label etiquetas;
+	protected Label enlace;
 
 	public Ficha_video_ventanas() {
 		Design.read(this);
