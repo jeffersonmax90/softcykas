@@ -29,15 +29,15 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				String texto= texfielBuscador.getValue().toString();
+				String texto= texfielBuscador.getValue();
+				
 				if(texto.length()==0){
 					cargarListaUsuarioRegistrado();
 				}
 				else{
 					buscarUsuarioListaRegistrado();		
 				}
-					
-				buscarUsuarioListaRegistrado();				
+									
 			}
 		});
 		

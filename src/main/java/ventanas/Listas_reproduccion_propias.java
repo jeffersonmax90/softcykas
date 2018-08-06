@@ -30,15 +30,27 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 	
 	
 	public Listas_reproduccion_propias(){
-		cargarListasReproduccionPropias();
+		
+		
+			cargarListasReproduccionPropias();
+	
+		
 		
 		buscar.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				buscarListasReproducionPropias();
+				String texto= buscarLista.getValue();
+				
+				if(texto.length()==0){
+					
+					cargarListasReproduccionPropias();
+				}
+				else{
+					
+					buscarListasReproducionPropias();	
+				}
+				
 			}
-
-			
 		});
 	}
 
@@ -69,9 +81,6 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 						String n=id.getValue();
 						int numero=Integer.parseInt(n);
 						Datos_Navegante.setIdListaReproducion(numero);
-					/*	Notification notification = new Notification("Correcto", ""+numero, Notification.Type.HUMANIZED_MESSAGE);
-						notification.setDelayMsec(2000);
-						notification.show(Page.getCurrent());	*/
 						UI.getCurrent().getNavigator().navigateTo("Modificar_lista_reproduccion");
 					}
 				});
@@ -128,9 +137,10 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 		//Falta añadir el metodo de borrar para que este bien
 		void buscarListasReproducionPropias() {
 			String aNombre= this.buscarLista.getValue();
+			/*
 			if(aNombre.isEmpty() || aNombre.length()==0 || aNombre.equals("")|| aNombre.equals(null)){
 				cargarListasReproduccionPropias();
-			}
+			}*/
 			
 			List<Lista_reproduccion_BD> listaRepro= usuarioR.buscarListasReproducionPropias(aNombre);
 			

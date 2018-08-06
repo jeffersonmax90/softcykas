@@ -28,7 +28,16 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 		buscarB.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				buscarVideosPropios();
+				String texto= buscadorTF.getValue();
+				
+				if(texto.length()==0){
+
+					cargarVideosPropios();
+					
+				}
+				else{
+					buscarVideosPropios();		
+				}
 			}
 		});
 	}

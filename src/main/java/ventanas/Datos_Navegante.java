@@ -13,6 +13,7 @@ public class Datos_Navegante {
 	private static String perfilVisitante= "";
 	private static String tipoBusqueda= "";
 	private static String busqueda= "";
+	private static Boolean aux= false;
 	
 	
 	public static int getIdUsuario() {
@@ -101,6 +102,14 @@ public class Datos_Navegante {
 
 	public static void setBusqueda(String busqueda) {
 		Datos_Navegante.busqueda = busqueda;
+	}
+
+	public static Boolean getAux() {
+		return aux;
+	}
+
+	public static void setAux(Boolean aux) {
+		Datos_Navegante.aux = aux;
 	}
 	
 }
