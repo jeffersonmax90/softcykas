@@ -25,10 +25,10 @@ public class Ficha_video extends Ficha_video_ventanas {
 	private int idAutor;
 
 	public Ficha_video() {
-		if(Datos_Navegante.getTipoUsuario().equals("Invitado")){
+		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
 			cargarFichaVideoInvitado();
-		}else{
-		cargarFichaVideoRegistrado();
+		} else {
+			cargarFichaVideoRegistrado();
 		}
 	}
 
@@ -49,13 +49,12 @@ public class Ficha_video extends Ficha_video_ventanas {
 		Date d = v.getFecha_subida();
 		String fecha = String.valueOf(d);
 		nombre_usuario.setCaption(v.getPropietario().getNombre());
-		
 
-		nVisualizacion.setValue(" "+ n +" Visualizaciones");
+		nVisualizacion.setValue(" " + n + " Visualizaciones");
 		int meGusta = v.usuario.size();
 		String ngusta = "";
 		n = String.valueOf(meGusta);
-		nMegusta.setValue(" "+ n +" Me gusta");
+		nMegusta.setValue(" " + n + " Me gusta");
 		fecha_subida.setValue(fecha);
 		descripcion_video.setValue(v.getDescripcion());
 		categoria.setValue(v.getCategoria_BD().getNombre() + " " + v.getCategoria_BD().getEdad());
@@ -65,7 +64,6 @@ public class Ficha_video extends Ficha_video_ventanas {
 		this.nombre_usuario.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-
 				int idvisitante = v.getPropietario().getId();
 				// Datos_Navegante.setIdUsuario(idvisitante);
 				Datos_Navegante.setIdPerfilvistante(idvisitante);
@@ -77,27 +75,22 @@ public class Ficha_video extends Ficha_video_ventanas {
 					} else {
 						UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 					}
-				} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")){
+				} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")) {
 					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 				}
-
-				
 			}
 		});
 
 	}
 
-	
-	
 	void cargarFichaVideoInvitado() {
-		
-		int aId=Datos_Navegante.getIdVideo();
+		int aId = Datos_Navegante.getIdVideo();
 		Video_BD v = usuNoR.cargarFichaVideoNoRegistrado(aId);
-		//System.out.println(v.getRuta());
-		System.out.println(Datos_Navegante.getIdVideo()+ " "+v.getTitulo());
-		
+		// System.out.println(v.getRuta());
+		System.out.println(Datos_Navegante.getIdVideo() + " " + v.getTitulo());
+
 		Embedded video = new Embedded(null, new ExternalResource(v.getRuta()));
-		
+
 		video.setMimeType("application/x-shockwave-flash");
 		video.setParameter("allowFullScreen", "true");
 		video.setWidth("800px");
@@ -111,23 +104,22 @@ public class Ficha_video extends Ficha_video_ventanas {
 		Date d = v.getFecha_subida();
 		String fecha = String.valueOf(d);
 		nombre_usuario.setCaption(v.getPropietario().getNombre());
-		
 
-		nVisualizacion.setValue(" "+ n +" Visualizaciones");
+		nVisualizacion.setValue(" " + n + " Visualizaciones");
 		int meGusta = v.usuario.size();
 		String ngusta = "";
 		n = String.valueOf(meGusta);
-		nMegusta.setValue(" "+ n +" Me gusta");
+		nMegusta.setValue(" " + n + " Me gusta");
 		fecha_subida.setValue(fecha);
 		descripcion_video.setValue(v.getDescripcion());
 		categoria.setValue(v.getCategoria_BD().getNombre() + " " + v.getCategoria_BD().getEdad());
 		etiquetas.setValue(v.getEtiqueta());
 		enlace.setValue(v.getRuta());
 		idAutor = v.getPropietario().getORMID();
+		
 		this.nombre_usuario.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-
 				int idvisitante = v.getPropietario().getId();
 				// Datos_Navegante.setIdUsuario(idvisitante);
 				Datos_Navegante.setIdPerfilvistante(idvisitante);
@@ -139,11 +131,9 @@ public class Ficha_video extends Ficha_video_ventanas {
 					} else {
 						UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 					}
-				} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")){
+				} else if (Datos_Navegante.getTipoUsuario().equals("Administrador")) {
 					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
 				}
-
-				
 			}
 		});
 

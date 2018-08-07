@@ -250,30 +250,31 @@ public class BD_Videos {
 	}
 
 	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) throws PersistentException {
-		List<Video_BD> lista=new ArrayList<Video_BD>();
-		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
-		try {	
+		List<Video_BD> lista = new ArrayList<Video_BD>();
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
+				.beginTransaction();
+		try {
 			Video_BDCriteria crit = new Video_BDCriteria();
 			crit.fecha_subida.order(false);
-			
-			for(Video_BD v : crit.listVideo_BD()) {
+
+			for (Video_BD v : crit.listVideo_BD()) {
 				lista.add(v);
 			}
-	
+
 			t.commit();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			t.rollback();
 		}
-		List<Video_BD>def = new ArrayList<Video_BD>();
+		List<Video_BD> def = new ArrayList<Video_BD>();
 		int contador = 0;
-			for(Video_BD video : lista) {
-				if(contador==10) {
-					break;
-				}
-				def.add(video);
-				contador++;
+		for (Video_BD video : lista) {
+			if (contador == 10) {
+				break;
 			}
-			return def;
+			def.add(video);
+			contador++;
+		}
+		return def;
 	}
 
 	public List<Video_BD> cargarListaUltimoVideosSubidosRegistrado(int aId) throws PersistentException {

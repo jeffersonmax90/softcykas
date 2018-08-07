@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
@@ -11,13 +11,15 @@
    <vaadin-label plain-text _id="comentarios">
      Comentarios 
    </vaadin-label>
-   <ventanas-comentario_ventanas></ventanas-comentario_ventanas>
-   <ventanas-comentario_ventanas></ventanas-comentario_ventanas>
+   <vaadin-form-layout size-auto _id="form_comentarios">
+    <ventanas-comentario_ventanas></ventanas-comentario_ventanas>
+    <ventanas-comentario_ventanas></ventanas-comentario_ventanas>
+   </vaadin-form-layout>
    <vaadin-label plain-text _id="anadir_comentario">
      Añadir comentario: 
    </vaadin-label>
    <vaadin-horizontal-layout>
-    <vaadin-text-area width="600px"></vaadin-text-area>
+    <vaadin-text-area width="600px" _id="comentario"></vaadin-text-area>
     <vaadin-button plain-text _id="anadir">
       Añadir 
     </vaadin-button>

@@ -1,12 +1,24 @@
 package ventanas;
 
-public class Comentario extends Comentario_ventanas{
-	/*
-	 * private Image _fotoI; private Label _nombre_usuarioLB; private Label
-	 * _comentariosLB; private Button _borrar_cometarioB; public
-	 * Lista_comentarios_anadibles _unnamed_Lista_comentarios_anadibles_; public
-	 * Lista_comentarios_deshabilitables
-	 * _unnamed_Lista_comentarios_deshabilitables_; public Perfil_visitante
-	 * _unnamed_Perfil_visitante_;
-	 */
+import com.vaadin.server.ExternalResource;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
+
+public class Comentario extends Comentario_ventanas {
+	public Comentario(Comentario_BD comentario_BD) {
+
+		this.comentario.setCaption(comentario_BD.getMensaje());
+		this.perfil_usuario.setCaption(comentario_BD.getUsuario().getApodo());
+
+		// Boton eliminar
+		this.eliminar_comentario.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				int n = comentario_BD.getId();
+				
+				
+			}
+		});
+	}
 }
