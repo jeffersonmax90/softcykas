@@ -16,8 +16,7 @@ public class Comentario extends Comentario_ventanas {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				int n = comentario_BD.getId();
-				
-				
+				// Completar cuando esté arreglada la tabla de comentarios de la BD.
 			}
 		});
 	}
