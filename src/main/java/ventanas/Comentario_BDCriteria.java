@@ -25,6 +25,7 @@ public class Comentario_BDCriteria extends AbstractORMCriteria {
 	public final IntegerExpression usuarioId;
 	public final AssociationExpression usuario;
 	public final StringExpression mensaje;
+	public final DateExpression fecha_subida;
 	
 	public Comentario_BDCriteria(Criteria criteria) {
 		super(criteria);
@@ -34,6 +35,7 @@ public class Comentario_BDCriteria extends AbstractORMCriteria {
 		usuarioId = new IntegerExpression("usuario.", this);
 		usuario = new AssociationExpression("usuario", this);
 		mensaje = new StringExpression("mensaje", this);
+		fecha_subida = new DateExpression("fecha_subida", this);
 	}
 	
 	public Comentario_BDCriteria(PersistentSession session) {

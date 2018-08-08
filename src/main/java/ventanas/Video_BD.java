@@ -100,6 +100,9 @@ public class Video_BD implements Serializable {
 	@Column(name="Ruta", nullable=true, length=255)	
 	private String ruta;
 	
+	@Column(name="Comentarios_deshabilitados", nullable=false, length=1)	
+	private boolean comentarios_deshabilitados;
+	
 	@OneToMany(mappedBy="video", targetEntity=ventanas.Comentario_BD.class)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
@@ -188,6 +191,14 @@ public class Video_BD implements Serializable {
 	
 	public String getRuta() {
 		return ruta;
+	}
+	
+	public void setComentarios_deshabilitados(boolean value) {
+		this.comentarios_deshabilitados = value;
+	}
+	
+	public boolean getComentarios_deshabilitados() {
+		return comentarios_deshabilitados;
 	}
 	
 	private void setORM_Usuario(java.util.Set value) {

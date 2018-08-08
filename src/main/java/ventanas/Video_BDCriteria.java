@@ -30,6 +30,7 @@ public class Video_BDCriteria extends AbstractORMCriteria {
 	public final DateExpression fecha_subida;
 	public final IntegerExpression visualizaciones;
 	public final StringExpression ruta;
+	public final BooleanExpression comentarios_deshabilitados;
 	public final CollectionExpression comentarios;
 	public final CollectionExpression listas_reproduccion;
 	public final CollectionExpression historial;
@@ -49,6 +50,7 @@ public class Video_BDCriteria extends AbstractORMCriteria {
 		fecha_subida = new DateExpression("fecha_subida", this);
 		visualizaciones = new IntegerExpression("visualizaciones", this);
 		ruta = new StringExpression("ruta", this);
+		comentarios_deshabilitados = new BooleanExpression("comentarios_deshabilitados", this);
 		comentarios = new CollectionExpression("ORM_comentarios", this);
 		listas_reproduccion = new CollectionExpression("ORM_listas_reproduccion", this);
 		historial = new CollectionExpression("ORM_historial", this);

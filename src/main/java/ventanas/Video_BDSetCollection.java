@@ -78,6 +78,7 @@ public class Video_BDSetCollection extends org.orm.util.ORMSet {
 	 * <li>fecha_subida</li>
 	 * <li>visualizaciones</li>
 	 * <li>ruta</li>
+	 * <li>comentarios_deshabilitados</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -96,6 +97,7 @@ public class Video_BDSetCollection extends org.orm.util.ORMSet {
 	 * <li>fecha_subida</li>
 	 * <li>visualizaciones</li>
 	 * <li>ruta</li>
+	 * <li>comentarios_deshabilitados</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

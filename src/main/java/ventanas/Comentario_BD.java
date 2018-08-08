@@ -59,6 +59,10 @@ public class Comentario_BD implements Serializable {
 	@Column(name="Mensaje", nullable=true, length=255)	
 	private String mensaje;
 	
+	@Column(name="Fecha_subida", nullable=true)	
+	@Temporal(TemporalType.DATE)	
+	private java.util.Date fecha_subida;
+	
 	private void setId(int value) {
 		this.id = value;
 	}
@@ -77,6 +81,14 @@ public class Comentario_BD implements Serializable {
 	
 	public String getMensaje() {
 		return mensaje;
+	}
+	
+	public void setFecha_subida(java.util.Date value) {
+		this.fecha_subida = value;
+	}
+	
+	public java.util.Date getFecha_subida() {
+		return fecha_subida;
 	}
 	
 	public void setUsuario(ventanas.Usuario_Registrado_BD value) {

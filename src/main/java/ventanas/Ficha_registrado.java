@@ -25,6 +25,7 @@ public class Ficha_registrado extends Ficha_registrado_ventanas implements View{
 	horizontal.removeAllComponents();
 	horizontal.addComponent(fvi);
 	horizontal.addComponent(zopc);
+	verti2.removeAllComponents();
 	verti2.addComponent(lcomen);
 		
 	}

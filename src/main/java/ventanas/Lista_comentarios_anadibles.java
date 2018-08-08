@@ -2,14 +2,25 @@ package ventanas;
 
 import java.util.List;
 
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ventanas {
 	IUsuario_registrado usuRegistrado = new BD_Principal();
 
 	public Lista_comentarios_anadibles() {
-		anadirComentarios();
+		
+		
+		anadir.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				anadirComentarios();
 
+			}
+		});
+	
 	}
 
 	void anadirComentarios() {

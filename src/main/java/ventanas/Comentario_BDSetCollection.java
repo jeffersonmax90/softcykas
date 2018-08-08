@@ -72,6 +72,7 @@ public class Comentario_BDSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
 	 * <li>mensaje</li>
+	 * <li>fecha_subida</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -84,6 +85,7 @@ public class Comentario_BDSetCollection extends org.orm.util.ORMSet {
 	 * @param propertyName Name of the property for sorting:<ul>
 	 * <li>id</li>
 	 * <li>mensaje</li>
+	 * <li>fecha_subida</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

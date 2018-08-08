@@ -14,8 +14,6 @@
 package ventanas;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.*;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
@@ -230,11 +228,6 @@ public class Usuario_Registrado_BD extends ventanas.Usuario_BD implements Serial
 	
 	@Transient	
 	public final ventanas.Video_BDSetCollection video_subido = new ventanas.Video_BDSetCollection(this, _ormAdapter, ORMConstants.KEY_USUARIO_REGISTRADO_BD_VIDEO_SUBIDO, ORMConstants.KEY_VIDEO_BD_PROPIETARIO, ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public List<Video_BD> cargarVideosTendencia() {
-		//TODO: Implement Method
-		throw new UnsupportedOperationException();
-	}
 	
 	public String toString() {
 		return super.toString();

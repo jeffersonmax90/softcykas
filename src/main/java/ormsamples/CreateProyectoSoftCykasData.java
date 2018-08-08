@@ -22,7 +22,7 @@ public class CreateProyectoSoftCykasData {
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : videos
 			ventanas.Categoria_BDDAO.save(lventanasCategoria_BD);
 			ventanas.Video_BD lventanasVideo_BD = ventanas.Video_BDDAO.createVideo_BD();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : propietario, historial, listas_reproduccion, comentarios, categoria_BD, usuario
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : propietario, historial, listas_reproduccion, comentarios, comentarios_deshabilitados, categoria_BD, usuario
 			ventanas.Video_BDDAO.save(lventanasVideo_BD);
 			ventanas.Comentario_BD lventanasComentario_BD = ventanas.Comentario_BDDAO.createComentario_BD();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : usuario, video

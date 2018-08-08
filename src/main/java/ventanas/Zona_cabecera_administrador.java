@@ -30,7 +30,11 @@ public class Zona_cabecera_administrador extends Zona_cabecera_administrador_ven
 	void cargarImagen() {
 		Usuario_BD usuario=null;
 		usuario= admin.cargarImagenAdministrador(Datos_Navegante.getIdUsuario());
+		if(usuario.getMiniatura()==null){
+			
+		}else{
 		imagen.setSource(new ExternalResource(usuario.getMiniatura()));
 		}
+	}
 	
 }

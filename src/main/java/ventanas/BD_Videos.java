@@ -39,6 +39,7 @@ public class BD_Videos {
 			v.setDescripcion(aVideo.getDescripcion());
 			Date fecha = new Date();
 			v.setFecha_subida(fecha);
+			v.setComentarios_deshabilitados(aVideo.getComentarios_deshabilitados());
 			v.setVisualizaciones(0);
 			v.setORM_Categoria_BD(cat);
 			v.setORM_Propietario(usu);

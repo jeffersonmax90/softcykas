@@ -25,6 +25,7 @@ public class Comentario_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression usuarioId;
 	public final AssociationExpression usuario;
 	public final StringExpression mensaje;
+	public final DateExpression fecha_subida;
 	
 	public Comentario_BDDetachedCriteria() {
 		super(ventanas.Comentario_BD.class, ventanas.Comentario_BDCriteria.class);
@@ -34,6 +35,7 @@ public class Comentario_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 		usuarioId = new IntegerExpression("usuario.", this.getDetachedCriteria());
 		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 		mensaje = new StringExpression("mensaje", this.getDetachedCriteria());
+		fecha_subida = new DateExpression("fecha_subida", this.getDetachedCriteria());
 	}
 	
 	public Comentario_BDDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -44,6 +46,7 @@ public class Comentario_BDDetachedCriteria extends AbstractORMDetachedCriteria {
 		usuarioId = new IntegerExpression("usuario.", this.getDetachedCriteria());
 		usuario = new AssociationExpression("usuario", this.getDetachedCriteria());
 		mensaje = new StringExpression("mensaje", this.getDetachedCriteria());
+		fecha_subida = new DateExpression("fecha_subida", this.getDetachedCriteria());
 	}
 	
 	public Video_BDDetachedCriteria createVideoCriteria() {

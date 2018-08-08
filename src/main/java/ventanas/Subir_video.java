@@ -110,6 +110,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		video.setMiniatura(ruta);
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
+		video.setComentarios_deshabilitados(false);
 		registrado.subirVideo(video);
 
 		Notification notification = new Notification("¡Has subido un video con éxito!","",Notification.Type.HUMANIZED_MESSAGE);

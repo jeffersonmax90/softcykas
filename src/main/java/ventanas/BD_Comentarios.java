@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 import ventanas.Comentario_BD;
@@ -20,7 +21,7 @@ public class BD_Comentarios {
 		throw new UnsupportedOperationException();
 	}
 
-	public List<Comentario_BD> anadirComentarios(int aId) {
+	public List<Comentario_BD> anadirComentarios(int aId) throws PersistentException {
 		List<Comentario_BD> lista = new ArrayList<Comentario_BD>();
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
