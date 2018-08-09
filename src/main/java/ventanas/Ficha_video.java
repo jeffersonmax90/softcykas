@@ -22,6 +22,7 @@ public class Ficha_video extends Ficha_video_ventanas {
 	IUsuario_registrado usuR = new BD_Principal();
 	IUsuario_no_registrado usuNoR = new BD_Principal();
 	IAdministrador admin = new BD_Principal();
+	
 	private int idAutor;
 
 	public Ficha_video() {
@@ -61,6 +62,10 @@ public class Ficha_video extends Ficha_video_ventanas {
 		etiquetas.setValue(v.getEtiqueta());
 		enlace.setValue(v.getRuta());
 		idAutor = v.getPropietario().getORMID();
+		Datos_Navegante.setIdPropietario(idAutor);
+		
+		
+		
 		this.nombre_usuario.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {

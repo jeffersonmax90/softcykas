@@ -1,21 +1,28 @@
 package ventanas;
 
 public class Datos_Navegante {
+	private static int idUsuario = -1;
+	private static String apodo = "Señor";
+	private static int idVideo = -1;
+	private static int idListaReproducion = -1;
+	private static String tipoUsuario = "Invitado";
+	private static String ficha = "Invitado";
+	private static int idPerfilvistante = -1;
+	private static int estado = 0;
+	private static String perfilVisitante = "";
+	private static String tipoBusqueda = "";
+	private static String busqueda = "";
+	private static Boolean aux = false;
+	private static int idPropietario = -1;
 
-	private static int idUsuario=-1;
-	private static String apodo="Señor";
-	private static int idVideo=-1;
-	private static int idListaReproducion=-1;
-	private static String tipoUsuario= "Invitado";
-	private static String ficha= "Invitado";
-	private static int idPerfilvistante=-1;
-	private static int estado=0;
-	private static String perfilVisitante= "";
-	private static String tipoBusqueda= "";
-	private static String busqueda= "";
-	private static Boolean aux= false;
-	
-	
+	public static int getIdPropietario() {
+		return idPropietario;
+	}
+
+	public static void setIdPropietario(int idPropietario) {
+		Datos_Navegante.idPropietario = idPropietario;
+	}
+
 	public static int getIdUsuario() {
 		return idUsuario;
 	}
@@ -111,5 +118,4 @@ public class Datos_Navegante {
 	public static void setAux(Boolean aux) {
 		Datos_Navegante.aux = aux;
 	}
-	
 }
