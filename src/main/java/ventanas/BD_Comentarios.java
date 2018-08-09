@@ -48,4 +48,17 @@ public class BD_Comentarios {
 	public List<Comentario_BD> anadirComentariosReg(int aId) {
 		throw new UnsupportedOperationException();
 	}
+	
+	
+	
+	
+	
+	public boolean eliminarComentario(int aId) {
+		throw new UnsupportedOperationException();
+	}
+	
+
+	public boolean eliminarComentarioAdmin(int aId) {
+		throw new UnsupportedOperationException();
+	}
 }

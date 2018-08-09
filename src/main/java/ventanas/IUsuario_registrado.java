@@ -96,5 +96,5 @@ public interface IUsuario_registrado {
 
 	public List<Lista_reproduccion_BD> cargarListaReproduccionCajaRegistrado(int aId);
 	
-
+	public boolean eliminarComentario(int aId);
 }

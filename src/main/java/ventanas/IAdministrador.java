@@ -37,4 +37,6 @@ public interface IAdministrador {
 	public boolean cambiarImagenAdministrador(int aId, String aRuta);
 	
 	public Video_BD cargarFichaVideoAdmin(int aId);
+	
+	public boolean eliminarComentarioAdmin(int aId);
 }

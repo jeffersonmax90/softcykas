@@ -669,4 +669,14 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return videos;
 	}
+	
+	public boolean eliminarComentario(int aId) {
+		throw new UnsupportedOperationException();
+	}
+	
+
+	public boolean eliminarComentarioAdmin(int aId) {
+		throw new UnsupportedOperationException();
+	}
+	
 }
