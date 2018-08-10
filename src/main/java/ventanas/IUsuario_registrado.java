@@ -50,7 +50,7 @@ public interface IUsuario_registrado {
 
 	public boolean anadirComentario(int aId, String aComentario);
 
-	public List<Comentario_BD> anadirComentarios(int aId);
+	public List<Comentario_BD> cargarListaComentariosRegistrado(int aId);
 	
 	public Usuario_Registrado_BD cargarModificarDatos(int aId);
 	
@@ -97,4 +97,7 @@ public interface IUsuario_registrado {
 	public List<Lista_reproduccion_BD> cargarListaReproduccionCajaRegistrado(int aId);
 	
 	public boolean eliminarComentario(int aId);
+	
+	public List<Comentario_BD> cargarListaComentariosVideosPropios(int aId);
+
 }

@@ -170,10 +170,11 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return correcto;
 	}
 
-	// falta por hacer
+	
 	public boolean anadirComentario(int aId, String aComentario) {
 		boolean correcto = false;
 		try {
+			correcto = _bD_Comentarios.anadirComentario(aId, aComentario);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -195,12 +196,11 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return videos;
 	}
-
-	public List<Comentario_BD> anadirComentarios(int aId) {
+	public List<Comentario_BD> cargarListaComentariosRegistrado(int aId) {
 
 		List<Comentario_BD> comentarios = null;
 		try {
-			comentarios = _bD_Comentarios.anadirComentarios(aId);
+			comentarios = _bD_Comentarios.cargarListaComentariosRegistrado(aId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -671,12 +671,33 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 	
 	public boolean eliminarComentario(int aId) {
-		throw new UnsupportedOperationException();
+		boolean eliminado = false;
+		try {
+			eliminado = _bD_Comentarios.eliminarComentario(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return eliminado;
 	}
 	
 
 	public boolean eliminarComentarioAdmin(int aId) {
-		throw new UnsupportedOperationException();
+		boolean eliminado = false;
+		try {
+			eliminado = _bD_Comentarios.eliminarComentarioAdmin(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return eliminado;
 	}
 	
+	public List<Comentario_BD> cargarListaComentariosVideosPropios(int aId) {
+
+		List<Comentario_BD> comentarios = null;
+		try {
+			comentarios = _bD_Comentarios.cargarListaComentariosVideosPropios(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return comentarios;	}
 }

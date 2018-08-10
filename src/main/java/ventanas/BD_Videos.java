@@ -159,6 +159,7 @@ public class BD_Videos {
 		List<Video_BD> lista=null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
 		try {
+			//ordenar
 			String nombre="Fecha_subida";
 			lista = Video_BDDAO.queryVideo_BD(null,nombre);
 			

@@ -26,7 +26,7 @@ public class Ficha_propietario extends Ficha_propietario_ventanas implements Vie
 	horizontal.addComponent(fvi);
 	horizontal.addComponent(zopc);
 	verti2.removeAllComponents();
-	verti2.addComponent(listaComentariosDes);
+	verti2.addComponent(lcd);
 		
 	}
 	

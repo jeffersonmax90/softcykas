@@ -6,30 +6,93 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Comentario extends Comentario_ventanas {
+
+	IAdministrador usuario_administrador = new BD_Principal();
+	IUsuario_registrado usuario_registrado = new BD_Principal();
+	int n;
+	private int idAutor;
+
 	public Comentario(Comentario_BD comentario_BD) {
-		IAdministrador usuario_administrador = new BD_Principal();
-		IUsuario_registrado usuario_registrado = new BD_Principal();
 
 		this.comentario.setCaption(comentario_BD.getMensaje());
+		this.imagen_perfil_comentario.setSource(new ExternalResource(comentario_BD.getUsuario().getMiniatura()));
 		this.perfil_usuario.setCaption(comentario_BD.getUsuario().getApodo());
 
-		// Boton eliminar; en caso de no ser propietario del comentario, ni usuario
+		perfil_usuario.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				int idvisitante = comentario_BD.getUsuario().getId();
+				Datos_Navegante.setIdPerfilvistante(idvisitante);
+				UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+			}
+		});
+
+			//Cuando me meto en admin el boton de eliminar no funciona
+		//creo que se mete en el primer if y por eso no funciona
+		// Boton eliminar; en caso de no ser propietario del comentario, ni
+		// usuario
 		// propietario del video ni administrador se elimina el botón.
 		if ((Datos_Navegante.getIdUsuario() != Datos_Navegante.getIdPropietario()
 				&& comentario_BD.getUsuario().getId() != Datos_Navegante.getIdUsuario())
-				|| Datos_Navegante.getTipoUsuario().equals("Invitado"))
-			this.eliminar_comentario.setEnabled(false);
-		else
+				|| Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+			
+			this.eliminar_comentario.setVisible(false);
+
+		} else {
+		
+			
 			this.eliminar_comentario.addClickListener(new Button.ClickListener() {
 				@Override
 				public void buttonClick(ClickEvent event) {
-					int n = comentario_BD.getId();
-
-					if (Datos_Navegante.getTipoUsuario().equals("Registrado"))
-						usuario_registrado.eliminarComentario(n);
-					else
-						usuario_administrador.eliminarComentarioAdmin(n);
+					n = comentario_BD.getId();
+					idAutor = comentario_BD.getUsuario().getId();
+					if (Datos_Navegante.getTipoUsuario().equals("Registrado")){
+						eliminarComentario();
+						
+					}else {
+						UI.getCurrent().getNavigator().navigateTo("logIn");
+						//eliminarComentarioAdmin();
+					}
 				}
 			});
+		}
+
 	}
+
+	void eliminarComentario() {
+
+		boolean eliminado = usuario_registrado.eliminarComentario(n);
+
+		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+			UI.getCurrent().getNavigator().navigateTo("Ficha_invitado");
+		} else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+			if (Datos_Navegante.getIdUsuario() == idAutor) {
+				UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+			} else {
+				UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+			}
+		} else {
+			UI.getCurrent().getNavigator().navigateTo("Ficha_administrador");
+		}
+
+	}
+
+	void eliminarComentarioAdmin() {
+
+		boolean eliminado = usuario_administrador.eliminarComentarioAdmin(n);
+
+		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+			UI.getCurrent().getNavigator().navigateTo("Ficha_invitado");
+		} else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+			if (Datos_Navegante.getIdUsuario() == idAutor) {
+				UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+			} else {
+				UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+			}
+		} else {
+			UI.getCurrent().getNavigator().navigateTo("Ficha_administrador");
+		}
+
+	}
+
 }
