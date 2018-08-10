@@ -39,4 +39,6 @@ public interface IAdministrador {
 	public Video_BD cargarFichaVideoAdmin(int aId);
 	
 	public boolean eliminarComentarioAdmin(int aId);
+	
+	public boolean eliminarVideoAdmin(int aId);
 }

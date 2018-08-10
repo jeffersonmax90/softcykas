@@ -648,4 +648,104 @@ public class BD_Videos {
 		}
 		return lista;
 	}
+	
+	public boolean eliminarVideoAdmin(int aId) throws PersistentException {
+		boolean salida=false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			Video_BD vid=Video_BDDAO.loadVideo_BDByORMID(aId);
+			List<Lista_reproduccion_BD> listas=Arrays.asList(Lista_reproduccion_BDDAO.listLista_reproduccion_BDByQuery(null, null));
+			List<Usuario_Registrado_BD> usuarios=Arrays.asList(Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByQuery(null, null));
+			List<Comentario_BD> comentarios=Arrays.asList(Comentario_BDDAO.listComentario_BDByQuery(null, null));
+			List<Historial_BD> historial=Arrays.asList(Historial_BDDAO.listHistorial_BDByQuery(null, null));
+
+			for(Lista_reproduccion_BD lista:listas) {
+				if(lista.video.contains(vid)) {
+					lista.video.remove(vid);
+				}
+				Lista_reproduccion_BDDAO.save(lista);
+			}
+
+			for(Historial_BD h:historial) {
+				if(h.video.contains(vid)) {
+					h.video.remove(vid);
+				}
+				Historial_BDDAO.save(h);
+			}
+			
+			
+			for(Usuario_Registrado_BD usuario:usuarios) {
+				if(usuario.me_gustas.contains(vid)) {
+					usuario.me_gustas.remove(vid);
+				}
+				if(usuario.video_subido.contains(vid)) {
+					usuario.video_subido.remove(vid);
+				}
+				Usuario_Registrado_BDDAO.save(usuario);
+			}
+			
+			for(Comentario_BD comentario:comentarios) {
+				if(comentario.getVideo().equals(vid)) {
+					Comentario_BDDAO.delete(comentario);
+				}
+			}
+			
+			Video_BDDAO.delete(vid);
+			t.commit();
+			salida=true;
+		}catch(Exception e) {
+			t.rollback();
+		}
+		return salida;
+	}
+	
+	public boolean deshabilitarComentariosVideosPropios(int aId) throws PersistentException {
+		boolean modificado= false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		
+		try {
+			Video_BD video= Video_BDDAO.loadVideo_BDByORMID(aId);
+			
+			
+			
+			if(Boolean.FALSE.equals(video.getComentarios_deshabilitados())){
+				video.setComentarios_deshabilitados(true);
+				
+				modificado=true;
+			}else {
+				video.setComentarios_deshabilitados(false);
+				modificado=false;
+			}
+			
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return modificado;
+	}
+	
+	public Video_BD cargarBotonDeshabilitar(int aId) throws PersistentException {
+		Video_BD v=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			v=Video_BDDAO.getVideo_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return v;		
+	}
+	
+
+	public Video_BD ocultaComentariosDeshabilitadoVideoRegistrado(int aId) throws PersistentException {
+		Video_BD v=null;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
+		try {
+			v=Video_BDDAO.getVideo_BDByORMID(aId);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
+			return v;	
+	}
 }

@@ -43,12 +43,12 @@ public class Main {
 		IAdministrador ia= new BD_Principal();
 		IUsuario_registrado usu= new BD_Principal();
 		Video_BD v= new Video_BD();
-		int aId=15;
+		int aId=1;
 		String aComentario="primer comentario";
 		Datos_Navegante.setIdUsuario(1);
 		Datos_Navegante.setTipoUsuario("Administrador");
 		
-		boolean lista= ia.eliminarComentarioAdmin(aId);
+		boolean lista= usu.deshabilitarComentariosVideosPropios(aId);
 		/*for (Comentario_BD video_BD : lista) {
 			System.out.println( video_BD.getId() +" "+video_BD.getMensaje());
 		}*/

@@ -13,7 +13,7 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 	 * Confirmar_eliminar_video _unnamed_Confirmar_eliminar_video_;
 	 */
 	
-	
+	IAdministrador usuAdministrador= new BD_Principal();
 	public Zona_opciones_video_administrador(){
 		
 		descargar.addClickListener(new Button.ClickListener() {
@@ -24,8 +24,10 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 		
 		eliminar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Crear_lista");
+				eliminarVideoAdmin();
 			}
+
+		
 		});
 	}
 	
@@ -43,8 +45,21 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 			 }
 		} catch (Exception e) {
 		}
-}
-	
+		
+	}
+	void eliminarVideoAdmin() {
+		boolean eliminado=false;
+		eliminado= usuAdministrador.eliminarVideoAdmin(Datos_Navegante.getIdVideo());
+		
+				
+		if(Boolean.TRUE.equals(eliminado)){
+			Notification notification = new Notification("¡Se ha eliminado el video con éxito!", "", Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());
+			UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
+		}
+		
+	}
 	
 	
 }

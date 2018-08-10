@@ -699,5 +699,48 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return comentarios;	}
+		return comentarios;	
+	}
+	
+	public boolean eliminarVideoAdmin(int aId) {
+		boolean eliminado = false;
+		try {
+
+			eliminado = _bD_Videos.eliminarVideoAdmin(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return eliminado;
+	}
+	
+	public boolean deshabilitarComentariosVideosPropios(int aId) {
+		boolean deshabilitado = false;
+		try {
+			deshabilitado = _bD_Videos.deshabilitarComentariosVideosPropios(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return deshabilitado;
+	}
+	
+	public Video_BD cargarBotonDeshabilitar(int aId) {
+		Video_BD video = null;
+		try {
+			video = _bD_Videos.cargarBotonDeshabilitar(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return video;
+	}
+	
+
+	public Video_BD ocultaComentariosDeshabilitadoVideoRegistrado(int aId) {
+		Video_BD video = null;
+		try {
+			video = _bD_Videos.ocultaComentariosDeshabilitadoVideoRegistrado(aId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return video;
+	}
 }

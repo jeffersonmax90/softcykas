@@ -99,5 +99,12 @@ public interface IUsuario_registrado {
 	public boolean eliminarComentario(int aId);
 	
 	public List<Comentario_BD> cargarListaComentariosVideosPropios(int aId);
+	
+	public boolean deshabilitarComentariosVideosPropios(int aId);
+	
+	public Video_BD cargarBotonDeshabilitar(int aId);
+	
+	public Video_BD ocultaComentariosDeshabilitadoVideoRegistrado(int aId);
+
 
 }
