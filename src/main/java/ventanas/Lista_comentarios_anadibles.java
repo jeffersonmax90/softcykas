@@ -15,58 +15,49 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 		form_comentarios.removeAllComponents();
 		ocultaComentariosDeshabilitadoVideoRegistrado();
 		cargarListaComentariosRegistrado();
-		
 
 		anadir.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				anadirComentario();
-
 			}
 		});
-		
-		if(Datos_Navegante.getTipoUsuario().equals("Administrador")){
+
+		if (Datos_Navegante.getTipoUsuario().equals("Administrador")) {
 			anadir_comentario.setVisible(false);
 			horizontalLayout.removeAllComponents();
 		}
-		
-
 	}
 
 	private void ocultaComentariosDeshabilitadoVideoRegistrado() {
-		v= usuRegistrado.ocultaComentariosDeshabilitadoVideoRegistrado(Datos_Navegante.getIdVideo());
-		
-		
-		if(Boolean.TRUE.equals(v.getComentarios_deshabilitados())){
+		v = usuRegistrado.ocultaComentariosDeshabilitadoVideoRegistrado(Datos_Navegante.getIdVideo());
+
+		if (Boolean.TRUE.equals(v.getComentarios_deshabilitados())) {
 			form_comentarios.removeAllComponents();
 			Label l = new Label();
 			l.setStyleName("colored");
-			l.setValue("EL usuario ha deshabilitado los comentarios");
+			l.setValue("El usuario ha deshabilitado los comentarios");
 			form_comentarios.addComponent(l);
 			anadir_comentario.setVisible(false);
 			horizontalLayout.setVisible(false);
 		}
-		
 	}
 
 	void cargarListaComentariosRegistrado() {
-		
-		if(Boolean.FALSE.equals(v.getComentarios_deshabilitados())){
+		if (Boolean.FALSE.equals(v.getComentarios_deshabilitados())) {
 			form_comentarios.removeAllComponents();
-		
-		List<Comentario_BD> comentarios = usuRegistrado.cargarListaComentariosRegistrado(Datos_Navegante.getIdVideo());
-		if (comentarios == null || comentarios.size() == 0) {
-			Label l = new Label();
-			l.setValue("No existen comentarios en el video");
-			form_comentarios.addComponent(l);
+			List<Comentario_BD> comentarios = usuRegistrado
+					.cargarListaComentariosRegistrado(Datos_Navegante.getIdVideo());
+			if (comentarios == null || comentarios.size() == 0) {
+				Label l = new Label();
+				l.setValue("No existen comentarios en el video");
+				form_comentarios.addComponent(l);
+			}
+
+			for (int i = 0; i < comentarios.size(); i++) {
+				form_comentarios.addComponent(new Comentario(comentarios.get(i)));
+			}
 		}
-		
-			
-		for (int i = 0; i < comentarios.size(); i++) {
-			form_comentarios.addComponent(new Comentario(comentarios.get(i)));
-		}
-		}
-		
 	}
 
 	void anadirComentario() {
@@ -74,6 +65,5 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 		boolean comentarios = usuRegistrado.anadirComentario(Datos_Navegante.getIdVideo(), aComentario);
 		this.comentario.clear();
 		cargarListaComentariosRegistrado();
-		
 	}
 }
