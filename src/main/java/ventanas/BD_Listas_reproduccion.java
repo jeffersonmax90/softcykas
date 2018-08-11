@@ -98,10 +98,10 @@ public class BD_Listas_reproduccion {
 			return lr;	
 	}
 	
-	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre) {
+	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre) throws PersistentException {
 		List<Lista_reproduccion_BD> listaReproducion=new ArrayList<Lista_reproduccion_BD>();
-		try {
-			PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
+		//try {
+		//	PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
 			Lista_reproduccion_BDCriteria list= new Lista_reproduccion_BDCriteria();
 			list.nombre.like("%"+ aNombre+"%");
 			for (Lista_reproduccion_BD l: Lista_reproduccion_BDDAO.listLista_reproduccion_BDByCriteria(list)){
@@ -109,9 +109,9 @@ public class BD_Listas_reproduccion {
 				listaReproducion.add(l);
 				}
 			}
-		} catch (PersistentException e) {
-			e.printStackTrace();
-		}		
+		//} catch (PersistentException e) {
+	//		e.printStackTrace();
+	//	}		
 		return listaReproducion;
 	}
 	

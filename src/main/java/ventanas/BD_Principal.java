@@ -156,7 +156,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public List<Video_BD> buscarVideoListaTotal(String aNombre) {
-		throw new UnsupportedOperationException();
+		List<Video_BD> lista = null;
+		try {
+			lista = _bD_Videos.buscarVideoListaTotal(aNombre);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public boolean eliminarUsuarioListaRegistrado(int aId) {

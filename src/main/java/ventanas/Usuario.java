@@ -1,6 +1,9 @@
 package ventanas;
 
 import com.vaadin.server.ExternalResource;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.Button.ClickEvent;
 
 public class Usuario extends Usuario_ventanas{
 	/*
@@ -13,7 +16,17 @@ public class Usuario extends Usuario_ventanas{
 	public Usuario( Usuario_Registrado_BD usuario){
 		
 		this.imagen.setSource(new ExternalResource(usuario.getMiniatura()));
-		this.nombre.setValue(usuario.getNombre()+ " "+usuario.getApellidos());
+		this.nombre.setCaption(usuario.getNombre()+ " "+usuario.getApellidos());
+		
+		nombre.addClickListener(new Button.ClickListener() {
+			@Override
+			public void buttonClick(ClickEvent event) {
+				int idvisitante = usuario.getId();
+				Datos_Navegante.setIdPerfilvistante(idvisitante);
+				if (Datos_Navegante.getIdUsuario() != idvisitante)
+					UI.getCurrent().getNavigator().navigateTo("Perfil_visitante");
+			}
+		});
 		
 	}
 	

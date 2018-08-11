@@ -24,8 +24,9 @@ public class Lista_total_videos_subidos extends Lista_total_videos_subidos_venta
 		buscar.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// buscarVideosPropios();
+				buscarVideoListaTotal();
 			}
+
 		});
 
 		atras.addClickListener(new ClickListener() {
@@ -40,6 +41,20 @@ public class Lista_total_videos_subidos extends Lista_total_videos_subidos_venta
 
 	void cargarListaTotalVideosSubidos() {
 		List<Video_BD> listavideos = usuAdmin.cargarListaTotalVideosSubidos(Datos_Navegante.getIdUsuario());
+		listaVideosFL.removeAllComponents();
+		for (int i = 0; i < listavideos.size(); i++) {
+			listaVideosFL.addComponent(new Video(listavideos.get(i)));
+		}
+	}
+	
+	
+	private void buscarVideoListaTotal() {
+		String aNombre= this.buscardorTF.getValue();
+		if(aNombre.isEmpty() || aNombre.length()==0 || aNombre.equals("")|| aNombre.equals(null)){
+			UI.getCurrent().getNavigator().navigateTo("Lista_total_videos_subidos");
+		}
+		
+		List<Video_BD> listavideos = usuAdmin.buscarVideoListaTotal(aNombre);
 		listaVideosFL.removeAllComponents();
 		for (int i = 0; i < listavideos.size(); i++) {
 			listaVideosFL.addComponent(new Video(listavideos.get(i)));

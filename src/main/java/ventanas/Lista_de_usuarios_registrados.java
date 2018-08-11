@@ -50,6 +50,39 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			}
 		});
 	}
+	
+	
+	@SuppressWarnings("serial")
+	void cargarListaUsuarioRegistrado() {
+		List<Usuario_Registrado_BD> usuarios= admin.cargarlistaUsuarioRegistrados(Datos_Navegante.getIdUsuario());
+		formlayout.removeAllComponents();
+		
+		for (int i = 0; i < usuarios.size(); i++) {
+			formlayout.addComponent(new Usuario_registrado_listado(usuarios.get(i)));
+		}
+	}
+	
+	void buscarUsuarioListaRegistrado() {
+		List<Usuario_Registrado_BD> usuarios= admin.buscarUsuarioListaRegistado(texfielBuscador.getValue());
+		formlayout.removeAllComponents();
+		for (int i = 0; i < usuarios.size(); i++) {
+			formlayout.addComponent(new Usuario_registrado_listado(usuarios.get(i)));
+		}
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 
 	@SuppressWarnings("serial")
 	void cargarListaUsuarioRegistrado() {
@@ -81,7 +114,10 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 		}
 	}
 	
+	*/
 	
+	
+	/*
 	void eliminarUsuarioListaRegistrado() {
 		int aId= Integer.parseInt(obtenerId);
 		boolean eliminado= admin.eliminarUsuarioListaRegistrado(aId);
@@ -93,7 +129,9 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 			
 		}
 	}
+	*/
 	
+	/*
 	@SuppressWarnings("serial")
 	void buscarUsuarioListaRegistrado() {
 		List<Usuario_Registrado_BD> usuarios= admin.buscarUsuarioListaRegistado(texfielBuscador.getValue());
@@ -126,5 +164,5 @@ public class Lista_de_usuarios_registrados extends Lista_de_usuarios_registrados
 	
 	
 	}
-	
+	*/
 }
