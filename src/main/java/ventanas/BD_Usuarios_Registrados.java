@@ -91,7 +91,6 @@ public class BD_Usuarios_Registrados {
 	}
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) throws PersistentException {
-
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
 		Usuario_BD usuario = new Usuario_BD();

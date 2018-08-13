@@ -12,11 +12,6 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Subir_video extends Subir_video_ventanas implements View {
-	/*
-	 * private JLabel _subir_videoLB; public Zona_opciones_perfil_registrado
-	 * _unnamed_Zona_opciones_perfil_registrado_;
-	 */
-
 	Categoria_BD cat = new Categoria_BD();
 	IUsuario_registrado registrado = new BD_Principal();
 	Video_BD video = new Video_BD();
@@ -32,9 +27,9 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		subir_video.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				
+
 				subirVideo();
-				
+
 				Notification notification = new Notification("Video subido con éxito",
 						Notification.Type.HUMANIZED_MESSAGE);
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
@@ -45,7 +40,6 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 	void cargarCategorias() {
 		List<String> items = new ArrayList<String>();
-
 		if (registrado.cargarCategorias().isEmpty()) {
 			Notification notification = new Notification(
 					"Sentimos las molestias, no puede añadir video hasta que no haya categorías",
@@ -58,11 +52,10 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		}
 		items.add("Elige categoria");
 		anadirDatosVideo.categoria.setItems(items);
-		anadirDatosVideo.categoria.setSelectedItem(items.get(items.size()-1));
+		anadirDatosVideo.categoria.setSelectedItem(items.get(items.size() - 1));
 	}
 
 	void subirVideo() {
-		
 		Categoria_BD cat = new Categoria_BD();
 		// separo la palabra categoria
 		String categoria = anadirDatosVideo.categoria.getValue();
@@ -72,9 +65,8 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		cat.setNombre(nombre);
 		cat.setEdad(edad);
-	
-	
-		video.setCategoria_BD(cat);		
+
+		video.setCategoria_BD(cat);
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 
@@ -109,11 +101,11 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		video.setMiniatura(ruta);
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
 		video.setComentarios_deshabilitados(false);
-		
-	
+
 		registrado.subirVideo(video);
 
-		Notification notification = new Notification("¡Has subido un video con éxito!","",Notification.Type.HUMANIZED_MESSAGE);
+		Notification notification = new Notification("¡Has subido un video con éxito!", "",
+				Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);
 		notification.show(Page.getCurrent());
 		UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
