@@ -40,7 +40,9 @@ public class Crear_lista extends Crear_lista_ventanas implements View{
 		crearNuevaLista.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				
 				crearLista();
+				
 			}
 		});
 	}
@@ -48,7 +50,9 @@ public class Crear_lista extends Crear_lista_ventanas implements View{
 	
 	void crearLista() {
 		lista.setNombre(nombreLista.getValue());
+		
 		usuR.crearLista(lista);
+		
 		Notification notification = new Notification("¡Se Creado la lista correctamente!", "", Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);
 		notification.show(Page.getCurrent());

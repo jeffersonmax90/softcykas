@@ -35,7 +35,6 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 			cargarListasReproduccionPropias();
 	
 		
-		
 		buscar.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -96,6 +95,7 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 						String n=id.getValue();
 						int numero=Integer.parseInt(n);
 						Datos_Navegante.setIdListaReproducion(numero);
+						
 						eliminarListaReproduccionPropia();
 						
 						UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
@@ -133,14 +133,9 @@ public class Listas_reproduccion_propias  extends Listas_reproduccion_propias_ve
 				
 			}
 		}
-		//bug en buscar
-		//Falta añadir el metodo de borrar para que este bien
+		
 		void buscarListasReproducionPropias() {
 			String aNombre= this.buscarLista.getValue();
-			/*
-			if(aNombre.isEmpty() || aNombre.length()==0 || aNombre.equals("")|| aNombre.equals(null)){
-				cargarListasReproduccionPropias();
-			}*/
 			
 			List<Lista_reproduccion_BD> listaRepro= usuarioR.buscarListasReproducionPropias(aNombre);
 			

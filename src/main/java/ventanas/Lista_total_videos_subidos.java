@@ -19,12 +19,15 @@ public class Lista_total_videos_subidos extends Lista_total_videos_subidos_venta
 	Video_BD video = new Video_BD();
 
 	public Lista_total_videos_subidos() {
+		
 		cargarListaTotalVideosSubidos();
 
 		buscar.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				
 				buscarVideoListaTotal();
+				
 			}
 
 		});
@@ -40,7 +43,9 @@ public class Lista_total_videos_subidos extends Lista_total_videos_subidos_venta
 	}
 
 	void cargarListaTotalVideosSubidos() {
+		
 		List<Video_BD> listavideos = usuAdmin.cargarListaTotalVideosSubidos(Datos_Navegante.getIdUsuario());
+		
 		listaVideosFL.removeAllComponents();
 		for (int i = 0; i < listavideos.size(); i++) {
 			listaVideosFL.addComponent(new Video(listavideos.get(i)));
@@ -55,6 +60,7 @@ public class Lista_total_videos_subidos extends Lista_total_videos_subidos_venta
 		}
 		
 		List<Video_BD> listavideos = usuAdmin.buscarVideoListaTotal(aNombre);
+		
 		listaVideosFL.removeAllComponents();
 		for (int i = 0; i < listavideos.size(); i++) {
 			listaVideosFL.addComponent(new Video(listavideos.get(i)));

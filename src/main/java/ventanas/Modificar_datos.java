@@ -22,6 +22,7 @@ public class Modificar_datos extends Modificar_datos_ventanas implements View {
 	IUsuario_registrado usuario_registrado = new BD_Principal();
 
 	public Modificar_datos() {
+		
 		cargarModificarDatos();
 
 		atras.addClickListener(new Button.ClickListener() {
@@ -32,14 +33,18 @@ public class Modificar_datos extends Modificar_datos_ventanas implements View {
 
 		modificarDatos.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				modificarDatos();
+				
 			}
 		});
 
 	}
 
 	void cargarModificarDatos() {
+		
 		usu = usuario_registrado.cargarModificarDatos(Datos_Navegante.getIdUsuario());
+		
 		datosUsuario.nombre.setValue(usu.getNombre());
 		datosUsuario.apellidos.setValue(usu.getApellidos());
 		datosUsuario.apodo.setValue(usu.getApodo());
@@ -66,6 +71,7 @@ public class Modificar_datos extends Modificar_datos_ventanas implements View {
 		usu.setFecha_nacimiento(java.sql.Date.valueOf(datosUsuario.fechaNacimiento.getValue()));
 
 		modificado = usuario_registrado.modificarDatos(usu);
+		
 		if (modificado == true) {
 			Notification notification = new Notification("Correcto", "Se ha modificado correctamente",
 					Notification.Type.HUMANIZED_MESSAGE);

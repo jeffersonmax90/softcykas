@@ -57,9 +57,9 @@ public class Video_subido extends Video_subido_ventanas {
 					String n=Video_subido.this.video.idVideo.getValue();
 					int numero=Integer.parseInt(n);
 					Datos_Navegante.setIdVideo(numero);
-					Notification notification = new Notification("Correcto", ""+n, Notification.Type.HUMANIZED_MESSAGE);
+					/*Notification notification = new Notification("Correcto", ""+n, Notification.Type.HUMANIZED_MESSAGE);
 					notification.setDelayMsec(2000);
-					notification.show(Page.getCurrent());	
+					notification.show(Page.getCurrent());	*/
 					UI.getCurrent().getNavigator().navigateTo("Modificar_video");
 				}
 			});
@@ -72,6 +72,7 @@ public class Video_subido extends Video_subido_ventanas {
 					Datos_Navegante.setIdVideo(numero);
 					
 					eliminarVideoSubido();
+					
 				}
 
 				

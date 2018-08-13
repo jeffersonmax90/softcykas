@@ -23,7 +23,6 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 		throw new UnsupportedOperationException();
 	}
 	*/
-	//Usuario_Registrado_BD usu= new Usuario_Registrado_BD();
 	IUsuario_registrado usuario_registrado= new BD_Principal();
 	
 	public Cambiar_contrasena(){
@@ -36,8 +35,10 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 			});
 		
 		cambiarContrasena.addClickListener(new Button.ClickListener() {		
-			public void buttonClick(ClickEvent event) {				
-				cambiarcontrasena();
+			public void buttonClick(ClickEvent event) {	
+				
+				cambiarContrasena();
+				
 				}
 			});
 	
@@ -45,11 +46,13 @@ public class Cambiar_contrasena extends Cambiar_contrasena_ventanas  implements 
 	
 	
 	
-	void cambiarcontrasena() {
+	void cambiarContrasena() {
 	
 	boolean cambiado= false;
 	if(contrasena_nueva.getValue().equals(repetir_contrasena.getValue())){
+		
 		cambiado=usuario_registrado.cambiarcontrasena(contrasena_nueva.getValue(),contrasena_actual.getValue(),	repetir_contrasena.getValue());	
+		
 		if(Boolean.TRUE.equals(cambiado)){
 			Notification notification = new Notification("Correcto", "Se ha cambiado correctamente", Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);

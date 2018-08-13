@@ -21,11 +21,8 @@ public class BD_Usuarios_Registrados {
 			Historial_BD h = new Historial_BD();
 			aUsuario.setHistorial(h);
 			Usuario_Registrado_BDDAO.save(aUsuario);
-
 			t.commit();
-
 		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
 			t.rollback();
 			return false;
 		}
@@ -101,27 +98,18 @@ public class BD_Usuarios_Registrados {
 		usuario.setTipoUsuario("incorrecto");
 
 		try {
-			// Usuario_BD u =
-			// Usuario_BDDAO.loadUsuario_BDByQuery("Usuario_BD.nombre_usuario='"+aNombre_usuario+"'
-			// and Usuario_BD.contrasenia='"+aContrasenia+"'", null);
 			for (Object usr : Usuario_BDDAO.queryUsuario_BD(null, null)) {
 				Usuario_BD usu = (Usuario_BD) usr;
 				if (usu.getEmail().equals(aEmail) && usu.getContraseña().equals(aContrasena)) {
 					usuario = usu;
 					break;
 				}
-
 			}
-
 			t.commit();
 		} catch (Exception e) {
 			t.rollback();
 		}
 		return usuario;
-	}
-
-	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {
-		throw new UnsupportedOperationException();
 	}
 
 	public boolean cambiarContrasena(String aContNuevas, String aContActual, String aContRepetir)
@@ -150,7 +138,6 @@ public class BD_Usuarios_Registrados {
 
 	public List<Usuario_Registrado_BD> cargarlistaUsuarioRegistrados(int aId) throws PersistentException {
 		List<Usuario_Registrado_BD> u = null;
-		//PersistentTransaction t = (PersistentTransaction) ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().close();
 
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
@@ -268,29 +255,19 @@ public class BD_Usuarios_Registrados {
 			usu = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
 			t.commit();
 		} catch (Exception e) {
-			// TODO: handle exception
 			t.rollback();
 		}
 		return usu;
 	}
 
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) throws PersistentException {
-		List<Usuario_Registrado_BD> usuarios = new ArrayList<Usuario_Registrado_BD>();
-		//PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
-		//		.beginTransaction();
-
-		//try {
+			List<Usuario_Registrado_BD> usuarios = new ArrayList<Usuario_Registrado_BD>();
 			Usuario_Registrado_BDCriteria cat = new Usuario_Registrado_BDCriteria();
 
 			cat.nombre.like("%" + aNombre + "%");
 			for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
 				usuarios.add(u);
 			}
-/*
-		//} catch (PersistentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}*/
 
 		return usuarios;
 	}
@@ -318,7 +295,6 @@ public class BD_Usuarios_Registrados {
 			usu = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
 			t.commit();
 		} catch (Exception e) {
-			// TODO: handle exception
 			t.rollback();
 		}
 		return usu;

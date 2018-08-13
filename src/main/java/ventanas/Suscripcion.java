@@ -36,13 +36,16 @@ public class Suscripcion extends Suscripcion_ventanas {
 				int n= usuario.getId();
 				usuarioSuscrito=usuario;
 				Datos_Navegante.setIdPerfilvistante(n);
+				
 				dejarSeguir();
+				
 			
 			}
 		});
 	}
 		
 	private void dejarSeguir() {
+		
 		boolean correcto= usuR.dejarSeguir(Datos_Navegante.getIdPerfilvistante());
 		
 		if(Boolean.TRUE.equals(correcto)){

@@ -40,12 +40,4 @@ public class BD_Categorias {
 		return correcto;
 	}
 
-	
-	public boolean eliminarCategorias(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<Categoria_BD> cargarlistaCategorias(int aId) {
-		throw new UnsupportedOperationException();
-	}
 }

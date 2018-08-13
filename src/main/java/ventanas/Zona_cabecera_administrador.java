@@ -17,7 +17,9 @@ public class Zona_cabecera_administrador extends Zona_cabecera_administrador_ven
 	IAdministrador admin= new BD_Principal();
 	
 	public Zona_cabecera_administrador(){
+		
 		cargarImagen();
+		
 		this.cambiar_imagen.addClickListener(new Button.ClickListener() {		
 		public void buttonClick(ClickEvent event) {				
 			UI.getCurrent().getNavigator().navigateTo("Cambiar_imagen");
@@ -29,7 +31,9 @@ public class Zona_cabecera_administrador extends Zona_cabecera_administrador_ven
 	
 	void cargarImagen() {
 		Usuario_BD usuario=null;
+		
 		usuario= admin.cargarImagenAdministrador(Datos_Navegante.getIdUsuario());
+		
 		if(usuario.getMiniatura()==null){
 			
 		}else{

@@ -32,7 +32,7 @@ public class Cambiar_imagen extends Cambiar_imagen_ventanas implements View {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				// TODO Auto-generated method stub
+				
 				cambiarImagenAdministrador();
 			}
 		});
@@ -41,7 +41,9 @@ public class Cambiar_imagen extends Cambiar_imagen_ventanas implements View {
 	
 	void cambiarImagenAdministrador() {
 		String aRuta= escribaLaRuta.getValue();
+		
 		admin.cambiarImagenAdministrador(Datos_Navegante.getIdUsuario(), aRuta);
+		
 		UI.getCurrent().getNavigator().navigateTo("perfil_administrador");
 		Notification notification = new Notification("¡Correcto!", "Se ha cambiado la imagen correctamente", Notification.Type.HUMANIZED_MESSAGE);
 		notification.setDelayMsec(2000);

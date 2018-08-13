@@ -24,11 +24,16 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 	String nombreLista="";
 	
 	public Zona_opciones_video_registrado(){
+		
 		cargarMeGustaRegistrado();
+		
 		cargarListaReproduccionCajaRegistrado();
+		
 		me_gusta.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				meGustaRegistrado();
+				
 			}
 		});
 		
@@ -47,6 +52,7 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 		
 		this.anadirLista.addValueChangeListener(event -> {
 		       nombreLista= (String) event.getValue();
+		       
 		       anadirVideoListaRegistrado();
 		       
 	      });
@@ -55,7 +61,9 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 	
 	@SuppressWarnings("unchecked")
 	void cargarListaReproduccionCajaRegistrado() {
+		
 		listaRepro= usuR.cargarListaReproduccionCajaRegistrado(Datos_Navegante.getIdUsuario());
+		
 		List<String> items = new ArrayList<String>();
 
 		for (Lista_reproduccion_BD lista : listaRepro) {
@@ -69,6 +77,7 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 	}
 	
 	void anadirVideoListaRegistrado() {
+		
 		boolean correcto= usuR.anadirVideoListaRegistrado(Datos_Navegante.getIdVideo(), nombreLista);
 		  
 		if(Boolean.TRUE.equals(correcto)){
@@ -79,7 +88,9 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 	}
 	
 	void cargarMeGustaRegistrado() {
+		
 		Usuario_Registrado_BD usu= usuR.cargarMeGustaRegistrado(Datos_Navegante.getIdUsuario());
+		
 		for( Object o: usu.me_gustas.getCollection()){
 			Video_BD v=  (Video_BD)o;
 			if(v.getId()==Datos_Navegante.getIdVideo()){

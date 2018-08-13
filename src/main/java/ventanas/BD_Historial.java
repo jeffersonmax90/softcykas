@@ -41,16 +41,6 @@ public class BD_Historial {
 			listafinal.add(lista.get(i));
 			m++;
 		}
-		
-		/*List<Video_BD>ListaHistorial = new ArrayList<Video_BD>();
-		int contador = 0;
-			for(Video_BD video : lista) {
-				if(contador==10) {
-					break;
-				}
-				ListaHistorial.add(video);
-				contador++;
-			}*/
 			return listafinal;
 
 		

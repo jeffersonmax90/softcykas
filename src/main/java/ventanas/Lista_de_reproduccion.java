@@ -20,9 +20,8 @@ public class Lista_de_reproduccion extends Lista_de_reproduccion_ventanas implem
 	IUsuario_no_registrado usuNoRegistrado= new BD_Principal();
 	
 	public Lista_de_reproduccion(){
+		
 		cargarVideosListaReproduccionVisitante();
-		
-		
 		
 		atras.addClickListener(new ClickListener() {
 			@Override
@@ -34,7 +33,9 @@ public class Lista_de_reproduccion extends Lista_de_reproduccion_ventanas implem
 
 	void cargarVideosListaReproduccionVisitante() {
 		form.removeAllComponents();
+		
 		List<Video_BD> lista= usuNoRegistrado.cargarVideosListaReproduccionVisitante(Datos_Navegante.getIdListaReproducion());
+		
 		if(lista == null || lista.size() == 0){
 			Label l= new Label();
 			l.setValue("Tu lista esá vacía");

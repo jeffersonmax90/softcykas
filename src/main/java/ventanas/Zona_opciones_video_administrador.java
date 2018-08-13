@@ -24,7 +24,9 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 		
 		eliminar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				eliminarVideoAdmin();
+				
 			}
 
 		
@@ -49,6 +51,7 @@ public class Zona_opciones_video_administrador extends Zona_opciones_video_admin
 	}
 	void eliminarVideoAdmin() {
 		boolean eliminado=false;
+		
 		eliminado= usuAdministrador.eliminarVideoAdmin(Datos_Navegante.getIdVideo());
 		
 				

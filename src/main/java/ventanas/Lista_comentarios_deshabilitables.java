@@ -12,19 +12,24 @@ public class Lista_comentarios_deshabilitables extends Lista_comentarios_deshabi
 
 	public Lista_comentarios_deshabilitables() {
 		form_comentarios.removeAllComponents();
+		
 		cargarListaComentariosVideosPropios();
+		
 		cargarBotonDeshabilitar();
 
 		deshabilitar_comentarios.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				
 				deshabilitarComentariosVideosPropios();
 			}
 		});
 	}
 
 	void cargarBotonDeshabilitar() {
+		
 		Video_BD v = usuRegistrado.cargarBotonDeshabilitar(Datos_Navegante.getIdVideo());
+		
 		if (v.getComentarios_deshabilitados()) {
 			this.deshabilitar_comentarios.setStyleName("friendly");
 		} else {
@@ -33,6 +38,7 @@ public class Lista_comentarios_deshabilitables extends Lista_comentarios_deshabi
 	}
 
 	void cargarListaComentariosVideosPropios() {
+		
 		Video_BD v = usuRegistrado.cargarBotonDeshabilitar(Datos_Navegante.getIdVideo());
 		if (v.getComentarios_deshabilitados()) {
 			this.deshabilitar_comentarios.setCaption("Habilitar Comentarios");
@@ -53,7 +59,9 @@ public class Lista_comentarios_deshabilitables extends Lista_comentarios_deshabi
 	}
 
 	void deshabilitarComentariosVideosPropios() {
+		
 		boolean aux = usuRegistrado.deshabilitarComentariosVideosPropios(Datos_Navegante.getIdVideo());
+		
 		if (aux) {
 			this.deshabilitar_comentarios.setStyleName("friendly");
 			this.deshabilitar_comentarios.setCaption("Habilitar comentarios");

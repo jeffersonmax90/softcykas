@@ -22,11 +22,6 @@ public class Lista_reproduccion_propia extends Lista_reproduccion_propia_ventana
 	
 		cargarVideosListaReproduccionPropia();
 		
-		
-		
-		
-		
-		
 		atras.addClickListener(new Button.ClickListener() {		
 			public void buttonClick(ClickEvent event) {				
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
@@ -37,7 +32,9 @@ public class Lista_reproduccion_propia extends Lista_reproduccion_propia_ventana
 	void cargarVideosListaReproduccionPropia() {
 		
 		form.removeAllComponents();
+		
 		List<Video_BD> lista= usu.cargarVideosListaReproduccionPropia(Datos_Navegante.getIdListaReproducion());
+		
 		if(lista == null || lista.size() == 0){
 			Label l= new Label();
 			l.setValue("Tu lista esá vacía");

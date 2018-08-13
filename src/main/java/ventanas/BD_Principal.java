@@ -83,9 +83,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public Usuario_BD iniciarSesion(String aEmail, String aContrasena) {
-
 		Usuario_BD usuario = new Usuario_BD();
-
 		try {
 			usuario = _bD_Usuarios_Registrados.iniciarSesion(aEmail, aContrasena);
 		} catch (PersistentException e) {
@@ -105,10 +103,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return videos;
 	}
 
-	public boolean eliminarVideo(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Video_BD descargarVideoUA(int aId) {
 		throw new UnsupportedOperationException();
 	}
@@ -123,13 +117,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return correcto;
 	}
 
-	public boolean eliminarCategoria(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<Categoria_BD> cargarlistaCategorias(int aId) {
-		throw new UnsupportedOperationException();
-	}
 
 	public List<Video_BD> cargarListaTotalVideosSubidos(int aId) {
 		List<Video_BD> videos = null;
@@ -149,10 +136,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 			e.printStackTrace();
 		}
 		return u;
-	}
-
-	public boolean eliminarVideoListaSubido(int aId) {
-		throw new UnsupportedOperationException();
 	}
 
 	public List<Video_BD> buscarVideoListaTotal(String aNombre) {
@@ -305,10 +288,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return lista;
 	}
 
-	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena) {
-		throw new UnsupportedOperationException();
-	}
-
 	public boolean cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir) {
 		boolean modificado = false;
 		try {
@@ -450,10 +429,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return usu;
 	}
 
-	public Video_BD cargarFichaVideoAdmin(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public Video_BD cargarFichaVideoNoRegistrado(int aId) {
 		Video_BD video = null;
 		try {
@@ -535,13 +510,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 
 	public boolean seguirUsuario(int aIdNavegante, int aIdPerfilVisitante) {
-		boolean megusta = false;
+		boolean seguir = false;
 		try {
-			megusta = _bD_Usuarios_Registrados.seguirUsuario(aIdNavegante, aIdPerfilVisitante);
+			seguir = _bD_Usuarios_Registrados.seguirUsuario(aIdNavegante, aIdPerfilVisitante);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return megusta;
+		return seguir;
 	}
 
 	public List<Usuario_Registrado_BD> cargarListadoSuscriptores(int aId) {
@@ -638,7 +613,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public boolean meGustaRegistrado(int aIdUsuario, int aIdVideo) {
 		boolean megusta = false;
 		try {
-
 			megusta = _bD_Videos.meGustaRegistrado(aIdUsuario, aIdVideo);
 		} catch (Exception e) {
 			e.printStackTrace();

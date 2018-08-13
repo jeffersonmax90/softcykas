@@ -38,8 +38,8 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				crearCategorias();
 				
+				crearCategorias();
 				
 			}
 
@@ -51,7 +51,9 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 		void crearCategorias() {
 		String nombre=	nombre_categoria.getValue();
 		String edad= edad_permitida.getValue();
-		boolean corrrecto= admin.crearCategorias(nombre, edad);		
+		
+		boolean corrrecto= admin.crearCategorias(nombre, edad);	
+		
 		if(Boolean.TRUE.equals(corrrecto)){
 			Notification notification = new Notification("Correcto", "Se ha creado la categoria correctamente", Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);

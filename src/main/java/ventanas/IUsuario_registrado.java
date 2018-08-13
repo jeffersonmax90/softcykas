@@ -44,8 +44,6 @@ public interface IUsuario_registrado {
 
 	public List<Lista_reproduccion_BD> cargarListasReproducionCaja(int aId);
 
-	public boolean cambiarContrasena(String aContrasenanueva, String aRepetirContrasena);
-
 	public boolean cambiarcontrasena(String aContNueva, String aContActual, String aContRepetir);
 
 	public boolean anadirComentario(int aId, String aComentario);

@@ -15,7 +15,9 @@ public class Videos_relacionados extends Videos_relacionados_ventanas {
 	Lista_videos lv= new Lista_videos();
 	
 	public Videos_relacionados(){
+		
 		CargarVideosRelacionados();
+		
 	}
 	
 	void CargarVideosRelacionados() {

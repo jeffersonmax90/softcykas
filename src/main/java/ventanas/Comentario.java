@@ -48,7 +48,9 @@ public class Comentario extends Comentario_ventanas {
 	}
 
 	void eliminarComentario() {
+		
 		boolean eliminado = usuario_registrado.eliminarComentario(n);
+		
 		if (Datos_Navegante.getIdUsuario() == idAutor)
 			UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
 		else
@@ -56,7 +58,9 @@ public class Comentario extends Comentario_ventanas {
 	}
 
 	void eliminarComentarioAdmin() {
+		
 		boolean eliminado = usuario_administrador.eliminarComentarioAdmin(n);
+		
 		UI.getCurrent().getNavigator().navigateTo("Ficha_administrador");
 	}
 }

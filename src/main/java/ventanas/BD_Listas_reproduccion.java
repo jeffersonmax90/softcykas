@@ -51,14 +51,6 @@ public class BD_Listas_reproduccion {
 		return correcto;
 	}
 
-	public Video_BD[] carga_lista_video_tendencia(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public BD_Videos[] carga_lista_video_usuario_registrado(int aID) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List<Lista_reproduccion_BD> cargarListasReproduccionPropias(int aId) throws PersistentException {
 		List<Lista_reproduccion_BD> lista= null;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();		
@@ -100,8 +92,6 @@ public class BD_Listas_reproduccion {
 	
 	public List<Lista_reproduccion_BD> buscarListasReproducionPropias(String aNombre) throws PersistentException {
 		List<Lista_reproduccion_BD> listaReproducion=new ArrayList<Lista_reproduccion_BD>();
-		//try {
-		//	PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
 			Lista_reproduccion_BDCriteria list= new Lista_reproduccion_BDCriteria();
 			list.nombre.like("%"+ aNombre+"%");
 			for (Lista_reproduccion_BD l: Lista_reproduccion_BDDAO.listLista_reproduccion_BDByCriteria(list)){
@@ -109,9 +99,6 @@ public class BD_Listas_reproduccion {
 				listaReproducion.add(l);
 				}
 			}
-		//} catch (PersistentException e) {
-	//		e.printStackTrace();
-	//	}		
 		return listaReproducion;
 	}
 	

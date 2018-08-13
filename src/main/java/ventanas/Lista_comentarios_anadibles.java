@@ -12,14 +12,19 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 	Video_BD v;
 
 	public Lista_comentarios_anadibles() {
+		
 		form_comentarios.removeAllComponents();
+		
 		ocultaComentariosDeshabilitadoVideoRegistrado();
+		
 		cargarListaComentariosRegistrado();
 
 		anadir.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
+				
 				anadirComentario();
+				
 			}
 		});
 
@@ -30,6 +35,7 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 	}
 
 	private void ocultaComentariosDeshabilitadoVideoRegistrado() {
+		
 		v = usuRegistrado.ocultaComentariosDeshabilitadoVideoRegistrado(Datos_Navegante.getIdVideo());
 
 		if (Boolean.TRUE.equals(v.getComentarios_deshabilitados())) {
@@ -46,6 +52,7 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 	void cargarListaComentariosRegistrado() {
 		if (Boolean.FALSE.equals(v.getComentarios_deshabilitados())) {
 			form_comentarios.removeAllComponents();
+			
 			List<Comentario_BD> comentarios = usuRegistrado
 					.cargarListaComentariosRegistrado(Datos_Navegante.getIdVideo());
 			if (comentarios == null || comentarios.size() == 0) {
@@ -62,8 +69,10 @@ public class Lista_comentarios_anadibles extends Lista_comentarios_anadibles_ven
 
 	void anadirComentario() {
 		String aComentario = this.comentario.getValue();
+		
 		boolean comentarios = usuRegistrado.anadirComentario(Datos_Navegante.getIdVideo(), aComentario);
 		this.comentario.clear();
+		
 		cargarListaComentariosRegistrado();
 	}
 }

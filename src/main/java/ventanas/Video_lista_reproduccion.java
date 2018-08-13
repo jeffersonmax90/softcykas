@@ -28,6 +28,7 @@ public class Video_lista_reproduccion extends Video_lista_reproduccion_ventanas 
 				public void buttonClick(ClickEvent event) {
 					int n= video.getId();
 					Datos_Navegante.setIdVideo(n);
+					
 					quitarVideo();
 					
 				}

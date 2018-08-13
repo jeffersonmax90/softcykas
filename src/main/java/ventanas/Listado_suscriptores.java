@@ -16,7 +16,9 @@ public class Listado_suscriptores extends Listado_suscriptores_ventanas implemen
 	IUsuario_registrado usuarioR= new BD_Principal();
 	
 	public Listado_suscriptores(){
+		
 		cargarListadoSuscriptores();
+		
 		atras.addClickListener(new ClickListener() {
 			
 			@Override
@@ -43,7 +45,6 @@ public class Listado_suscriptores extends Listado_suscriptores_ventanas implemen
 	}
 
 	void cargarListadoSuscriptores() {
-		// TODO Auto-generated method stub
 		int id= 0;
 		if(Datos_Navegante.getTipoUsuario().equals("Invitado")) {
     		id= Datos_Navegante.getIdPerfilvistante();
@@ -61,6 +62,7 @@ public class Listado_suscriptores extends Listado_suscriptores_ventanas implemen
 		
 		
 		List<Usuario_Registrado_BD> lista= usuarioR.cargarListadoSuscriptores(id);
+		
 		form.removeAllComponents();
 		if(lista == null || lista.size() == 0){
 			Label l= new Label();

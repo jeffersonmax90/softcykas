@@ -38,7 +38,9 @@ public class Buscador extends Buscador_ventanas implements View{
 	
 
 	void buscarVideos() {
+		
 		List<Video_BD> lista= usuNoRegistrado.buscarVideos(Datos_Navegante.getBusqueda());
+		
 		formLista.removeAllComponents();
 				
 		if(lista == null || lista.size() == 0){
@@ -53,7 +55,9 @@ public class Buscador extends Buscador_ventanas implements View{
 	}
 	
 	void buscarUsuarios() {
+		
 		List<Usuario_Registrado_BD> lista= usuNoRegistrado.buscarUsuarios(Datos_Navegante.getBusqueda());
+		
 		formLista.removeAllComponents();
 				
 		if(lista == null || lista.size() == 0){

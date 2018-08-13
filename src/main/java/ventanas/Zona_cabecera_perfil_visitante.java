@@ -68,6 +68,7 @@ public class Zona_cabecera_perfil_visitante extends Zona_cabecera_perfil_visitan
 	
 	
 	void cargarDatosPerfilVisitante() {
+		
 		Usuario_Registrado_BD usu= usuR.cargarDatosPerfilVisitante(Datos_Navegante.getIdPerfilvistante());
 
 		nVisitas.setValue(String.valueOf(usu.getN_visitas()));
@@ -99,6 +100,7 @@ public class Zona_cabecera_perfil_visitante extends Zona_cabecera_perfil_visitan
 	
 	void seguirUsuario() {
 		boolean seguirUsuario=false;
+		
 		seguirUsuario= usuR.seguirUsuario(Datos_Navegante.getIdUsuario(), Datos_Navegante.getIdPerfilvistante());
 		
 		if(Boolean.TRUE.equals(seguirUsuario)){

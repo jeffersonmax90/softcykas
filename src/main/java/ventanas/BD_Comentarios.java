@@ -37,10 +37,6 @@ public class BD_Comentarios {
 		return cat;
 	}
 
-	public boolean anadirComentarioAdmin(int aId, String aComentario) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List<Comentario_BD> cargarListaComentariosRegistrado(int aId) throws PersistentException {
 		List<Comentario_BD> lista = new ArrayList<Comentario_BD>();
 		List<Comentario_BD> listaFinal = new ArrayList<Comentario_BD>();
@@ -66,18 +62,6 @@ public class BD_Comentarios {
 		return listaFinal;
 	}
 
-	public List<Comentario_BD> anadirComentariosInvitado(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
-	public List<Comentario_BD> anadirComentariosReg(int aId) {
-		throw new UnsupportedOperationException();
-	}
-	
-	
-	
-	
-	
 	public boolean eliminarComentario(int aId) throws PersistentException {
 		boolean correcto=false;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()

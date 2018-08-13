@@ -25,8 +25,8 @@ public class Registrarse extends Registrarse_ventanas implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				enviarDatos();
 				
+				registrarUsuario();
 				
 			}
 		});
@@ -39,7 +39,7 @@ public class Registrarse extends Registrarse_ventanas implements View {
 		});
 	}
 
-	void enviarDatos() {
+	void registrarUsuario() {
 		
 		if(anadirDatos.contrasena.getValue().equals(anadirDatos.repContrasena.getValue())){
 			if(anadirDatos.fechaNacimiento.getValue()==null){

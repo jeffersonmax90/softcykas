@@ -27,14 +27,20 @@ public class Ficha_video extends Ficha_video_ventanas {
 
 	public Ficha_video() {
 		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+			
 			cargarFichaVideoInvitado();
+			
 		} else {
+			
 			cargarFichaVideoRegistrado();
+			
 		}
 	}
 
 	void cargarFichaVideoRegistrado() {
+		
 		Video_BD v = usuR.cargarFichaVideoRegistrado(Datos_Navegante.getIdVideo());
+		
 		Embedded vid = new Embedded(null, new ExternalResource(v.getRuta()));
 		System.out.println(v.getRuta());
 		vid.setMimeType("application/x-shockwave-flash");
@@ -90,7 +96,9 @@ public class Ficha_video extends Ficha_video_ventanas {
 
 	void cargarFichaVideoInvitado() {
 		int aId = Datos_Navegante.getIdVideo();
+		
 		Video_BD v = usuNoR.cargarFichaVideoNoRegistrado(aId);
+		
 		// System.out.println(v.getRuta());
 		System.out.println(Datos_Navegante.getIdVideo() + " " + v.getTitulo());
 

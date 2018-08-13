@@ -27,6 +27,7 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 	Usuario_Registrado_BD usu = new Usuario_Registrado_BD();
 	
 	public Zona_opciones_perfil_registrado(){
+		
 		cargarNombrePerfilRegistrado();
 		
 		volverAtras.addClickListener(new Button.ClickListener() {
@@ -88,6 +89,7 @@ public class Zona_opciones_perfil_registrado extends Zona_opciones_perfil_regist
 	void cargarNombrePerfilRegistrado() {
 		
 		usu= usuR.cargarNombrePerfilRegistrado(Datos_Navegante.getIdUsuario());
+		
 		nombre_usuario.setValue(usu.getNombre()+" "+usu.getApellidos());
 	}
 	

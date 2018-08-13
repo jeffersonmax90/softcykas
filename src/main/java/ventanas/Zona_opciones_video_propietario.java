@@ -39,18 +39,24 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	
 	@SuppressWarnings("unchecked")
 	public Zona_opciones_video_propietario(){
+		
 		cargarMeGusta();
+		
 		cargarListasReproducionCaja();
 		
 		me_gusta.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				meGusta();
+				
 			}
 		});
 		
 		descargar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				descargarVideo();
+				
 			}
 
 			
@@ -66,13 +72,17 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 		
 		 this.anadirLista.addValueChangeListener(event -> {
 		       nombreLista= (String) event.getValue();
+		       
 		       anadirVideoLista();
+		       
 		       
 	      });
 		
 		eliminar.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
+				
 				eliminarVideoUR();
+				
 			}
 
 		});
@@ -83,13 +93,6 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	void cargarListasReproducionCaja() {
 		listaRepro= usuR.cargarListasReproducionCaja(Datos_Navegante.getIdUsuario());
 		List<String> items = new ArrayList<String>();
-
-		/*if (listaRepro.isEmpty()) {
-			Notification notification = new Notification(
-					"Sentimos las molestias, no puede añadir video hasta que no haya categorías",
-					Notification.Type.HUMANIZED_MESSAGE);
-			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
-		}*/
 		
 		for (Lista_reproduccion_BD lista : listaRepro) {
 			items.add(lista.getNombre());
@@ -103,6 +106,7 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 
 
 	void anadirVideoLista() {
+		
 		boolean correcto= usuR.anadirVideoLista(Datos_Navegante.getIdVideo(), nombreLista);
 		  
 		if(Boolean.TRUE.equals(correcto)){
@@ -114,6 +118,7 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 
 	void cargarMeGusta() {
 		Usuario_Registrado_BD usu= usuR.cargarMeGusta(Datos_Navegante.getIdUsuario());
+		
 		for( Object o: usu.me_gustas.getCollection()){
 			Video_BD v=  (Video_BD)o;
 			if(v.getId()==Datos_Navegante.getIdVideo()){
@@ -142,9 +147,9 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	
 	void eliminarVideoUR() {
 		boolean eliminado=false;
+		
 		eliminado= usuR.eliminarVideoUR(Datos_Navegante.getIdVideo());
 		
-				
 		if(Boolean.TRUE.equals(eliminado)){
 			Notification notification = new Notification("¡Se ha eliminado el video con éxito!", "", Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);

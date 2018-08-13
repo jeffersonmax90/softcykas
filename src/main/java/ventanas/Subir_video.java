@@ -22,7 +22,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 	Video_BD video = new Video_BD();
 
 	public Subir_video() {
-		cargar_categorias();
+		cargarCategorias();
 
 		atras.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
@@ -32,7 +32,9 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		subir_video.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-				Subir_video();
+				
+				subirVideo();
+				
 				Notification notification = new Notification("Video subido con éxito",
 						Notification.Type.HUMANIZED_MESSAGE);
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
@@ -41,7 +43,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 	}
 
-	void cargar_categorias() {
+	void cargarCategorias() {
 		List<String> items = new ArrayList<String>();
 
 		if (registrado.cargarCategorias().isEmpty()) {
@@ -59,12 +61,8 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		anadirDatosVideo.categoria.setSelectedItem(items.get(items.size()-1));
 	}
 
-	void Subir_video() {
-		/*
-		 * for (Categoria_BD cat : registrado.cargarCategorias()) { if
-		 * (anadirDatosVideo.categoria.getSelectedItem().equals(cat.getNombre())) {
-		 * video.setCategoria_BD(cat); break; } }
-		 */
+	void subirVideo() {
+		
 		Categoria_BD cat = new Categoria_BD();
 		// separo la palabra categoria
 		String categoria = anadirDatosVideo.categoria.getValue();
@@ -74,9 +72,9 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		cat.setNombre(nombre);
 		cat.setEdad(edad);
-		// Subir video
-		video.setCategoria_BD(cat);
-		
+	
+	
+		video.setCategoria_BD(cat);		
 		video.setTitulo(anadirDatosVideo.titulo.getValue());
 		video.setEtiqueta(anadirDatosVideo.Etiqueta.getValue());
 
@@ -111,6 +109,8 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		video.setMiniatura(ruta);
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
 		video.setComentarios_deshabilitados(false);
+		
+	
 		registrado.subirVideo(video);
 
 		Notification notification = new Notification("¡Has subido un video con éxito!","",Notification.Type.HUMANIZED_MESSAGE);

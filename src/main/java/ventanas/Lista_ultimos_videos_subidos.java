@@ -12,6 +12,7 @@ public class Lista_ultimos_videos_subidos extends Lista_ultimos_videos_subidos_v
 	IUsuario_registrado usuRegistrado = new BD_Principal();
 
 	public Lista_ultimos_videos_subidos() {
+		
 		cargarListaUltimosVideos();
 
 		atras.addClickListener(new ClickListener() {
@@ -27,6 +28,7 @@ public class Lista_ultimos_videos_subidos extends Lista_ultimos_videos_subidos_v
 		formLista.removeAllComponents();
 
 		List<Video_BD> lista = usuRegistrado.cargarListaUltimosVideos(Datos_Navegante.getIdUsuario());
+		
 		if (lista == null || lista.size() == 0) {
 			Label l = new Label();
 			l.setValue("La Lista esta Vacía");

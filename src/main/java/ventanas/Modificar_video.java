@@ -25,7 +25,9 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 	int idcat;
 	@SuppressWarnings("serial")
 	public Modificar_video() {
-		 cargarCategorias();
+		
+		cargarCategorias();
+		
 		cargarModificarVideo();
 		
 		atras.addClickListener(new Button.ClickListener() {
@@ -37,9 +39,11 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 		modificar.addClickListener(new Button.ClickListener() {
 			@SuppressWarnings("unused")
 			public void buttonClick(ClickEvent event) {
-				//modificarVideo();
+				
+				modificarVideo();
+				/*
 				Notification notification = new Notification("Video modificado con éxito"," ",
-						Notification.Type.HUMANIZED_MESSAGE);
+						Notification.Type.HUMANIZED_MESSAGE);*/
 				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 			}
 
@@ -48,11 +52,13 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 	}
 	
 	void cargarModificarVideo() {
+		
 		video= usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());	
+		
 		idcat= video.getCategoria_BD().getId();
 		datosVideos.titulo.setValue(video.getTitulo());
 		
-		//datosVideos.categoria.setItems();
+		//datosVideos.categoria.setItems(listacat.get(idcat));
 		datosVideos.Etiqueta.setValue(video.getEtiqueta());
 		datosVideos.rutaVideo.setValue(video.getRuta());
 		datosVideos.rutaMiniatura.setValue(video.getMiniatura());
@@ -71,24 +77,26 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 		//int aux;
 		for (Categoria_BD cat : listacat) {
 			items.add(cat.getNombre() + " " + cat.getEdad());
-			/*if(cat.getId()==video.getCategoria_BD().getId())´
-				aux= */
+			
 		}
+		
+		video= usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());	
+		String  aux= video.getCategoria_BD().getNombre()+ " " + video.getCategoria_BD().getEdad();
+		items.add(aux);
 		datosVideos.categoria.setItems(items);
-		Categoria_BD cat= video.getCategoria_BD();
-		//int i= cat.getORMID();
-		//datosVideos.categoria.setSelectedItem(items.get(i));
+		
+		datosVideos.categoria.setSelectedItem(items.get(items.size()-1));
 	}
 		
 	
 	
 		
 	void modificarVideo() {
+		
 	boolean modificado=false;
 		
 			Categoria_BD cat = new Categoria_BD();
 			String categoria= datosVideos.categoria.getValue();
-			
 			String[] parte= categoria.split(" ");
 			String nombre=parte[0];
 			String edad=parte[1];
@@ -96,17 +104,18 @@ public class Modificar_video extends Modificar_video_ventanas implements View{
 			cat.setNombre(nombre);
 			cat.setEdad(edad);
 			
-			
-			//modificar video
+		//modificar video
 		video.setTitulo(datosVideos.titulo.getValue());	
-		//video.setCategoria_BD(cat);
+		
+		video.setCategoria_BD(cat);
 		video.setEtiqueta(datosVideos.Etiqueta.getValue());
 		video.setRuta(datosVideos.rutaVideo.getValue());
 		video.setMiniatura(datosVideos.rutaMiniatura.getValue());
 		video.setDescripcion(datosVideos.area_descripcion.getValue());
 
 		
-	modificado= usuR.modificarVideo(video);
+		modificado= usuR.modificarVideo(video);
+	
 		if(modificado== true){
 			Notification notification = new Notification("Correcto", "Se ha modificado correctamente", Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);

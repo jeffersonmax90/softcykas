@@ -23,6 +23,7 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 	
 	
 	public Lista_videos_subidos(){
+		
 		cargarVideosPropios();
 		
 		buscarB.addClickListener(new Button.ClickListener() {
@@ -36,7 +37,9 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 					
 				}
 				else{
-					buscarVideosPropios();		
+					
+					buscarVideosPropios();	
+					
 				}
 			}
 		});
@@ -50,6 +53,7 @@ public class Lista_videos_subidos extends Lista_videos_subidos_ventanas {
 		}
 					
 		List<Video_BD> listavideos= usuarioR.buscarVideosPropios(aNombre);
+		
 		listaVideosFL.removeAllComponents();
 			for (int i = 0; i < listavideos.size(); i++) {
 				this.listaVideosFL.addComponent(new Video_subido(listavideos.get(i)));	
