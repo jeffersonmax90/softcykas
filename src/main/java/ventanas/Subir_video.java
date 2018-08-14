@@ -12,7 +12,6 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Subir_video extends Subir_video_ventanas implements View {
-	Categoria_BD cat = new Categoria_BD();
 	IUsuario_registrado registrado = new BD_Principal();
 	Video_BD video = new Video_BD();
 
@@ -27,12 +26,7 @@ public class Subir_video extends Subir_video_ventanas implements View {
 
 		subir_video.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-
 				subirVideo();
-
-				Notification notification = new Notification("Video subido con éxito",
-						Notification.Type.HUMANIZED_MESSAGE);
-				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 			}
 		});
 
@@ -102,13 +96,13 @@ public class Subir_video extends Subir_video_ventanas implements View {
 		video.setDescripcion(anadirDatosVideo.area_descripcion.getValue());
 		video.setComentarios_deshabilitados(false);
 
-		registrado.subirVideo(video);
-
-		Notification notification = new Notification("¡Has subido un video con éxito!", "",
-				Notification.Type.HUMANIZED_MESSAGE);
-		notification.setDelayMsec(2000);
-		notification.show(Page.getCurrent());
-		UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+		if (registrado.subirVideo(video)) {
+			Notification notification = new Notification("¡Has subido un video con éxito!", "",
+					Notification.Type.HUMANIZED_MESSAGE);
+			notification.setDelayMsec(2000);
+			notification.show(Page.getCurrent());
+			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
+		}
 	}
 
 }

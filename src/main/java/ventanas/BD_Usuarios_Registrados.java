@@ -249,8 +249,6 @@ public class BD_Usuarios_Registrados {
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
 		try {
-			Usuario_Registrado_BD usuario = Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
-
 			usu = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
 			t.commit();
 		} catch (Exception e) {

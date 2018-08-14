@@ -11,12 +11,9 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Modificar_video extends Modificar_video_ventanas implements View {
-	IUsuario_registrado usuR = new BD_Principal();
+	IUsuario_registrado registrado = new BD_Principal();
 	Video_BD video = new Video_BD();
-	List<Categoria_BD> listacat;
-	List<String> items;
 
-	@SuppressWarnings("serial")
 	public Modificar_video() {
 		cargarCategorias();
 		cargarModificarVideo();
@@ -28,49 +25,42 @@ public class Modificar_video extends Modificar_video_ventanas implements View {
 		});
 
 		modificar.addClickListener(new Button.ClickListener() {
-			@SuppressWarnings("unused")
 			public void buttonClick(ClickEvent event) {
 				modificarVideo();
-				Notification notification = new Notification("Video modificado con éxito",
-						Notification.Type.HUMANIZED_MESSAGE);
-				UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 			}
 		});
-
 	}
 
 	void cargarModificarVideo() {
-		video = usuR.cargarModificarVideo(Datos_Navegante.getIdVideo());
+		video = registrado.cargarModificarVideo(Datos_Navegante.getIdVideo());
 
+		datosVideos.categoria.setValue(video.getCategoria_BD().getNombre() + " " + video.getCategoria_BD().getEdad());
 		datosVideos.titulo.setValue(video.getTitulo());
 		datosVideos.Etiqueta.setValue(video.getEtiqueta());
 		datosVideos.rutaVideo.setValue(video.getRuta());
 		datosVideos.rutaMiniatura.setValue(video.getMiniatura());
 		datosVideos.area_descripcion.setValue(video.getDescripcion());
-		
 	}
 
 	void cargarCategorias() {
 		List<String> items = new ArrayList<String>();
-		if (usuR.cargarCategorias().isEmpty()) {
+		if (registrado.cargarCategorias().isEmpty()) {
 			Notification notification = new Notification(
-					"Sentimos las molestias, no puede añadir video hasta que no haya categorías",
+					"Sentimos las molestias, no puede modificar el video hasta que no haya categorías",
 					Notification.Type.HUMANIZED_MESSAGE);
 			UI.getCurrent().getNavigator().navigateTo("perfil_registrado");
 		}
 
-		for (Categoria_BD cat : usuR.cargarCategorias()) {
+		for (Categoria_BD cat : registrado.cargarCategorias()) {
 			items.add(cat.getNombre() + " " + cat.getEdad());
 		}
-
 		datosVideos.categoria.setItems(items);
 		datosVideos.categoria.setSelectedItem(items.get(items.size() - 1));
 	}
 
 	void modificarVideo() {
-		boolean modificado = false;
-
 		Categoria_BD cat = new Categoria_BD();
+		// separo la palabra categoria
 		String categoria = datosVideos.categoria.getValue();
 		String[] parte = categoria.split(" ");
 		String nombre = parte[0];
@@ -79,18 +69,48 @@ public class Modificar_video extends Modificar_video_ventanas implements View {
 		cat.setNombre(nombre);
 		cat.setEdad(edad);
 
-		// modificar video
-		video.setTitulo(datosVideos.titulo.getValue());
 		video.setCategoria_BD(cat);
+		video.setTitulo(datosVideos.titulo.getValue());
 		video.setEtiqueta(datosVideos.Etiqueta.getValue());
-		video.setRuta(datosVideos.rutaVideo.getValue());
-		video.setMiniatura(datosVideos.rutaMiniatura.getValue());
+
+		String linkFinal = "https://www.youtube.com/v/";
+		String source = datosVideos.rutaVideo.getValue();
+		if (!video.getRuta().equals(datosVideos.rutaVideo.getValue())) {
+			if (source.contains("https://youtu.be")) {
+				String[] parse = source.split("/");
+				source = parse[parse.length - 1];
+				if (source.contains("?")) {
+					String[] parse2 = source.split("\\?");
+					source = parse2[0];
+				}
+			} else {
+				String[] parse = source.split("=");
+				if (parse.length == 2)
+					source = parse[1];
+				else {
+					String[] parse2 = parse[1].split("&");
+					source = parse2[0];
+				}
+			}
+			linkFinal += source;
+
+			video.setRuta(linkFinal);
+		}
+
+		String ruta;
+		if (datosVideos.rutaMiniatura.getValue().isEmpty()) {
+			ruta = "http://i41.tinypic.com/2uqf48w.jpg";
+		} else {
+			ruta = datosVideos.rutaMiniatura.getValue();
+		}
+
+		video.setMiniatura(ruta);
 		video.setDescripcion(datosVideos.area_descripcion.getValue());
 
-		modificado = usuR.modificarVideo(video);
+		System.out.println("Antes de modificar");
 
-		if (modificado == true) {
-			Notification notification = new Notification("Correcto", "Se ha modificado correctamente",
+		if (registrado.modificarVideo(video)) {
+			Notification notification = new Notification("¡Has modificado el video con éxito!", "",
 					Notification.Type.HUMANIZED_MESSAGE);
 			notification.setDelayMsec(2000);
 			notification.show(Page.getCurrent());

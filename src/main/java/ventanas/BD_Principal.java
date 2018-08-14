@@ -31,7 +31,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		boolean modificado = false;
 		try {
 			modificado = _bD_Videos.actualizarVideo(aVideo);
-		} catch (Exception e) {
+		} catch (PersistentException e) {
 			e.printStackTrace();
 		}
 		return modificado;

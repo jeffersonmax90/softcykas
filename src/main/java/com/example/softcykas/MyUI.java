@@ -51,7 +51,6 @@ import ventanas.Usuario_administrador;
 import ventanas.Usuario_invitado;
 import ventanas.Usuario_registrado;
 
-
 /**
  * This UI is the application entry point. A UI may either represent a browser
  * window (or tab) or some part of an HTML page where a Vaadin application is
@@ -64,18 +63,18 @@ import ventanas.Usuario_registrado;
 @Theme("mytheme")
 public class MyUI extends UI {
 	Navigator navigator;
-	
+
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-		
+
 		getPage().setTitle("GarbiTube");
-		
+
 		navigator = new Navigator(this, this);
-		
+
 		navigator.addView("", new Usuario_invitado());
-		navigator.addView("logIn",   Iniciar_sesion.class);
+		navigator.addView("logIn", Iniciar_sesion.class);
 		navigator.addView("registrase", Registrarse.class);
-		navigator.addView("usuario_invitado",  Usuario_invitado.class);
+		navigator.addView("usuario_invitado", Usuario_invitado.class);
 		navigator.addView("recuperar_contrasena", Recuperar_contrasena.class);
 		navigator.addView("usuario_registrado", Usuario_registrado.class);
 		navigator.addView("usuario_administrador", Usuario_administrador.class);
@@ -86,8 +85,8 @@ public class MyUI extends UI {
 		navigator.addView("lista_historial", Lista_historial.class);
 		navigator.addView("lista_ultimos_videos_subidos", Lista_ultimos_videos_subidos.class);
 		navigator.addView("listado_suscriptores", Listado_suscriptores.class);
-		navigator.addView("listado_suscripciones_registrado", Listado_suscripciones_registrado.class);		
-		navigator.addView("Cambiar_imagen", Cambiar_imagen.class);		
+		navigator.addView("listado_suscripciones_registrado", Listado_suscripciones_registrado.class);
+		navigator.addView("Cambiar_imagen", Cambiar_imagen.class);
 		navigator.addView("perfil_administrador", Perfil_administrador.class);
 		navigator.addView("Crear_categoria", Crear_categoria.class);
 		navigator.addView("Lista_de_usuarios_registrados", Lista_de_usuarios_registrados.class);
@@ -106,32 +105,26 @@ public class MyUI extends UI {
 		navigator.addView("Buscador", Buscador.class);
 
 		navigator.navigateTo("");
-		
-		
-		
-		
+
 		/*
-		Usuario_invitado usu= new Usuario_invitado();
-		Usuario_registrado_ventanas ttt2= new Usuario_registrado_ventanas();
-		Zona_inicio_cuerpo_registrado uicr= new Zona_inicio_cuerpo_registrado();
-		Zona_inicio_cabecera_registrado zicr= new Zona_inicio_cabecera_registrado();
-		
-		Usuario_administrador	ua= new Usuario_administrador();
-		Zona_cabecera_video_administrador zcv= new Zona_cabecera_video_administrador();
-		Zona_inicio_comun ztii=new Zona_inicio_comun();
-		Perfil_registrado pr= new Perfil_registrado();
-		Perfil_administrador pa= new Perfil_administrador();
-		Subir_video s= new Subir_video();
-		Cambiar_imagen c= new Cambiar_imagen();
-		Crear_categoria cc= new  Crear_categoria();
-		
-		Perfil_visitante pv= new Perfil_visitante();
-		Lista_de_usuarios_registrados lu= new Lista_de_usuarios_registrados();
-		Lista_total_videos_subidos lt= new Lista_total_videos_subidos();
-		Modificar_datos md= new Modificar_datos();
-		Ficha_invitado fi= new Ficha_invitado();
-		setContent(pv);
-		*/
+		 * Usuario_invitado usu= new Usuario_invitado(); Usuario_registrado_ventanas
+		 * ttt2= new Usuario_registrado_ventanas(); Zona_inicio_cuerpo_registrado uicr=
+		 * new Zona_inicio_cuerpo_registrado(); Zona_inicio_cabecera_registrado zicr=
+		 * new Zona_inicio_cabecera_registrado();
+		 * 
+		 * Usuario_administrador ua= new Usuario_administrador();
+		 * Zona_cabecera_video_administrador zcv= new
+		 * Zona_cabecera_video_administrador(); Zona_inicio_comun ztii=new
+		 * Zona_inicio_comun(); Perfil_registrado pr= new Perfil_registrado();
+		 * Perfil_administrador pa= new Perfil_administrador(); Subir_video s= new
+		 * Subir_video(); Cambiar_imagen c= new Cambiar_imagen(); Crear_categoria cc=
+		 * new Crear_categoria();
+		 * 
+		 * Perfil_visitante pv= new Perfil_visitante(); Lista_de_usuarios_registrados
+		 * lu= new Lista_de_usuarios_registrados(); Lista_total_videos_subidos lt= new
+		 * Lista_total_videos_subidos(); Modificar_datos md= new Modificar_datos();
+		 * Ficha_invitado fi= new Ficha_invitado(); setContent(pv);
+		 */
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

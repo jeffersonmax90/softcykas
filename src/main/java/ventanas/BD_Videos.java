@@ -59,31 +59,27 @@ public class BD_Videos {
 
 	public boolean actualizarVideo(Video_BD aVideo) throws PersistentException {
 		boolean modificado = false;
+		System.out.println("Antes de transacción");
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
-		Categoria_BD cat = null;
-		for (Categoria_BD cate : Categoria_BDDAO.listCategoria_BDByQuery(null, null)) {
-			if ((cate.getNombre().equals(aVideo.getCategoria_BD().getNombre()))
-					&& (cate.getEdad().equals(aVideo.getCategoria_BD().getEdad()))) {
-				cat = cate;
-			}
-		}
-
+		System.out.println("Despues de transacción");
 		try {
+			System.out.println("Antes de cargar video");
 			Video_BD video = Video_BDDAO.loadVideo_BDByORMID(aVideo.getId());
 			video.setTitulo(aVideo.getTitulo());
-			video.setCategoria_BD(cat);
+			video.setCategoria_BD(aVideo.getCategoria_BD());
 			video.setEtiqueta(aVideo.getEtiqueta());
 			video.setRuta(aVideo.getRuta());
 			video.setMiniatura(aVideo.getMiniatura());
 			video.setDescripcion(aVideo.getDescripcion());
-			video.setORM_Categoria_BD(cat);
-
+			video.setORM_Categoria_BD(aVideo.getCategoria_BD());
+			System.out.println("Despues de modificar video antes de insertarlo");
 			Video_BDDAO.save(video);
 			t.commit();
 			modificado = true;
 		} catch (Exception e) {
 			t.rollback();
+			return modificado;
 		}
 
 		return modificado;
