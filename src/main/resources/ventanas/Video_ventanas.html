@@ -6,16 +6,14 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full>
-   <vaadin-form-layout size-auto>
-    <vaadin-image width="300px" height="145px" _id="miniaturaVideo"></vaadin-image>
-    <vaadin-horizontal-layout>
-     <vaadin-label plain-text _id="idVideo" :right></vaadin-label>
-     <vaadin-button style-name="link" plain-text _id="tituloVideo" :center>
-       Titulo 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
-   </vaadin-form-layout>
+  <vaadin-vertical-layout spacing="false" width="200px" height="150px" margin="false">
+   <vaadin-image width="180px" height="90px" _id="miniaturaVideo" :bottom :center></vaadin-image>
+   <vaadin-horizontal-layout :middle :center>
+    <vaadin-label plain-text _id="idVideo"></vaadin-label>
+    <vaadin-button style-name="link" plain-text _id="tituloVideo" :middle :center>
+      Titulo 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

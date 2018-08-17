@@ -3,18 +3,16 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-vertical-layout responsive width="70%">
-   <vaadin-form-layout responsive size-auto>
-    <vaadin-label responsive plain-text _id="videos_tendencias">
-      Videos tendencias "Más me gusta" 
-    </vaadin-label>
-   </vaadin-form-layout>
-   <vaadin-panel width="70%" _id="panel">
-    <vaadin-vertical-layout spacing="false" responsive size-auto margin="false" _id="verticalLista">
+  <vaadin-vertical-layout responsive>
+   <vaadin-label responsive plain-text _id="videos_tendencias">
+     Tendencias 
+   </vaadin-label>
+   <vaadin-panel _id="panel">
+    <vaadin-vertical-layout spacing="false" responsive margin="false" _id="verticalLista">
      <ventanas-lista_videos_ventanas responsive></ventanas-lista_videos_ventanas>
     </vaadin-vertical-layout>
    </vaadin-panel>

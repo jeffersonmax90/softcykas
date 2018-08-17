@@ -19,7 +19,6 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Zona_inicio_cabecera_invitado_ventanas extends HorizontalLayout {
 	protected HorizontalLayout buscador_layout;
-	protected HorizontalLayout iniciar_sesion_layout;
 	protected Button iniciar_sesion;
 
 	public Zona_inicio_cabecera_invitado_ventanas() {

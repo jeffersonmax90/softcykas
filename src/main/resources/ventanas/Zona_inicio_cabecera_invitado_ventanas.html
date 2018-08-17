@@ -3,16 +3,14 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
-  <vaadin-horizontal-layout responsive margin>
-   <vaadin-horizontal-layout _id="buscador_layout" :center>
-    <ventanas-cabecera_buscador></ventanas-cabecera_buscador>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout margin _id="iniciar_sesion_layout" :right>
-    <vaadin-button plain-text _id="iniciar_sesion">
+  <vaadin-horizontal-layout responsive width-full margin>
+   <vaadin-horizontal-layout width-full _id="buscador_layout" :center>
+    <ventanas-cabecera_buscador :middle :right></ventanas-cabecera_buscador>
+    <vaadin-button width="150px" plain-text _id="iniciar_sesion" :middle :right>
       Iniciar Sesión 
     </vaadin-button>
    </vaadin-horizontal-layout>
