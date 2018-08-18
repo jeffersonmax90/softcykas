@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vaadin.server.ExternalResource;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
 import com.vaadin.ui.Button;
@@ -37,6 +38,8 @@ public class Cabecera_buscador extends Cabecera_buscador_ventanas {
 	}
 
 	void inicializar() {
+		logo.setSource(new ExternalResource("https://raw.githubusercontent.com/jeffersonmax90/softcykas/master/src/main/resources/images/logo.png"));
+
 		List<String> lista = new ArrayList<String>();
 		lista.add("Elige Busqueda");
 		lista.add("Videos");

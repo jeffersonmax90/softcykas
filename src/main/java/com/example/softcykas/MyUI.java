@@ -66,7 +66,6 @@ public class MyUI extends UI {
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
-
 		getPage().setTitle("GarbiTube");
 
 		navigator = new Navigator(this, this);
@@ -105,26 +104,6 @@ public class MyUI extends UI {
 		navigator.addView("Buscador", Buscador.class);
 
 		navigator.navigateTo("");
-
-		/*
-		 * Usuario_invitado usu= new Usuario_invitado(); Usuario_registrado_ventanas
-		 * ttt2= new Usuario_registrado_ventanas(); Zona_inicio_cuerpo_registrado uicr=
-		 * new Zona_inicio_cuerpo_registrado(); Zona_inicio_cabecera_registrado zicr=
-		 * new Zona_inicio_cabecera_registrado();
-		 * 
-		 * Usuario_administrador ua= new Usuario_administrador();
-		 * Zona_cabecera_video_administrador zcv= new
-		 * Zona_cabecera_video_administrador(); Zona_inicio_comun ztii=new
-		 * Zona_inicio_comun(); Perfil_registrado pr= new Perfil_registrado();
-		 * Perfil_administrador pa= new Perfil_administrador(); Subir_video s= new
-		 * Subir_video(); Cambiar_imagen c= new Cambiar_imagen(); Crear_categoria cc=
-		 * new Crear_categoria();
-		 * 
-		 * Perfil_visitante pv= new Perfil_visitante(); Lista_de_usuarios_registrados
-		 * lu= new Lista_de_usuarios_registrados(); Lista_total_videos_subidos lt= new
-		 * Lista_total_videos_subidos(); Modificar_datos md= new Modificar_datos();
-		 * Ficha_invitado fi= new Ficha_invitado(); setContent(pv);
-		 */
 	}
 
 	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
