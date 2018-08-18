@@ -1,20 +1,18 @@
 package ventanas;
 
+import com.vaadin.event.MouseEvents.ClickListener;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Zona_cabecera_video_registrado extends Zona_cabecera_video_registrado_ventanas {
-	/*
-	 * private Image _logoI; private Button _perfiB; public Ficha_registrado
-	 * _unnamed_Ficha_registrado_; public Perfil_registrado
-	 * _unnamed_Perfil_registrado_;
-	 */
-	
 	public Zona_cabecera_video_registrado(){
-		
-		logo.addClickListener(new Button.ClickListener() {
-			public void buttonClick(ClickEvent event) {
+		logo.setSource(new ExternalResource(
+				"https://raw.githubusercontent.com/jeffersonmax90/softcykas/master/src/main/resources/images/logo.png"));
+		logo.addClickListener(new ClickListener() {
+			@Override
+			public void click(com.vaadin.event.MouseEvents.ClickEvent event) {
 				UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
 			}
 		});

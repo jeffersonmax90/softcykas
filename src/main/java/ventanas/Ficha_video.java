@@ -13,27 +13,21 @@ public class Ficha_video extends Ficha_video_ventanas {
 	IUsuario_registrado usuR = new BD_Principal();
 	IUsuario_no_registrado usuNoR = new BD_Principal();
 	IAdministrador admin = new BD_Principal();
-	
+
 	private int idAutor;
 
 	public Ficha_video() {
 		if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
-			
 			cargarFichaVideoInvitado();
-			
 		} else {
-			
 			cargarFichaVideoRegistrado();
-			
 		}
 	}
 
 	void cargarFichaVideoRegistrado() {
-		
 		Video_BD v = usuR.cargarFichaVideoRegistrado(Datos_Navegante.getIdVideo());
-		
+
 		Embedded vid = new Embedded(null, new ExternalResource(v.getRuta()));
-		System.out.println(v.getRuta());
 		vid.setMimeType("application/x-shockwave-flash");
 		vid.setParameter("allowFullScreen", "true");
 		vid.setWidth("800px");
@@ -60,9 +54,7 @@ public class Ficha_video extends Ficha_video_ventanas {
 		enlace.setValue(v.getRuta());
 		idAutor = v.getPropietario().getORMID();
 		Datos_Navegante.setIdPropietario(idAutor);
-		
-		
-		
+
 		this.nombre_usuario.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -87,11 +79,8 @@ public class Ficha_video extends Ficha_video_ventanas {
 
 	void cargarFichaVideoInvitado() {
 		int aId = Datos_Navegante.getIdVideo();
-		
+
 		Video_BD v = usuNoR.cargarFichaVideoNoRegistrado(aId);
-		
-		// System.out.println(v.getRuta());
-		System.out.println(Datos_Navegante.getIdVideo() + " " + v.getTitulo());
 
 		Embedded video = new Embedded(null, new ExternalResource(v.getRuta()));
 
@@ -120,7 +109,7 @@ public class Ficha_video extends Ficha_video_ventanas {
 		etiquetas.setValue(v.getEtiqueta());
 		enlace.setValue(v.getRuta());
 		idAutor = v.getPropietario().getORMID();
-		
+
 		this.nombre_usuario.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {

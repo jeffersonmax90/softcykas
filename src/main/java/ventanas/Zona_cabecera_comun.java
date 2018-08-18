@@ -1,31 +1,17 @@
 package ventanas;
 
+import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
 public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
-	/*
-	private Image _logo;
-	private JLabel _n_visitasLB;
-	private JLabel _visitasLB;
-	private JLabel _n_suscripcionesLB;
-	private JLabel _suscripcionesLB;
-	private JLabel _n_suscriptoresLB;
-	private JLabel _suscriptoresLB;
-	private JButon _listado_suscripcionesB;
-	private JButon _listado_suscriptoresB;
-	public Iniciar_sesion _unnamed_Iniciar_sesion_;
-	public Confirmar_suscripcion _unnamed_Confirmar_suscripcion_;
-	public Listado_suscriptores _unnamed_Listado_suscriptores_;
-	*/
 	IUsuario_registrado usuarioR= new BD_Principal();
 	
 	public Zona_cabecera_comun(){
 		
 		cargarDatosPerfilRegistrado();
-		
 		
 		ver_listado_suscriptores.addClickListener(new Button.ClickListener() {
 			@Override
@@ -42,9 +28,9 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 			}
 		});
 
-		logo.addClickListener(new Button.ClickListener() {
+		logo.addClickListener(new ClickListener() {
 			@Override
-			public void buttonClick(ClickEvent event) {
+			public void click(com.vaadin.event.MouseEvents.ClickEvent event) {
 				if(Datos_Navegante.getTipoUsuario().equals("Invitado")) {
 	        		UI.getCurrent().getNavigator().navigateTo("");
 	        	}else if(Datos_Navegante.getTipoUsuario().equals("Registrado")) {
@@ -53,8 +39,6 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 		        }else {
 	        		UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
 	        	}
-				
-				
 			}
 		});
 
@@ -62,7 +46,8 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	}
 	
 	void cargarDatosPerfilRegistrado() {
-			
+		logo.setSource(new ExternalResource(
+				"https://raw.githubusercontent.com/jeffersonmax90/softcykas/master/src/main/resources/images/logo.png"));
 		
 		Usuario_Registrado_BD usu= usuarioR.cargarDatosPerfilRegistrado(Datos_Navegante.getIdUsuario());
 		
