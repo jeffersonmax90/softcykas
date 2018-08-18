@@ -42,11 +42,10 @@ public class BD_Usuarios_Registrados {
 		try {
 			Usuario_Registrado_BD usu = Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aUsuario.getId());
 			usu.setNombre(aUsuario.getNombre());
-			usu.setApellidos(usu.getApellidos());
-			usu.setApodo(usu.getApodo());
-			usu.setEmail(usu.getEmail());
-			usu.setContraseña(usu.getContraseña());
-			usu.setMiniatura(usu.getMiniatura());
+			usu.setApellidos(aUsuario.getApellidos());
+			usu.setApodo(aUsuario.getApodo());
+			usu.setEmail(aUsuario.getEmail());
+			usu.setMiniatura(aUsuario.getMiniatura());
 			Usuario_Registrado_BDDAO.save(usu);
 			t.commit();
 			modificado = true;

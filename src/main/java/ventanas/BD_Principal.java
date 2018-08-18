@@ -57,9 +57,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return videos;
 	}
 
-	public List cargar_categorias_videos() {
-		throw new UnsupportedOperationException();
-	}
 
 	@SuppressWarnings("unchecked")
 	public List<Video_BD> cargarVideosTendencia() {
@@ -103,10 +100,7 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return videos;
 	}
 
-	public Video_BD descargarVideoUA(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
+	
 	public boolean crearCategorias(String aNombre, String aEdad) {
 		boolean correcto = false;
 		try {
@@ -307,6 +301,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return cat;
 	}
+	
+	public List<Categoria_BD> cargarCategoriasModificar() {
+		List<Categoria_BD> cat = null;
+		try {
+			cat = _bD_Categorias.listarCategoriasModificar();
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		return cat;
+	}
 
 	public boolean quitarVideo(int aId) {
 		boolean eliminado = false;
@@ -368,7 +372,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return usu;
 	}
 
-	// TODO
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) {
 		List<Usuario_Registrado_BD> lista = null;
 		try {

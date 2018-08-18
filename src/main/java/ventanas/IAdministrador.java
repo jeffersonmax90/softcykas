@@ -4,8 +4,6 @@ import java.util.List;
 
 public interface IAdministrador {
 
-	public Video_BD descargarVideoUA(int aId);
-
 	public boolean crearCategorias(String aNombre, String aEdad);	
 
 	public List<Video_BD> cargarListaTotalVideosSubidos(int aId);

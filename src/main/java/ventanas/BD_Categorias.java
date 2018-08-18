@@ -14,13 +14,14 @@ public class BD_Categorias {
 
 	public List<Categoria_BD> listarCategorias() throws PersistentException {
 		List<Categoria_BD> cat=null;
-		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession().beginTransaction();
-		try {
 			cat = Categoria_BDDAO.queryCategoria_BD(null, null);
-			t.commit();
-		}catch(Exception e) {
-			t.rollback();
-		}
+		return cat;
+	}
+	
+	public List<Categoria_BD> listarCategoriasModificar() throws PersistentException {
+		List<Categoria_BD> cat=null;
+	
+			cat = Categoria_BDDAO.queryCategoria_BD(null, null);
 		return cat;
 	}
 

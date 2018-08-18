@@ -16,8 +16,6 @@ public interface IUsuario_registrado {
 
 	public boolean modificarDatos(Usuario_Registrado_BD aUsuario);
 
-	public List cargar_categorias_videos();
-
 	public boolean crearLista(Lista_reproduccion_BD aLista);
 
 	public boolean quitarVideo(int aId);
@@ -27,6 +25,8 @@ public interface IUsuario_registrado {
 	public List<Usuario_Registrado_BD> cargarListadoSuscripciones(int aId);
 
 	public List<Categoria_BD> cargarCategorias();
+	
+	public List<Categoria_BD> cargarCategoriasModificar();
 
 	public List<Video_BD> cargarVideosSuscripciones(int aId);
 

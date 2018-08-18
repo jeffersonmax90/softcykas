@@ -53,7 +53,6 @@ public class Modificar_datos extends Modificar_datos_ventanas implements View {
 		usu.setNombre(datosUsuario.nombre.getValue());
 		usu.setApellidos(datosUsuario.apellidos.getValue());
 		usu.setApodo(datosUsuario.apodo.getValue());
-		usu.setContraseña(datosUsuario.contrasena.getValue());
 		usu.setEmail(datosUsuario.correo.getValue());
 		usu.setMiniatura(datosUsuario.urlPhoto.getValue());
 		usu.setFecha_nacimiento(java.sql.Date.valueOf(datosUsuario.fechaNacimiento.getValue()));
