@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
@@ -38,7 +39,14 @@ public class Cabecera_buscador extends Cabecera_buscador_ventanas {
 	}
 
 	void inicializar() {
-		logo.setSource(new ExternalResource("https://raw.githubusercontent.com/jeffersonmax90/softcykas/master/src/main/resources/images/logo.png"));
+		logo.setSource(new ExternalResource(
+				"https://raw.githubusercontent.com/jeffersonmax90/softcykas/master/src/main/resources/images/logo.png"));
+		logo.addClickListener(new ClickListener() {
+			@Override
+			public void click(com.vaadin.event.MouseEvents.ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("");
+			}
+		});
 
 		List<String> lista = new ArrayList<String>();
 		lista.add("Elige Busqueda");
