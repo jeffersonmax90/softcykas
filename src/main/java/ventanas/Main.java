@@ -43,16 +43,17 @@ public class Main {
 		IAdministrador ia= new BD_Principal();
 		IUsuario_registrado usu= new BD_Principal();
 		Video_BD v= new Video_BD();
-		int aId=5;
+		int aId=1;
 		String aComentario="primer comentario";
 		//Datos_Navegante.setIdUsuario(1);
 		Datos_Navegante.setTipoUsuario("Administrador");
 		
-		boolean lista= ia.eliminarUsuarioListaRegistrado(aId);
-		/*for (Comentario_BD video_BD : lista) {
-			System.out.println( video_BD.getId() +" "+video_BD.getMensaje());
-		}*/
-		System.out.println( lista);
+		List<Video_BD> lista= usu.cargarVideosSuscripciones(aId);
+		System.out.println(lista.size());
+		for (Video_BD video_BD : lista) {
+			System.out.println( video_BD.getId() +" "+video_BD.getTitulo()+"id delpropie "+video_BD.getPropietario());
+		}
+		//System.out.println( lista);
 
 	}
 

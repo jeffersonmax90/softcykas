@@ -411,7 +411,7 @@ public class BD_Videos {
 				.beginTransaction();
 		try {
 			Usuario_Registrado_BD usuario = Usuario_Registrado_BDDAO.getUsuario_Registrado_BDByORMID(aId);
-			for (Usuario_Registrado_BD sus : usuario.suscrito.toArray()) {
+			for (Usuario_Registrado_BD sus : usuario.suscriptor.toArray()) {
 				try {
 					int ultimo = sus.video_subido.toArray().length - 1;
 					lista.add(sus.video_subido.toArray()[ultimo]);
