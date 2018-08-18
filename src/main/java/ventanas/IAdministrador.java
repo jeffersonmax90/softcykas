@@ -16,7 +16,6 @@ public interface IAdministrador {
 
 	public List<Video_BD> cargarVideosTendencia();
 
-	public List<Comentario_BD> cargarListaComentarios(int aId);
 	
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre);
 	

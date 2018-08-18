@@ -1,5 +1,7 @@
 package ventanas;
 
+import org.hibernate.dialect.MimerSQLDialect;
+
 import com.example.softcykas.MyUI;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
@@ -18,5 +20,7 @@ public class Zona_inicio_cabecera_invitado extends Zona_inicio_cabecera_invitado
 				UI.getCurrent().getNavigator().navigateTo("logIn");
 			}
 		});
+		
+	
 	}
 }

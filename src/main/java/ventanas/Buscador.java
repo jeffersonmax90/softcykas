@@ -7,8 +7,14 @@ import java.util.List;
 
 public class Buscador extends Buscador_ventanas implements View {
 	IUsuario_no_registrado usuNoRegistrado = new BD_Principal();
-
+	//Zona_inicio_cabecera_invitado zi = new Zona_inicio_cabecera_invitado();
 	public Buscador() {
+		/*//vertical2.removeAllComponents();
+		//vertical2.addComponent(zi);
+		Label titulo= new Label();
+		titulo.setCaption("El resultado de la busqueda");
+		vertical2.addComponent(titulo);*/
+		
 		this.formLista.removeAllComponents();
 		if (Datos_Navegante.getTipoBusqueda().equals("Videos")) {
 			buscarVideos();

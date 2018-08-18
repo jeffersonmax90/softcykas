@@ -166,10 +166,6 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return correcto;
 	}
 
-	public List<Comentario_BD> cargarListaComentarios(int aId) {
-		throw new UnsupportedOperationException();
-	}
-
 	public List<Video_BD> cargarListaUltimosVideosSubidos(int aId) {
 		List<Video_BD> videos = null;
 		try {
