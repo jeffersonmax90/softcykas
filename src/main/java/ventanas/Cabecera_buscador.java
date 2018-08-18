@@ -36,13 +36,7 @@ public class Cabecera_buscador extends Cabecera_buscador_ventanas {
 
 	}
 
-	void inicializar() {		
-		String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
-		FileResource resource = new FileResource(new File(basepath + "src/main/resources/images/logo.png"));
-		logo = new Image("Garbitube", resource);
-		
-		System.out.println(logo.getWidth());
-		
+	void inicializar() {
 		List<String> lista = new ArrayList<String>();
 		lista.add("Elige Busqueda");
 		lista.add("Videos");
