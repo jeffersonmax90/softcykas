@@ -44,5 +44,9 @@ public class BD_Categorias {
 	public List<Categoria_BD> cargarListadoCategorias() {
 		throw new UnsupportedOperationException();
 	}
+	
+	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) {
+		throw new UnsupportedOperationException();
+	}
 
 }

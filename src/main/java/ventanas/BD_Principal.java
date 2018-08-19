@@ -737,4 +737,8 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	public List<Categoria_BD> cargarListadoCategorias() {
 		throw new UnsupportedOperationException();
 	}
+	
+	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) {
+		throw new UnsupportedOperationException();
+	}
 }
