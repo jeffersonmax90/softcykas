@@ -152,7 +152,7 @@ public class BD_Usuarios_Registrados {
 		boolean salida = false;
 		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
 				.beginTransaction();
-		
+
 		Usuario_Registrado_BD user = Usuario_Registrado_BDDAO.loadUsuario_Registrado_BDByORMID(aId);
 		try {
 
@@ -257,13 +257,13 @@ public class BD_Usuarios_Registrados {
 	}
 
 	public List<Usuario_Registrado_BD> buscarUsuarioListaRegistado(String aNombre) throws PersistentException {
-			List<Usuario_Registrado_BD> usuarios = new ArrayList<Usuario_Registrado_BD>();
-			Usuario_Registrado_BDCriteria cat = new Usuario_Registrado_BDCriteria();
+		List<Usuario_Registrado_BD> usuarios = new ArrayList<Usuario_Registrado_BD>();
+		Usuario_Registrado_BDCriteria cat = new Usuario_Registrado_BDCriteria();
 
-			cat.nombre.like("%" + aNombre + "%");
-			for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
-				usuarios.add(u);
-			}
+		cat.nombre.like("%" + aNombre + "%");
+		for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
+			usuarios.add(u);
+		}
 
 		return usuarios;
 	}
@@ -378,12 +378,12 @@ public class BD_Usuarios_Registrados {
 
 	public List<Usuario_Registrado_BD> buscarUsuarios(String aNombre) throws PersistentException {
 		List<Usuario_Registrado_BD> usuarios = new ArrayList<Usuario_Registrado_BD>();
-			Usuario_Registrado_BDCriteria cat = new Usuario_Registrado_BDCriteria();
+		Usuario_Registrado_BDCriteria cat = new Usuario_Registrado_BDCriteria();
 
-			cat.nombre.like("%" + aNombre + "%");
-			for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
-				usuarios.add(u);
-			}
+		cat.nombre.like("%" + aNombre + "%");
+		for (Usuario_Registrado_BD u : Usuario_Registrado_BDDAO.listUsuario_Registrado_BDByCriteria(cat)) {
+			usuarios.add(u);
+		}
 
 		return usuarios;
 	}
@@ -401,11 +401,42 @@ public class BD_Usuarios_Registrados {
 		return usu;
 	}
 
-	public boolean recuperarContrasena(String aCorreo) {
-		throw new UnsupportedOperationException();
+	public boolean recuperarContrasena(String aCorreo) throws PersistentException {
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
+				.beginTransaction();
+		try {
+			Usuario_Registrado_BD u = Usuario_Registrado_BDDAO
+					.loadUsuario_Registrado_BDByQuery("Usuario_Registrado_BD.email='" + aCorreo + "'", null);
+			double a = Math.random() * 10000;
+			String cont = "" + (int) a;
+			u.setContraseña(cont);
+			Datos_Navegante.setRecuperarContraseña(cont);
+			Usuario_Registrado_BDDAO.save(u);
+			t.commit();
+			return true;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return false;
 	}
-	
-	public boolean cambiarContasena(String aEnviada, String aCont1) {
-		throw new UnsupportedOperationException();
+
+	public boolean cambiarContasena(String aEnviada, String aCont1) throws PersistentException {
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
+				.beginTransaction();
+		;
+		try {
+			Usuario_Registrado_BD u = Usuario_Registrado_BDDAO
+					.loadUsuario_Registrado_BDByQuery("Usuario_Registrado_BD.contrasenia='" + aEnviada + "'", null);
+
+			u.setContraseña(aCont1);
+
+			Usuario_Registrado_BDDAO.save(u);
+			t.commit();
+
+			return true;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return false;
 	}
 }

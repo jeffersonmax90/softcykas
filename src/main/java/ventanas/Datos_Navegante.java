@@ -15,6 +15,15 @@ public class Datos_Navegante {
 	private static Boolean aux = false;
 	private static int idPropietario = -1;
 	private static int idCategoria = -1;
+	private static String recuperarContraseña = "";
+
+	public static String getRecuperarContraseña() {
+		return recuperarContraseña;
+	}
+
+	public static void setRecuperarContraseña(String contraseña) {
+		Datos_Navegante.recuperarContraseña = contraseña;
+	}
 
 	public static int getIdPropietario() {
 		return idPropietario;

@@ -14,7 +14,7 @@ import com.vaadin.ui.Image;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class Cabecera_buscador extends Cabecera_buscador_ventanas implements View  {
+public class Cabecera_buscador extends Cabecera_buscador_ventanas implements View {
 	public Cabecera_buscador() {
 		inicializar();
 
@@ -36,7 +36,6 @@ public class Cabecera_buscador extends Cabecera_buscador_ventanas implements Vie
 			String tipo = (String) event.getValue();
 			Datos_Navegante.setTipoBusqueda(tipo);
 		});
-
 	}
 
 	void inicializar() {
@@ -45,14 +44,14 @@ public class Cabecera_buscador extends Cabecera_buscador_ventanas implements Vie
 		logo.addClickListener(new ClickListener() {
 			@Override
 			public void click(com.vaadin.event.MouseEvents.ClickEvent event) {
-				if(Datos_Navegante.getTipoUsuario().equals("Invitado")) {
-	        		UI.getCurrent().getNavigator().navigateTo("");
-	        	}else if(Datos_Navegante.getTipoUsuario().equals("Registrado")) {
-	        		
-		        		UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
-		        }else {
-	        		UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
-	        	}
+				if (Datos_Navegante.getTipoUsuario().equals("Invitado")) {
+					UI.getCurrent().getNavigator().navigateTo("");
+				} else if (Datos_Navegante.getTipoUsuario().equals("Registrado")) {
+
+					UI.getCurrent().getNavigator().navigateTo("usuario_registrado");
+				} else {
+					UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
+				}
 			}
 		});
 

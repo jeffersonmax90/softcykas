@@ -754,7 +754,13 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return correcto;	}
 	
 	public boolean cambiarContasena(String aEnviada, String aCont1) {
-		throw new UnsupportedOperationException();
+		boolean cambiada = false;
+		try {
+			cambiada = _bD_Usuarios_Registrados.cambiarContasena(aEnviada, aCont1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cambiada;
 	}
 	
 	public Categoria_BD cargarCategoriaAdmin(int aid) {
