@@ -23,5 +23,7 @@ public interface IUsuario_no_registrado {
 	public List<Video_BD> cargarVideosListaReproduccionVisitante(int aId);
 	
 	public boolean cambiarContasena(String aEnviada, String aCont1);
+	
+	public boolean recuperarContrasena(String aCorreo);
 
 }

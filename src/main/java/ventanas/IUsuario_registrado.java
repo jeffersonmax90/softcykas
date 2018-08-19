@@ -104,5 +104,5 @@ public interface IUsuario_registrado {
 	
 	public Video_BD ocultaComentariosDeshabilitadoVideoRegistrado(int aId);
 
-	public boolean recuperarContrasena(String aCorreo);
+	
 }
