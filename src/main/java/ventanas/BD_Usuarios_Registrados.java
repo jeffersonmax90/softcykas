@@ -405,5 +405,7 @@ public class BD_Usuarios_Registrados {
 		throw new UnsupportedOperationException();
 	}
 	
-	
+	public boolean cambiarContasena(String aEnviada, String aCont1) {
+		throw new UnsupportedOperationException();
+	}
 }

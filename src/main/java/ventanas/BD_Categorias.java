@@ -41,8 +41,10 @@ public class BD_Categorias {
 		return correcto;
 	}
 	
-	public List<Categoria_BD> cargarListadoCategorias() {
-		throw new UnsupportedOperationException();
+	public List<Categoria_BD> cargarListadoCategorias() throws PersistentException {
+		List<Categoria_BD> cat=null;
+		cat = Categoria_BDDAO.queryCategoria_BD(null, null);
+	return cat;
 	}
 	
 	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) {

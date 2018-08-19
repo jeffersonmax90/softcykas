@@ -21,6 +21,7 @@ import ventanas.Buscador;
 import ventanas.Cabecera_buscador;
 import ventanas.Cambiar_contrasena;
 import ventanas.Cambiar_imagen;
+import ventanas.Categorias;
 import ventanas.Crear_categoria;
 import ventanas.Crear_lista;
 import ventanas.Ficha_administrador;
@@ -102,6 +103,7 @@ public class MyUI extends UI {
 		navigator.addView("Lista_de_reproduccion", Lista_de_reproduccion.class);
 		navigator.addView("Listado_suscripciones_visitante", Listado_suscripciones_visitante.class);
 		navigator.addView("Buscador", Buscador.class);
+		navigator.addView("Categorias",Categorias.class);
 
 		navigator.navigateTo("");
 	}

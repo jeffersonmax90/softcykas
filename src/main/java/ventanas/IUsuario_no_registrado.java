@@ -21,5 +21,7 @@ public interface IUsuario_no_registrado {
 	public List<Usuario_Registrado_BD> buscarUsuarios(String aNombre);
 	
 	public List<Video_BD> cargarVideosListaReproduccionVisitante(int aId);
+	
+	public boolean cambiarContasena(String aEnviada, String aCont1);
 
 }
