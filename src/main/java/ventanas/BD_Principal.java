@@ -745,10 +745,25 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 	}
 	
 	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) {
-		throw new UnsupportedOperationException();
-	}
+		boolean correcto = false;
+		try {
+			correcto = _bD_Categorias.modificarCategoriaAdmin(aId, aCategoria);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return correcto;	}
 	
 	public boolean cambiarContasena(String aEnviada, String aCont1) {
 		throw new UnsupportedOperationException();
+	}
+	
+	public Categoria_BD cargarCategoriaAdmin(int aid) {
+		Categoria_BD categoria = null;
+		try {
+			categoria = _bD_Categorias.cargarCategoriaAdmin(aid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return categoria;
 	}
 }

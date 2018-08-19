@@ -14,6 +14,7 @@ public class Datos_Navegante {
 	private static String busqueda = "";
 	private static Boolean aux = false;
 	private static int idPropietario = -1;
+	private static int idCategoria = -1;
 
 	public static int getIdPropietario() {
 		return idPropietario;
@@ -117,5 +118,13 @@ public class Datos_Navegante {
 
 	public static void setAux(Boolean aux) {
 		Datos_Navegante.aux = aux;
+	}
+
+	public static int getIdCategoria() {
+		return idCategoria;
+	}
+
+	public static void setIdCategoria(int idCategoria) {
+		Datos_Navegante.idCategoria = idCategoria;
 	}
 }

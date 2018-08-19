@@ -24,7 +24,7 @@ public class Categorias_ventanas extends VerticalLayout {
 	protected TextField nombre_categoria1;
 	protected TextField edad_permitida;
 	protected Button atras;
-	protected Button crear_categoria_button;
+	protected Button modificar;
 
 	public Categorias_ventanas() {
 		Design.read(this);

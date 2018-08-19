@@ -30,7 +30,7 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 	
 	public Crear_categoria(){
 		
-		cargarListadoCategorias();
+		
 		
 		atras.addClickListener(new ClickListener() {
 			
@@ -56,44 +56,7 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 	}
 	
 	
-	 void cargarListadoCategorias() {
-		List<Categoria_BD> listaCategorias= admin.cargarListadoCategorias();
-		
-		Label label= new Label();
-		label.setCaption("Listado de categorias a Modificar");
-		vetical.addComponent(label);
-		
-		formLayout.removeAllComponents();
-		
 	
-		for (int i = 0; i < listaCategorias.size(); i++) {
-			
-			Label nombre= new Label();
-			nombre.setCaption(listaCategorias.get(i).getNombre() +" " +listaCategorias.get(i).getEdad());
-			HorizontalLayout horizontal= new HorizontalLayout();
-			
-			Button  boton = new Button();
-			
-			boton.setCaption("Modificar");
-			
-			horizontal.addComponent(nombre);
-			horizontal.addComponent(boton);
-			/*boton.setStyleName("link");			
-			formLayout.addComponent(boton);
-			*/
-			boton.addClickListener(new Button.ClickListener() {
-				@Override
-				public void buttonClick(ClickEvent event) {
-					UI.getCurrent().getNavigator().navigateTo("Categorias");
-				}
-			});
-			formLayout.addComponent(horizontal);
-		}
-		vetical.addComponent(formLayout);
-		
-		
-		
-	}
 
 
 		void crearCategorias() {

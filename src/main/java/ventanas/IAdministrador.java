@@ -30,4 +30,6 @@ public interface IAdministrador {
 	public List<Categoria_BD> cargarListadoCategorias();
 	
 	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria);
+	
+	public Categoria_BD cargarCategoriaAdmin(int aId);
 }

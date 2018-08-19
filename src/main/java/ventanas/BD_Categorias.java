@@ -47,8 +47,29 @@ public class BD_Categorias {
 	return cat;
 	}
 	
-	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) {
-		throw new UnsupportedOperationException();
+	public boolean modificarCategoriaAdmin(int aId, Categoria_BD aCategoria) throws PersistentException {
+		boolean modificado = false;
+		PersistentTransaction t = ventanas.ProyectoSoftCykasPersistentManager.instance().getSession()
+				.beginTransaction();
+
+		try {
+			Categoria_BD cat = Categoria_BDDAO.loadCategoria_BDByORMID(aId);
+			cat.setNombre(cat.getNombre());
+			cat.setEdad(cat.getEdad());
+					
+			Categoria_BDDAO.save(cat);
+			t.commit();
+			modificado = true;
+		} catch (Exception e) {
+			t.rollback();
+		}
+		return modificado;
+	}
+	
+	public Categoria_BD cargarCategoriaAdmin(int aid) throws PersistentException {
+		Categoria_BD cat=null;
+			cat = Categoria_BDDAO.getCategoria_BDByORMID(aid);
+		return cat;
 	}
 
 }
