@@ -36,6 +36,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/orm.jar"/>
-	<classpathentry kind="lib" path="D:/Descargas/commons-email-1.5-bin/commons-email-1.5/commons-email-1.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

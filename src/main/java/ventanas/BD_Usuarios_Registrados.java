@@ -426,7 +426,7 @@ public class BD_Usuarios_Registrados {
 		;
 		try {
 			Usuario_Registrado_BD u = Usuario_Registrado_BDDAO
-					.loadUsuario_Registrado_BDByQuery("Usuario_Registrado_BD.contrasenia='" + aEnviada + "'", null);
+					.loadUsuario_Registrado_BDByQuery("Usuario_Registrado_BD.contraseña='" + aEnviada + "'", null);
 
 			u.setContraseña(aCont1);
 
