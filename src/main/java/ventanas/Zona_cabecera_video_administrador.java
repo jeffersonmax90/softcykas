@@ -1,5 +1,6 @@
 package ventanas;
 
+import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
@@ -14,8 +15,9 @@ public class Zona_cabecera_video_administrador extends Zona_cabecera_video_admin
 	
 	public Zona_cabecera_video_administrador(){
 			
-			logo.addClickListener(new Button.ClickListener() {
-				public void buttonClick(ClickEvent event) {
+			logo.addClickListener(new ClickListener() {
+				@Override
+				public void click(com.vaadin.event.MouseEvents.ClickEvent event) {
 					UI.getCurrent().getNavigator().navigateTo("usuario_administrador");
 				}
 			});

@@ -3,16 +3,15 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="ventanas:ventanas">
  </head>
  <body>
   <vaadin-vertical-layout>
-   <vaadin-vertical-layout size-auto _id="vertical" :center>
-    <ventanas-zona_cabecera_administrador_ventanas _id="zcav"></ventanas-zona_cabecera_administrador_ventanas>
-    <vaadin-form-layout size-auto margin="false" _id="formLayout" :center>
-     <ventanas-zona_opciones_administrador_ventanas _id="zoav"></ventanas-zona_opciones_administrador_ventanas>
-    </vaadin-form-layout>
+   <vaadin-image width="250px" height="100px" _id="logo"></vaadin-image>
+   <vaadin-vertical-layout spacing="false" margin="false" _id="vertical" :center>
+    <ventanas-zona_cabecera_administrador_ventanas _id="zcav" :center></ventanas-zona_cabecera_administrador_ventanas>
+    <ventanas-zona_opciones_administrador_ventanas _id="zoav" :center></ventanas-zona_opciones_administrador_ventanas>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

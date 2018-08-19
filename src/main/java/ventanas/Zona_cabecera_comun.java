@@ -10,7 +10,6 @@ public class Zona_cabecera_comun extends Zona_cabecera_comun_ventanas{
 	IUsuario_registrado usuarioR= new BD_Principal();
 	
 	public Zona_cabecera_comun(){
-		
 		cargarDatosPerfilRegistrado();
 		
 		ver_listado_suscriptores.addClickListener(new Button.ClickListener() {
