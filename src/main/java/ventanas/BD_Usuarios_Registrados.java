@@ -401,4 +401,9 @@ public class BD_Usuarios_Registrados {
 		return usu;
 	}
 
+	public boolean recuperarContrasena(String aCorreo) {
+		throw new UnsupportedOperationException();
+	}
+	
+	
 }

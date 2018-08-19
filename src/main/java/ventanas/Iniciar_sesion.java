@@ -58,7 +58,6 @@ public class Iniciar_sesion extends Iniciar_sesion_ventanas implements View {
 			}
 		});
 		
-		recuperar_contrasena.setVisible(false);
 		
 		
 		iniciar.addClickListener(new Button.ClickListener() {

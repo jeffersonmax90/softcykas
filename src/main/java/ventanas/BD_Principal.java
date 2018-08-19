@@ -722,4 +722,16 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		}
 		return video;
 	}
+	
+	public boolean recuperarContrasena(String aCorreo) {
+		boolean recuperar = false;
+		try {
+			recuperar = _bD_Usuarios_Registrados.recuperarContrasena(aCorreo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return recuperar;
+	}
+	
+	
 }
