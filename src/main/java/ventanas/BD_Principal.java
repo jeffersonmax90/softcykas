@@ -733,5 +733,8 @@ public class BD_Principal implements IAdministrador, IUsuario_no_registrado, IUs
 		return recuperar;
 	}
 	
-	
+
+	public List<Categoria_BD> cargarListadoCategorias() {
+		throw new UnsupportedOperationException();
+	}
 }

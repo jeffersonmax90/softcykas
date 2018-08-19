@@ -40,5 +40,9 @@ public class BD_Categorias {
 		}		
 		return correcto;
 	}
+	
+	public List<Categoria_BD> cargarListadoCategorias() {
+		throw new UnsupportedOperationException();
+	}
 
 }

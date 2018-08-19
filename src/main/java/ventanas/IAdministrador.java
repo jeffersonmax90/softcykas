@@ -26,4 +26,6 @@ public interface IAdministrador {
 	public boolean eliminarComentarioAdmin(int aId);
 	
 	public boolean eliminarVideoAdmin(int aId);
+	
+	public List<Categoria_BD> cargarListadoCategorias();
 }
