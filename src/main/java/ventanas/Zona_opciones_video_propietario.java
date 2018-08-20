@@ -119,7 +119,7 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	void cargarMeGusta() {
 		Usuario_Registrado_BD usu= usuR.cargarMeGusta(Datos_Navegante.getIdUsuario());
 		
-		for( Object o: usu.me_gustas.getCollection()){
+		for(  Object o: usu.me_gustas.getCollection()){
 			Video_BD v=  (Video_BD)o;
 			if(v.getId()==Datos_Navegante.getIdVideo()){
 				me_gusta.setStyleName("friendly");
@@ -135,13 +135,13 @@ public class Zona_opciones_video_propietario extends Zona_opciones_video_propiet
 	void meGusta() {
 		boolean megusta=false;
 		megusta= usuR.meGusta(Datos_Navegante.getIdUsuario(), Datos_Navegante.getIdVideo());
-		
+		/*
 		if(Boolean.TRUE.equals(megusta)){
 			me_gusta.setStyleName("friendly");
 		}else {
 			me_gusta.setStyleName("");
-		}
-		UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+		}*/
+		UI.getCurrent().getNavigator().navigateTo("Ficha_propietario");
 
 	}
 	

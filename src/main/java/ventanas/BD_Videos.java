@@ -291,7 +291,7 @@ public class BD_Videos {
 					.getUsuario_Registrado_BDByORMID(Datos_Navegante.getIdUsuario());
 			int n = usuario.getHistorial().getId();
 			int i = usuario.getId();
-			Historial_BD h = Historial_BDDAO.getHistorial_BDByORMID(i);
+			Historial_BD h = Historial_BDDAO.getHistorial_BDByORMID(n);
 			Video_BD[] videos = h.video.toArray();
 			int ultimo = videos.length - 1;
 			Video_BD vultimo = videos[ultimo];
@@ -610,7 +610,7 @@ public class BD_Videos {
 			}
 			t.commit();
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
 		return megusta;

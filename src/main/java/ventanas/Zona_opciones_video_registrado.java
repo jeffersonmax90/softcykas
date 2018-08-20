@@ -33,7 +33,7 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 			public void buttonClick(ClickEvent event) {
 				
 				meGustaRegistrado();
-				
+				UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
 			}
 		});
 		
@@ -101,6 +101,8 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 				break;
 			}
 		}
+		
+		
 	}
 	
 	void meGustaRegistrado() {
@@ -108,13 +110,13 @@ public class Zona_opciones_video_registrado extends Zona_opciones_video_registra
 		
 		megusta= usuR.meGustaRegistrado(Datos_Navegante.getIdUsuario(), Datos_Navegante.getIdVideo());
 		
-		
+		/*
 		if(Boolean.TRUE.equals(megusta)){
 			me_gusta.setStyleName("friendly");
 		}else {
 			me_gusta.setStyleName("");
-		}
-		UI.getCurrent().getNavigator().navigateTo("Ficha_registrado");
+		}*/
+		
 	}
 	
 	void descargarVideo() {

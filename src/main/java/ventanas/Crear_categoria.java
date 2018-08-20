@@ -62,18 +62,26 @@ public class Crear_categoria extends Crear_categoria_ventanas implements View{
 		void crearCategorias() {
 		String nombre=	nombre_categoria.getValue();
 		String edad= edad_permitida.getValue();
-		
-		boolean corrrecto= admin.crearCategorias(nombre, edad);	
-		
-		if(Boolean.TRUE.equals(corrrecto)){
-			Notification notification = new Notification("Correcto", "Se ha creado la categoria correctamente", Notification.Type.HUMANIZED_MESSAGE);
+		if(nombre.isEmpty() || edad.isEmpty()){
+			Notification notification = new Notification("Incorrecto", "Los campos no pueden estar Vacios", Notification.Type.ERROR_MESSAGE);
 			notification.setDelayMsec(2000);
-			notification.show(Page.getCurrent());	
-			UI.getCurrent().getNavigator().navigateTo("perfil_administrador");	
-		}
+			notification.show(Page.getCurrent());
 			
+		}else{
+			nombre=	nombre_categoria.getValue();
+			String nombreGuion= nombre.replace(" ", "_");
+			edad= edad_permitida.getValue();
+			boolean corrrecto= admin.crearCategorias(nombreGuion, edad);	
+			
+				if(Boolean.TRUE.equals(corrrecto)){
+					Notification notification = new Notification("Correcto", "Se ha creado la categoria correctamente", Notification.Type.HUMANIZED_MESSAGE);
+					notification.setDelayMsec(2000);
+					notification.show(Page.getCurrent());	
+					UI.getCurrent().getNavigator().navigateTo("perfil_administrador");	
+				}
+			}
 		}
-	
+		
 	
 	
 	

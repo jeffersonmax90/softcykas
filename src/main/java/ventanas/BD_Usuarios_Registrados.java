@@ -222,7 +222,7 @@ public class BD_Usuarios_Registrados {
 
 			for (Lista_reproduccion_BD lista : Lista_reproduccion_BDDAO.listLista_reproduccion_BDByQuery(null, null)) {
 				if (lista.getUsuario().getId() == (user.getId())) {
-					Lista_reproduccion_BDDAO.deleteAndDissociate(lista);
+					
 					for (Video_BD video : Video_BDDAO.listVideo_BDByQuery(null, null)) {
 						if (video.listas_reproduccion.contains(lista)) {
 							video.listas_reproduccion.remove(lista);
@@ -230,9 +230,12 @@ public class BD_Usuarios_Registrados {
 						}
 
 					}
+					
 				}
+				Lista_reproduccion_BDDAO.deleteAndDissociate(lista);
 				Lista_reproduccion_BDDAO.delete(lista);
 			}
+			
 			Usuario_Registrado_BDDAO.deleteAndDissociate(user);
 			Usuario_Registrado_BDDAO.delete(user);
 			t.commit();

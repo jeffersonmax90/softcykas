@@ -21,7 +21,6 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Listado_suscripciones_visitante_ventanas extends VerticalLayout {
 	protected Label titulo;
-	protected Label subtitulo;
 	protected FormLayout form;
 	protected Button atras;
 
