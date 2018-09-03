@@ -30,9 +30,6 @@ public class BD_Usuarios_Registrados {
 		return true;
 	}
 
-	public void comprobarUsuario() {
-		throw new UnsupportedOperationException();
-	}
 
 	public boolean modificarDatos(Usuario_Registrado_BD aUsuario) throws PersistentException {
 		boolean modificado = false;
@@ -226,14 +223,16 @@ public class BD_Usuarios_Registrados {
 					for (Video_BD video : Video_BDDAO.listVideo_BDByQuery(null, null)) {
 						if (video.listas_reproduccion.contains(lista)) {
 							video.listas_reproduccion.remove(lista);
+							Lista_reproduccion_BDDAO.deleteAndDissociate(lista);
 							Video_BDDAO.save(video);
+							
 						}
 
 					}
 					
 				}
-				Lista_reproduccion_BDDAO.deleteAndDissociate(lista);
-				Lista_reproduccion_BDDAO.delete(lista);
+				
+				//Lista_reproduccion_BDDAO.delete(lista);
 			}
 			
 			Usuario_Registrado_BDDAO.deleteAndDissociate(user);

@@ -276,11 +276,11 @@ public class BD_Videos {
 		return def;
 	}
 
-	public List<Video_BD> cargarListaUltimoVideosSubidosRegistrado(int aId) throws PersistentException {
+	/*public List<Video_BD> cargarListaUltimoVideosSubidosRegistrado(int aId) throws PersistentException {
 		// TODO
 		throw new UnsupportedOperationException();
 
-	}
+	}*/
 
 	public List<Video_BD> cargarVideosRelacionados(int aId) throws PersistentException {
 		List<Video_BD> lista = new ArrayList<Video_BD>();
